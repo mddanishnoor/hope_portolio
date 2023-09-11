@@ -10,6 +10,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: LandingPage1());
+    return const MaterialApp(
+      home: LandingPage1(),
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSwatch()
+      //       .copyWith(primary: Pallete.yellow, secondary: Pallete.black),
+      //   textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+      // ),
+    );
   }
 }
