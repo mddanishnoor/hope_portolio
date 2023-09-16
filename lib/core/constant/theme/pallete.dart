@@ -9,4 +9,11 @@ class Pallete {
   static const notWhite = Color(0xffd1cbbb);
 
   static const borderGrey = Color.fromRGBO(217, 217, 217, 1);
+
+  // bgBlack Color Swatch
+  static const Color bgBlack = Color(0xff141312);
+  // hWhite Color Swatch
+  static const Color hWhite = Color(0xffece5d3);
+  // hYellow Color Swatch
+  static const Color hYellow = Color(0xfffbb023);
 }

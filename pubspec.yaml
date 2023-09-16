@@ -9,8 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # flutter_screenutil: ^5.9.0
   google_fonts: ^6.0.0
+  # flutter_screenutil: ^5.9.0
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +21,11 @@ flutter:
   uses-material-design: true
   assets:
     - assets/png/
+  
+  fonts:
+    - family: Syne
+      fonts:
+        - asset: assets/font/Syne-Bold.ttf
+        - asset: assets/font/Syne-Medium.ttf
+        - asset: assets/font/Syne-Regular.ttf
+        - asset: assets/font/Syne-SemiBold.ttf

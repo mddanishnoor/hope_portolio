@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
+import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/core/helper/navigation_bar.dart';
 
 class LandingPage1 extends StatelessWidget {
@@ -59,17 +60,10 @@ class LandingPage1 extends StatelessWidget {
                             const SizedBox(
                               height: 16,
                             ),
-                            Text(
-                              'ADVOCATE',
-                              overflow: TextOverflow.fade,
-                              style: GoogleFonts.syne(
-                                fontSize: 96,
-                                fontWeight: FontWeight.w700,
-                                height: 0.8599999746,
-                                letterSpacing: -5.28,
-                                color: Pallete.yellow,
-                              ),
-                            ),
+                            Text('ADVOCATE',
+                                overflow: TextOverflow.fade,
+                                style: AppTextStyle.heading
+                                    .copyWith(color: Pallete.hYellow)),
                             Text(
                               'FOR\nUSERS',
                               textAlign: TextAlign.center,
@@ -89,7 +83,8 @@ class LandingPage1 extends StatelessWidget {
                 ),
                 LandingWidget(
                     child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: size.width * 0.1046),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
