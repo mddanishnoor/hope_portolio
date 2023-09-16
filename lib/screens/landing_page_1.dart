@@ -17,11 +17,16 @@ class LandingPage1 extends StatelessWidget {
             child: Column(
               children: [
                 LandingWidget(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('png/hero_bg.png'),
+                        repeat: ImageRepeat.repeatY),
+                  ),
                   child: Stack(
                     children: [
                       Positioned(
-                        left: 33,
-                        top: 49,
+                        left: size.height * 0.0241,
+                        top: size.height * 0.063,
                         child: Text(
                           'HOPE',
                           textAlign: TextAlign.center,
@@ -52,7 +57,7 @@ class LandingPage1 extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(
-                              height: 22,
+                              height: 16,
                             ),
                             Text(
                               'ADVOCATE',
@@ -517,15 +522,18 @@ class LandingWidget extends StatelessWidget {
     super.key,
     this.color,
     this.child,
+    this.decoration,
   });
   final Color? color;
   final Widget? child;
+  final Decoration? decoration;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      color: color,
+      decoration: decoration,
+      color: decoration == null ? color : null,
       child: child,
     );
   }
