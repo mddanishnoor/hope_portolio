@@ -130,7 +130,7 @@ class NavButton extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
                 height: 1.2,
-                color: Color(0xffece5d3),
+                color: const Color(0xffece5d3),
               ),
             ),
           ),

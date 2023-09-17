@@ -16,4 +16,6 @@ class Pallete {
   static const Color hWhite = Color(0xffece5d3);
   // hYellow Color Swatch
   static const Color hYellow = Color(0xfffbb023);
+  // white_30
+  static const Color white_30 = Color.fromRGBO(236, 229, 211, 0.3);
 }
