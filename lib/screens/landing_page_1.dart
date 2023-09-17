@@ -36,7 +36,7 @@ class LandingPage1 extends StatelessWidget {
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage('png/hero_bg.png'),
-                              repeat: ImageRepeat.repeatY),
+                              fit: BoxFit.cover),
                         ),
                         child: Stack(
                           children: [
@@ -118,32 +118,49 @@ class LandingPage1 extends StatelessWidget {
                             const SizedBox(
                               height: 16,
                             ),
-                            RichText(
-                              text: TextSpan(
-                                style: GoogleFonts.syne(
-                                  fontSize: 64,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1.0049999952,
-                                  color: Pallete.notWhite,
-                                ),
-                                children: [
-                                  const TextSpan(
-                                    text: 'I am a ',
+                            ShaderMask(
+                              shaderCallback: (bounds) {
+                                return LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    stops: [
+                                      (scrollController.offset / size.height) *
+                                          0.7,
+                                      (scrollController.offset / size.height) *
+                                          0.9
+                                    ],
+                                    colors: [
+                                      Colors.white.withOpacity(0.9),
+                                      Colors.white.withOpacity(0.1),
+                                    ]).createShader(bounds);
+                              },
+                              child: RichText(
+                                text: TextSpan(
+                                  style: GoogleFonts.syne(
+                                    fontSize: 64,
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.0049999952,
+                                    color: Pallete.notWhite,
                                   ),
-                                  TextSpan(
-                                    text: 'multidisciplinary',
-                                    style: GoogleFonts.syne(
-                                      fontSize: 64,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.0049999952,
-                                      color: Pallete.yellow,
+                                  children: [
+                                    const TextSpan(
+                                      text: 'I am a ',
                                     ),
-                                  ),
-                                  const TextSpan(
-                                    text:
-                                        ' designer creating inclusive experience through empathy and research.',
-                                  ),
-                                ],
+                                    TextSpan(
+                                      text: 'multidisciplinary',
+                                      style: GoogleFonts.syne(
+                                        fontSize: 64,
+                                        fontWeight: FontWeight.w600,
+                                        height: 1.0049999952,
+                                        color: Pallete.yellow,
+                                      ),
+                                    ),
+                                    const TextSpan(
+                                      text:
+                                          ' designer creating inclusive experience through empathy and research.',
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -284,7 +301,8 @@ class LandingPage1 extends StatelessWidget {
                                             height: 24,
                                             decoration: BoxDecoration(
                                               border: Border.all(
-                                                  color: Color(0xfffbb023)),
+                                                  color:
+                                                      const Color(0xfffbb023)),
                                               borderRadius:
                                                   BorderRadius.circular(6),
                                             ),
@@ -296,7 +314,8 @@ class LandingPage1 extends StatelessWidget {
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w600,
                                                   height: 1,
-                                                  color: Color(0xfffbb023),
+                                                  color:
+                                                      const Color(0xfffbb023),
                                                 ),
                                               ),
                                             ),
@@ -405,7 +424,7 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                       const Spacer(),
                                       SizedBox(
-                                        width: size.width * 0.168,
+                                        width: size.width * 0.18,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -466,7 +485,7 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                       const Spacer(),
                                       SizedBox(
-                                        width: size.width * 0.168,
+                                        width: size.width * 0.18,
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -503,83 +522,6 @@ class LandingPage1 extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              /*
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'LinkedIn\nBehance',
-                                    style: GoogleFonts.syne(
-                                      // 'Syne',
-                                      fontSize: 64,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.0049999952,
-                                      color: Pallete.notWhite,
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'EMAIL',
-                                        textAlign: TextAlign.center,
-                                        style: GoogleFonts.syne(
-                                          // 'Syne',
-                                          fontSize: 17.4117641449,
-                                          fontWeight: FontWeight.w700,
-                                          height: 0.8599999518,
-                                          letterSpacing: 4.7011763191,
-                                          color: Pallete.white,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 8.9,
-                                      ),
-                                      Text(
-                                        'razamohdsajjad@gmail.com',
-                                        style: GoogleFonts.syne(
-                                          // 'Syne',
-                                          fontSize: 17.4117641449,
-                                          fontWeight: FontWeight.w400,
-                                          height: 1,
-                                          color: Pallete.white,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 39,
-                                      ),
-                                      Text(
-                                        'PHONE',
-                                        textAlign: TextAlign.center,
-                                        style: GoogleFonts.syne(
-                                          // 'Syne',
-                                          fontSize: 17.4117641449,
-                                          fontWeight: FontWeight.w700,
-                                          height: 0.8599999518,
-                                          letterSpacing: 4.7011763191,
-                                          color: Pallete.white,
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        height: 8.9,
-                                      ),
-                                      Text(
-                                        '+91 9818164010',
-                                        style: GoogleFonts.poppins(
-                                          // 'Poppins',
-                                          fontSize: 15.2352933884,
-                                          fontWeight: FontWeight.w400,
-                                          height: 1,
-                                          color: Pallete.white,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),*/
                               SizedBox(
                                 height: size.height * 0.2,
                               ),
@@ -647,12 +589,20 @@ class LandingPage1 extends StatelessWidget {
                 LandingPage2(
                   scrollController: scrollController2,
                 ),
-                const Align(
-                    alignment: Alignment.bottomCenter, child: CustomNavbar())
+                if (scrollController.hasClients &&
+                    controller.scrollOffset >= (size.height / 2))
+                  Align(
+                      alignment: Alignment.bottomCenter,
+                      child: CustomNavbar(
+                        scrollController2,
+                      ))
               ],
             ),
             onNotification: (notification) {
+              controller.updateScrollOffset(scrollController2.offset);
+              // if (size.width > 766) {
               scrollController.jumpTo(scrollController2.offset);
+              // }
               return true;
             },
           ),

@@ -19,7 +19,7 @@ class CircleClipper extends CustomClipper<Path> {
 
     var Size(:width, :height) = size;
 
-    var (centerX, centerY) = (width / 2, height / 2);
+    var (_, _) = (width / 2, height / 2);
 
     var Offset(dx: x, dy: y) = position;
 

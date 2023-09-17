@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class CursorProvider extends ChangeNotifier {
   Offset position = const Offset(0, 0);
+  double scrollOffset = 0;
   bool isMagnified = false;
+  bool hide = false;
 
   CursorProvider({this.position = const Offset(0, 0)});
 
@@ -15,7 +17,17 @@ class CursorProvider extends ChangeNotifier {
 
   toggleMagnify(bool val) {
     isMagnified = val;
-    log("Toggled state : $isMagnified");
+    notifyListeners();
+  }
+
+  toggleHide(bool val) {
+    hide = val;
+    notifyListeners();
+  }
+
+  updateScrollOffset(double offset) {
+    log(offset.toString());
+    scrollOffset = offset;
     notifyListeners();
   }
 }

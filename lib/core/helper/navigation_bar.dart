@@ -1,14 +1,22 @@
+import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/core/constant/theme/pallete.dart';
+import 'package:portfolio/providers/cursor_provider.dart';
+import 'package:provider/provider.dart';
 
 class CustomNavbar extends StatelessWidget {
-  const CustomNavbar({super.key});
+  const CustomNavbar(
+    this.scrollController, {
+    super.key,
+  });
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
-    // var size = MediaQuery.of(context).size;
+    var h = MediaQuery.of(context).size.height;
     return Padding(
       padding: const EdgeInsets.only(bottom: 17),
       child: ClipRRect(
@@ -48,25 +56,71 @@ class CustomNavbar extends StatelessWidget {
                     color: Color.fromRGBO(255, 255, 255, 0.153)),
               ],
             ),
-            child: const Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                NavButton(label: 'About me'),
-                SizedBox(
-                  width: 5,
+            child: Consumer<CursorProvider>(builder: (context, controller, _) {
+              return MouseRegion(
+                onEnter: (event) => controller.toggleHide(true),
+                onExit: (event) => controller.toggleHide(false),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    NavButton(
+                      label: 'About me',
+                      onTap: () => {
+                        log('Abut me presssed'),
+                        scrollController.animateTo(h,
+                            duration: const Duration(milliseconds: 1500),
+                            curve: Curves.decelerate)
+                      },
+                      isActive: controller.scrollOffset >= 300 &&
+                          controller.scrollOffset < 1500,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    NavButton(
+                      label: 'Project',
+                      onTap: () => {
+                        log('Project presssed'),
+                        scrollController.animateTo(h * 3,
+                            duration: const Duration(milliseconds: 1500),
+                            curve: Curves.decelerate)
+                      },
+                      isActive: controller.scrollOffset >= 1500 &&
+                          controller.scrollOffset < 2200,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    NavButton(
+                      label: 'Connect',
+                      onTap: () => {
+                        log('Connect presssed'),
+                        scrollController.animateTo(h * 4.5,
+                            duration: const Duration(milliseconds: 1500),
+                            curve: Curves.decelerate)
+                      },
+                      isActive: controller.scrollOffset >= 2800 &&
+                          controller.scrollOffset < 3000,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    NavButton(
+                      label: 'For requruiters',
+                      onTap: () => {
+                        log('Recruiters presssed'),
+                        scrollController.animateTo(
+                            scrollController.position.maxScrollExtent,
+                            duration: const Duration(milliseconds: 1500),
+                            curve: Curves.decelerate)
+                      },
+                      isActive: controller.scrollOffset >= 3000,
+                    )
+                  ],
                 ),
-                NavButton(label: 'Project'),
-                SizedBox(
-                  width: 5,
-                ),
-                NavButton(label: 'Connect'),
-                SizedBox(
-                  width: 5,
-                ),
-                NavButton(label: 'For requruiters')
-              ],
-            ),
+              );
+            }),
           ),
         ),
       ),
@@ -79,58 +133,66 @@ class NavButton extends StatelessWidget {
     super.key,
     this.onTap,
     required this.label,
+    required this.isActive,
   });
   final void Function()? onTap;
   final String label;
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(
-          sigmaX: 40,
-          sigmaY: 40,
-        ),
-        child: Container(
-          // width: double.infinity,
-          padding: const EdgeInsets.all(10),
-          height: 39,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            gradient: const LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: <Color>[
-                Color.fromRGBO(0, 0, 0, 0.8),
-                Color.fromRGBO(0, 0, 0, 0.4)
-              ],
-              stops: <double>[0, 1],
-            ),
-            boxShadow: const [
-              BoxShadow(
-                offset: Offset(-0.5, 0),
-                blurRadius: 2,
-                spreadRadius: -1,
-                blurStyle: BlurStyle.outer,
-                color: Color.fromRGBO(255, 255, 255, 0.628),
+    return InkWell(
+      onTap: onTap,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(
+            sigmaX: 40,
+            sigmaY: 40,
+          ),
+          child: Container(
+            // width: double.infinity,
+            padding: const EdgeInsets.all(10),
+            height: 39,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+                  Color.fromRGBO(0, 0, 0, 0.8),
+                  Color.fromRGBO(0, 0, 0, 0.4)
+                ],
+                stops: <double>[0, 1],
               ),
-              BoxShadow(
+              border: !isActive
+                  ? null
+                  : Border.all(color: Pallete.hYellow, width: 0.5),
+              boxShadow: const [
+                BoxShadow(
                   offset: Offset(-0.5, 0),
                   blurRadius: 2,
                   spreadRadius: -1,
                   blurStyle: BlurStyle.outer,
-                  color: Color.fromRGBO(255, 255, 255, 0.553)),
-            ],
-          ),
-          child: Center(
-            child: Text(
-              label,
-              style: GoogleFonts.syne(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                height: 1.2,
-                color: const Color(0xffece5d3),
+                  color: Color.fromRGBO(255, 255, 255, 0.628),
+                ),
+                BoxShadow(
+                    offset: Offset(-0.5, 0),
+                    blurRadius: 2,
+                    spreadRadius: -1,
+                    blurStyle: BlurStyle.outer,
+                    color: Color.fromRGBO(255, 255, 255, 0.553)),
+              ],
+            ),
+            child: Center(
+              child: Text(
+                label,
+                style: GoogleFonts.syne(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  height: 1.2,
+                  color: const Color(0xffece5d3),
+                ),
               ),
             ),
           ),
