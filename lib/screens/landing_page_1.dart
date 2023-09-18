@@ -4,6 +4,7 @@ import 'package:portfolio/core/constant/theme/pallete.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/core/helper/clippers/circle_clipper.dart';
 import 'package:portfolio/core/helper/navigation_bar.dart';
+import 'package:portfolio/core/widgets/animated_tile.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/screens/landing_page_2.dart';
 import 'package:provider/provider.dart';
@@ -211,56 +212,127 @@ class LandingPage1 extends StatelessWidget {
                                     height: 10,
                                   ),
                                   const CustomDivider(),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: size.width * 0.105),
-                                    child: Text(
-                                      'UX/UI Design',
-                                      style: GoogleFonts.syne(
+                                  TileContainer(
+                                    height: 50,
+                                    width: double.maxFinite,
+                                    child1: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.width * 0.105),
+                                      child: Text(
+                                        'UX/UI Design',
+                                        style: GoogleFonts.syne(
+                                            fontSize: 48,
+                                            fontWeight: FontWeight.w800,
+                                            height: 1.0049999555,
+                                            color: Pallete.notWhite),
+                                      ),
+                                    ),
+                                    child2: Container(
+                                      color: Pallete.hYellow,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.width * 0.105),
+                                      child: Text(
+                                        'UX/UI Design',
+                                        style: GoogleFonts.syne(
                                           fontSize: 48,
                                           fontWeight: FontWeight.w800,
                                           height: 1.0049999555,
-                                          color: Pallete.notWhite),
-                                    ),
-                                  ),
-                                  const CustomDivider(),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: size.width * 0.105),
-                                    child: Text(
-                                      'Design systems',
-                                      style: GoogleFonts.syne(
-                                        fontSize: 48,
-                                        fontWeight: FontWeight.w800,
-                                        height: 1.0049999555,
-                                        color: Pallete.notWhite,
+                                          color: Pallete.bgBlack,
+                                        ),
                                       ),
                                     ),
                                   ),
                                   const CustomDivider(),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: size.width * 0.105),
-                                    child: Text(
-                                      'UX Research',
-                                      style: GoogleFonts.syne(
+                                  TileContainer(
+                                    height: 50,
+                                    width: double.maxFinite,
+                                    child1: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.width * 0.105),
+                                      child: Text(
+                                        'Design systems',
+                                        style: GoogleFonts.syne(
+                                            fontSize: 48,
+                                            fontWeight: FontWeight.w800,
+                                            height: 1.0049999555,
+                                            color: Pallete.notWhite),
+                                      ),
+                                    ),
+                                    child2: Container(
+                                      color: Pallete.hYellow,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.width * 0.105),
+                                      child: Text(
+                                        'Design systems',
+                                        style: GoogleFonts.syne(
                                           fontSize: 48,
                                           fontWeight: FontWeight.w800,
                                           height: 1.0049999555,
-                                          color: Pallete.notWhite),
+                                          color: Pallete.bgBlack,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   const CustomDivider(),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: size.width * 0.105),
-                                    child: Text(
-                                      'Design Facilitation',
-                                      style: GoogleFonts.syne(
+                                  TileContainer(
+                                    height: 50,
+                                    width: double.maxFinite,
+                                    child1: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.width * 0.105),
+                                      child: Text(
+                                        'UX Research',
+                                        style: GoogleFonts.syne(
+                                            fontSize: 48,
+                                            fontWeight: FontWeight.w800,
+                                            height: 1.0049999555,
+                                            color: Pallete.notWhite),
+                                      ),
+                                    ),
+                                    child2: Container(
+                                      color: Pallete.hYellow,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.width * 0.105),
+                                      child: Text(
+                                        'UX Research',
+                                        style: GoogleFonts.syne(
                                           fontSize: 48,
                                           fontWeight: FontWeight.w800,
                                           height: 1.0049999555,
-                                          color: Pallete.notWhite),
+                                          color: Pallete.bgBlack,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const CustomDivider(),
+                                  TileContainer(
+                                    height: 50,
+                                    width: double.maxFinite,
+                                    child1: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.width * 0.105),
+                                      child: Text(
+                                        'Design Facilitation',
+                                        style: GoogleFonts.syne(
+                                            fontSize: 48,
+                                            fontWeight: FontWeight.w800,
+                                            height: 1.0049999555,
+                                            color: Pallete.notWhite),
+                                      ),
+                                    ),
+                                    child2: Container(
+                                      color: Pallete.hYellow,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: size.width * 0.105),
+                                      child: Text(
+                                        'Design Facilitation',
+                                        style: GoogleFonts.syne(
+                                          fontSize: 48,
+                                          fontWeight: FontWeight.w800,
+                                          height: 1.0049999555,
+                                          color: Pallete.bgBlack,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   const CustomDivider(),
