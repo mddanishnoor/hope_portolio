@@ -14,6 +14,11 @@ class CustomNavbar extends StatelessWidget {
   });
   final ScrollController scrollController;
 
+  double activeHeight(double height, double factor) {
+    var h = (height * factor) - (height * 0.3);
+    return h;
+  }
+
   @override
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
@@ -72,8 +77,8 @@ class CustomNavbar extends StatelessWidget {
                             duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)
                       },
-                      isActive: controller.scrollOffset >= 300 &&
-                          controller.scrollOffset < 1500,
+                      isActive: controller.scrollOffset >= activeHeight(h, 1) &&
+                          controller.scrollOffset < activeHeight(h, 2.7),
                     ),
                     const SizedBox(
                       width: 5,
@@ -86,8 +91,10 @@ class CustomNavbar extends StatelessWidget {
                             duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)
                       },
-                      isActive: controller.scrollOffset >= 1500 &&
-                          controller.scrollOffset < 2200,
+                      isActive:
+                          controller.scrollOffset >= activeHeight(h, 2.7) &&
+                              controller.scrollOffset <
+                                  (activeHeight(h, 5) - h * 0.2),
                     ),
                     const SizedBox(
                       width: 5,
@@ -96,18 +103,21 @@ class CustomNavbar extends StatelessWidget {
                       label: 'Connect',
                       onTap: () => {
                         log('Connect presssed'),
-                        scrollController.animateTo(h * 4.5,
+                        scrollController.animateTo((h * 5) - (h * 0.3),
                             duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)
                       },
-                      isActive: controller.scrollOffset >= 2800 &&
-                          controller.scrollOffset < 3000,
+                      isActive: controller.scrollOffset >=
+                              ((activeHeight(h, 5)) - (h * 0.2)) &&
+                          controller.scrollOffset <
+                              (scrollController.position.maxScrollExtent -
+                                  (h * 0.2)),
                     ),
                     const SizedBox(
                       width: 5,
                     ),
                     NavButton(
-                      label: 'For requruiters',
+                      label: 'For requiters',
                       onTap: () => {
                         log('Recruiters presssed'),
                         scrollController.animateTo(
@@ -115,7 +125,9 @@ class CustomNavbar extends StatelessWidget {
                             duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)
                       },
-                      isActive: controller.scrollOffset >= 3000,
+                      isActive: controller.scrollOffset >
+                          (scrollController.position.maxScrollExtent -
+                              (h * 0.2)),
                     )
                   ],
                 ),
