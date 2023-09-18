@@ -55,43 +55,50 @@ class LandingPage1 extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'MOHAMMAD SAJJAD RAZA',
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.syne(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                      height: 0.8599999547,
-                                      letterSpacing: 4.32,
-                                      color: Pallete.white,
-                                    ),
+                            Column(
+                              children: [
+                                const Spacer(),
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'MOHAMMAD SAJJAD RAZA',
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.syne(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                          height: 0.8599999547,
+                                          letterSpacing: 4.32,
+                                          color: Pallete.white,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 16,
+                                      ),
+                                      Text('ADVOCATE',
+                                          overflow: TextOverflow.fade,
+                                          style: AppTextStyle.heading.copyWith(
+                                              color: Pallete.hYellow)),
+                                      Text(
+                                        'FOR\nUSERS',
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.syne(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 96,
+                                          height: 0.8599999746,
+                                          letterSpacing: -5.28,
+                                          color: Pallete.white,
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                  const SizedBox(
-                                    height: 16,
-                                  ),
-                                  Text('ADVOCATE',
-                                      overflow: TextOverflow.fade,
-                                      style: AppTextStyle.heading
-                                          .copyWith(color: Pallete.hYellow)),
-                                  Text(
-                                    'FOR\nUSERS',
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.syne(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 96,
-                                      height: 0.8599999746,
-                                      letterSpacing: -5.28,
-                                      color: Pallete.white,
-                                    ),
-                                  )
-                                ],
-                              ),
+                                ),
+                                const Spacer(),
+                              ],
                             ),
                           ],
                         ),
@@ -101,148 +108,166 @@ class LandingPage1 extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                             horizontal: size.width * 0.1046),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'ABOUT ME',
-                              style: GoogleFonts.syne(
-                                // 'Syne',
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                height: 0.8599999547,
-                                letterSpacing: 4.32,
-                                color: Pallete.white,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            ShaderMask(
-                              shaderCallback: (bounds) {
-                                return LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    stops: [
-                                      (scrollController.offset / size.height) *
-                                          0.7,
-                                      (scrollController.offset / size.height) *
-                                          0.9
-                                    ],
-                                    colors: [
-                                      Colors.white.withOpacity(0.9),
-                                      Colors.white.withOpacity(0.1),
-                                    ]).createShader(bounds);
-                              },
-                              child: RichText(
-                                text: TextSpan(
+                            const Spacer(),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'ABOUT ME',
                                   style: GoogleFonts.syne(
-                                    fontSize: 64,
-                                    fontWeight: FontWeight.w600,
-                                    height: 1.0049999952,
-                                    color: Pallete.notWhite,
+                                    // 'Syne',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    height: 0.8599999547,
+                                    letterSpacing: 4.32,
+                                    color: Pallete.white,
                                   ),
-                                  children: [
-                                    const TextSpan(
-                                      text: 'I am a ',
-                                    ),
-                                    TextSpan(
-                                      text: 'multidisciplinary',
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                ShaderMask(
+                                  shaderCallback: (bounds) {
+                                    return LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        stops: [
+                                          (scrollController.offset /
+                                                  size.height) *
+                                              0.7,
+                                          (scrollController.offset /
+                                                  size.height) *
+                                              0.9
+                                        ],
+                                        colors: [
+                                          Colors.white.withOpacity(0.9),
+                                          Colors.white.withOpacity(0.1),
+                                        ]).createShader(bounds);
+                                  },
+                                  child: RichText(
+                                    text: TextSpan(
                                       style: GoogleFonts.syne(
                                         fontSize: 64,
                                         fontWeight: FontWeight.w600,
                                         height: 1.0049999952,
-                                        color: Pallete.yellow,
+                                        color: Pallete.notWhite,
                                       ),
+                                      children: [
+                                        const TextSpan(
+                                          text: 'I am a ',
+                                        ),
+                                        TextSpan(
+                                          text: 'multidisciplinary',
+                                          style: GoogleFonts.syne(
+                                            fontSize: 64,
+                                            fontWeight: FontWeight.w600,
+                                            height: 1.0049999952,
+                                            color: Pallete.yellow,
+                                          ),
+                                        ),
+                                        const TextSpan(
+                                          text:
+                                              ' designer creating inclusive experience through empathy and research.',
+                                        ),
+                                      ],
                                     ),
-                                    const TextSpan(
-                                      text:
-                                          ' designer creating inclusive experience through empathy and research.',
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
+                            const Spacer(),
                           ],
                         ),
                       )),
                       LandingWidget(
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: size.width * 0.105),
-                              child: Text(
-                                'WHAT I DO',
-                                style: GoogleFonts.syne(
-                                  // 'Syne',
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.8599999547,
-                                  letterSpacing: 4.32,
-                                  color: Pallete.white,
-                                ),
+                            const Spacer(),
+                            MouseRegion(
+                              onEnter: (event) => controller.toggleHide(true),
+                              onExit: (event) => controller.toggleHide(false),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: size.width * 0.105),
+                                    child: Text(
+                                      'WHAT I DO',
+                                      style: GoogleFonts.syne(
+                                        // 'Syne',
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                        height: 0.8599999547,
+                                        letterSpacing: 4.32,
+                                        color: Pallete.white,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  const CustomDivider(),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: size.width * 0.105),
+                                    child: Text(
+                                      'UX/UI Design',
+                                      style: GoogleFonts.syne(
+                                          fontSize: 48,
+                                          fontWeight: FontWeight.w800,
+                                          height: 1.0049999555,
+                                          color: Pallete.notWhite),
+                                    ),
+                                  ),
+                                  const CustomDivider(),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: size.width * 0.105),
+                                    child: Text(
+                                      'Design systems',
+                                      style: GoogleFonts.syne(
+                                        fontSize: 48,
+                                        fontWeight: FontWeight.w800,
+                                        height: 1.0049999555,
+                                        color: Pallete.notWhite,
+                                      ),
+                                    ),
+                                  ),
+                                  const CustomDivider(),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: size.width * 0.105),
+                                    child: Text(
+                                      'UX Research',
+                                      style: GoogleFonts.syne(
+                                          fontSize: 48,
+                                          fontWeight: FontWeight.w800,
+                                          height: 1.0049999555,
+                                          color: Pallete.notWhite),
+                                    ),
+                                  ),
+                                  const CustomDivider(),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: size.width * 0.105),
+                                    child: Text(
+                                      'Design Facilitation',
+                                      style: GoogleFonts.syne(
+                                          fontSize: 48,
+                                          fontWeight: FontWeight.w800,
+                                          height: 1.0049999555,
+                                          color: Pallete.notWhite),
+                                    ),
+                                  ),
+                                  const CustomDivider(),
+                                ],
                               ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            const CustomDivider(),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: size.width * 0.105),
-                              child: Text(
-                                'UX/UI Design',
-                                style: GoogleFonts.syne(
-                                    fontSize: 48,
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.0049999555,
-                                    color: Pallete.notWhite),
-                              ),
-                            ),
-                            const CustomDivider(),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: size.width * 0.105),
-                              child: Text(
-                                'Design systems',
-                                style: GoogleFonts.syne(
-                                  fontSize: 48,
-                                  fontWeight: FontWeight.w800,
-                                  height: 1.0049999555,
-                                  color: Pallete.notWhite,
-                                ),
-                              ),
-                            ),
-                            const CustomDivider(),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: size.width * 0.105),
-                              child: Text(
-                                'UX Research',
-                                style: GoogleFonts.syne(
-                                    fontSize: 48,
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.0049999555,
-                                    color: Pallete.notWhite),
-                              ),
-                            ),
-                            const CustomDivider(),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: size.width * 0.105),
-                              child: Text(
-                                'Design Facilitation',
-                                style: GoogleFonts.syne(
-                                    fontSize: 48,
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.0049999555,
-                                    color: Pallete.notWhite),
-                              ),
-                            ),
-                            const CustomDivider(),
+                            const Spacer(),
                           ],
                         ),
                       ),
