@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 class CursorProvider extends ChangeNotifier {
@@ -26,7 +24,6 @@ class CursorProvider extends ChangeNotifier {
   }
 
   updateScrollOffset(double offset) {
-    log(offset.toString());
     scrollOffset = offset;
     notifyListeners();
   }

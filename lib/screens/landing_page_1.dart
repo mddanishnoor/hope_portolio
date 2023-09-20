@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/core/helper/clippers/circle_clipper.dart';
+import 'package:portfolio/core/helper/clippers/rectangle_clipper.dart';
 import 'package:portfolio/core/helper/navigation_bar.dart';
 import 'package:portfolio/core/widgets/animated_tile.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
@@ -211,13 +212,23 @@ class LandingPage1 extends StatelessWidget {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  const CustomDivider(),
+                                  // const CustomDivider(),
                                   TileContainer(
-                                    height: 50,
-                                    width: double.maxFinite,
+                                    width: double.infinity,
+                                    height: 60,
                                     child1: Container(
+                                      width: double.infinity,
+                                      height: 60,
+                                      decoration: const BoxDecoration(
+                                        border: Border.symmetric(
+                                          horizontal: BorderSide(
+                                            color: Pallete.white_30,
+                                          ),
+                                        ),
+                                      ),
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: size.width * 0.105),
+                                          horizontal: size.width * 0.105,
+                                          vertical: 8),
                                       child: Text(
                                         'UX/UI Design',
                                         style: GoogleFonts.syne(
@@ -228,9 +239,18 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                     ),
                                     child2: Container(
-                                      color: Pallete.hYellow,
+                                      width: double.infinity,
+                                      decoration: const BoxDecoration(
+                                        color: Pallete.hYellow,
+                                        border: Border.symmetric(
+                                          horizontal: BorderSide(
+                                            color: Pallete.white_30,
+                                          ),
+                                        ),
+                                      ),
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: size.width * 0.105),
+                                          horizontal: size.width * 0.105,
+                                          vertical: 8),
                                       child: Text(
                                         'UX/UI Design',
                                         style: GoogleFonts.syne(
@@ -242,13 +262,23 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  const CustomDivider(),
+                                  // const CustomDivider(),
                                   TileContainer(
-                                    height: 50,
-                                    width: double.maxFinite,
+                                    width: double.infinity,
+                                    height: 60,
                                     child1: Container(
+                                      width: double.infinity,
+                                      height: 60,
+                                      decoration: const BoxDecoration(
+                                        border: Border.symmetric(
+                                          horizontal: BorderSide(
+                                            color: Pallete.white_30,
+                                          ),
+                                        ),
+                                      ),
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: size.width * 0.105),
+                                          horizontal: size.width * 0.105,
+                                          vertical: 8),
                                       child: Text(
                                         'Design systems',
                                         style: GoogleFonts.syne(
@@ -259,9 +289,19 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                     ),
                                     child2: Container(
-                                      color: Pallete.hYellow,
+                                      width: double.infinity,
+                                      height: 60,
+                                      decoration: const BoxDecoration(
+                                        color: Pallete.hYellow,
+                                        border: Border.symmetric(
+                                          horizontal: BorderSide(
+                                            color: Pallete.white_30,
+                                          ),
+                                        ),
+                                      ),
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: size.width * 0.105),
+                                          horizontal: size.width * 0.105,
+                                          vertical: 8),
                                       child: Text(
                                         'Design systems',
                                         style: GoogleFonts.syne(
@@ -273,13 +313,22 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  const CustomDivider(),
                                   TileContainer(
-                                    height: 50,
-                                    width: double.maxFinite,
+                                    width: double.infinity,
+                                    height: 60,
                                     child1: Container(
+                                      width: double.infinity,
+                                      height: 60,
+                                      decoration: const BoxDecoration(
+                                        border: Border.symmetric(
+                                          horizontal: BorderSide(
+                                            color: Pallete.white_30,
+                                          ),
+                                        ),
+                                      ),
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: size.width * 0.105),
+                                          horizontal: size.width * 0.105,
+                                          vertical: 8),
                                       child: Text(
                                         'UX Research',
                                         style: GoogleFonts.syne(
@@ -290,9 +339,19 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                     ),
                                     child2: Container(
-                                      color: Pallete.hYellow,
+                                      width: double.infinity,
+                                      height: 60,
+                                      decoration: const BoxDecoration(
+                                        border: Border.symmetric(
+                                          horizontal: BorderSide(
+                                            color: Pallete.white_30,
+                                          ),
+                                        ),
+                                        color: Pallete.hYellow,
+                                      ),
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: size.width * 0.105),
+                                          horizontal: size.width * 0.105,
+                                          vertical: 8),
                                       child: Text(
                                         'UX Research',
                                         style: GoogleFonts.syne(
@@ -304,13 +363,22 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  const CustomDivider(),
                                   TileContainer(
-                                    height: 50,
-                                    width: double.maxFinite,
+                                    width: double.infinity,
+                                    height: 60,
                                     child1: Container(
+                                      width: double.infinity,
+                                      height: 60,
+                                      decoration: const BoxDecoration(
+                                        border: Border.symmetric(
+                                          horizontal: BorderSide(
+                                            color: Pallete.white_30,
+                                          ),
+                                        ),
+                                      ),
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: size.width * 0.105),
+                                          horizontal: size.width * 0.105,
+                                          vertical: 8),
                                       child: Text(
                                         'Design Facilitation',
                                         style: GoogleFonts.syne(
@@ -321,9 +389,19 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                     ),
                                     child2: Container(
-                                      color: Pallete.hYellow,
+                                      width: double.infinity,
+                                      height: 60,
+                                      decoration: const BoxDecoration(
+                                        border: Border.symmetric(
+                                          horizontal: BorderSide(
+                                            color: Pallete.white_30,
+                                          ),
+                                        ),
+                                        color: Pallete.hYellow,
+                                      ),
                                       padding: EdgeInsets.symmetric(
-                                          horizontal: size.width * 0.105),
+                                          horizontal: size.width * 0.105,
+                                          vertical: 8),
                                       child: Text(
                                         'Design Facilitation',
                                         style: GoogleFonts.syne(
@@ -335,7 +413,6 @@ class LandingPage1 extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  const CustomDivider(),
                                 ],
                               ),
                             ),
@@ -685,6 +762,7 @@ class LandingPage1 extends StatelessWidget {
                 ),
                 LandingPage2(
                   scrollController: scrollController2,
+                  scrollController2: scrollController,
                 ),
                 if (scrollController.hasClients &&
                     controller.scrollOffset >= (size.height / 2))
@@ -696,9 +774,9 @@ class LandingPage1 extends StatelessWidget {
               ],
             ),
             onNotification: (notification) {
-              controller.updateScrollOffset(scrollController2.offset);
               // if (size.width > 766) {
               scrollController.jumpTo(scrollController2.offset);
+              controller.updateScrollOffset(scrollController2.offset);
               // }
               return true;
             },
@@ -706,22 +784,6 @@ class LandingPage1 extends StatelessWidget {
         ),
       );
     });
-  }
-}
-
-class CustomDivider extends StatelessWidget {
-  const CustomDivider({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 1,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      width: double.infinity,
-      color: Pallete.white_30,
-    );
   }
 }
 
@@ -751,8 +813,16 @@ class MouseFollower extends ImplicitlyAnimatedWidget {
   final Offset position;
   final Widget child;
   final double radius;
+  final double height;
+  final double width;
 
-  const MouseFollower(this.position, this.child, this.radius, {super.key})
+  const MouseFollower(
+      {required this.position,
+      required this.child,
+      required this.radius,
+      required this.height,
+      required this.width,
+      super.key})
       : super(
           curve: Curves.easeOut,
           duration: const Duration(milliseconds: 300),
@@ -765,14 +835,22 @@ class MouseFollower extends ImplicitlyAnimatedWidget {
 class _MouseFollowerState extends AnimatedWidgetBaseState<MouseFollower> {
   Tween<Offset>? _positionTween;
   Tween<double>? _radiusTween;
+  Tween<double>? _heightTween;
+  Tween<double>? _widthTween;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constrains) {
         return ClipPath(
-          clipper: CircleClipper(_positionTween!.evaluate(animation),
-              _radiusTween!.evaluate(animation)),
+          clipper: widget.radius == 1
+              ? RectangleClipper(
+                  Size(_widthTween!.evaluate(animation),
+                      _heightTween!.evaluate(animation)),
+                  Offset(constrains.minWidth, constrains.minHeight),
+                )
+              : CircleClipper(_positionTween!.evaluate(animation),
+                  _radiusTween!.evaluate(animation)),
           child: widget.child,
         );
       },
@@ -787,12 +865,11 @@ class _MouseFollowerState extends AnimatedWidgetBaseState<MouseFollower> {
     _radiusTween = (visitor(_radiusTween, widget.radius,
             (dynamic value) => Tween<double>(begin: value as double))
         as Tween<double>?);
-    /*visitor(
-      _positionTween,
-      widget.position,
-      (value) => Tween<Offset>(
-        begin: value,
-      ),
-    );*/
+    _heightTween = (visitor(_heightTween, widget.height,
+            (dynamic value) => Tween<double>(begin: value as double))
+        as Tween<double>?)!;
+    _widthTween = (visitor(_widthTween, widget.width,
+            (dynamic value) => Tween<double>(begin: value as double))
+        as Tween<double>?);
   }
 }

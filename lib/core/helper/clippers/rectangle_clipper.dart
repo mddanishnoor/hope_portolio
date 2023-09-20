@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class RectangleClipper extends CustomClipper<Path> {
   final Size constraints;
+  final Offset position;
   RectangleClipper(
     this.constraints,
+    this.position,
   );
 
   @override
@@ -18,9 +20,9 @@ class RectangleClipper extends CustomClipper<Path> {
 
     var (w, h) = (constraints.width, constraints.height);
 
-    path.moveTo(cx, cy);
+    path.moveTo(position.dx, position.dy);
 
-    var rect = Rect.fromLTWH(0, 0, w, h);
+    var rect = Rect.fromLTWH(w, h, width, height);
 
     path.addRect(rect);
     path.close();
