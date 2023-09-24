@@ -22,8 +22,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/png/
-    - assets/svg/
+    - assets/png/hero_bg.png
   
   fonts:
     - family: Syne
