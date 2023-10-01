@@ -75,7 +75,7 @@ class MainCopy extends StatelessWidget {
           LandingWidget(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/png/hero_bg.png'),
+                  image: AssetImage('assets/png/hero_bg.jpeg'),
                   fit: BoxFit.cover),
             ),
             child: Stack(
