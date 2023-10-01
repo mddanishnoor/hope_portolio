@@ -1,35 +1,37 @@
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/core/constant/theme/pallete.dart';
 
 abstract class AppTextStyle {
   // anotation Text Style
-  static const TextStyle anotation = TextStyle(
-    fontSize: 17.79800033569336,
-    fontWeight: FontWeight.w500, // medium
-    height: 5.62,
-    letterSpacing: 27,
-    fontFamily: 'Syne',
+  static TextStyle anotation = GoogleFonts.archivo(
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    height: 1,
+    letterSpacing: 3.51,
+    color: Pallete.hWhite,
   );
   // heading Text Style
-  static const TextStyle heading = TextStyle(
+  static TextStyle heading = GoogleFonts.archivo(
     fontSize: 96,
-    fontWeight: FontWeight.w700, // bold
-    height: 0.9,
-    letterSpacing: -5.5,
-    fontFamily: 'Syne',
+    fontWeight: FontWeight.w700,
+    height: 0.8599999746,
+    letterSpacing: -5.28,
+    color: Pallete.hWhite,
   );
   // body Text Style
-  static const TextStyle body = TextStyle(
+  static TextStyle body = GoogleFonts.archivo(
     fontSize: 64,
-    fontWeight: FontWeight.w600, // semiBold
-    height: 1.5,
-    fontFamily: 'Syne',
+    fontWeight: FontWeight.w700,
+    height: 0.97299999,
+    color: Pallete.hWhite,
   );
   // listExtended Text Style
-  static const TextStyle listExtended = TextStyle(
-    fontSize: 48,
-    fontWeight: FontWeight.w700, // bold
-    height: 2.09,
-    fontFamily: 'Syne',
+  static TextStyle listExtended = GoogleFonts.archivoBlack(
+    fontSize: 64,
+    fontWeight: FontWeight.w400,
+    height: 1.0049999952,
+    color: Pallete.hWhite,
   );
   // anotationPad Text Style
   static const TextStyle anotationPad = TextStyle(
@@ -62,19 +64,19 @@ abstract class AppTextStyle {
     fontFamily: 'Syne',
   );
   // anotationBold Text Style
-  static const TextStyle anotationBold = TextStyle(
-    fontSize: 17.79800033569336,
-    fontWeight: FontWeight.w700, // bold
-    height: 5.62,
-    letterSpacing: 27,
-    fontFamily: 'Syne',
+  static TextStyle anotationBold = GoogleFonts.archivo(
+    fontSize: 17.7980003357,
+    fontWeight: FontWeight.w700,
+    height: 1,
+    letterSpacing: 4.8054600906,
+    color: Pallete.hWhite,
   );
   // anotationBody Text Style
-  static const TextStyle anotationBody = TextStyle(
-    fontSize: 17.79800033569336,
-    fontWeight: FontWeight.w400, // regular
-    height: 5.62,
-    fontFamily: 'Syne',
+  static TextStyle anotationBody = GoogleFonts.archivo(
+    fontSize: 17.7980003357,
+    fontWeight: FontWeight.w400,
+    height: 1,
+    color: Pallete.hWhite,
   );
   // anotationBoldPad Text Style
   static const TextStyle anotationBoldPad = TextStyle(
@@ -133,5 +135,12 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.w600, // semiBold
     height: 8.37,
     fontFamily: 'Syne',
+  );
+
+  static TextStyle buttonTextStyle = GoogleFonts.syne(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    height: 1,
+    color: Pallete.hYellow,
   );
 }

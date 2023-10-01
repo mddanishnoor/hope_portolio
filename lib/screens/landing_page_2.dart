@@ -112,30 +112,23 @@ class LandingPage2Child extends StatelessWidget {
                                   Text(
                                     'RAZA MEANS HOPE',
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.syne(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      height: 0.8599999547,
-                                      letterSpacing: 4.32,
-                                      color: Pallete.bgBlack,
-                                    ),
+                                    style: AppTextStyle.anotation
+                                        .copyWith(color: Pallete.bgBlack),
                                   ),
                                   const SizedBox(
                                     height: 16,
                                   ),
-                                  const Text('DRIVER',
-                                      overflow: TextOverflow.fade,
-                                      style: AppTextStyle.heading),
+                                  Text(
+                                    'DRIVER',
+                                    overflow: TextOverflow.fade,
+                                    style: AppTextStyle.heading
+                                        .copyWith(color: Pallete.bgBlack),
+                                  ),
                                   Text(
                                     'FOR COMPANY\nGROWTH',
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.syne(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 96,
-                                      height: 0.8599999746,
-                                      letterSpacing: -5.28,
-                                      color: Pallete.bgBlack,
-                                    ),
+                                    style: AppTextStyle.heading
+                                        .copyWith(color: Pallete.bgBlack),
                                   )
                                 ],
                               ),
@@ -171,38 +164,24 @@ class LandingPage2Child extends StatelessWidget {
                               children: [
                                 Text(
                                   'ABOUT ME',
-                                  style: GoogleFonts.syne(
-                                    // 'Syne',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    height: 0.8599999547,
-                                    letterSpacing: 4.32,
-                                    color: Pallete.bgBlack,
-                                  ),
+                                  style: AppTextStyle.anotation
+                                      .copyWith(color: Pallete.bgBlack),
                                 ),
                                 const SizedBox(
                                   height: 16,
                                 ),
                                 RichText(
                                   text: TextSpan(
-                                    style: GoogleFonts.syne(
-                                      fontSize: 64,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.0049999952,
-                                      color: Pallete.bgBlack,
-                                    ),
+                                    style: AppTextStyle.body
+                                        .copyWith(color: Pallete.bgBlack),
                                     children: [
                                       const TextSpan(
                                         text: 'I am a ',
                                       ),
                                       TextSpan(
                                         text: 'multidisciplinary',
-                                        style: GoogleFonts.syne(
-                                          fontSize: 64,
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.0049999952,
-                                          color: Pallete.bgBlack,
-                                        ),
+                                        style: AppTextStyle.body
+                                            .copyWith(color: Pallete.bgBlack),
                                       ),
                                       const TextSpan(
                                         text:
@@ -238,112 +217,28 @@ class LandingPage2Child extends StatelessWidget {
                                 horizontal: size.width * 0.105),
                             child: Text(
                               'WHAT I DO',
-                              style: GoogleFonts.syne(
-                                // 'Syne',
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                                height: 0.8599999547,
-                                letterSpacing: 4.32,
-                                color: Pallete.white,
-                              ),
+                              style: AppTextStyle.anotation
+                                  .copyWith(color: Pallete.bgBlack),
                             ),
                           ),
                           const SizedBox(
                             height: 10,
                           ),
-                          // const CustomDivider(),
-                          Container(
-                            width: double.infinity,
-                            height: 60,
-                            decoration: const BoxDecoration(
-                              color: Pallete.hYellow,
-                              border: Border.symmetric(
-                                horizontal: BorderSide(
-                                  color: Pallete.white_30,
-                                ),
-                              ),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.105, vertical: 8),
-                            child: Text(
-                              'UX/UI Design',
-                              style: GoogleFonts.syne(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                height: 1.0049999555,
-                                color: Pallete.bgBlack,
-                              ),
-                            ),
+                          YellowTileWidget(
+                            size: size,
+                            label: 'UX/UI Design',
                           ),
-                          // const CustomDivider(),
-                          Container(
-                            width: double.infinity,
-                            height: 60,
-                            decoration: const BoxDecoration(
-                              color: Pallete.hYellow,
-                              border: Border.symmetric(
-                                horizontal: BorderSide(
-                                  color: Pallete.white_30,
-                                ),
-                              ),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.105, vertical: 8),
-                            child: Text(
-                              'Design systems',
-                              style: GoogleFonts.syne(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                height: 1.0049999555,
-                                color: Pallete.bgBlack,
-                              ),
-                            ),
+                          YellowTileWidget(
+                            size: size,
+                            label: 'Design systems',
                           ),
-                          Container(
-                            width: double.infinity,
-                            height: 60,
-                            decoration: const BoxDecoration(
-                              border: Border.symmetric(
-                                horizontal: BorderSide(
-                                  color: Pallete.white_30,
-                                ),
-                              ),
-                              color: Pallete.hYellow,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.105, vertical: 8),
-                            child: Text(
-                              'UX Research',
-                              style: GoogleFonts.syne(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                height: 1.0049999555,
-                                color: Pallete.bgBlack,
-                              ),
-                            ),
+                          YellowTileWidget(
+                            size: size,
+                            label: 'UX Research',
                           ),
-                          Container(
-                            width: double.infinity,
-                            height: 60,
-                            decoration: const BoxDecoration(
-                              border: Border.symmetric(
-                                horizontal: BorderSide(
-                                  color: Pallete.white_30,
-                                ),
-                              ),
-                              color: Pallete.hYellow,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.105, vertical: 8),
-                            child: Text(
-                              'Design Facilitation',
-                              style: GoogleFonts.syne(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                height: 1.0049999555,
-                                color: Pallete.bgBlack,
-                              ),
-                            ),
+                          YellowTileWidget(
+                            size: size,
+                            label: 'Design Facilitation',
                           ),
                         ],
                       ),
@@ -362,14 +257,8 @@ class LandingPage2Child extends StatelessWidget {
                     children: [
                       Text(
                         'PROJECTS ',
-                        style: GoogleFonts.syne(
-                          // 'Syne',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          height: 0.8599999547,
-                          letterSpacing: 4.32,
-                          color: Pallete.white,
-                        ),
+                        style: AppTextStyle.anotation
+                            .copyWith(color: Pallete.bgBlack),
                       ),
                       const SizedBox(
                         height: 10,
@@ -392,13 +281,8 @@ class LandingPage2Child extends StatelessWidget {
                                 children: [
                                   Text(
                                     'My favorite \nprojects',
-                                    style: GoogleFonts.syne(
-                                      // 'Syne',
-                                      fontSize: 48,
-                                      fontWeight: FontWeight.w800,
-                                      height: 1.0049999952,
-                                      color: Pallete.notWhite,
-                                    ),
+                                    style: AppTextStyle.listExtended
+                                        .copyWith(color: Pallete.bgBlack),
                                   ),
                                   const Spacer(),
                                   Container(
@@ -412,12 +296,8 @@ class LandingPage2Child extends StatelessWidget {
                                     child: Center(
                                       child: Text(
                                         'See all >>',
-                                        style: GoogleFonts.syne(
-                                            // 'Syne',
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w600,
-                                            height: 1,
-                                            color: Pallete.bgBlack),
+                                        style: AppTextStyle.buttonTextStyle
+                                            .copyWith(color: Pallete.bgBlack),
                                       ),
                                     ),
                                   ),
@@ -456,14 +336,8 @@ class LandingPage2Child extends StatelessWidget {
                         children: [
                           Text(
                             'MY MOTO',
-                            style: GoogleFonts.syne(
-                              // 'Syne',
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              height: 0.8599999547,
-                              letterSpacing: 4.32,
-                              color: Pallete.white,
-                            ),
+                            style: AppTextStyle.anotation
+                                .copyWith(color: Pallete.bgBlack),
                           ),
                           const SizedBox(
                             height: 18,
@@ -471,14 +345,8 @@ class LandingPage2Child extends StatelessWidget {
                           Text(
                             'SAME\nSTROKES\nFOR SIMILAR\nFOLKS',
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.syne(
-                              // 'Syne',
-                              fontSize: 96,
-                              fontWeight: FontWeight.w700,
-                              height: 0.8599999746,
-                              letterSpacing: -5.28,
-                              color: Pallete.bgBlack,
-                            ),
+                            style: AppTextStyle.heading
+                                .copyWith(color: Pallete.bgBlack),
                           ),
                         ],
                       ),
@@ -497,14 +365,8 @@ class LandingPage2Child extends StatelessWidget {
                     children: [
                       Text(
                         'Connect',
-                        style: GoogleFonts.syne(
-                          // 'Syne',
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          height: 0.8599999547,
-                          letterSpacing: 4.32,
-                          color: Pallete.bgBlack,
-                        ),
+                        style: AppTextStyle.anotation
+                            .copyWith(color: Pallete.bgBlack),
                       ),
                       const SizedBox(
                         height: 18,
@@ -526,13 +388,8 @@ class LandingPage2Child extends StatelessWidget {
                                   ),
                                   Text(
                                     'LinkedIn',
-                                    style: GoogleFonts.syne(
-                                      // 'Syne',
-                                      fontSize: 64,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.0049999952,
-                                      color: Pallete.bgBlack,
-                                    ),
+                                    style: AppTextStyle.body
+                                        .copyWith(color: Pallete.bgBlack),
                                   ),
                                 ],
                               ),
@@ -545,27 +402,16 @@ class LandingPage2Child extends StatelessWidget {
                                     Text(
                                       'EMAIL',
                                       textAlign: TextAlign.center,
-                                      style: GoogleFonts.syne(
-                                        // 'Syne',
-                                        fontSize: 17.4117641449,
-                                        fontWeight: FontWeight.w700,
-                                        height: 0.8599999518,
-                                        letterSpacing: 4.7011763191,
-                                        color: Pallete.bgBlack,
-                                      ),
+                                      style: AppTextStyle.anotationBold
+                                          .copyWith(color: Pallete.bgBlack),
                                     ),
                                     const SizedBox(
                                       height: 8.9,
                                     ),
                                     Text(
                                       'razamohdsajjad@gmail.com',
-                                      style: GoogleFonts.syne(
-                                        // 'Syne',
-                                        fontSize: 17.4117641449,
-                                        fontWeight: FontWeight.w400,
-                                        height: 1,
-                                        color: Pallete.bgBlack,
-                                      ),
+                                      style: AppTextStyle.anotationBody
+                                          .copyWith(color: Pallete.bgBlack),
                                     ),
                                   ],
                                 ),
@@ -587,13 +433,8 @@ class LandingPage2Child extends StatelessWidget {
                                   ),
                                   Text(
                                     'Behance',
-                                    style: GoogleFonts.syne(
-                                      // 'Syne',
-                                      fontSize: 64,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.0049999952,
-                                      color: Pallete.bgBlack,
-                                    ),
+                                    style: AppTextStyle.body
+                                        .copyWith(color: Pallete.bgBlack),
                                   ),
                                 ],
                               ),
@@ -606,27 +447,16 @@ class LandingPage2Child extends StatelessWidget {
                                     Text(
                                       'PHONE',
                                       textAlign: TextAlign.center,
-                                      style: GoogleFonts.syne(
-                                        // 'Syne',
-                                        fontSize: 17.4117641449,
-                                        fontWeight: FontWeight.w700,
-                                        height: 0.8599999518,
-                                        letterSpacing: 4.7011763191,
-                                        color: Pallete.bgBlack,
-                                      ),
+                                      style: AppTextStyle.anotationBold
+                                          .copyWith(color: Pallete.bgBlack),
                                     ),
                                     const SizedBox(
                                       height: 8.9,
                                     ),
                                     Text(
                                       '+91 9818164010',
-                                      style: GoogleFonts.poppins(
-                                        // 'Poppins',
-                                        fontSize: 15.2352933884,
-                                        fontWeight: FontWeight.w400,
-                                        height: 1,
-                                        color: Pallete.bgBlack,
-                                      ),
+                                      style: AppTextStyle.anotationBody
+                                          .copyWith(color: Pallete.bgBlack),
                                     ),
                                   ],
                                 ),
@@ -640,14 +470,8 @@ class LandingPage2Child extends StatelessWidget {
                       ),
                       Text(
                         'FOR REQRUITERS',
-                        style: GoogleFonts.syne(
-                          // 'Syne',
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          height: 0.8599999547,
-                          letterSpacing: 4.32,
-                          color: Pallete.bgBlack,
-                        ),
+                        style: AppTextStyle.anotation
+                            .copyWith(color: Pallete.bgBlack),
                       ),
                       const SizedBox(
                         height: 16,
@@ -656,13 +480,8 @@ class LandingPage2Child extends StatelessWidget {
                         children: [
                           Text(
                             'If you like to hire me',
-                            style: GoogleFonts.syne(
-                              // 'Syne',
-                              fontSize: 64,
-                              fontWeight: FontWeight.w600,
-                              height: 1.0049999952,
-                              color: Pallete.bgBlack,
-                            ),
+                            style: AppTextStyle.body
+                                .copyWith(color: Pallete.bgBlack),
                           ),
                           const Spacer(),
                           Container(
@@ -678,14 +497,7 @@ class LandingPage2Child extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 'Click here',
-                                style: GoogleFonts.syne(
-                                  // 'Syne',
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.2941176471,
-                                  letterSpacing: -0.400000006,
-                                  color: Pallete.hYellow,
-                                ),
+                                style: AppTextStyle.buttonTextStyle,
                               ),
                             ),
                           ),

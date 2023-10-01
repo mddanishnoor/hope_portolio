@@ -111,17 +111,9 @@ class MainCopy extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(
-                                'MOHAMMAD SAJJAD RAZA',
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.syne(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                  height: 0.8599999547,
-                                  letterSpacing: 4.32,
-                                  color: Pallete.white,
-                                ),
-                              ),
+                              Text('MOHAMMAD SAJJAD RAZA',
+                                  textAlign: TextAlign.center,
+                                  style: AppTextStyle.anotation),
                               const SizedBox(
                                 height: 16,
                               ),
@@ -129,17 +121,9 @@ class MainCopy extends StatelessWidget {
                                   overflow: TextOverflow.fade,
                                   style: AppTextStyle.heading
                                       .copyWith(color: Pallete.hYellow)),
-                              Text(
-                                'FOR\nUSERS',
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.syne(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 96,
-                                  height: 0.8599999746,
-                                  letterSpacing: -5.28,
-                                  color: Pallete.white,
-                                ),
-                              )
+                              Text('FOR\nUSERS',
+                                  textAlign: TextAlign.center,
+                                  style: AppTextStyle.heading),
                             ],
                           ),
                         ),
@@ -170,14 +154,7 @@ class MainCopy extends StatelessWidget {
                       children: [
                         Text(
                           'ABOUT ME',
-                          style: GoogleFonts.syne(
-                            // 'Syne',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            height: 0.8599999547,
-                            letterSpacing: 4.32,
-                            color: Pallete.white,
-                          ),
+                          style: AppTextStyle.anotation,
                         ),
                         const SizedBox(
                           height: 16,
@@ -199,25 +176,15 @@ class MainCopy extends StatelessWidget {
                           },
                           child: RichText(
                             text: TextSpan(
-                              style: GoogleFonts.syne(
-                                fontSize: 64,
-                                fontWeight: FontWeight.w600,
-                                height: 1.0049999952,
-                                color: Pallete.notWhite,
-                              ),
+                              style: AppTextStyle.body,
                               children: [
                                 const TextSpan(
                                   text: 'I am a ',
                                 ),
                                 TextSpan(
-                                  text: 'multidisciplinary',
-                                  style: GoogleFonts.syne(
-                                    fontSize: 64,
-                                    fontWeight: FontWeight.w600,
-                                    height: 1.0049999952,
-                                    color: Pallete.yellow,
-                                  ),
-                                ),
+                                    text: 'multidisciplinary',
+                                    style: AppTextStyle.body
+                                        .copyWith(color: Pallete.hYellow)),
                                 const TextSpan(
                                   text:
                                       ' designer creating inclusive experience through empathy and research.',
@@ -252,210 +219,50 @@ class MainCopy extends StatelessWidget {
                             horizontal: size.width * 0.105),
                         child: Text(
                           'WHAT I DO',
-                          style: GoogleFonts.syne(
-                            // 'Syne',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                            height: 0.8599999547,
-                            letterSpacing: 4.32,
-                            color: Pallete.white,
-                          ),
+                          style: AppTextStyle.anotation,
                         ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      // const CustomDivider(),
                       TileContainer(
-                        width: double.infinity,
-                        height: 60,
-                        child1: Container(
-                          width: double.infinity,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                            border: Border.symmetric(
-                              horizontal: BorderSide(
-                                color: Pallete.white_30,
-                              ),
-                            ),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.105, vertical: 8),
-                          child: Text(
-                            'UX/UI Design',
-                            style: GoogleFonts.syne(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                height: 1.0049999555,
-                                color: Pallete.notWhite),
-                          ),
+                        child1: BlackTileWidget(
+                          size: size,
+                          label: 'UX/UI Design',
                         ),
-                        child2: Container(
-                          width: double.infinity,
-                          decoration: const BoxDecoration(
-                            color: Pallete.hYellow,
-                            border: Border.symmetric(
-                              horizontal: BorderSide(
-                                color: Pallete.white_30,
-                              ),
-                            ),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.105, vertical: 8),
-                          child: Text(
-                            'UX/UI Design',
-                            style: GoogleFonts.syne(
-                              fontSize: 48,
-                              fontWeight: FontWeight.w800,
-                              height: 1.0049999555,
-                              color: Pallete.bgBlack,
-                            ),
-                          ),
-                        ),
-                      ),
-                      // const CustomDivider(),
-                      TileContainer(
-                        width: double.infinity,
-                        height: 60,
-                        child1: Container(
-                          width: double.infinity,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                            border: Border.symmetric(
-                              horizontal: BorderSide(
-                                color: Pallete.white_30,
-                              ),
-                            ),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.105, vertical: 8),
-                          child: Text(
-                            'Design systems',
-                            style: GoogleFonts.syne(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                height: 1.0049999555,
-                                color: Pallete.notWhite),
-                          ),
-                        ),
-                        child2: Container(
-                          width: double.infinity,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                            color: Pallete.hYellow,
-                            border: Border.symmetric(
-                              horizontal: BorderSide(
-                                color: Pallete.white_30,
-                              ),
-                            ),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.105, vertical: 8),
-                          child: Text(
-                            'Design systems',
-                            style: GoogleFonts.syne(
-                              fontSize: 48,
-                              fontWeight: FontWeight.w800,
-                              height: 1.0049999555,
-                              color: Pallete.bgBlack,
-                            ),
-                          ),
+                        child2: YellowTileWidget(
+                          size: size,
+                          label: 'UX/UI Design',
                         ),
                       ),
                       TileContainer(
-                        width: double.infinity,
-                        height: 60,
-                        child1: Container(
-                          width: double.infinity,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                            border: Border.symmetric(
-                              horizontal: BorderSide(
-                                color: Pallete.white_30,
-                              ),
-                            ),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.105, vertical: 8),
-                          child: Text(
-                            'UX Research',
-                            style: GoogleFonts.syne(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                height: 1.0049999555,
-                                color: Pallete.notWhite),
-                          ),
+                        child1: BlackTileWidget(
+                          size: size,
+                          label: 'Design systems',
                         ),
-                        child2: Container(
-                          width: double.infinity,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                            border: Border.symmetric(
-                              horizontal: BorderSide(
-                                color: Pallete.white_30,
-                              ),
-                            ),
-                            color: Pallete.hYellow,
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.105, vertical: 8),
-                          child: Text(
-                            'UX Research',
-                            style: GoogleFonts.syne(
-                              fontSize: 48,
-                              fontWeight: FontWeight.w800,
-                              height: 1.0049999555,
-                              color: Pallete.bgBlack,
-                            ),
-                          ),
+                        child2: YellowTileWidget(
+                          size: size,
+                          label: 'Design systems',
                         ),
                       ),
                       TileContainer(
-                        width: double.infinity,
-                        height: 60,
-                        child1: Container(
-                          width: double.infinity,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                            border: Border.symmetric(
-                              horizontal: BorderSide(
-                                color: Pallete.white_30,
-                              ),
-                            ),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.105, vertical: 8),
-                          child: Text(
-                            'Design Facilitation',
-                            style: GoogleFonts.syne(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                height: 1.0049999555,
-                                color: Pallete.notWhite),
-                          ),
+                        child1: BlackTileWidget(
+                          size: size,
+                          label: 'UX Research',
                         ),
-                        child2: Container(
-                          width: double.infinity,
-                          height: 60,
-                          decoration: const BoxDecoration(
-                            border: Border.symmetric(
-                              horizontal: BorderSide(
-                                color: Pallete.white_30,
-                              ),
-                            ),
-                            color: Pallete.hYellow,
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.105, vertical: 8),
-                          child: Text(
-                            'Design Facilitation',
-                            style: GoogleFonts.syne(
-                              fontSize: 48,
-                              fontWeight: FontWeight.w800,
-                              height: 1.0049999555,
-                              color: Pallete.bgBlack,
-                            ),
-                          ),
+                        child2: YellowTileWidget(
+                          size: size,
+                          label: 'UX Research',
+                        ),
+                      ),
+                      TileContainer(
+                        child1: BlackTileWidget(
+                          size: size,
+                          label: 'Design Facilitation',
+                        ),
+                        child2: YellowTileWidget(
+                          size: size,
+                          label: 'Design Facilitation',
                         ),
                       ),
                     ],
@@ -474,14 +281,7 @@ class MainCopy extends StatelessWidget {
                 children: [
                   Text(
                     'PROJECTS ',
-                    style: GoogleFonts.syne(
-                      // 'Syne',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      height: 0.8599999547,
-                      letterSpacing: 4.32,
-                      color: Pallete.white,
-                    ),
+                    style: AppTextStyle.anotation,
                   ),
                   const SizedBox(
                     height: 10,
@@ -502,16 +302,8 @@ class MainCopy extends StatelessWidget {
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Text(
-                                'My favorite \nprojects',
-                                style: GoogleFonts.syne(
-                                  // 'Syne',
-                                  fontSize: 48,
-                                  fontWeight: FontWeight.w800,
-                                  height: 1.0049999952,
-                                  color: Pallete.notWhite,
-                                ),
-                              ),
+                              Text('My favorite \nprojects',
+                                  style: AppTextStyle.listExtended),
                               const Spacer(),
                               Container(
                                 width: 90,
@@ -524,13 +316,7 @@ class MainCopy extends StatelessWidget {
                                 child: Center(
                                   child: Text(
                                     'See all >>',
-                                    style: GoogleFonts.syne(
-                                      // 'Syne',
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1,
-                                      color: const Color(0xfffbb023),
-                                    ),
+                                    style: AppTextStyle.buttonTextStyle,
                                   ),
                                 ),
                               ),
@@ -566,31 +352,14 @@ class MainCopy extends StatelessWidget {
                       context.read<CursorProvider>().toggleMagnify(false),
                   child: Column(
                     children: [
-                      Text(
-                        'MY MOTO',
-                        style: GoogleFonts.syne(
-                          // 'Syne',
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                          height: 0.8599999547,
-                          letterSpacing: 4.32,
-                          color: Pallete.white,
-                        ),
-                      ),
+                      Text('MY MOTO', style: AppTextStyle.anotation),
                       const SizedBox(
                         height: 18,
                       ),
                       Text(
                         'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.syne(
-                          // 'Syne',
-                          fontSize: 96,
-                          fontWeight: FontWeight.w700,
-                          height: 0.8599999746,
-                          letterSpacing: -5.28,
-                          color: Pallete.notWhite,
-                        ),
+                        style: AppTextStyle.heading,
                       ),
                     ],
                   ),
@@ -608,14 +377,7 @@ class MainCopy extends StatelessWidget {
                 children: [
                   Text(
                     'Connect',
-                    style: GoogleFonts.syne(
-                      // 'Syne',
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      height: 0.8599999547,
-                      letterSpacing: 4.32,
-                      color: Pallete.white,
-                    ),
+                    style: AppTextStyle.anotation,
                   ),
                   const SizedBox(
                     height: 18,
@@ -634,13 +396,7 @@ class MainCopy extends StatelessWidget {
                               ),
                               Text(
                                 'LinkedIn',
-                                style: GoogleFonts.syne(
-                                  // 'Syne',
-                                  fontSize: 64,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1.0049999952,
-                                  color: Pallete.notWhite,
-                                ),
+                                style: AppTextStyle.body,
                               ),
                             ],
                           ),
@@ -650,31 +406,14 @@ class MainCopy extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  'EMAIL',
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.syne(
-                                    // 'Syne',
-                                    fontSize: 17.4117641449,
-                                    fontWeight: FontWeight.w700,
-                                    height: 0.8599999518,
-                                    letterSpacing: 4.7011763191,
-                                    color: Pallete.white,
-                                  ),
-                                ),
+                                Text('EMAIL',
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyle.anotationBold),
                                 const SizedBox(
                                   height: 8.9,
                                 ),
-                                Text(
-                                  'razamohdsajjad@gmail.com',
-                                  style: GoogleFonts.syne(
-                                    // 'Syne',
-                                    fontSize: 17.4117641449,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1,
-                                    color: Pallete.white,
-                                  ),
-                                ),
+                                Text('razamohdsajjad@gmail.com',
+                                    style: AppTextStyle.anotationBody),
                               ],
                             ),
                           )
@@ -692,13 +431,7 @@ class MainCopy extends StatelessWidget {
                               ),
                               Text(
                                 'Behance',
-                                style: GoogleFonts.syne(
-                                  // 'Syne',
-                                  fontSize: 64,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1.0049999952,
-                                  color: Pallete.notWhite,
-                                ),
+                                style: AppTextStyle.body,
                               ),
                             ],
                           ),
@@ -711,28 +444,13 @@ class MainCopy extends StatelessWidget {
                                 Text(
                                   'PHONE',
                                   textAlign: TextAlign.center,
-                                  style: GoogleFonts.syne(
-                                    // 'Syne',
-                                    fontSize: 17.4117641449,
-                                    fontWeight: FontWeight.w700,
-                                    height: 0.8599999518,
-                                    letterSpacing: 4.7011763191,
-                                    color: Pallete.white,
-                                  ),
+                                  style: AppTextStyle.anotationBold,
                                 ),
                                 const SizedBox(
                                   height: 8.9,
                                 ),
-                                Text(
-                                  '+91 9818164010',
-                                  style: GoogleFonts.poppins(
-                                    // 'Poppins',
-                                    fontSize: 15.2352933884,
-                                    fontWeight: FontWeight.w400,
-                                    height: 1,
-                                    color: Pallete.white,
-                                  ),
-                                ),
+                                Text('+91 9818164010',
+                                    style: AppTextStyle.anotationBody),
                               ],
                             ),
                           )
@@ -745,14 +463,7 @@ class MainCopy extends StatelessWidget {
                   ),
                   Text(
                     'FOR REQRUITERS',
-                    style: GoogleFonts.syne(
-                      // 'Syne',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      height: 0.8599999547,
-                      letterSpacing: 4.32,
-                      color: Pallete.white,
-                    ),
+                    style: AppTextStyle.anotation,
                   ),
                   const SizedBox(
                     height: 16,
@@ -783,14 +494,8 @@ class MainCopy extends StatelessWidget {
                         child: Center(
                           child: Text(
                             'Click here',
-                            style: GoogleFonts.syne(
-                              // 'Syne',
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
-                              height: 1.2941176471,
-                              letterSpacing: -0.400000006,
-                              color: Pallete.black,
-                            ),
+                            style: AppTextStyle.buttonTextStyle
+                                .copyWith(color: Pallete.bgBlack),
                           ),
                         ),
                       ),
@@ -801,6 +506,73 @@ class MainCopy extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class YellowTileWidget extends StatelessWidget {
+  const YellowTileWidget({
+    super.key,
+    required this.size,
+    required this.label,
+  });
+
+  final Size size;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 65,
+      decoration: const BoxDecoration(
+        color: Pallete.hYellow,
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            color: Pallete.white_30,
+          ),
+        ),
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: size.width * 0.105,
+      ),
+      child: Text(
+        label,
+        style: AppTextStyle.listExtended.copyWith(color: Pallete.bgBlack),
+      ),
+    );
+  }
+}
+
+class BlackTileWidget extends StatelessWidget {
+  const BlackTileWidget({
+    super.key,
+    required this.size,
+    required this.label,
+  });
+
+  final Size size;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 65,
+      decoration: const BoxDecoration(
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            color: Pallete.white_30,
+          ),
+        ),
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: size.width * 0.105,
+      ),
+      child: Text(
+        label,
+        style: AppTextStyle.listExtended,
       ),
     );
   }

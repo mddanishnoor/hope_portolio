@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class TileContainer extends StatefulWidget {
   const TileContainer(
       {super.key,
-      required this.height,
-      required this.width,
+      this.height = 65,
+      this.width = double.infinity,
       required this.child1,
       required this.child2});
-  final double width, height;
+  final double? width, height;
   final Widget child1, child2;
 
   @override
@@ -53,7 +53,8 @@ class _TileContainerState extends State<TileContainer>
           child: Stack(
             children: [
               widget.child1,
-              Center(
+              Align(
+                alignment: Alignment.bottomCenter,
                 child: SizedBox(
                     height: height.value,
                     width: width.value,
