@@ -87,7 +87,6 @@ class MainCopy extends StatelessWidget {
                     'HOPE',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.bebasNeue(
-                      // 'Bebas Neue',
                       fontSize: 32,
                       fontWeight: FontWeight.w400,
                       height: 0.8599999547,
