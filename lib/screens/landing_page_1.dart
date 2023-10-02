@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
@@ -9,6 +11,7 @@ import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/screens/landing_page_2.dart';
 import 'package:provider/provider.dart';
 import 'package:svg_flutter/svg.dart';
+import 'package:reveal_on_scroll/reveal_on_scroll.dart';
 
 class LandingPage1 extends StatelessWidget {
   LandingPage1({Key? key}) : super(key: key);
@@ -64,7 +67,6 @@ class MainCopy extends StatelessWidget {
 
   final Size size;
   final ScrollController scrollController2;
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -134,72 +136,10 @@ class MainCopy extends StatelessWidget {
               ],
             ),
           ),
-          LandingWidget(
-              child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: size.width * 0.1046),
-            child: Column(
-              children: [
-                const Spacer(),
-                MouseRegion(
-                  onEnter: (event) =>
-                      context.read<CursorProvider>().toggleMagnify(true),
-                  onExit: (event) =>
-                      context.read<CursorProvider>().toggleMagnify(false),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 12.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'ABOUT ME',
-                          style: AppTextStyle.anotation,
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        ShaderMask(
-                          shaderCallback: (bounds) {
-                            return LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                stops: [
-                                  (scrollController2.offset / size.height) *
-                                      0.7,
-                                  (scrollController2.offset / size.height) * 0.9
-                                ],
-                                colors: [
-                                  Colors.white.withOpacity(0.9),
-                                  Colors.white.withOpacity(0.1),
-                                ]).createShader(bounds);
-                          },
-                          child: RichText(
-                            text: TextSpan(
-                              style: AppTextStyle.body,
-                              children: [
-                                const TextSpan(
-                                  text: 'I am a ',
-                                ),
-                                TextSpan(
-                                    text: 'multidisciplinary',
-                                    style: AppTextStyle.body
-                                        .copyWith(color: Pallete.hYellow)),
-                                const TextSpan(
-                                  text:
-                                      ' designer creating inclusive experience through empathy and research.',
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                const Spacer(),
-              ],
-            ),
-          )),
+          AboutMeWidget(
+            size: size,
+            scrollController: scrollController2,
+          ),
           LandingWidget(
             child: Column(
               children: [
@@ -507,6 +447,151 @@ class MainCopy extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class AboutMeWidget extends StatefulWidget {
+  const AboutMeWidget({
+    super.key,
+    required this.size,
+    required this.scrollController,
+  });
+
+  final Size size;
+  final ScrollController scrollController;
+
+  @override
+  State<AboutMeWidget> createState() => _AboutMeWidgetState();
+}
+
+class _AboutMeWidgetState extends State<AboutMeWidget> {
+  double _y = 0;
+  @override
+  void initState() {
+    var _key = GlobalObjectKey('aboutme');
+    widget.scrollController.addListener(() {
+      final renderBox = _key.currentContext?.findRenderObject() as RenderBox;
+      final Offset offset = renderBox.localToGlobal(
+        renderBox.size.topLeft(Offset.zero),
+      );
+      setState(() {
+        _y = offset.dy;
+      });
+
+      log("${_y.toString()} :: ${(_y / widget.size.height)}");
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget.scrollController.removeListener(() {});
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+        key: const GlobalObjectKey('aboutme'),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: widget.size.width * 0.1046),
+          child: Column(
+            children: [
+              const Spacer(),
+              MouseRegion(
+                onEnter: (event) =>
+                    context.read<CursorProvider>().toggleMagnify(true),
+                onExit: (event) =>
+                    context.read<CursorProvider>().toggleMagnify(false),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'ABOUT ME',
+                        style: AppTextStyle.anotation,
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      Wrap(
+                        children: [
+                          ShaderMask(
+                            shaderCallback: (bounds) {
+                              return LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  stops: [
+                                    1 - ((_y / widget.size.height) * 0.515),
+                                    0,
+                                  ],
+                                  colors: [
+                                    Colors.white,
+                                    Colors.white.withOpacity(0.5)
+                                  ]).createShader(bounds);
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  'I am a ',
+                                  style: AppTextStyle.body,
+                                ),
+                                Text('multidisciplinary ',
+                                    style: AppTextStyle.body
+                                        .copyWith(color: Pallete.hYellow)),
+                              ],
+                            ),
+                          ),
+                          ShaderMask(
+                            shaderCallback: (bounds) {
+                              return LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  stops: [
+                                    1 - ((_y / widget.size.height) * 0.6),
+                                    0,
+                                  ],
+                                  colors: [
+                                    Colors.white,
+                                    Colors.white.withOpacity(0.7)
+                                  ]).createShader(bounds);
+                            },
+                            child: Text(
+                              'designer creating inclusive ',
+                              style: AppTextStyle.body,
+                            ),
+                          ),
+                          ShaderMask(
+                            shaderCallback: (bounds) {
+                              return LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  stops: [
+                                    1 - ((_y / widget.size.height) * 0.99),
+                                    0,
+                                  ],
+                                  colors: [
+                                    Colors.white,
+                                    Colors.white.withOpacity(0.7)
+                                  ]).createShader(bounds);
+                            },
+                            child: Text(
+                              'experience through empathy and research.',
+                              style: AppTextStyle.body,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              const Spacer(),
+            ],
+          ),
+        ));
   }
 }
 
