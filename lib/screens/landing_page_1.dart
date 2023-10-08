@@ -11,7 +11,6 @@ import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/screens/landing_page_2.dart';
 import 'package:provider/provider.dart';
 import 'package:svg_flutter/svg.dart';
-import 'package:reveal_on_scroll/reveal_on_scroll.dart';
 
 class LandingPage1 extends StatelessWidget {
   LandingPage1({Key? key}) : super(key: key);
@@ -465,20 +464,15 @@ class AboutMeWidget extends StatefulWidget {
 }
 
 class _AboutMeWidgetState extends State<AboutMeWidget> {
-  double _y = 0;
+  // double _y = 0;
   @override
   void initState() {
-    var _key = GlobalObjectKey('aboutme');
     widget.scrollController.addListener(() {
-      final renderBox = _key.currentContext?.findRenderObject() as RenderBox;
-      final Offset offset = renderBox.localToGlobal(
-        renderBox.size.topLeft(Offset.zero),
-      );
-      setState(() {
-        _y = offset.dy;
-      });
-
-      log("${_y.toString()} :: ${(_y / widget.size.height)}");
+      log("Scroll Offset : ${widget.scrollController.offset}");
+      log("Offset/Height : ${(widget.scrollController.offset / widget.size.height)}");
+      log("(Offset/Height) * width : ${(widget.scrollController.offset / widget.size.height) * widget.size.width}");
+      log("__________________________________________________________________________");
+      setState(() {});
     });
     super.initState();
   }
@@ -516,72 +510,74 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                       const SizedBox(
                         height: 16,
                       ),
-                      Wrap(
+                      Stack(
                         children: [
-                          ShaderMask(
-                            shaderCallback: (bounds) {
-                              return LinearGradient(
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                  stops: [
-                                    1 - ((_y / widget.size.height) * 0.515),
-                                    0,
-                                  ],
-                                  colors: [
-                                    Colors.white,
-                                    Colors.white.withOpacity(0.5)
-                                  ]).createShader(bounds);
-                            },
-                            child: Row(
-                              children: [
-                                Text(
-                                  'I am a ',
-                                  style: AppTextStyle.body,
-                                ),
-                                Text('multidisciplinary ',
-                                    style: AppTextStyle.body
-                                        .copyWith(color: Pallete.hYellow)),
-                              ],
-                            ),
+                          Wrap(
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    'I am a ',
+                                    style: AppTextStyle.body,
+                                  ),
+                                  Text('multidisciplinary ',
+                                      style: AppTextStyle.body
+                                          .copyWith(color: Pallete.hYellow)),
+                                ],
+                              ),
+                              Text(
+                                'designer creating inclusive ',
+                                style: AppTextStyle.body,
+                              ),
+                              Text(
+                                'experience through empathy and research.',
+                                style: AppTextStyle.body,
+                              ),
+                              // ),
+                            ],
                           ),
-                          ShaderMask(
-                            shaderCallback: (bounds) {
-                              return LinearGradient(
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                  stops: [
-                                    1 - ((_y / widget.size.height) * 0.6),
-                                    0,
-                                  ],
-                                  colors: [
-                                    Colors.white,
-                                    Colors.white.withOpacity(0.7)
-                                  ]).createShader(bounds);
-                            },
-                            child: Text(
-                              'designer creating inclusive ',
-                              style: AppTextStyle.body,
-                            ),
-                          ),
-                          ShaderMask(
-                            shaderCallback: (bounds) {
-                              return LinearGradient(
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                  stops: [
-                                    1 - ((_y / widget.size.height) * 0.99),
-                                    0,
-                                  ],
-                                  colors: [
-                                    Colors.white,
-                                    Colors.white.withOpacity(0.7)
-                                  ]).createShader(bounds);
-                            },
-                            child: Text(
-                              'experience through empathy and research.',
-                              style: AppTextStyle.body,
-                            ),
-                          ),
+                          Positioned(
+                            right: -((widget.scrollController.offset /
+                                    widget.size.height) *
+                                (widget.size.width) *
+                                2.2),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    width: (widget.size.width * 0.8),
+                                    height: 62,
+                                    decoration: BoxDecoration(
+                                      backgroundBlendMode: BlendMode.darken,
+                                      color: Pallete.bgBlack.withOpacity(0.5),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: (widget.size.width * 0.8) * 2,
+                                    height: 62,
+                                    decoration: BoxDecoration(
+                                      backgroundBlendMode: BlendMode.darken,
+                                      color: Pallete.bgBlack.withOpacity(0.5),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: (widget.size.width * 0.8) * 3,
+                                    height: 62,
+                                    decoration: BoxDecoration(
+                                      backgroundBlendMode: BlendMode.darken,
+                                      color: Pallete.bgBlack.withOpacity(0.5),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: (widget.size.width * 0.8) * 4,
+                                    height: 62,
+                                    decoration: BoxDecoration(
+                                      backgroundBlendMode: BlendMode.darken,
+                                      color: Pallete.bgBlack.withOpacity(0.5),
+                                    ),
+                                  )
+                                ]),
+                          )
                         ],
                       )
                     ],
