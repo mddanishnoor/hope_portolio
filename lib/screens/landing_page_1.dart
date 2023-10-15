@@ -470,10 +470,12 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                             ),
                             AnimatedPositioned(
                               duration: const Duration(milliseconds: 200),
-                              right: -(((widget.scrollController.offset /
-                                          widget.size.height) *
-                                      3) *
-                                  widget.size.width),
+                              right:
+                                  -(((((widget.scrollController.offset - 250) *
+                                                  1.3) /
+                                              widget.size.height) *
+                                          3) *
+                                      widget.size.width),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
