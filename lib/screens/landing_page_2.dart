@@ -11,6 +11,7 @@ import '../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
 import '../core/helper/mouse_follower.dart';
 import 'landing_page_1.dart';
+import 'project/projects_screen.dart';
 
 class LandingPage2 extends StatelessWidget {
   const LandingPage2({
@@ -285,19 +286,27 @@ class LandingPage2Child extends StatelessWidget {
                                         .copyWith(color: Pallete.bgBlack),
                                   ),
                                   const Spacer(),
-                                  Container(
-                                    width: 90,
-                                    height: 24,
-                                    decoration: BoxDecoration(
-                                      border:
-                                          Border.all(color: Pallete.bgBlack),
-                                      borderRadius: BorderRadius.circular(6),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'See all >>',
-                                        style: AppTextStyle.buttonTextStyle
-                                            .copyWith(color: Pallete.bgBlack),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (c) => ProjectScreen()));
+                                    },
+                                    child: Container(
+                                      width: 90,
+                                      height: 24,
+                                      decoration: BoxDecoration(
+                                        border:
+                                            Border.all(color: Pallete.bgBlack),
+                                        borderRadius: BorderRadius.circular(6),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'See all >>',
+                                          style: AppTextStyle.buttonTextStyle
+                                              .copyWith(color: Pallete.bgBlack),
+                                        ),
                                       ),
                                     ),
                                   ),

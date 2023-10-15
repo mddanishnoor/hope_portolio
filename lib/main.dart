@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
+import 'package:portfolio/providers/project_provider.dart';
 import 'package:portfolio/screens/landing_page_1.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [ChangeNotifierProvider(create: (c) => CursorProvider())],
+        providers: [
+          ChangeNotifierProvider(create: (c) => CursorProvider()),
+          ChangeNotifierProvider(create: (c) => ProjectProvider())
+        ],
         builder: (context, _) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,

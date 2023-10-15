@@ -1,10 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
+import 'package:portfolio/screens/project/projects_screen.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
 import '../../core/constant/theme/styles.dart';
+import '../../core/widgets/project_card.dart';
 import '../landing_page_1.dart';
 
 class FavouriteProjects extends StatelessWidget {
@@ -49,13 +52,13 @@ class FavouriteProjects extends StatelessWidget {
                         Text('My favorite \nprojects',
                             style: AppTextStyle.listExtended),
                         const Spacer(),
-                        Container(
-                          width: 90,
-                          height: 24,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: const Color(0xfffbb023)),
-                            borderRadius: BorderRadius.circular(6),
-                          ),
+                        YellowOutlinedButton(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (c) => ProjectScreen()));
+                          },
                           child: Center(
                             child: Text(
                               'See all >>',
@@ -116,29 +119,27 @@ class FavouriteProjects extends StatelessWidget {
   }
 }
 
-class ProjectsCard extends StatelessWidget {
-  const ProjectsCard({
+class YellowOutlinedButton extends StatelessWidget {
+  const YellowOutlinedButton({
     super.key,
-    required this.size,
-    required this.url,
+    this.onTap,
+    required this.child,
   });
-  final Size size;
-  final String url;
+  final Function()? onTap;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      image: DecorationImage(image: NetworkImage(url), fit: BoxFit.fill),
-    ));
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+          width: 90,
+          height: 24,
+          decoration: BoxDecoration(
+            border: Border.all(color: const Color(0xfffbb023)),
+            borderRadius: BorderRadius.circular(6),
+          ),
+          child: child),
+    );
   }
 }
-
-List<String> images = [
-  'https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-  'https://images.unsplash.com/photo-1547082299-de196ea013d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-  'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-];
