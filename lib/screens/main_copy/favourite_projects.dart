@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/providers/cursor_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/constant/theme/pallete.dart';
 import '../../core/constant/theme/styles.dart';
@@ -65,33 +67,41 @@ class FavouriteProjects extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      height: size.height * 0.653,
-                      padding: const EdgeInsets.symmetric(vertical: 18),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Pallete.grey,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: CarouselSlider(
-                        items: images
-                            .map((e) => ProjectsCard(
-                                size: Size(size.width * 0.4, size.height * 0.4),
-                                url: e))
-                            .toList(),
-                        options: CarouselOptions(
-                          aspectRatio: 700 / 420,
-                          viewportFraction: 0.65,
-                          initialPage: 0,
-                          enableInfiniteScroll: true,
-                          reverse: false,
-                          autoPlay: true,
-                          autoPlayInterval: const Duration(seconds: 2),
-                          autoPlayAnimationDuration: const Duration(seconds: 1),
-                          autoPlayCurve: Curves.fastOutSlowIn,
-                          enlargeCenterPage: true,
-                          enlargeFactor: 0.35,
-                          scrollDirection: Axis.horizontal,
+                    child: MouseRegion(
+                      onEnter: (event) =>
+                          context.read<CursorProvider>().toggleHide(true),
+                      onExit: (event) =>
+                          context.read<CursorProvider>().toggleHide(false),
+                      child: Container(
+                        height: size.height * 0.653,
+                        padding: const EdgeInsets.symmetric(vertical: 18),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Pallete.grey,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: CarouselSlider(
+                          items: images
+                              .map((e) => ProjectsCard(
+                                  size:
+                                      Size(size.width * 0.4, size.height * 0.4),
+                                  url: e))
+                              .toList(),
+                          options: CarouselOptions(
+                            aspectRatio: 700 / 420,
+                            viewportFraction: 0.65,
+                            initialPage: 0,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlay: true,
+                            autoPlayInterval: const Duration(seconds: 2),
+                            autoPlayAnimationDuration:
+                                const Duration(seconds: 1),
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            enlargeCenterPage: true,
+                            enlargeFactor: 0.35,
+                            scrollDirection: Axis.horizontal,
+                          ),
                         ),
                       ),
                     ),
