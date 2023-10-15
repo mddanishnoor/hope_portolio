@@ -84,11 +84,10 @@ class FavouriteProjects extends StatelessWidget {
                           viewportFraction: 0.65,
                           initialPage: 0,
                           enableInfiniteScroll: true,
-                          reverse: true,
+                          reverse: false,
                           autoPlay: true,
                           autoPlayInterval: const Duration(seconds: 2),
-                          autoPlayAnimationDuration:
-                              const Duration(milliseconds: 250),
+                          autoPlayAnimationDuration: const Duration(seconds: 1),
                           autoPlayCurve: Curves.fastOutSlowIn,
                           enlargeCenterPage: true,
                           enlargeFactor: 0.35,
