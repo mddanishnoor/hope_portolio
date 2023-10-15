@@ -12,6 +12,8 @@ import 'package:portfolio/screens/landing_page_2.dart';
 import 'package:provider/provider.dart';
 import 'package:svg_flutter/svg.dart';
 
+import 'main_copy/favourite_projects.dart';
+
 class LandingPage1 extends StatelessWidget {
   LandingPage1({Key? key}) : super(key: key);
   final ScrollController scrollController = ScrollController();
@@ -207,73 +209,7 @@ class MainCopy extends StatelessWidget {
                 ],
               ),
             ),
-            LandingWidget(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'PROJECTS ',
-                      style: AppTextStyle.anotation,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      height: size.height * 0.84,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border:
-                              Border.all(width: 1, color: Pallete.borderGrey)),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.065,
-                              vertical: size.height * 0.0299,
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text('My favorite \nprojects',
-                                    style: AppTextStyle.listExtended),
-                                const Spacer(),
-                                Container(
-                                  width: 90,
-                                  height: 24,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: const Color(0xfffbb023)),
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      'See all >>',
-                                      style: AppTextStyle.buttonTextStyle,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              height: size.height * 0.653,
-                              decoration: BoxDecoration(
-                                color: Pallete.grey,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            FavouriteProjects(size: size),
             LandingWidget(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

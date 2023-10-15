@@ -342,7 +342,7 @@ class LandingPage2Child extends StatelessWidget {
                             height: 18,
                           ),
                           Text(
-                            'SAME\nSTROKES\nFOR SIMILAR\nFOLKS',
+                            'SAME\nSTROKES FOR\nSIMILAR\nFOLKS',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.heading
                                 .copyWith(color: Pallete.bgBlack),
