@@ -70,381 +70,377 @@ class MainCopy extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       primary: true,
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          LandingWidget(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/png/hero_bg.jpeg'),
-                  fit: BoxFit.cover),
-            ),
-            child: Stack(
-              children: [
-                Positioned(
-                  left: size.height * 0.0241,
-                  top: size.height * 0.063,
-                  child: Text(
-                    'HOPE',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.bebasNeue(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w400,
-                      height: 0.8599999547,
-                      color: Pallete.white,
-                    ),
-                  ),
-                ),
-                Column(
-                  children: [
-                    const Spacer(),
-                    Align(
-                      alignment: Alignment.center,
-                      child: MouseRegion(
-                        onEnter: (event) =>
-                            context.read<CursorProvider>().toggleMagnify(true),
-                        onExit: (event) =>
-                            context.read<CursorProvider>().toggleMagnify(false),
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text('MOHAMMAD SAJJAD RAZA',
-                                  textAlign: TextAlign.center,
-                                  style: AppTextStyle.anotation),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              Text('ADVOCATE',
-                                  overflow: TextOverflow.fade,
-                                  style: AppTextStyle.heading
-                                      .copyWith(color: Pallete.hYellow)),
-                              Text('FOR\nUSERS',
-                                  textAlign: TextAlign.center,
-                                  style: AppTextStyle.heading),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          AboutMeWidget(
-            size: size,
-            scrollController: scrollController2,
-          ),
-          LandingWidget(
-            child: Column(
-              children: [
-                const Spacer(),
-                MouseRegion(
-                  onEnter: (event) =>
-                      context.read<CursorProvider>().toggleHide(true),
-                  onExit: (event) =>
-                      context.read<CursorProvider>().toggleHide(false),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: size.width * 0.105),
-                        child: Text(
-                          'WHAT I DO',
-                          style: AppTextStyle.anotation,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      TileContainer(
-                        child1: BlackTileWidget(
-                          size: size,
-                          label: 'UX/UI Design',
-                        ),
-                        child2: YellowTileWidget(
-                          size: size,
-                          label: 'UX/UI Design',
-                        ),
-                      ),
-                      TileContainer(
-                        child1: BlackTileWidget(
-                          size: size,
-                          label: 'Design systems',
-                        ),
-                        child2: YellowTileWidget(
-                          size: size,
-                          label: 'Design systems',
-                        ),
-                      ),
-                      TileContainer(
-                        child1: BlackTileWidget(
-                          size: size,
-                          label: 'UX Research',
-                        ),
-                        child2: YellowTileWidget(
-                          size: size,
-                          label: 'UX Research',
-                        ),
-                      ),
-                      TileContainer(
-                        child1: BlackTileWidget(
-                          size: size,
-                          label: 'Design Facilitation',
-                        ),
-                        child2: YellowTileWidget(
-                          size: size,
-                          label: 'Design Facilitation',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-              ],
-            ),
-          ),
-          LandingWidget(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'PROJECTS ',
-                    style: AppTextStyle.anotation,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: size.height * 0.84,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border:
-                            Border.all(width: 1, color: Pallete.borderGrey)),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: size.width * 0.065,
-                            vertical: size.height * 0.0299,
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text('My favorite \nprojects',
-                                  style: AppTextStyle.listExtended),
-                              const Spacer(),
-                              Container(
-                                width: 90,
-                                height: 24,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: const Color(0xfffbb023)),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'See all >>',
-                                    style: AppTextStyle.buttonTextStyle,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            height: size.height * 0.653,
-                            decoration: BoxDecoration(
-                              color: Pallete.grey,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
+      child: Consumer<CursorProvider>(builder: (context, provider, _) {
+        return Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            LandingWidget(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/png/hero_bg.jpeg'),
+                    fit: BoxFit.cover),
               ),
-            ),
-          ),
-          LandingWidget(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Spacer(),
-                MouseRegion(
-                  onEnter: (event) =>
-                      context.read<CursorProvider>().toggleMagnify(true),
-                  onExit: (event) =>
-                      context.read<CursorProvider>().toggleMagnify(false),
-                  child: Column(
-                    children: [
-                      Text('MY MOTO', style: AppTextStyle.anotation),
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      Text(
-                        'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
-                        textAlign: TextAlign.center,
-                        style: AppTextStyle.heading,
-                      ),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-              ],
-            ),
-          ),
-          LandingWidget(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Stack(
                 children: [
-                  Text(
-                    'Connect',
-                    style: AppTextStyle.anotation,
-                  ),
-                  const SizedBox(
-                    height: 18,
+                  Positioned(
+                    left: size.height * 0.0241,
+                    top: size.height * 0.063,
+                    child: Text(
+                      'HOPE',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.bebasNeue(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w400,
+                        height: 0.8599999547,
+                        color: Pallete.white,
+                      ),
+                    ),
                   ),
                   Column(
                     children: [
-                      Row(
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 12, right: 16),
-                                child: SvgPicture.asset('svg/rectangle.svg'),
-                              ),
-                              Text(
-                                'LinkedIn',
-                                style: AppTextStyle.body,
-                              ),
-                            ],
-                          ),
-                          const Spacer(),
-                          SizedBox(
-                            width: size.width * 0.18,
+                      const Spacer(),
+                      Align(
+                        alignment: Alignment.center,
+                        child: MouseRegion(
+                          onEnter: (event) => provider.toggleMagnify(true),
+                          onExit: (event) => provider.toggleMagnify(false),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text('EMAIL',
+                                Text('MOHAMMAD SAJJAD RAZA',
                                     textAlign: TextAlign.center,
-                                    style: AppTextStyle.anotationBold),
+                                    style: AppTextStyle.anotation),
                                 const SizedBox(
-                                  height: 8.9,
+                                  height: 16,
                                 ),
-                                Text('razamohdsajjad@gmail.com',
-                                    style: AppTextStyle.anotationBody),
+                                Text('ADVOCATE',
+                                    overflow: TextOverflow.fade,
+                                    style: AppTextStyle.heading
+                                        .copyWith(color: Pallete.hYellow)),
+                                Text('FOR\nUSERS',
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyle.heading),
                               ],
                             ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 12, right: 16),
-                                child: SvgPicture.asset('svg/rectangle.svg'),
-                              ),
-                              Text(
-                                'Behance',
-                                style: AppTextStyle.body,
-                              ),
-                            ],
                           ),
-                          const Spacer(),
-                          SizedBox(
-                            width: size.width * 0.18,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'PHONE',
-                                  textAlign: TextAlign.center,
-                                  style: AppTextStyle.anotationBold,
-                                ),
-                                const SizedBox(
-                                  height: 8.9,
-                                ),
-                                Text('+91 9818164010',
-                                    style: AppTextStyle.anotationBody),
-                              ],
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: size.height * 0.2,
-                  ),
-                  Text(
-                    'FOR REQRUITERS',
-                    style: AppTextStyle.anotation,
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'If you like to hire me',
-                        style: GoogleFonts.syne(
-                          // 'Syne',
-                          fontSize: 64,
-                          fontWeight: FontWeight.w600,
-                          height: 1.0049999952,
-                          color: Pallete.notWhite,
                         ),
                       ),
                       const Spacer(),
-                      Container(
-                        // frame2ha7 (22:498)
-                        margin: const EdgeInsets.fromLTRB(0, 15, 0, 12),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 8, horizontal: 12),
-
-                        decoration: BoxDecoration(
-                          color: Pallete.yellow,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Click here',
-                            style: AppTextStyle.buttonTextStyle
-                                .copyWith(color: Pallete.bgBlack),
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ],
               ),
             ),
-          )
-        ],
-      ),
+            AboutMeWidget(
+              size: size,
+              scrollController: scrollController2,
+            ),
+            LandingWidget(
+              child: Column(
+                children: [
+                  const Spacer(),
+                  MouseRegion(
+                    onEnter: (event) => provider.toggleHide(true),
+                    onExit: (event) => provider.toggleHide(false),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: size.width * 0.105),
+                          child: Text(
+                            'WHAT I DO',
+                            style: AppTextStyle.anotation,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TileContainer(
+                          child1: BlackTileWidget(
+                            size: size,
+                            label: 'UX/UI Design',
+                          ),
+                          child2: YellowTileWidget(
+                            size: size,
+                            label: 'UX/UI Design',
+                          ),
+                        ),
+                        TileContainer(
+                          child1: BlackTileWidget(
+                            size: size,
+                            label: 'Design systems',
+                          ),
+                          child2: YellowTileWidget(
+                            size: size,
+                            label: 'Design systems',
+                          ),
+                        ),
+                        TileContainer(
+                          child1: BlackTileWidget(
+                            size: size,
+                            label: 'UX Research',
+                          ),
+                          child2: YellowTileWidget(
+                            size: size,
+                            label: 'UX Research',
+                          ),
+                        ),
+                        TileContainer(
+                          child1: BlackTileWidget(
+                            size: size,
+                            label: 'Design Facilitation',
+                          ),
+                          child2: YellowTileWidget(
+                            size: size,
+                            label: 'Design Facilitation',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                ],
+              ),
+            ),
+            LandingWidget(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'PROJECTS ',
+                      style: AppTextStyle.anotation,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      height: size.height * 0.84,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border:
+                              Border.all(width: 1, color: Pallete.borderGrey)),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: size.width * 0.065,
+                              vertical: size.height * 0.0299,
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text('My favorite \nprojects',
+                                    style: AppTextStyle.listExtended),
+                                const Spacer(),
+                                Container(
+                                  width: 90,
+                                  height: 24,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: const Color(0xfffbb023)),
+                                    borderRadius: BorderRadius.circular(6),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      'See all >>',
+                                      style: AppTextStyle.buttonTextStyle,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: size.height * 0.653,
+                              decoration: BoxDecoration(
+                                color: Pallete.grey,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            LandingWidget(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Spacer(),
+                  MouseRegion(
+                    onEnter: (event) => provider.toggleMagnify(true),
+                    onExit: (event) => provider.toggleMagnify(false),
+                    child: Column(
+                      children: [
+                        Text('MY MOTO', style: AppTextStyle.anotation),
+                        const SizedBox(
+                          height: 18,
+                        ),
+                        Text(
+                          'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
+                          textAlign: TextAlign.center,
+                          style: AppTextStyle.heading,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                ],
+              ),
+            ),
+            LandingWidget(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Connect',
+                      style: AppTextStyle.anotation,
+                    ),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 12, right: 16),
+                                  child: SvgPicture.asset('svg/rectangle.svg'),
+                                ),
+                                Text(
+                                  'LinkedIn',
+                                  style: AppTextStyle.body,
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            SizedBox(
+                              width: size.width * 0.18,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('EMAIL',
+                                      textAlign: TextAlign.center,
+                                      style: AppTextStyle.anotationBold),
+                                  const SizedBox(
+                                    height: 8.9,
+                                  ),
+                                  Text('razamohdsajjad@gmail.com',
+                                      style: AppTextStyle.anotationBody),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 12, right: 16),
+                                  child: SvgPicture.asset('svg/rectangle.svg'),
+                                ),
+                                Text(
+                                  'Behance',
+                                  style: AppTextStyle.body,
+                                ),
+                              ],
+                            ),
+                            const Spacer(),
+                            SizedBox(
+                              width: size.width * 0.18,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'PHONE',
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyle.anotationBold,
+                                  ),
+                                  const SizedBox(
+                                    height: 8.9,
+                                  ),
+                                  Text('+91 9818164010',
+                                      style: AppTextStyle.anotationBody),
+                                ],
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: size.height * 0.2,
+                    ),
+                    Text(
+                      'FOR REQRUITERS',
+                      style: AppTextStyle.anotation,
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'If you like to hire me',
+                          style: GoogleFonts.syne(
+                            // 'Syne',
+                            fontSize: 64,
+                            fontWeight: FontWeight.w600,
+                            height: 1.0049999952,
+                            color: Pallete.notWhite,
+                          ),
+                        ),
+                        const Spacer(),
+                        Container(
+                          // frame2ha7 (22:498)
+                          margin: const EdgeInsets.fromLTRB(0, 15, 0, 12),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 12),
+
+                          decoration: BoxDecoration(
+                            color: Pallete.yellow,
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Click here',
+                              style: AppTextStyle.buttonTextStyle
+                                  .copyWith(color: Pallete.bgBlack),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        );
+      }),
     );
   }
 }
@@ -485,109 +481,111 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return LandingWidget(
-        key: const GlobalObjectKey('aboutme'),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: widget.size.width * 0.1046),
-          child: Column(
-            children: [
-              const Spacer(),
-              MouseRegion(
-                onEnter: (event) =>
-                    context.read<CursorProvider>().toggleMagnify(true),
-                onExit: (event) =>
-                    context.read<CursorProvider>().toggleMagnify(false),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 12.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'ABOUT ME',
-                        style: AppTextStyle.anotation,
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      Stack(
-                        children: [
-                          Wrap(
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    'I am a ',
-                                    style: AppTextStyle.body,
-                                  ),
-                                  Text('multidisciplinary ',
-                                      style: AppTextStyle.body
-                                          .copyWith(color: Pallete.hYellow)),
-                                ],
-                              ),
-                              Text(
-                                'designer creating inclusive ',
-                                style: AppTextStyle.body,
-                              ),
-                              Text(
-                                'experience through empathy and research.',
-                                style: AppTextStyle.body,
-                              ),
-                              // ),
-                            ],
-                          ),
-                          Positioned(
-                            right: -((widget.scrollController.offset /
-                                    widget.size.height) *
-                                (widget.size.width) *
-                                2.2),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    width: (widget.size.width * 0.8),
-                                    height: 62,
-                                    decoration: BoxDecoration(
-                                      backgroundBlendMode: BlendMode.darken,
-                                      color: Pallete.bgBlack.withOpacity(0.5),
+    return Consumer<CursorProvider>(builder: (context, provider, _) {
+      return LandingWidget(
+          key: const GlobalObjectKey('aboutme'),
+          child: Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: widget.size.width * 0.1046),
+            child: Column(
+              children: [
+                const Spacer(),
+                MouseRegion(
+                  onEnter: (event) => provider.toggleMagnify(true),
+                  onExit: (event) => provider.toggleMagnify(false),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 12.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'ABOUT ME',
+                          style: AppTextStyle.anotation,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        Stack(
+                          children: [
+                            Wrap(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'I am a ',
+                                      style: AppTextStyle.body,
                                     ),
-                                  ),
-                                  Container(
-                                    width: (widget.size.width * 0.8) * 2,
-                                    height: 62,
-                                    decoration: BoxDecoration(
-                                      backgroundBlendMode: BlendMode.darken,
-                                      color: Pallete.bgBlack.withOpacity(0.5),
+                                    Text('multidisciplinary ',
+                                        style: AppTextStyle.body
+                                            .copyWith(color: Pallete.hYellow)),
+                                  ],
+                                ),
+                                Text(
+                                  'designer creating inclusive ',
+                                  style: AppTextStyle.body,
+                                ),
+                                Text(
+                                  'experience through empathy and research.',
+                                  style: AppTextStyle.body,
+                                ),
+                                // ),
+                              ],
+                            ),
+                            AnimatedPositioned(
+                              duration: const Duration(milliseconds: 200),
+                              right: -((widget.scrollController.offset /
+                                      widget.size.height) *
+                                  (widget.size.width) *
+                                  2.2),
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Container(
+                                      width: (widget.size.width * 0.8),
+                                      height: 62,
+                                      decoration: BoxDecoration(
+                                        backgroundBlendMode: BlendMode.darken,
+                                        color: Pallete.bgBlack.withOpacity(0.5),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    width: (widget.size.width * 0.8) * 3,
-                                    height: 62,
-                                    decoration: BoxDecoration(
-                                      backgroundBlendMode: BlendMode.darken,
-                                      color: Pallete.bgBlack.withOpacity(0.5),
+                                    Container(
+                                      width: (widget.size.width * 0.8) * 2,
+                                      height: 62,
+                                      decoration: BoxDecoration(
+                                        backgroundBlendMode: BlendMode.darken,
+                                        color: Pallete.bgBlack.withOpacity(0.5),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    width: (widget.size.width * 0.8) * 4,
-                                    height: 62,
-                                    decoration: BoxDecoration(
-                                      backgroundBlendMode: BlendMode.darken,
-                                      color: Pallete.bgBlack.withOpacity(0.5),
+                                    Container(
+                                      width: (widget.size.width * 0.8) * 3,
+                                      height: 62,
+                                      decoration: BoxDecoration(
+                                        backgroundBlendMode: BlendMode.darken,
+                                        color: Pallete.bgBlack.withOpacity(0.5),
+                                      ),
                                     ),
-                                  )
-                                ]),
-                          )
-                        ],
-                      )
-                    ],
+                                    Container(
+                                      width: (widget.size.width * 0.8) * 4,
+                                      height: 62,
+                                      decoration: BoxDecoration(
+                                        backgroundBlendMode: BlendMode.darken,
+                                        color: Pallete.bgBlack.withOpacity(0.5),
+                                      ),
+                                    )
+                                  ]),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              const Spacer(),
-            ],
-          ),
-        ));
+                const Spacer(),
+              ],
+            ),
+          ));
+    });
   }
 }
 

@@ -30,8 +30,8 @@ class LandingPage2 extends StatelessWidget {
             radius: controller.hide
                 ? 0
                 : controller.isMagnified
-                    ? size.height * 0.25
-                    : 25,
+                    ? size.height * 0.4
+                    : 15,
             width: double.infinity,
             height: 60,
             child: LandingPage2Child(
