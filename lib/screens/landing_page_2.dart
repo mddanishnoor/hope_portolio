@@ -9,6 +9,7 @@ import 'package:svg_flutter/svg.dart';
 
 import '../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
+import '../core/helper/mouse_follower.dart';
 import 'landing_page_1.dart';
 
 class LandingPage2 extends StatelessWidget {
