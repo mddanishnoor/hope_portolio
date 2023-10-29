@@ -6,6 +6,7 @@ import 'package:portfolio/core/constant/theme/pallete.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/core/helper/navigation_bar.dart';
 import 'package:portfolio/core/widgets/animated_tile.dart';
+import 'package:portfolio/core/widgets/running_text_widget.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/screens/landing_page_2.dart';
 import 'package:provider/provider.dart';
@@ -139,75 +140,7 @@ class MainCopy extends StatelessWidget {
               size: size,
               scrollController: scrollController2,
             ),
-            LandingWidget(
-              child: Column(
-                children: [
-                  const Spacer(),
-                  MouseRegion(
-                    onEnter: (event) => provider.toggleHide(true),
-                    onExit: (event) => provider.toggleHide(false),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: size.width * 0.105),
-                          child: Text(
-                            'WHAT I DO',
-                            style: AppTextStyle.anotation,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TileContainer(
-                          child1: BlackTileWidget(
-                            size: size,
-                            label: 'UX/UI Design',
-                          ),
-                          child2: YellowTileWidget(
-                            size: size,
-                            label: 'UX/UI Design',
-                          ),
-                        ),
-                        TileContainer(
-                          child1: BlackTileWidget(
-                            size: size,
-                            label: 'Design systems',
-                          ),
-                          child2: YellowTileWidget(
-                            size: size,
-                            label: 'Design systems',
-                          ),
-                        ),
-                        TileContainer(
-                          child1: BlackTileWidget(
-                            size: size,
-                            label: 'UX Research',
-                          ),
-                          child2: YellowTileWidget(
-                            size: size,
-                            label: 'UX Research',
-                          ),
-                        ),
-                        TileContainer(
-                          child1: BlackTileWidget(
-                            size: size,
-                            label: 'Design Facilitation',
-                          ),
-                          child2: YellowTileWidget(
-                            size: size,
-                            label: 'Design Facilitation',
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
+            WhatIDoWidget(size: size, scrollController2: scrollController2),
             FavouriteProjects(size: size),
             LandingWidget(
               child: Column(
@@ -380,6 +313,130 @@ class MainCopy extends StatelessWidget {
   }
 }
 
+class WhatIDoWidget extends StatefulWidget {
+  const WhatIDoWidget({
+    super.key,
+    required this.size,
+    required this.scrollController2,
+  });
+
+  final Size size;
+  final ScrollController scrollController2;
+
+  @override
+  State<WhatIDoWidget> createState() => _WhatIDoWidgetState();
+}
+
+class _WhatIDoWidgetState extends State<WhatIDoWidget> {
+  @override
+  void initState() {
+    widget.scrollController2.addListener(() {
+      log("Height : ${widget.size.height}");
+      log("Scroll Offset : ${widget.scrollController2.offset}");
+      log("Offset/Height : ${(widget.scrollController2.offset / widget.size.height)}");
+      log("(Offset/Height) * width : ${(widget.scrollController2.offset / widget.size.height) * widget.size.width}");
+      log("__________________________________________________________________________");
+      log((-(((widget.scrollController2.offset - (125 * 3))) *
+              1.3 *
+              (3 / widget.size.height) *
+              widget.size.width))
+          .toString());
+
+      setState(() {});
+    });
+    super.initState();
+  }
+
+  GlobalKey widgetKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+      child: Column(
+        children: [
+          const Spacer(),
+          Consumer<CursorProvider>(
+            builder: (c, provider, _) => MouseRegion(
+              onEnter: (event) => provider.toggleHide(true),
+              onExit: (event) => provider.toggleHide(false),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: widget.size.width * 0.105),
+                    child: Text(
+                      'WHAT I DO',
+                      style: AppTextStyle.anotation,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Column(
+                    children: [
+                      TileContainer(
+                        multiplier: 1,
+                        scrollOffset: widget.scrollController2.offset,
+                        child1: BlackTileWidget(
+                          size: widget.size,
+                          label: 'UX/UI Design',
+                        ),
+                        child2: YellowTileWidget(
+                          size: widget.size,
+                          label: 'UX/UI Design',
+                        ),
+                      ),
+                      TileContainer(
+                        multiplier: 1.2,
+                        scrollOffset: widget.scrollController2.offset,
+                        child1: BlackTileWidget(
+                          size: widget.size,
+                          label: 'Design systems',
+                        ),
+                        child2: YellowTileWidget(
+                          size: widget.size,
+                          label: 'Design systems',
+                        ),
+                      ),
+                      TileContainer(
+                        multiplier: 1.3,
+                        scrollOffset: widget.scrollController2.offset,
+                        child1: BlackTileWidget(
+                          size: widget.size,
+                          label: 'UX Research',
+                        ),
+                        child2: YellowTileWidget(
+                          size: widget.size,
+                          label: 'UX Research',
+                        ),
+                      ),
+                      TileContainer(
+                        multiplier: 1.4,
+                        scrollOffset: widget.scrollController2.offset,
+                        child1: BlackTileWidget(
+                          size: widget.size,
+                          label: 'Design Facilitation',
+                        ),
+                        child2: YellowTileWidget(
+                          size: widget.size,
+                          label: 'Design Facilitation',
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+          const Spacer(),
+        ],
+      ),
+    );
+  }
+}
+
 class AboutMeWidget extends StatefulWidget {
   const AboutMeWidget({
     super.key,
@@ -399,10 +456,6 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
   @override
   void initState() {
     widget.scrollController.addListener(() {
-      log("Scroll Offset : ${widget.scrollController.offset}");
-      log("Offset/Height : ${(widget.scrollController.offset / widget.size.height)}");
-      log("(Offset/Height) * width : ${(widget.scrollController.offset / widget.size.height) * widget.size.width}");
-      log("__________________________________________________________________________");
       setState(() {});
     });
     super.initState();
@@ -414,11 +467,13 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
     super.dispose();
   }
 
+  GlobalKey widgetKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Consumer<CursorProvider>(builder: (context, provider, _) {
       return LandingWidget(
-          key: const GlobalObjectKey('aboutme'),
+          key: widgetKey,
           child: Padding(
             padding:
                 EdgeInsets.symmetric(horizontal: widget.size.width * 0.1046),
@@ -441,9 +496,12 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                         const SizedBox(
                           height: 16,
                         ),
-                        Stack(
-                          children: [
-                            Wrap(
+                        RunningText(
+                            index: 1,
+                            size: widget.size,
+                            offset: widget.scrollController.offset,
+                            maxLines: 5,
+                            child: Wrap(
                               children: [
                                 Row(
                                   children: [
@@ -466,54 +524,7 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                                 ),
                                 // ),
                               ],
-                            ),
-                            AnimatedPositioned(
-                              duration: const Duration(milliseconds: 200),
-                              right:
-                                  -(((((widget.scrollController.offset - 250) *
-                                                  1.3) /
-                                              widget.size.height) *
-                                          3) *
-                                      widget.size.width),
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Container(
-                                      width: (widget.size.width * 0.8),
-                                      height: 62,
-                                      decoration: BoxDecoration(
-                                        backgroundBlendMode: BlendMode.darken,
-                                        color: Pallete.bgBlack.withOpacity(0.5),
-                                      ),
-                                    ),
-                                    Container(
-                                      width: (widget.size.width * 0.8) * 2,
-                                      height: 62,
-                                      decoration: BoxDecoration(
-                                        backgroundBlendMode: BlendMode.darken,
-                                        color: Pallete.bgBlack.withOpacity(0.5),
-                                      ),
-                                    ),
-                                    Container(
-                                      width: (widget.size.width * 0.8) * 3,
-                                      height: 62,
-                                      decoration: BoxDecoration(
-                                        backgroundBlendMode: BlendMode.darken,
-                                        color: Pallete.bgBlack.withOpacity(0.5),
-                                      ),
-                                    ),
-                                    Container(
-                                      width: (widget.size.width * 0.8) * 4,
-                                      height: 62,
-                                      decoration: BoxDecoration(
-                                        backgroundBlendMode: BlendMode.darken,
-                                        color: Pallete.bgBlack.withOpacity(0.5),
-                                      ),
-                                    )
-                                  ]),
-                            )
-                          ],
-                        )
+                            ))
                       ],
                     ),
                   ),

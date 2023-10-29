@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/widgets/running_text_widget.dart';
 
 class TileContainer extends StatefulWidget {
   const TileContainer(
@@ -6,9 +7,13 @@ class TileContainer extends StatefulWidget {
       this.height = 65,
       this.width = double.infinity,
       required this.child1,
-      required this.child2});
+      required this.child2,
+      required this.scrollOffset,
+      required this.multiplier});
   final double? width, height;
   final Widget child1, child2;
+  final double scrollOffset;
+  final double multiplier;
 
   @override
   State<TileContainer> createState() => _TileContainerState();
@@ -52,7 +57,14 @@ class _TileContainerState extends State<TileContainer>
           height: widget.height,
           child: Stack(
             children: [
-              widget.child1,
+              RunningText(
+                  //  key: widgetKey,
+                  index: (3.5) * widget.multiplier,
+                  size: MediaQuery.of(context).size,
+                  offset: widget.scrollOffset,
+                  maxLines: 1,
+                  height: 65,
+                  child: widget.child1),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: SizedBox(
