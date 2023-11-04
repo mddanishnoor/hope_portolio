@@ -59,12 +59,7 @@ class FavouriteProjects extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (c) => ProjectScreen()));
                           },
-                          child: Center(
-                            child: Text(
-                              'See all >>',
-                              style: AppTextStyle.buttonTextStyle,
-                            ),
-                          ),
+                          label: 'See all >>',
                         ),
                       ],
                     ),
@@ -119,27 +114,60 @@ class FavouriteProjects extends StatelessWidget {
   }
 }
 
-class YellowOutlinedButton extends StatelessWidget {
+class YellowOutlinedButton extends StatefulWidget {
   const YellowOutlinedButton({
     super.key,
     this.onTap,
-    required this.child,
+    required this.label,
+    this.labelStyle,
   });
   final Function()? onTap;
-  final Widget child;
+  final String label;
+  final TextStyle? labelStyle;
 
   @override
+  State<YellowOutlinedButton> createState() => _YellowOutlinedButtonState();
+}
+
+class _YellowOutlinedButtonState extends State<YellowOutlinedButton> {
+  bool isHovered = false;
+  @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-          width: 90,
-          height: 24,
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() {
+          isHovered = true;
+          context.read<CursorProvider>().toggleHide(true);
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          isHovered = false;
+          context.read<CursorProvider>().toggleHide(false);
+        });
+      },
+      child: InkWell(
+        onTap: widget.onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
           decoration: BoxDecoration(
-            border: Border.all(color: const Color(0xfffbb023)),
-            borderRadius: BorderRadius.circular(6),
-          ),
-          child: child),
+              border: Border.all(
+                  width: 1.0,
+                  color: !isHovered ? Pallete.hYellow : Pallete.bgBlack),
+              borderRadius: BorderRadius.circular(6),
+              color: isHovered ? Pallete.hYellow : Pallete.bgBlack
+              // You can set the background color here.
+              // Example: color: buttonColor,
+              ),
+          child: Center(
+              child: Text(
+            widget.label,
+            style: widget.labelStyle ??
+                AppTextStyle.buttonTextStyle.copyWith(
+                    color: isHovered ? Pallete.bgBlack : Pallete.hYellow),
+          )),
+        ),
+      ),
     );
   }
 }
