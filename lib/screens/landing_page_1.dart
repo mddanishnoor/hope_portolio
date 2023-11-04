@@ -240,7 +240,7 @@ class MainCopy extends StatelessWidget {
                               flex: 2,
                               child: AnimatedTileContainer(
                                 child1: Container(
-                                  padding: EdgeInsets.all(4),
+                                  padding: const EdgeInsets.all(4),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -258,7 +258,7 @@ class MainCopy extends StatelessWidget {
                                   ),
                                 ),
                                 child2: Container(
-                                  padding: EdgeInsets.all(4),
+                                  padding: const EdgeInsets.all(4),
                                   color: Pallete.hYellow,
                                   child: Column(
                                     crossAxisAlignment:
@@ -319,7 +319,7 @@ class MainCopy extends StatelessWidget {
                               flex: 2,
                               child: AnimatedTileContainer(
                                 child1: Container(
-                                  padding: EdgeInsets.all(4),
+                                  padding: const EdgeInsets.all(4),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -337,7 +337,7 @@ class MainCopy extends StatelessWidget {
                                   ),
                                 ),
                                 child2: Container(
-                                  padding: EdgeInsets.all(4),
+                                  padding: const EdgeInsets.all(4),
                                   color: Pallete.hYellow,
                                   child: Column(
                                     crossAxisAlignment:
