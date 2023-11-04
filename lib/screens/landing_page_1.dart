@@ -381,11 +381,12 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                         scrollOffset: widget.scrollController2.offset,
                         child1: BlackTileWidget(
                           size: widget.size,
-                          label: 'UX/UI Design',
+                          label: 'UX/UI',
                         ),
                         child2: YellowTileWidget(
                           size: widget.size,
-                          label: 'UX/UI Design',
+                          label: 'UX/UI',
+                          secondLabel: 'Mostly designing websites and apps',
                         ),
                       ),
                       TileContainer(
@@ -393,11 +394,13 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                         scrollOffset: widget.scrollController2.offset,
                         child1: BlackTileWidget(
                           size: widget.size,
-                          label: 'Design systems',
+                          label: 'Systems',
                         ),
                         child2: YellowTileWidget(
                           size: widget.size,
-                          label: 'Design systems',
+                          label: 'Systems',
+                          secondLabel:
+                              'Designing systems for the company to function efficiently',
                         ),
                       ),
                       TileContainer(
@@ -405,11 +408,12 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                         scrollOffset: widget.scrollController2.offset,
                         child1: BlackTileWidget(
                           size: widget.size,
-                          label: 'UX Research',
+                          label: 'Facilitation',
                         ),
                         child2: YellowTileWidget(
                           size: widget.size,
-                          label: 'UX Research',
+                          label: 'Facilitation',
+                          secondLabel: 'Helping others, design',
                         ),
                       ),
                       TileContainer(
@@ -417,11 +421,26 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                         scrollOffset: widget.scrollController2.offset,
                         child1: BlackTileWidget(
                           size: widget.size,
-                          label: 'Design Facilitation',
+                          label: 'Research',
                         ),
                         child2: YellowTileWidget(
                           size: widget.size,
-                          label: 'Design Facilitation',
+                          label: 'Research',
+                          secondLabel: 'My job is to know what the users wants',
+                        ),
+                      ),
+                      TileContainer(
+                        multiplier: 1.5,
+                        scrollOffset: widget.scrollController2.offset,
+                        child1: BlackTileWidget(
+                          size: widget.size,
+                          label: 'Testing',
+                        ),
+                        child2: YellowTileWidget(
+                          size: widget.size,
+                          label: 'Testing',
+                          secondLabel:
+                              'Looking at numbers to prove success in usability ',
                         ),
                       ),
                     ],
@@ -497,34 +516,30 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                           height: 16,
                         ),
                         RunningText(
-                            index: 1,
-                            size: widget.size,
-                            offset: widget.scrollController.offset,
-                            maxLines: 5,
-                            child: Wrap(
+                          index: 1,
+                          size: widget.size,
+                          offset: widget.scrollController.offset,
+                          maxLines: 5,
+                          child: RichText(
+                            text: TextSpan(
+                              style: AppTextStyle.body,
                               children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      'I am a ',
-                                      style: AppTextStyle.body,
-                                    ),
-                                    Text('multidisciplinary ',
-                                        style: AppTextStyle.body
-                                            .copyWith(color: Pallete.hYellow)),
-                                  ],
+                                const TextSpan(
+                                  text: 'I am a ',
                                 ),
-                                Text(
-                                  'designer creating inclusive ',
-                                  style: AppTextStyle.body,
+                                TextSpan(
+                                  text: 'multidisciplinary',
+                                  style: AppTextStyle.body
+                                      .copyWith(color: Pallete.hYellow),
                                 ),
-                                Text(
-                                  'experience through empathy and research.',
-                                  style: AppTextStyle.body,
+                                const TextSpan(
+                                  text:
+                                      ' designer creating inclusive experience through empathy and research.',
                                 ),
-                                // ),
                               ],
-                            ))
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -542,10 +557,12 @@ class YellowTileWidget extends StatelessWidget {
     super.key,
     required this.size,
     required this.label,
+    required this.secondLabel,
   });
 
   final Size size;
   final String label;
+  final String secondLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -563,9 +580,23 @@ class YellowTileWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: size.width * 0.105,
       ),
-      child: Text(
-        label,
-        style: AppTextStyle.listExtended.copyWith(color: Pallete.bgBlack),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              label,
+              style: AppTextStyle.listExtended.copyWith(color: Pallete.bgBlack),
+            ),
+          ),
+          // const Spacer(),
+          Text(
+            secondLabel,
+            style: GoogleFonts.archivo(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Pallete.bgBlack),
+          )
+        ],
       ),
     );
   }

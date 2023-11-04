@@ -171,26 +171,11 @@ class LandingPage2Child extends StatelessWidget {
                                 const SizedBox(
                                   height: 16,
                                 ),
-                                RichText(
-                                  text: TextSpan(
-                                    style: AppTextStyle.body
-                                        .copyWith(color: Pallete.bgBlack),
-                                    children: [
-                                      const TextSpan(
-                                        text: 'I am a ',
-                                      ),
-                                      TextSpan(
-                                        text: 'multidisciplinary',
-                                        style: AppTextStyle.body
-                                            .copyWith(color: Pallete.bgBlack),
-                                      ),
-                                      const TextSpan(
-                                        text:
-                                            ' designer creating inclusive experience through empathy and research.',
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                                Text(
+                                  'A designer who does more than just design, for those who want more than just design.',
+                                  style: AppTextStyle.body
+                                      .copyWith(color: Pallete.black),
+                                )
                               ],
                             ),
                           ),
@@ -228,18 +213,22 @@ class LandingPage2Child extends StatelessWidget {
                           YellowTileWidget(
                             size: size,
                             label: 'UX/UI Design',
+                            secondLabel: '',
                           ),
                           YellowTileWidget(
                             size: size,
                             label: 'Design systems',
+                            secondLabel: '',
                           ),
                           YellowTileWidget(
                             size: size,
                             label: 'UX Research',
+                            secondLabel: '',
                           ),
                           YellowTileWidget(
                             size: size,
                             label: 'Design Facilitation',
+                            secondLabel: '',
                           ),
                         ],
                       ),
