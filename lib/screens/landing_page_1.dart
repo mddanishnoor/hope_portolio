@@ -269,38 +269,58 @@ class MainCopy extends StatelessWidget {
                     const SizedBox(
                       height: 16,
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          'If you like to hire me',
-                          style: GoogleFonts.syne(
-                            // 'Syne',
-                            fontSize: 64,
-                            fontWeight: FontWeight.w600,
-                            height: 1.0049999952,
-                            color: Pallete.notWhite,
-                          ),
-                        ),
-                        const Spacer(),
-                        Container(
-                          // frame2ha7 (22:498)
-                          margin: const EdgeInsets.fromLTRB(0, 15, 0, 12),
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 8, horizontal: 12),
-
-                          decoration: BoxDecoration(
-                            color: Pallete.yellow,
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Click here',
-                              style: AppTextStyle.buttonTextStyle
-                                  .copyWith(color: Pallete.bgBlack),
+                    AnimatedTileContainer(
+                      child1: Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'If you like to hire me',
+                                style: GoogleFonts.syne(
+                                  // 'Syne',
+                                  fontSize: 64,
+                                  fontWeight: FontWeight.w600,
+                                  height: 1.0049999952,
+                                  color: Pallete.notWhite,
+                                ),
+                              ),
                             ),
+                            // const Spacer(),
+                            const CustomElevatedButton(
+                              label: 'Click here',
+                              isYellow: false,
+                            ),
+                          ],
+                        ),
+                      ),
+                      child2: ColoredBox(
+                        color: Pallete.hYellow,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'If you like to hire me',
+                                  style: GoogleFonts.syne(
+                                    // 'Syne',
+                                    fontSize: 64,
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.0049999952,
+                                    color: Pallete.bgBlack,
+                                  ),
+                                ),
+                              ),
+                              // const Spacer(),
+                              const CustomElevatedButton(
+                                label: 'Click here',
+                                isYellow: true,
+                              ),
+                            ],
                           ),
                         ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
@@ -309,6 +329,46 @@ class MainCopy extends StatelessWidget {
           ],
         );
       }),
+    );
+  }
+}
+
+class CustomElevatedButton extends StatefulWidget {
+  const CustomElevatedButton({
+    super.key,
+    required this.label,
+    this.labelStyle,
+    required this.isYellow,
+  });
+  final String label;
+  final bool isYellow;
+  final TextStyle? labelStyle;
+
+  @override
+  State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
+}
+
+class _CustomElevatedButtonState extends State<CustomElevatedButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // frame2ha7 (22:498)
+      margin: const EdgeInsets.fromLTRB(0, 15, 0, 12),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+
+      decoration: BoxDecoration(
+        color: widget.isYellow ? Pallete.bgBlack : Pallete.yellow,
+        borderRadius: BorderRadius.circular(6),
+      ),
+      child: Center(
+        child: Text(
+          widget.label,
+          style: widget.labelStyle ??
+              AppTextStyle.buttonTextStyle.copyWith(
+                color: !widget.isYellow ? Pallete.bgBlack : Pallete.yellow,
+              ),
+        ),
+      ),
     );
   }
 }
@@ -376,7 +436,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                   ),
                   Column(
                     children: [
-                      TileContainer(
+                      RunningAnimatedTileContainer(
                         multiplier: 1,
                         scrollOffset: widget.scrollController2.offset,
                         child1: BlackTileWidget(
@@ -389,7 +449,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                           secondLabel: 'Mostly designing websites and apps',
                         ),
                       ),
-                      TileContainer(
+                      RunningAnimatedTileContainer(
                         multiplier: 1.2,
                         scrollOffset: widget.scrollController2.offset,
                         child1: BlackTileWidget(
@@ -403,7 +463,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                               'Designing systems for the company to function efficiently',
                         ),
                       ),
-                      TileContainer(
+                      RunningAnimatedTileContainer(
                         multiplier: 1.3,
                         scrollOffset: widget.scrollController2.offset,
                         child1: BlackTileWidget(
@@ -416,7 +476,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                           secondLabel: 'Helping others, design',
                         ),
                       ),
-                      TileContainer(
+                      RunningAnimatedTileContainer(
                         multiplier: 1.4,
                         scrollOffset: widget.scrollController2.offset,
                         child1: BlackTileWidget(
@@ -429,7 +489,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                           secondLabel: 'My job is to know what the users wants',
                         ),
                       ),
-                      TileContainer(
+                      RunningAnimatedTileContainer(
                         multiplier: 1.5,
                         scrollOffset: widget.scrollController2.offset,
                         child1: BlackTileWidget(
