@@ -171,7 +171,8 @@ class MainCopy extends StatelessWidget {
             ),
             LandingWidget(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                padding: EdgeInsets.only(
+                    left: size.width * 0.105, right: size.width * 0.08),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,72 +188,177 @@ class MainCopy extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 12, right: 16),
-                                  child: SvgPicture.asset('svg/rectangle.svg'),
-                                ),
-                                Text(
-                                  'LinkedIn',
-                                  style: AppTextStyle.body,
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            SizedBox(
-                              width: size.width * 0.18,
-                              child: Column(
+                            Expanded(
+                              flex: 5,
+                              child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('EMAIL',
-                                      textAlign: TextAlign.center,
-                                      style: AppTextStyle.anotationBold),
-                                  const SizedBox(
-                                    height: 8.9,
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 12, right: 16),
+                                    child:
+                                        SvgPicture.asset('svg/rectangle.svg'),
                                   ),
-                                  Text('razamohdsajjad@gmail.com',
-                                      style: AppTextStyle.anotationBody),
+                                  AnimatedTileContainer(
+                                    child1: Row(
+                                      children: [
+                                        Text(
+                                          'LinkedIn',
+                                          style: AppTextStyle.body,
+                                        ),
+                                        Text(
+                                          'Work, work, work',
+                                          style: AppTextStyle.projectText
+                                              .copyWith(color: Pallete.bgBlack),
+                                        )
+                                      ],
+                                    ),
+                                    child2: ColoredBox(
+                                      color: Pallete.hYellow,
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'LinkedIn',
+                                            style: AppTextStyle.body.copyWith(
+                                                color: Pallete.bgBlack),
+                                          ),
+                                          Text(
+                                            'Work, work, work',
+                                            style: AppTextStyle.projectText
+                                                .copyWith(
+                                                    color: Pallete.bgBlack),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
                                 ],
+                              ),
+                            ),
+                            // const Spacer(),
+                            Expanded(
+                              flex: 2,
+                              child: AnimatedTileContainer(
+                                child1: Container(
+                                  padding: EdgeInsets.all(4),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text('EMAIL',
+                                          textAlign: TextAlign.center,
+                                          style: AppTextStyle.anotationBold),
+                                      const SizedBox(
+                                        height: 8.9,
+                                      ),
+                                      Text('razamohdsajjad@gmail.com',
+                                          style: AppTextStyle.anotationBody),
+                                    ],
+                                  ),
+                                ),
+                                child2: Container(
+                                  padding: EdgeInsets.all(4),
+                                  color: Pallete.hYellow,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text('EMAIL',
+                                          textAlign: TextAlign.center,
+                                          style: AppTextStyle.anotationBold
+                                              .copyWith(
+                                                  color: Pallete.bgBlack)),
+                                      const SizedBox(
+                                        height: 8.9,
+                                      ),
+                                      Text('razamohdsajjad@gmail.com',
+                                          style: AppTextStyle.anotationBody
+                                              .copyWith(
+                                                  color: Pallete.bgBlack)),
+                                    ],
+                                  ),
+                                ),
                               ),
                             )
                           ],
                         ),
                         Row(
                           children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 12, right: 16),
-                                  child: SvgPicture.asset('svg/rectangle.svg'),
-                                ),
-                                Text(
-                                  'Behance',
-                                  style: AppTextStyle.body,
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            SizedBox(
-                              width: size.width * 0.18,
-                              child: Column(
+                            Expanded(
+                              flex: 5,
+                              child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'PHONE',
-                                    textAlign: TextAlign.center,
-                                    style: AppTextStyle.anotationBold,
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 12, right: 16),
+                                    child:
+                                        SvgPicture.asset('svg/rectangle.svg'),
                                   ),
-                                  const SizedBox(
-                                    height: 8.9,
+                                  AnimatedTileContainer(
+                                    child1: Text(
+                                      'Behance',
+                                      style: AppTextStyle.body,
+                                    ),
+                                    child2: ColoredBox(
+                                      color: Pallete.hYellow,
+                                      child: Text(
+                                        'Behance',
+                                        style: AppTextStyle.body
+                                            .copyWith(color: Pallete.bgBlack),
+                                      ),
+                                    ),
                                   ),
-                                  Text('+91 9818164010',
-                                      style: AppTextStyle.anotationBody),
                                 ],
+                              ),
+                            ),
+                            // const Spacer(),
+                            Expanded(
+                              flex: 2,
+                              child: AnimatedTileContainer(
+                                child1: Container(
+                                  padding: EdgeInsets.all(4),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text('PHONE',
+                                          textAlign: TextAlign.center,
+                                          style: AppTextStyle.anotationBold),
+                                      const SizedBox(
+                                        height: 8.9,
+                                      ),
+                                      Text('+91 9818164010',
+                                          style: AppTextStyle.anotationBody),
+                                    ],
+                                  ),
+                                ),
+                                child2: Container(
+                                  padding: EdgeInsets.all(4),
+                                  color: Pallete.hYellow,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text('PHONE',
+                                          textAlign: TextAlign.center,
+                                          style: AppTextStyle.anotationBold
+                                              .copyWith(
+                                                  color: Pallete.bgBlack)),
+                                      const SizedBox(
+                                        height: 8.9,
+                                      ),
+                                      Text('+91 9818164010',
+                                          style: AppTextStyle.anotationBody
+                                              .copyWith(
+                                                  color: Pallete.bgBlack)),
+                                    ],
+                                  ),
+                                ),
                               ),
                             )
                           ],
@@ -269,58 +375,45 @@ class MainCopy extends StatelessWidget {
                     const SizedBox(
                       height: 16,
                     ),
-                    AnimatedTileContainer(
-                      child1: Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                'If you like to hire me',
-                                style: GoogleFonts.syne(
-                                  // 'Syne',
-                                  fontSize: 64,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1.0049999952,
-                                  color: Pallete.notWhite,
-                                ),
+                    Row(
+                      children: [
+                        AnimatedTileContainer(
+                          child1: Text(
+                            'If you like to hire me',
+                            style: GoogleFonts.syne(
+                              // 'Syne',
+                              fontSize: 64,
+                              fontWeight: FontWeight.w600,
+                              height: 1.0049999952,
+                              color: Pallete.notWhite,
+                            ),
+                          ),
+                          child2: ColoredBox(
+                            color: Pallete.hYellow,
+                            child: Text(
+                              'If you like to hire me',
+                              style: GoogleFonts.syne(
+                                // 'Syne',
+                                fontSize: 64,
+                                fontWeight: FontWeight.w600,
+                                height: 1.0049999952,
+                                color: Pallete.bgBlack,
                               ),
                             ),
-                            // const Spacer(),
-                            const CustomElevatedButton(
-                              label: 'Click here',
-                              isYellow: false,
-                            ),
-                          ],
-                        ),
-                      ),
-                      child2: ColoredBox(
-                        color: Pallete.hYellow,
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  'If you like to hire me',
-                                  style: GoogleFonts.syne(
-                                    // 'Syne',
-                                    fontSize: 64,
-                                    fontWeight: FontWeight.w600,
-                                    height: 1.0049999952,
-                                    color: Pallete.bgBlack,
-                                  ),
-                                ),
-                              ),
-                              // const Spacer(),
-                              const CustomElevatedButton(
-                                label: 'Click here',
-                                isYellow: true,
-                              ),
-                            ],
                           ),
                         ),
-                      ),
+                        const Spacer(),
+                        const AnimatedTileContainer(
+                          child1: CustomElevatedButton(
+                            label: 'Click here',
+                            isYellow: false,
+                          ),
+                          child2: CustomElevatedButton(
+                            label: 'Click here',
+                            isYellow: true,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -358,6 +451,8 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
 
       decoration: BoxDecoration(
         color: widget.isYellow ? Pallete.bgBlack : Pallete.yellow,
+        border: Border.all(
+            color: widget.isYellow ? Pallete.hYellow : Colors.transparent),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Center(

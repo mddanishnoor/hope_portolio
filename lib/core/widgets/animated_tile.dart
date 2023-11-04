@@ -92,11 +92,10 @@ class AnimatedTileContainer extends StatefulWidget {
   const AnimatedTileContainer({
     super.key,
     this.height = 65,
-    this.width = double.infinity,
     required this.child1,
     required this.child2,
   });
-  final double? width, height;
+  final double? height;
   final Widget child1, child2;
 
   @override
@@ -107,16 +106,16 @@ class _AnimatedTileContainerState extends State<AnimatedTileContainer>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
-  late Animation<double> width, height;
+  late Animation<double> height;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 200));
-    width = TweenSequence<double>(<TweenSequenceItem<double>>[
-      TweenSequenceItem(tween: Tween(begin: 0, end: widget.width), weight: 50),
-    ]).animate(_controller);
+    // width = TweenSequence<double>(<TweenSequenceItem<double>>[
+    //   TweenSequenceItem(tween: Tween(begin: 0, end: widget.width), weight: 50),
+    // ]).animate(_controller);
     height = TweenSequence<double>(<TweenSequenceItem<double>>[
       TweenSequenceItem(tween: Tween(begin: 0, end: widget.height), weight: 50),
     ]).animate(_controller);
@@ -143,18 +142,11 @@ class _AnimatedTileContainerState extends State<AnimatedTileContainer>
         context.read<CursorProvider>().toggleHide(false)
       ),
       child: SizedBox(
-          width: widget.width,
           height: widget.height,
           child: Stack(
             children: [
               widget.child1,
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: SizedBox(
-                    height: height.value,
-                    width: width.value,
-                    child: widget.child2),
-              )
+              SizedBox(height: height.value, child: widget.child2)
             ],
           )),
     );
