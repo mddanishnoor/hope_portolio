@@ -470,14 +470,6 @@ class WhatIDoWidget extends StatefulWidget {
 }
 
 class _WhatIDoWidgetState extends State<WhatIDoWidget> {
-  @override
-  void initState() {
-    widget.scrollController2.addListener(() {
-      setState(() {});
-    });
-    super.initState();
-  }
-
   GlobalKey widgetKey = GlobalKey();
 
   @override
@@ -509,7 +501,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                     children: [
                       RunningAnimatedTileContainer(
                         multiplier: 1,
-                        scrollOffset: widget.scrollController2.offset,
+                        scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
                           size: widget.size,
                           label: 'UX/UI',
@@ -522,7 +514,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                       ),
                       RunningAnimatedTileContainer(
                         multiplier: 1.2,
-                        scrollOffset: widget.scrollController2.offset,
+                        scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
                           size: widget.size,
                           label: 'Systems',
@@ -536,7 +528,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                       ),
                       RunningAnimatedTileContainer(
                         multiplier: 1.3,
-                        scrollOffset: widget.scrollController2.offset,
+                        scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
                           size: widget.size,
                           label: 'Facilitation',
@@ -549,7 +541,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                       ),
                       RunningAnimatedTileContainer(
                         multiplier: 1.4,
-                        scrollOffset: widget.scrollController2.offset,
+                        scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
                           size: widget.size,
                           label: 'Research',
@@ -562,7 +554,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                       ),
                       RunningAnimatedTileContainer(
                         multiplier: 1.5,
-                        scrollOffset: widget.scrollController2.offset,
+                        scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
                           size: widget.size,
                           label: 'Testing',
