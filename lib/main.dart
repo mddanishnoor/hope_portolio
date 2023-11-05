@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/providers/project_provider.dart';
-import 'package:portfolio/screens/landing_page_1.dart';
+import 'package:portfolio/screens/landing_screen/landing_page_1.dart';
 import 'package:provider/provider.dart';
 
 void main() {

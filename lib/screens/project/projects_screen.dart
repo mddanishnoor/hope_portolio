@@ -24,6 +24,7 @@ class ProjectScreen extends StatelessWidget {
               child: NotificationListener<ScrollNotification>(
                 onNotification: (notification) {
                   scrollController.jumpTo(scrollController2.offset);
+                  provider.updateScrollOffset(scrollController2.offset);
                   return true;
                 },
                 child: PrimaryScrollController(
