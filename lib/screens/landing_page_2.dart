@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:svg_flutter/svg.dart';
 
 import '../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';

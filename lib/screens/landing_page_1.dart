@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
@@ -30,8 +28,9 @@ class LandingPage1 extends StatelessWidget {
           onHover: (event) => controller.updatePositioned(event.position),
           child: NotificationListener<ScrollNotification>(
             onNotification: (notification) {
-              scrollController.jumpTo(scrollController2.offset);
-              return true;
+              controller.updateScrollOffset(scrollController2.offset);
+              // scrollController.jumpTo(scrollController2.offset);
+              return false;
             },
             child: PrimaryScrollController(
               controller: scrollController2,
@@ -474,17 +473,6 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
   @override
   void initState() {
     widget.scrollController2.addListener(() {
-      log("Height : ${widget.size.height}");
-      log("Scroll Offset : ${widget.scrollController2.offset}");
-      log("Offset/Height : ${(widget.scrollController2.offset / widget.size.height)}");
-      log("(Offset/Height) * width : ${(widget.scrollController2.offset / widget.size.height) * widget.size.width}");
-      log("__________________________________________________________________________");
-      log((-(((widget.scrollController2.offset - (125 * 3))) *
-              1.3 *
-              (3 / widget.size.height) *
-              widget.size.width))
-          .toString());
-
       setState(() {});
     });
     super.initState();
@@ -615,19 +603,19 @@ class AboutMeWidget extends StatefulWidget {
 
 class _AboutMeWidgetState extends State<AboutMeWidget> {
   // double _y = 0;
-  @override
-  void initState() {
-    widget.scrollController.addListener(() {
-      setState(() {});
-    });
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   widget.scrollController.addListener(() {
+  //     setState(() {});
+  //   });
+  //   super.initState();
+  // }
 
-  @override
-  void dispose() {
-    widget.scrollController.removeListener(() {});
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   widget.scrollController.removeListener(() {});
+  //   super.dispose();
+  // }
 
   GlobalKey widgetKey = GlobalKey();
 
@@ -661,7 +649,7 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                         RunningText(
                           index: 1,
                           size: widget.size,
-                          offset: widget.scrollController.offset,
+                          offset: provider.scrollOffset,
                           maxLines: 5,
                           child: RichText(
                             text: TextSpan(
