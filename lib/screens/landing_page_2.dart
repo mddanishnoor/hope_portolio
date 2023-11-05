@@ -10,6 +10,7 @@ import 'package:svg_flutter/svg.dart';
 import '../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
 import '../core/helper/mouse_follower.dart';
+import '../core/widgets/animated_tile.dart';
 import 'landing_page_1.dart';
 import 'project/projects_screen.dart';
 
@@ -354,9 +355,9 @@ class LandingPage2Child extends StatelessWidget {
                 ),
               ),
               LandingWidget(
-                color: Pallete.hYellow,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.105, right: size.width * 0.08),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -369,98 +370,27 @@ class LandingPage2Child extends StatelessWidget {
                       const SizedBox(
                         height: 18,
                       ),
-                      Column(
+                      const Column(
                         children: [
-                          Row(
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 12, right: 16),
-                                    child: SvgPicture.asset(
-                                      'svg/rectangle.svg',
-                                      color: Pallete.bgBlack,
-                                    ),
-                                  ),
-                                  Text(
-                                    'LinkedIn',
-                                    style: AppTextStyle.body
-                                        .copyWith(color: Pallete.bgBlack),
-                                  ),
-                                ],
-                              ),
-                              const Spacer(),
-                              SizedBox(
-                                width: size.width * 0.18,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'EMAIL',
-                                      textAlign: TextAlign.center,
-                                      style: AppTextStyle.anotationBold
-                                          .copyWith(color: Pallete.bgBlack),
-                                    ),
-                                    const SizedBox(
-                                      height: 8.9,
-                                    ),
-                                    Text(
-                                      'razamohdsajjad@gmail.com',
-                                      style: AppTextStyle.anotationBody
-                                          .copyWith(color: Pallete.bgBlack),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+                          ConnectTiles(
+                            title: 'LinkedIn',
+                            subtitle: 'Work, work, work',
+                            connectType: 'EMAIL',
+                            value: 'razamohdsajjad@gmail.com',
                           ),
-                          Row(
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 12, right: 16),
-                                    child: SvgPicture.asset(
-                                      'svg/rectangle.svg',
-                                      color: Pallete.bgBlack,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Behance',
-                                    style: AppTextStyle.body
-                                        .copyWith(color: Pallete.bgBlack),
-                                  ),
-                                ],
-                              ),
-                              const Spacer(),
-                              SizedBox(
-                                width: size.width * 0.18,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'PHONE',
-                                      textAlign: TextAlign.center,
-                                      style: AppTextStyle.anotationBold
-                                          .copyWith(color: Pallete.bgBlack),
-                                    ),
-                                    const SizedBox(
-                                      height: 8.9,
-                                    ),
-                                    Text(
-                                      '+91 9818164010',
-                                      style: AppTextStyle.anotationBody
-                                          .copyWith(color: Pallete.bgBlack),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          )
+                          ConnectTiles(
+                            title: 'Behance',
+                            subtitle: 'Another POV at my projects',
+                            connectType: 'Phone',
+                            value: '+91 9818164010',
+                          ),
+                          ConnectTiles(
+                            title: 'Instagram',
+                            subtitle: 'My inactive social face',
+                            connectType: 'Phone',
+                            value: '+91 9818164010',
+                            hasConnectValue: false,
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -476,27 +406,40 @@ class LandingPage2Child extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Text(
-                            'If you like to hire me',
-                            style: AppTextStyle.body
-                                .copyWith(color: Pallete.bgBlack),
+                          AnimatedTileContainer(
+                            child1: Text(
+                              'If you like to hire me',
+                              style: GoogleFonts.syne(
+                                // 'Syne',
+                                fontSize: 64,
+                                fontWeight: FontWeight.w600,
+                                height: 1.0049999952,
+                                color: Pallete.notWhite,
+                              ),
+                            ),
+                            child2: ColoredBox(
+                              color: Pallete.hYellow,
+                              child: Text(
+                                'If you like to hire me',
+                                style: GoogleFonts.syne(
+                                  // 'Syne',
+                                  fontSize: 64,
+                                  fontWeight: FontWeight.w600,
+                                  height: 1.0049999952,
+                                  color: Pallete.bgBlack,
+                                ),
+                              ),
+                            ),
                           ),
                           const Spacer(),
-                          Container(
-                            // frame2ha7 (22:498)
-                            margin: const EdgeInsets.fromLTRB(0, 15, 0, 12),
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 8, horizontal: 12),
-
-                            decoration: BoxDecoration(
-                              color: Pallete.bgBlack,
-                              borderRadius: BorderRadius.circular(6),
+                          const AnimatedTileContainer(
+                            child1: CustomElevatedButton(
+                              label: 'Click here',
+                              isYellow: false,
                             ),
-                            child: Center(
-                              child: Text(
-                                'Click here',
-                                style: AppTextStyle.buttonTextStyle,
-                              ),
+                            child2: CustomElevatedButton(
+                              label: 'Click here',
+                              isYellow: true,
                             ),
                           ),
                         ],

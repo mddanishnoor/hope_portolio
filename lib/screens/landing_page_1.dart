@@ -184,185 +184,27 @@ class MainCopy extends StatelessWidget {
                     const SizedBox(
                       height: 18,
                     ),
-                    Column(
+                    const Column(
                       children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 5,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 12, right: 16),
-                                    child:
-                                        SvgPicture.asset('svg/rectangle.svg'),
-                                  ),
-                                  AnimatedTileContainer(
-                                    child1: Row(
-                                      children: [
-                                        Text(
-                                          'LinkedIn',
-                                          style: AppTextStyle.body,
-                                        ),
-                                        Text(
-                                          'Work, work, work',
-                                          style: AppTextStyle.projectText
-                                              .copyWith(color: Pallete.bgBlack),
-                                        )
-                                      ],
-                                    ),
-                                    child2: ColoredBox(
-                                      color: Pallete.hYellow,
-                                      child: Row(
-                                        children: [
-                                          Text(
-                                            'LinkedIn',
-                                            style: AppTextStyle.body.copyWith(
-                                                color: Pallete.bgBlack),
-                                          ),
-                                          Text(
-                                            'Work, work, work',
-                                            style: AppTextStyle.projectText
-                                                .copyWith(
-                                                    color: Pallete.bgBlack),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // const Spacer(),
-                            Expanded(
-                              flex: 2,
-                              child: AnimatedTileContainer(
-                                child1: Container(
-                                  padding: const EdgeInsets.all(4),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text('EMAIL',
-                                          textAlign: TextAlign.center,
-                                          style: AppTextStyle.anotationBold),
-                                      const SizedBox(
-                                        height: 8.9,
-                                      ),
-                                      Text('razamohdsajjad@gmail.com',
-                                          style: AppTextStyle.anotationBody),
-                                    ],
-                                  ),
-                                ),
-                                child2: Container(
-                                  padding: const EdgeInsets.all(4),
-                                  color: Pallete.hYellow,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text('EMAIL',
-                                          textAlign: TextAlign.center,
-                                          style: AppTextStyle.anotationBold
-                                              .copyWith(
-                                                  color: Pallete.bgBlack)),
-                                      const SizedBox(
-                                        height: 8.9,
-                                      ),
-                                      Text('razamohdsajjad@gmail.com',
-                                          style: AppTextStyle.anotationBody
-                                              .copyWith(
-                                                  color: Pallete.bgBlack)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
+                        ConnectTiles(
+                          title: 'LinkedIn',
+                          subtitle: 'Work, work, work',
+                          connectType: 'EMAIL',
+                          value: 'razamohdsajjad@gmail.com',
                         ),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 5,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 12, right: 16),
-                                    child:
-                                        SvgPicture.asset('svg/rectangle.svg'),
-                                  ),
-                                  AnimatedTileContainer(
-                                    child1: Text(
-                                      'Behance',
-                                      style: AppTextStyle.body,
-                                    ),
-                                    child2: ColoredBox(
-                                      color: Pallete.hYellow,
-                                      child: Text(
-                                        'Behance',
-                                        style: AppTextStyle.body
-                                            .copyWith(color: Pallete.bgBlack),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // const Spacer(),
-                            Expanded(
-                              flex: 2,
-                              child: AnimatedTileContainer(
-                                child1: Container(
-                                  padding: const EdgeInsets.all(4),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text('PHONE',
-                                          textAlign: TextAlign.center,
-                                          style: AppTextStyle.anotationBold),
-                                      const SizedBox(
-                                        height: 8.9,
-                                      ),
-                                      Text('+91 9818164010',
-                                          style: AppTextStyle.anotationBody),
-                                    ],
-                                  ),
-                                ),
-                                child2: Container(
-                                  padding: const EdgeInsets.all(4),
-                                  color: Pallete.hYellow,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text('PHONE',
-                                          textAlign: TextAlign.center,
-                                          style: AppTextStyle.anotationBold
-                                              .copyWith(
-                                                  color: Pallete.bgBlack)),
-                                      const SizedBox(
-                                        height: 8.9,
-                                      ),
-                                      Text('+91 9818164010',
-                                          style: AppTextStyle.anotationBody
-                                              .copyWith(
-                                                  color: Pallete.bgBlack)),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
-                        )
+                        ConnectTiles(
+                          title: 'Behance',
+                          subtitle: 'Another POV at my projects',
+                          connectType: 'Phone',
+                          value: '+91 9818164010',
+                        ),
+                        ConnectTiles(
+                          title: 'Instagram',
+                          subtitle: 'My inactive social face',
+                          connectType: 'Phone',
+                          value: '+91 9818164010',
+                          hasConnectValue: false,
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -422,6 +264,152 @@ class MainCopy extends StatelessWidget {
           ],
         );
       }),
+    );
+  }
+}
+
+class ConnectTiles extends StatelessWidget {
+  const ConnectTiles(
+      {super.key,
+      required this.title,
+      required this.connectType,
+      required this.value,
+      required this.subtitle,
+      this.hasConnectValue = true});
+
+  final String title;
+  final String subtitle;
+  final String connectType;
+  final String value;
+  final bool hasConnectValue;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 5,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 12, right: 16),
+                child: SvgPicture.asset('svg/rectangle.svg'),
+              ),
+              Expanded(
+                child: AnimatedTileContainer(
+                  child1: ColoredBox(
+                    color: Pallete.bgBlack,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          flex: 10,
+                          child: Text(
+                            title,
+                            style: AppTextStyle.body,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 9,
+                          child: Container(
+                            padding:
+                                const EdgeInsets.only(bottom: 16, left: 32),
+                            alignment: Alignment.bottomLeft,
+                            child: Text(
+                              subtitle,
+                              style: GoogleFonts.archivo(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Pallete.bgBlack),
+                            ),
+                          ),
+                        ),
+                        // const Spacer()
+                      ],
+                    ),
+                  ),
+                  child2: ColoredBox(
+                    color: Pallete.hYellow,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          flex: 10,
+                          child: Text(
+                            title,
+                            style: AppTextStyle.body
+                                .copyWith(color: Pallete.bgBlack),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 9,
+                          child: Container(
+                            padding:
+                                const EdgeInsets.only(bottom: 16, left: 32),
+                            alignment: Alignment.bottomLeft,
+                            child: Text(
+                              subtitle,
+                              style: GoogleFonts.archivo(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Pallete.bgBlack),
+                            ),
+                          ),
+                        ),
+                        // const Spacer()
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: hasConnectValue
+              ? AnimatedTileContainer(
+                  child1: Container(
+                    padding: const EdgeInsets.all(4),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(connectType,
+                            textAlign: TextAlign.center,
+                            style: AppTextStyle.anotationBold),
+                        const SizedBox(
+                          height: 8.9,
+                        ),
+                        Text(value, style: AppTextStyle.anotationBody),
+                      ],
+                    ),
+                  ),
+                  child2: Container(
+                    padding: const EdgeInsets.all(4),
+                    color: Pallete.hYellow,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(connectType,
+                            textAlign: TextAlign.center,
+                            style: AppTextStyle.anotationBold
+                                .copyWith(color: Pallete.bgBlack)),
+                        const SizedBox(
+                          height: 8.9,
+                        ),
+                        Text(value,
+                            style: AppTextStyle.anotationBody
+                                .copyWith(color: Pallete.bgBlack)),
+                      ],
+                    ),
+                  ),
+                )
+              : const SizedBox(),
+        )
+      ],
     );
   }
 }
