@@ -39,10 +39,12 @@ class LandingPage1 extends StatelessWidget {
                   if (scrollController2.hasClients &&
                       controller.scrollOffset >= (size.height / 2))
                     Align(
-                        alignment: Alignment.bottomCenter,
-                        child: CustomNavbar(
-                          scrollController2,
-                        ))
+                      alignment: Alignment.bottomCenter,
+                      child: CustomNavbar(
+                        scrollController2,
+                        secondaryScrollController: scrollController,
+                      ),
+                    ),
                 ],
               ),
             ),

@@ -11,8 +11,11 @@ class CustomNavbar extends StatelessWidget {
   const CustomNavbar(
     this.scrollController, {
     super.key,
+    required this.secondaryScrollController,
   });
   final ScrollController scrollController;
+
+  final ScrollController secondaryScrollController;
 
   double activeHeight(double height, double factor) {
     var h = (height * factor) - (height * 0.3);
@@ -75,6 +78,9 @@ class CustomNavbar extends StatelessWidget {
                         log('Abut me presssed'),
                         scrollController.animateTo(h,
                             duration: const Duration(milliseconds: 1500),
+                            curve: Curves.decelerate),
+                        secondaryScrollController.animateTo(h,
+                            duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)
                       },
                       isActive: controller.scrollOffset >= activeHeight(h, 1) &&
@@ -88,6 +94,9 @@ class CustomNavbar extends StatelessWidget {
                       onTap: () => {
                         log('Project presssed'),
                         scrollController.animateTo(h * 3,
+                            duration: const Duration(milliseconds: 1500),
+                            curve: Curves.decelerate),
+                        secondaryScrollController.animateTo(h * 3,
                             duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)
                       },
@@ -105,6 +114,9 @@ class CustomNavbar extends StatelessWidget {
                         log('Connect presssed'),
                         scrollController.animateTo((h * 5) - (h * 0.3),
                             duration: const Duration(milliseconds: 1500),
+                            curve: Curves.decelerate),
+                        secondaryScrollController.animateTo((h * 5) - (h * 0.3),
+                            duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)
                       },
                       isActive: controller.scrollOffset >=
@@ -121,6 +133,10 @@ class CustomNavbar extends StatelessWidget {
                       onTap: () => {
                         log('Recruiters presssed'),
                         scrollController.animateTo(
+                            scrollController.position.maxScrollExtent,
+                            duration: const Duration(milliseconds: 1500),
+                            curve: Curves.decelerate),
+                        secondaryScrollController.animateTo(
                             scrollController.position.maxScrollExtent,
                             duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)

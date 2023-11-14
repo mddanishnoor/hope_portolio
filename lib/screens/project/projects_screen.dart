@@ -42,6 +42,7 @@ class ProjectScreen extends StatelessWidget {
                               alignment: Alignment.bottomCenter,
                               child: CustomNavbar(
                                 scrollController2,
+                                secondaryScrollController: scrollController,
                               ))
                       ],
                     )),
