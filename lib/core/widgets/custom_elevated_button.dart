@@ -9,10 +9,12 @@ class CustomElevatedButton extends StatefulWidget {
     required this.label,
     this.labelStyle,
     required this.isYellow,
+    this.onTap,
   });
   final String label;
   final bool isYellow;
   final TextStyle? labelStyle;
+  final void Function()? onTap;
 
   @override
   State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
@@ -21,24 +23,27 @@ class CustomElevatedButton extends StatefulWidget {
 class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // frame2ha7 (22:498)
-      margin: const EdgeInsets.fromLTRB(0, 15, 0, 12),
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+    return InkWell(
+      onTap: widget.onTap,
+      child: Container(
+        // frame2ha7 (22:498)
+        margin: const EdgeInsets.fromLTRB(0, 15, 0, 12),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
 
-      decoration: BoxDecoration(
-        color: widget.isYellow ? Palette.bgBlack : Palette.yellow,
-        border: Border.all(
-            color: widget.isYellow ? Palette.hYellow : Colors.transparent),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Center(
-        child: Text(
-          widget.label,
-          style: widget.labelStyle ??
-              AppTextStyle.buttonTextStyle.copyWith(
-                color: !widget.isYellow ? Palette.bgBlack : Palette.yellow,
-              ),
+        decoration: BoxDecoration(
+          color: widget.isYellow ? Palette.bgBlack : Palette.yellow,
+          border: Border.all(
+              color: widget.isYellow ? Palette.hYellow : Colors.transparent),
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Center(
+          child: Text(
+            widget.label,
+            style: widget.labelStyle ??
+                AppTextStyle.buttonTextStyle.copyWith(
+                  color: !widget.isYellow ? Palette.bgBlack : Palette.yellow,
+                ),
+          ),
         ),
       ),
     );

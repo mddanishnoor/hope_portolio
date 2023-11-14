@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/screens/reqruiters/reqruiters_screen.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
@@ -98,13 +99,29 @@ class Connect extends StatelessWidget {
                 const Spacer(),
                 AnimatedTileContainer(
                   isProject: isProject,
-                  child1: const CustomElevatedButton(
+                  child1: CustomElevatedButton(
                     label: 'Click here',
                     isYellow: false,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RecruitersScreen(),
+                        ),
+                      );
+                    },
                   ),
-                  child2: const CustomElevatedButton(
+                  child2: CustomElevatedButton(
                     label: 'Click here',
                     isYellow: true,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RecruitersScreen(),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],
