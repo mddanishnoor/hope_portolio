@@ -9,12 +9,10 @@ import '../landing_page_1.dart';
 import 'connect_tiles.dart';
 
 class Connect extends StatelessWidget {
-  const Connect({
-    super.key,
-    required this.size,
-  });
+  const Connect({super.key, required this.size, this.isProject = false});
 
   final Size size;
+  final bool isProject;
 
   @override
   Widget build(BuildContext context) {
@@ -33,21 +31,24 @@ class Connect extends StatelessWidget {
             const SizedBox(
               height: 18,
             ),
-            const Column(
+            Column(
               children: [
                 ConnectTiles(
+                  isProject: isProject,
                   title: 'LinkedIn',
                   subtitle: 'Work, work, work',
                   connectType: 'EMAIL',
                   value: 'razamohdsajjad@gmail.com',
                 ),
                 ConnectTiles(
+                  isProject: isProject,
                   title: 'Behance',
                   subtitle: 'Another POV at my projects',
                   connectType: 'Phone',
                   value: '+91 9818164010',
                 ),
                 ConnectTiles(
+                  isProject: isProject,
                   title: 'Instagram',
                   subtitle: 'My inactive social face',
                   connectType: 'Phone',
@@ -69,6 +70,7 @@ class Connect extends StatelessWidget {
             Row(
               children: [
                 AnimatedTileContainer(
+                  isProject: isProject,
                   child1: Text(
                     'If you like to hire me',
                     style: GoogleFonts.syne(
@@ -94,12 +96,13 @@ class Connect extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                const AnimatedTileContainer(
-                  child1: CustomElevatedButton(
+                AnimatedTileContainer(
+                  isProject: isProject,
+                  child1: const CustomElevatedButton(
                     label: 'Click here',
                     isYellow: false,
                   ),
-                  child2: CustomElevatedButton(
+                  child2: const CustomElevatedButton(
                     label: 'Click here',
                     isYellow: true,
                   ),

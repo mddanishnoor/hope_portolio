@@ -13,6 +13,7 @@ class ConnectTiles extends StatelessWidget {
       required this.connectType,
       required this.value,
       required this.subtitle,
+      this.isProject = false,
       this.hasConnectValue = true});
 
   final String title;
@@ -20,6 +21,7 @@ class ConnectTiles extends StatelessWidget {
   final String connectType;
   final String value;
   final bool hasConnectValue;
+  final bool isProject;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class ConnectTiles extends StatelessWidget {
               ),
               Expanded(
                 child: AnimatedTileContainer(
+                  isProject: isProject,
                   child1: ColoredBox(
                     color: Pallete.bgBlack,
                     child: Row(
@@ -108,6 +111,7 @@ class ConnectTiles extends StatelessWidget {
           flex: 2,
           child: hasConnectValue
               ? AnimatedTileContainer(
+                  isProject: isProject,
                   child1: Container(
                     padding: const EdgeInsets.all(4),
                     child: Column(
