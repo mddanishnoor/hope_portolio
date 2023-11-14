@@ -120,20 +120,17 @@ class ProjectList extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.1046),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Branding',
             style: AppTextStyle.anotation
                 .copyWith(color: isYellow ? Pallete.bgBlack : null),
           ),
-          const SizedBox(
-            height: 16,
-          ),
           Column(
-            // shrinkWrap: true,
             children: images
                 .map((e) => ProjectsCard(
-                    size: Size(size.width * 0.4, size.height * 0.4), url: e))
+                    size: Size(size.width * 0.8, size.height * 0.8), url: e))
                 .toList(),
           )
         ],

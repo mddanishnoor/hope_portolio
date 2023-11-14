@@ -4,8 +4,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
-import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
+
+import '../../providers/project_provider.dart';
 
 class ProjectNavbar extends StatelessWidget {
   const ProjectNavbar(
@@ -64,7 +65,7 @@ class ProjectNavbar extends StatelessWidget {
                     color: Color.fromRGBO(255, 255, 255, 0.153)),
               ],
             ),
-            child: Consumer<CursorProvider>(builder: (context, controller, _) {
+            child: Consumer<ProjectProvider>(builder: (context, controller, _) {
               return MouseRegion(
                 onEnter: (event) => controller.toggleHide(true),
                 onExit: (event) => controller.toggleHide(false),
@@ -76,8 +77,8 @@ class ProjectNavbar extends StatelessWidget {
                       label: 'Hope',
                       onTap: () =>
                           {log('Hope presssed'), Navigator.pop(context)},
-                      isActive: controller.scrollOffset >= activeHeight(h, 1) &&
-                          controller.scrollOffset < activeHeight(h, 2.7),
+                      isActive: controller.scrolloffset >= activeHeight(h, 1) &&
+                          controller.scrolloffset < activeHeight(h, 2.7),
                     ),
                     const SizedBox(
                       width: 5,
@@ -94,8 +95,8 @@ class ProjectNavbar extends StatelessWidget {
                             curve: Curves.decelerate)
                       },
                       isActive:
-                          controller.scrollOffset >= activeHeight(h, 2.7) &&
-                              controller.scrollOffset <
+                          controller.scrolloffset >= activeHeight(h, 2.7) &&
+                              controller.scrolloffset <
                                   (activeHeight(h, 5) - h * 0.2),
                     ),
                     const SizedBox(
@@ -121,16 +122,18 @@ class ProjectNavbar extends StatelessWidget {
                       label: 'Connect',
                       onTap: () => {
                         log('Connect presssed'),
-                        scrollController.animateTo((h * 5) - (h * 0.3),
+                        scrollController.animateTo(
+                            scrollController.position.maxScrollExtent,
                             duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate),
-                        secondaryScrollController.animateTo((h * 5) - (h * 0.3),
+                        secondaryScrollController.animateTo(
+                            scrollController.position.maxScrollExtent,
                             duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)
                       },
-                      isActive: controller.scrollOffset >=
+                      isActive: controller.scrolloffset >=
                               ((activeHeight(h, 5)) - (h * 0.2)) &&
-                          controller.scrollOffset <
+                          controller.scrolloffset <=
                               (scrollController.position.maxScrollExtent),
                     )
                   ],

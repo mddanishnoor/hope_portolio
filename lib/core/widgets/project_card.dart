@@ -12,9 +12,13 @@ class ProjectsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      image: DecorationImage(image: NetworkImage(url), fit: BoxFit.fill),
-    ));
+      width: size.width,
+      height: size.height,
+      margin: const EdgeInsets.symmetric(vertical: 22),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        image: DecorationImage(image: NetworkImage(url), fit: BoxFit.fill),
+      ),
+    );
   }
 }
