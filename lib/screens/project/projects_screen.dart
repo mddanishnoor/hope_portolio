@@ -4,7 +4,7 @@ import 'package:portfolio/screens/project/project_yellow.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/constant/theme/pallete.dart';
-import '../../core/helper/navigation_bar.dart';
+import '../../core/widgets/project_navbar.dart';
 import 'project_main.dart';
 
 class ProjectScreen extends StatelessWidget {
@@ -40,7 +40,7 @@ class ProjectScreen extends StatelessWidget {
                             provider.scrolloffset >= (size.height / 2))
                           Align(
                               alignment: Alignment.bottomCenter,
-                              child: CustomNavbar(
+                              child: ProjectNavbar(
                                 scrollController2,
                                 secondaryScrollController: scrollController,
                               ))

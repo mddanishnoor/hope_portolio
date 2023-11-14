@@ -4,6 +4,8 @@ import 'package:portfolio/providers/project_provider.dart';
 import 'package:portfolio/screens/landing_screen/landing_page_1.dart';
 import 'package:provider/provider.dart';
 
+import 'screens/project/projects_screen.dart';
+
 void main() {
   runApp(const MainApp());
 }
@@ -21,7 +23,7 @@ class MainApp extends StatelessWidget {
         builder: (context, _) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: LandingPage1(),
+            home: ProjectScreen(),
           );
         });
   }

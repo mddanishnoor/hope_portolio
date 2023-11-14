@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
-import 'package:portfolio/core/helper/navigation_bar.dart';
+import 'package:portfolio/core/widgets/navigation_bar.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/screens/landing_page_2.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/widgets/project_navbar.dart';
 import 'main_copy.dart';
 
 class LandingPage1 extends StatelessWidget {
