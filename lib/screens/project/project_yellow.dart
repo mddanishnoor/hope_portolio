@@ -4,7 +4,7 @@ import 'package:portfolio/core/helper/mouse_follower.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/project_provider.dart';
-import '../connect_widget.dart';
+import '../landing_screen/connect/connect_widget.dart';
 import 'project_main.dart';
 
 class ProjectYellowCopy extends StatelessWidget {
@@ -68,11 +68,11 @@ class ProjectYellowCopyChild extends StatelessWidget {
                 size: size,
                 isYellow: true,
               ),
-              ProjectList(
+              ProjectList(size: size),
+              Connect(
                 size: size,
-                isYellow: true,
-              ),
-              ConnectWidget(size: size)
+                isProject: true,
+              )
             ]),
           ),
         ));
