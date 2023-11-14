@@ -78,11 +78,11 @@ class Connect extends StatelessWidget {
                       fontSize: 64,
                       fontWeight: FontWeight.w600,
                       height: 1.0049999952,
-                      color: Pallete.notWhite,
+                      color: Palette.notWhite,
                     ),
                   ),
                   child2: ColoredBox(
-                    color: Pallete.hYellow,
+                    color: Palette.hYellow,
                     child: Text(
                       'If you like to hire me',
                       style: GoogleFonts.syne(
@@ -90,7 +90,7 @@ class Connect extends StatelessWidget {
                         fontSize: 64,
                         fontWeight: FontWeight.w600,
                         height: 1.0049999952,
-                        color: Pallete.bgBlack,
+                        color: Palette.bgBlack,
                       ),
                     ),
                   ),

@@ -186,7 +186,7 @@ class NavButton extends StatelessWidget {
               ),
               border: !isActive
                   ? null
-                  : Border.all(color: Pallete.hYellow, width: 0.5),
+                  : Border.all(color: Palette.hYellow, width: 0.5),
               boxShadow: const [
                 BoxShadow(
                   offset: Offset(-0.5, 0),

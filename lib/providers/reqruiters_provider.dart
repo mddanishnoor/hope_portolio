@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CursorProvider extends ChangeNotifier {
+class RecruitersProvider extends ChangeNotifier {
   Offset position = const Offset(0, 0);
   Offset cursorPosition = const Offset(0, 0);
   double scrollOffset = 0;
   bool isMagnified = false;
   bool hide = false;
 
-  CursorProvider({this.position = const Offset(0, 0)});
+  RecruitersProvider();
 
   updatePositioned(Offset pos) {
     position = pos;

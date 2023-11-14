@@ -58,7 +58,7 @@ class SajjadRazaWidget extends StatelessWidget {
                 fontSize: 32,
                 fontWeight: FontWeight.w400,
                 height: 0.8599999547,
-                color: isYellow ? Pallete.bgBlack : Pallete.white,
+                color: isYellow ? Palette.bgBlack : Palette.white,
               ),
             ),
           ),
@@ -81,24 +81,24 @@ class SajjadRazaWidget extends StatelessWidget {
                         Text('MOHAMMAD SAJJAD RAZA',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.anotation.copyWith(
-                                color: isYellow ? Pallete.bgBlack : null)),
+                                color: isYellow ? Palette.bgBlack : null)),
                         const SizedBox(
                           height: 16,
                         ),
                         Text('MY',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.heading.copyWith(
-                                color: isYellow ? Pallete.bgBlack : null)),
+                                color: isYellow ? Palette.bgBlack : null)),
                         Text('FAVORITE',
                             overflow: TextOverflow.fade,
                             style: AppTextStyle.heading.copyWith(
                                 color: isYellow
-                                    ? Pallete.bgBlack
-                                    : Pallete.hYellow)),
+                                    ? Palette.bgBlack
+                                    : Palette.hYellow)),
                         Text('PROJECTS',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.heading.copyWith(
-                                color: isYellow ? Pallete.bgBlack : null)),
+                                color: isYellow ? Palette.bgBlack : null)),
                       ],
                     ),
                   ),
@@ -128,7 +128,7 @@ class ProjectList extends StatelessWidget {
           Text(
             'Branding',
             style: AppTextStyle.anotation
-                .copyWith(color: isYellow ? Pallete.bgBlack : null),
+                .copyWith(color: isYellow ? Palette.bgBlack : null),
           ),
           Column(
             children: images

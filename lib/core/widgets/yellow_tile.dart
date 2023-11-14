@@ -22,10 +22,10 @@ class YellowTileWidget extends StatelessWidget {
       width: double.infinity,
       height: 65,
       decoration: const BoxDecoration(
-        color: Pallete.hYellow,
+        color: Palette.hYellow,
         border: Border.symmetric(
           horizontal: BorderSide(
-            color: Pallete.white_30,
+            color: Palette.white_30,
           ),
         ),
       ),
@@ -37,7 +37,7 @@ class YellowTileWidget extends StatelessWidget {
           Expanded(
             child: Text(
               label,
-              style: AppTextStyle.listExtended.copyWith(color: Pallete.bgBlack),
+              style: AppTextStyle.listExtended.copyWith(color: Palette.bgBlack),
             ),
           ),
           // const Spacer(),
@@ -46,7 +46,7 @@ class YellowTileWidget extends StatelessWidget {
             style: GoogleFonts.archivo(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
-                color: Pallete.bgBlack),
+                color: Palette.bgBlack),
           )
         ],
       ),

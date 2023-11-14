@@ -9,7 +9,7 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.w400,
     height: 1,
     letterSpacing: 3.51,
-    color: Pallete.hWhite,
+    color: Palette.hWhite,
   );
   // heading Text Style
   static TextStyle heading = GoogleFonts.archivo(
@@ -17,21 +17,21 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.w700,
     height: 0.8599999746,
     letterSpacing: -5.28,
-    color: Pallete.hWhite,
+    color: Palette.hWhite,
   );
   // body Text Style
   static TextStyle body = GoogleFonts.archivo(
     fontSize: 64,
     fontWeight: FontWeight.w700,
     height: 0.97299999,
-    color: Pallete.hWhite,
+    color: Palette.hWhite,
   );
   // listExtended Text Style
   static TextStyle listExtended = GoogleFonts.archivoBlack(
     fontSize: 64,
     fontWeight: FontWeight.w400,
     height: 1.0049999952,
-    color: Pallete.hWhite,
+    color: Palette.hWhite,
   );
   // anotationPad Text Style
   static const TextStyle anotationPad = TextStyle(
@@ -69,14 +69,14 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.w700,
     height: 1,
     letterSpacing: 4.8054600906,
-    color: Pallete.hWhite,
+    color: Palette.hWhite,
   );
   // anotationBody Text Style
   static TextStyle anotationBody = GoogleFonts.archivo(
     fontSize: 17.7980003357,
     fontWeight: FontWeight.w400,
     height: 1,
-    color: Pallete.hWhite,
+    color: Palette.hWhite,
   );
   // anotationBoldPad Text Style
   static const TextStyle anotationBoldPad = TextStyle(
@@ -141,6 +141,6 @@ abstract class AppTextStyle {
     fontSize: 16,
     fontWeight: FontWeight.w600,
     height: 1,
-    color: Pallete.hYellow,
+    color: Palette.hYellow,
   );
 }

@@ -38,7 +38,7 @@ class FavouriteProjects extends StatelessWidget {
               height: size.height * 0.84,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(width: 1, color: Pallete.borderGrey)),
+                  border: Border.all(width: 1, color: Palette.borderGrey)),
               child: Column(
                 children: [
                   Padding(
@@ -75,7 +75,7 @@ class FavouriteProjects extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 18),
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Pallete.grey,
+                          color: Palette.grey,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: CarouselSlider(
@@ -153,9 +153,9 @@ class _YellowOutlinedButtonState extends State<YellowOutlinedButton> {
           decoration: BoxDecoration(
               border: Border.all(
                   width: 1.0,
-                  color: !isHovered ? Pallete.hYellow : Pallete.bgBlack),
+                  color: !isHovered ? Palette.hYellow : Palette.bgBlack),
               borderRadius: BorderRadius.circular(6),
-              color: isHovered ? Pallete.hYellow : Pallete.bgBlack
+              color: isHovered ? Palette.hYellow : Palette.bgBlack
               // You can set the background color here.
               // Example: color: buttonColor,
               ),
@@ -164,7 +164,7 @@ class _YellowOutlinedButtonState extends State<YellowOutlinedButton> {
             widget.label,
             style: widget.labelStyle ??
                 AppTextStyle.buttonTextStyle.copyWith(
-                    color: isHovered ? Pallete.bgBlack : Pallete.hYellow),
+                    color: isHovered ? Palette.bgBlack : Palette.hYellow),
           )),
         ),
       ),

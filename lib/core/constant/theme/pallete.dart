@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Pallete {
+class Palette {
   static const black = Color.fromRGBO(20, 19, 18, 1);
   static const yellow = Color.fromRGBO(251, 176, 35, 1);
   static const grey = Color.fromRGBO(43, 40, 38, 1);

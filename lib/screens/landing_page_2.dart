@@ -71,14 +71,14 @@ class LandingPage2Child extends StatelessWidget {
         return true;
       },
       child: ColoredBox(
-        color: Pallete.hYellow,
+        color: Palette.hYellow,
         child: SingleChildScrollView(
           controller: scrollController,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               LandingWidget(
-                color: Pallete.hYellow,
+                color: Palette.hYellow,
                 child: Stack(
                   children: [
                     Positioned(
@@ -91,7 +91,7 @@ class LandingPage2Child extends StatelessWidget {
                           fontSize: 32,
                           fontWeight: FontWeight.w400,
                           height: 0.8599999547,
-                          color: Pallete.bgBlack,
+                          color: Palette.bgBlack,
                         ),
                       ),
                     ),
@@ -117,7 +117,7 @@ class LandingPage2Child extends StatelessWidget {
                                     'RAZA MEANS HOPE',
                                     textAlign: TextAlign.center,
                                     style: AppTextStyle.anotation
-                                        .copyWith(color: Pallete.bgBlack),
+                                        .copyWith(color: Palette.bgBlack),
                                   ),
                                   const SizedBox(
                                     height: 16,
@@ -126,13 +126,13 @@ class LandingPage2Child extends StatelessWidget {
                                     'DRIVER',
                                     overflow: TextOverflow.fade,
                                     style: AppTextStyle.heading
-                                        .copyWith(color: Pallete.bgBlack),
+                                        .copyWith(color: Palette.bgBlack),
                                   ),
                                   Text(
                                     'FOR COMPANY\nGROWTH',
                                     textAlign: TextAlign.center,
                                     style: AppTextStyle.heading
-                                        .copyWith(color: Pallete.bgBlack),
+                                        .copyWith(color: Palette.bgBlack),
                                   )
                                 ],
                               ),
@@ -146,7 +146,7 @@ class LandingPage2Child extends StatelessWidget {
                 ),
               ),
               LandingWidget(
-                  color: Pallete.hYellow,
+                  color: Palette.hYellow,
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: size.width * 0.1046),
@@ -169,7 +169,7 @@ class LandingPage2Child extends StatelessWidget {
                                 Text(
                                   'ABOUT ME',
                                   style: AppTextStyle.anotation
-                                      .copyWith(color: Pallete.bgBlack),
+                                      .copyWith(color: Palette.bgBlack),
                                 ),
                                 const SizedBox(
                                   height: 16,
@@ -177,7 +177,7 @@ class LandingPage2Child extends StatelessWidget {
                                 Text(
                                   'A designer who does more than just design, for those who want more than just design.',
                                   style: AppTextStyle.body
-                                      .copyWith(color: Pallete.black),
+                                      .copyWith(color: Palette.black),
                                 )
                               ],
                             ),
@@ -188,7 +188,7 @@ class LandingPage2Child extends StatelessWidget {
                     ),
                   )),
               LandingWidget(
-                color: Pallete.hYellow,
+                color: Palette.hYellow,
                 child: Column(
                   children: [
                     const Spacer(),
@@ -207,7 +207,7 @@ class LandingPage2Child extends StatelessWidget {
                             child: Text(
                               'WHAT I DO',
                               style: AppTextStyle.anotation
-                                  .copyWith(color: Pallete.bgBlack),
+                                  .copyWith(color: Palette.bgBlack),
                             ),
                           ),
                           const SizedBox(
@@ -241,7 +241,7 @@ class LandingPage2Child extends StatelessWidget {
                 ),
               ),
               LandingWidget(
-                color: Pallete.hYellow,
+                color: Palette.hYellow,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
                   child: Column(
@@ -251,7 +251,7 @@ class LandingPage2Child extends StatelessWidget {
                       Text(
                         'PROJECTS ',
                         style: AppTextStyle.anotation
-                            .copyWith(color: Pallete.bgBlack),
+                            .copyWith(color: Palette.bgBlack),
                       ),
                       const SizedBox(
                         height: 10,
@@ -261,7 +261,7 @@ class LandingPage2Child extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             border:
-                                Border.all(width: 1, color: Pallete.bgBlack)),
+                                Border.all(width: 1, color: Palette.bgBlack)),
                         child: Column(
                           children: [
                             Padding(
@@ -275,7 +275,7 @@ class LandingPage2Child extends StatelessWidget {
                                   Text(
                                     'My favorite \nprojects',
                                     style: AppTextStyle.listExtended
-                                        .copyWith(color: Pallete.bgBlack),
+                                        .copyWith(color: Palette.bgBlack),
                                   ),
                                   const Spacer(),
                                   InkWell(
@@ -290,14 +290,14 @@ class LandingPage2Child extends StatelessWidget {
                                       height: 24,
                                       decoration: BoxDecoration(
                                         border:
-                                            Border.all(color: Pallete.bgBlack),
+                                            Border.all(color: Palette.bgBlack),
                                         borderRadius: BorderRadius.circular(6),
                                       ),
                                       child: Center(
                                         child: Text(
                                           'See all >>',
                                           style: AppTextStyle.buttonTextStyle
-                                              .copyWith(color: Pallete.bgBlack),
+                                              .copyWith(color: Palette.bgBlack),
                                         ),
                                       ),
                                     ),
@@ -309,7 +309,7 @@ class LandingPage2Child extends StatelessWidget {
                               child: Container(
                                 height: size.height * 0.653,
                                 decoration: BoxDecoration(
-                                  color: Pallete.grey,
+                                  color: Palette.grey,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
@@ -322,7 +322,7 @@ class LandingPage2Child extends StatelessWidget {
                 ),
               ),
               LandingWidget(
-                color: Pallete.hYellow,
+                color: Palette.hYellow,
                 child: Column(
                   children: [
                     const Spacer(),
@@ -338,7 +338,7 @@ class LandingPage2Child extends StatelessWidget {
                           Text(
                             'MY MOTO',
                             style: AppTextStyle.anotation
-                                .copyWith(color: Pallete.bgBlack),
+                                .copyWith(color: Palette.bgBlack),
                           ),
                           const SizedBox(
                             height: 18,
@@ -347,7 +347,7 @@ class LandingPage2Child extends StatelessWidget {
                             'SAME\nSTROKES FOR\nSIMILAR\nFOLKS',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.heading
-                                .copyWith(color: Pallete.bgBlack),
+                                .copyWith(color: Palette.bgBlack),
                           ),
                         ],
                       ),
@@ -367,7 +367,7 @@ class LandingPage2Child extends StatelessWidget {
                       Text(
                         'Connect',
                         style: AppTextStyle.anotation
-                            .copyWith(color: Pallete.bgBlack),
+                            .copyWith(color: Palette.bgBlack),
                       ),
                       const SizedBox(
                         height: 18,
@@ -401,7 +401,7 @@ class LandingPage2Child extends StatelessWidget {
                       Text(
                         'FOR REQRUITERS',
                         style: AppTextStyle.anotation
-                            .copyWith(color: Pallete.bgBlack),
+                            .copyWith(color: Palette.bgBlack),
                       ),
                       const SizedBox(
                         height: 16,
@@ -416,11 +416,11 @@ class LandingPage2Child extends StatelessWidget {
                                 fontSize: 64,
                                 fontWeight: FontWeight.w600,
                                 height: 1.0049999952,
-                                color: Pallete.notWhite,
+                                color: Palette.notWhite,
                               ),
                             ),
                             child2: ColoredBox(
-                              color: Pallete.hYellow,
+                              color: Palette.hYellow,
                               child: Text(
                                 'If you like to hire me',
                                 style: GoogleFonts.syne(
@@ -428,7 +428,7 @@ class LandingPage2Child extends StatelessWidget {
                                   fontSize: 64,
                                   fontWeight: FontWeight.w600,
                                   height: 1.0049999952,
-                                  color: Pallete.bgBlack,
+                                  color: Palette.bgBlack,
                                 ),
                               ),
                             ),

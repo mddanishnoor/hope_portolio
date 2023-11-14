@@ -34,7 +34,7 @@ class AdvocateWidget extends StatelessWidget {
                 fontSize: 32,
                 fontWeight: FontWeight.w400,
                 height: 0.8599999547,
-                color: Pallete.white,
+                color: Palette.white,
               ),
             ),
           ),
@@ -63,7 +63,7 @@ class AdvocateWidget extends StatelessWidget {
                           Text('ADVOCATE',
                               overflow: TextOverflow.fade,
                               style: AppTextStyle.heading
-                                  .copyWith(color: Pallete.hYellow)),
+                                  .copyWith(color: Palette.hYellow)),
                           Text('FOR\nUSERS',
                               textAlign: TextAlign.center,
                               style: AppTextStyle.heading),

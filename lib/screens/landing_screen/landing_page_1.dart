@@ -18,7 +18,7 @@ class LandingPage1 extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Consumer<CursorProvider>(builder: (context, controller, _) {
       return Scaffold(
-        backgroundColor: Pallete.black,
+        backgroundColor: Palette.black,
         body: MouseRegion(
           onHover: (event) => controller.updatePositioned(event.position),
           child: NotificationListener<ScrollNotification>(

@@ -123,7 +123,7 @@ class ConnectWidget extends StatelessWidget {
                     fontSize: 64,
                     fontWeight: FontWeight.w600,
                     height: 1.0049999952,
-                    color: Pallete.notWhite,
+                    color: Palette.notWhite,
                   ),
                 ),
                 const Spacer(),
@@ -134,14 +134,14 @@ class ConnectWidget extends StatelessWidget {
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
 
                   decoration: BoxDecoration(
-                    color: Pallete.yellow,
+                    color: Palette.yellow,
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: Center(
                     child: Text(
                       'Click here',
                       style: AppTextStyle.buttonTextStyle
-                          .copyWith(color: Pallete.bgBlack),
+                          .copyWith(color: Palette.bgBlack),
                     ),
                   ),
                 ),

@@ -60,7 +60,7 @@ class ProjectYellowCopyChild extends StatelessWidget {
           return true;
         },
         child: ColoredBox(
-          color: Pallete.hYellow,
+          color: Palette.hYellow,
           child: SingleChildScrollView(
             controller: scrollController,
             child: Column(children: [

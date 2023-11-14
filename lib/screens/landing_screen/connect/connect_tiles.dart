@@ -40,7 +40,7 @@ class ConnectTiles extends StatelessWidget {
                 child: AnimatedTileContainer(
                   isProject: isProject,
                   child1: ColoredBox(
-                    color: Pallete.bgBlack,
+                    color: Palette.bgBlack,
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -62,7 +62,7 @@ class ConnectTiles extends StatelessWidget {
                               style: GoogleFonts.archivo(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: Pallete.bgBlack),
+                                  color: Palette.bgBlack),
                             ),
                           ),
                         ),
@@ -71,7 +71,7 @@ class ConnectTiles extends StatelessWidget {
                     ),
                   ),
                   child2: ColoredBox(
-                    color: Pallete.hYellow,
+                    color: Palette.hYellow,
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -80,7 +80,7 @@ class ConnectTiles extends StatelessWidget {
                           child: Text(
                             title,
                             style: AppTextStyle.body
-                                .copyWith(color: Pallete.bgBlack),
+                                .copyWith(color: Palette.bgBlack),
                           ),
                         ),
                         Expanded(
@@ -94,7 +94,7 @@ class ConnectTiles extends StatelessWidget {
                               style: GoogleFonts.archivo(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: Pallete.bgBlack),
+                                  color: Palette.bgBlack),
                             ),
                           ),
                         ),
@@ -130,7 +130,7 @@ class ConnectTiles extends StatelessWidget {
                   ),
                   child2: Container(
                     padding: const EdgeInsets.all(4),
-                    color: Pallete.hYellow,
+                    color: Palette.hYellow,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -138,13 +138,13 @@ class ConnectTiles extends StatelessWidget {
                         Text(connectType,
                             textAlign: TextAlign.center,
                             style: AppTextStyle.anotationBold
-                                .copyWith(color: Pallete.bgBlack)),
+                                .copyWith(color: Palette.bgBlack)),
                         const SizedBox(
                           height: 8.9,
                         ),
                         Text(value,
                             style: AppTextStyle.anotationBody
-                                .copyWith(color: Pallete.bgBlack)),
+                                .copyWith(color: Palette.bgBlack)),
                       ],
                     ),
                   ),

@@ -53,7 +53,7 @@ class _RunningTextState extends State<RunningText> {
                 height: widget.height ?? 62,
                 decoration: BoxDecoration(
                   backgroundBlendMode: BlendMode.darken,
-                  color: Pallete.black.withOpacity(0.5),
+                  color: Palette.black.withOpacity(0.5),
                 ),
               ),
           ]),

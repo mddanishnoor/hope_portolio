@@ -18,7 +18,7 @@ class ProjectScreen extends StatelessWidget {
     return Consumer<ProjectProvider>(
       builder: (context, provider, child) {
         return Scaffold(
-          backgroundColor: Pallete.bgBlack,
+          backgroundColor: Palette.bgBlack,
           body: MouseRegion(
               onHover: (event) => provider.updatePosition(event.position),
               child: NotificationListener<ScrollNotification>(

@@ -21,7 +21,7 @@ class BlackTileWidget extends StatelessWidget {
       decoration: const BoxDecoration(
         border: Border.symmetric(
           horizontal: BorderSide(
-            color: Pallete.white_30,
+            color: Palette.white_30,
           ),
         ),
       ),

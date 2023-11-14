@@ -81,7 +81,7 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                                 TextSpan(
                                   text: 'multidisciplinary',
                                   style: AppTextStyle.body
-                                      .copyWith(color: Pallete.hYellow),
+                                      .copyWith(color: Palette.hYellow),
                                 ),
                                 const TextSpan(
                                   text:

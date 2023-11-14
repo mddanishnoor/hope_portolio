@@ -27,9 +27,9 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
 
       decoration: BoxDecoration(
-        color: widget.isYellow ? Pallete.bgBlack : Pallete.yellow,
+        color: widget.isYellow ? Palette.bgBlack : Palette.yellow,
         border: Border.all(
-            color: widget.isYellow ? Pallete.hYellow : Colors.transparent),
+            color: widget.isYellow ? Palette.hYellow : Colors.transparent),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Center(
@@ -37,7 +37,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
           widget.label,
           style: widget.labelStyle ??
               AppTextStyle.buttonTextStyle.copyWith(
-                color: !widget.isYellow ? Pallete.bgBlack : Pallete.yellow,
+                color: !widget.isYellow ? Palette.bgBlack : Palette.yellow,
               ),
         ),
       ),
