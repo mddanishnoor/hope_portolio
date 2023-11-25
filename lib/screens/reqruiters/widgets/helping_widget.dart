@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/constant/theme/pallete.dart';
-import '../../core/constant/theme/styles.dart';
-import '../../core/widgets/landing_widget.dart';
-import '../../providers/cursor_provider.dart';
+import '../../../core/constant/theme/pallete.dart';
+import '../../../core/constant/theme/styles.dart';
+import '../../../core/widgets/landing_widget.dart';
+import '../../../providers/cursor_provider.dart';
 
 class HelpingWidget extends StatelessWidget {
   const HelpingWidget({
@@ -18,10 +18,6 @@ class HelpingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LandingWidget(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/png/hero_bg.jpeg'), fit: BoxFit.cover),
-      ),
       child: Stack(
         children: [
           Positioned(
@@ -60,13 +56,13 @@ class HelpingWidget extends StatelessWidget {
                           const SizedBox(
                             height: 16,
                           ),
-                          Text('ADVOCATE',
+                          Text('HELPING\nUSERS',
+                              textAlign: TextAlign.center,
+                              style: AppTextStyle.heading),
+                          Text('FLOW',
                               overflow: TextOverflow.fade,
                               style: AppTextStyle.heading
                                   .copyWith(color: Palette.hYellow)),
-                          Text('FOR\nUSERS',
-                              textAlign: TextAlign.center,
-                              style: AppTextStyle.heading),
                         ],
                       ),
                     ),

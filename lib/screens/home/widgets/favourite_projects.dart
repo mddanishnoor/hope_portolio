@@ -4,14 +4,14 @@ import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/screens/project/projects_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/constant/constants.dart';
-import '../../core/constant/theme/pallete.dart';
-import '../../core/constant/theme/styles.dart';
-import '../../core/widgets/landing_widget.dart';
-import '../../core/widgets/project_card.dart';
+import '../../../core/constant/constants.dart';
+import '../../../core/constant/theme/pallete.dart';
+import '../../../core/constant/theme/styles.dart';
+import '../../../core/widgets/landing_widget.dart';
+import '../../../core/widgets/project_card.dart';
 
-class FavouriteProjects extends StatelessWidget {
-  const FavouriteProjects({
+class FavoriteProjects extends StatelessWidget {
+  const FavoriteProjects({
     super.key,
     required this.size,
   });

@@ -4,7 +4,7 @@ import 'package:portfolio/core/helper/mouse_follower.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/project_provider.dart';
-import '../landing_screen/connect/connect_widget.dart';
+import '../home/widgets/connect_widget.dart';
 import 'project_main.dart';
 
 class ProjectYellowCopy extends StatelessWidget {

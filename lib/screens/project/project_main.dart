@@ -8,7 +8,7 @@ import '../../core/constant/theme/styles.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../../core/widgets/project_card.dart';
 import '../../providers/project_provider.dart';
-import '../landing_screen/connect/connect_widget.dart';
+import '../home/widgets/connect_widget.dart';
 
 class ProjectMainCopy extends StatelessWidget {
   const ProjectMainCopy(

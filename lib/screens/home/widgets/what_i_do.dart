@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/constant/theme/styles.dart';
-import '../../core/widgets/animated_tile.dart';
-import '../../core/widgets/black_tile.dart';
-import '../../core/widgets/landing_widget.dart';
-import '../../core/widgets/yellow_tile.dart';
-import '../../providers/cursor_provider.dart';
+import '../../../core/constant/theme/styles.dart';
+import '../../../core/widgets/animated_tile.dart';
+import '../../../core/widgets/black_tile.dart';
+import '../../../core/widgets/landing_widget.dart';
+import '../../../core/widgets/yellow_tile.dart';
+import '../../../providers/cursor_provider.dart';
 
 class WhatIDoWidget extends StatefulWidget {
   const WhatIDoWidget({

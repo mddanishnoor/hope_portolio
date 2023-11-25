@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'about_me.dart';
-import 'advocate.dart';
-import 'connect/connect_widget.dart';
-import 'favourite_projects.dart';
-import 'my_moto.dart';
-import 'what_i_do.dart';
+import 'widgets/about_me.dart';
+import 'widgets/advocate.dart';
+import 'widgets/connect_widget.dart';
+import 'widgets/favourite_projects.dart';
+import 'widgets/my_moto.dart';
+import 'widgets/what_i_do.dart';
 
 class MainCopy extends StatelessWidget {
   const MainCopy({
@@ -32,7 +32,7 @@ class MainCopy extends StatelessWidget {
               scrollController: scrollController2,
             ),
             WhatIDoWidget(size: size, scrollController2: scrollController2),
-            FavouriteProjects(size: size),
+            FavoriteProjects(size: size),
             const MyMoto(),
             Connect(size: size)
           ],

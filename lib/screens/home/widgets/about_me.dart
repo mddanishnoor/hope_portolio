@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/constant/theme/pallete.dart';
-import '../../core/constant/theme/styles.dart';
-import '../../core/widgets/landing_widget.dart';
-import '../../core/widgets/running_text_widget.dart';
-import '../../providers/cursor_provider.dart';
+import '../../../core/constant/theme/pallete.dart';
+import '../../../core/constant/theme/styles.dart';
+import '../../../core/widgets/landing_widget.dart';
+import '../../../core/widgets/running_text_widget.dart';
+import '../../../providers/cursor_provider.dart';
 
 class AboutMeWidget extends StatefulWidget {
   const AboutMeWidget({

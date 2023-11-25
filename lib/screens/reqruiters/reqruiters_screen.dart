@@ -5,6 +5,7 @@ import 'package:portfolio/screens/reqruiters/reqruiter_black.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/constant/theme/pallete.dart';
+import '../../core/widgets/navigation_bar.dart';
 
 class RecruitersScreen extends StatelessWidget {
   const RecruitersScreen({super.key});
@@ -14,6 +15,7 @@ class RecruitersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Consumer<RecruitersProvider>(builder: (context, controller, _) {
       return Scaffold(
         backgroundColor: Palette.black,
@@ -27,8 +29,24 @@ class RecruitersScreen extends StatelessWidget {
             },
             child: PrimaryScrollController(
               controller: scrollController2,
-              child: const Stack(
-                children: [RecruitersBlack(), RecruitersYellow()],
+              child: Stack(
+                children: [
+                  RecruitersBlack(
+                      size: size, scrollController2: scrollController2),
+                  RecruitersYellow(
+                    scrollController: scrollController,
+                    scrollController2: scrollController2,
+                  ),
+                  if (scrollController2.hasClients &&
+                      controller.scrollOffset >= (size.height / 2))
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: CustomNavbar(
+                        scrollController2,
+                        secondaryScrollController: scrollController,
+                      ),
+                    ),
+                ],
               ),
             ),
           ),

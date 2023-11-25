@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
 import 'package:portfolio/core/widgets/navigation_bar.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
-import 'package:portfolio/screens/landing_page_2.dart';
+import 'package:portfolio/screens/home/yellow_copy.dart';
 import 'package:provider/provider.dart';
 
 import 'main_copy.dart';
@@ -32,7 +32,7 @@ class LandingPage1 extends StatelessWidget {
               child: Stack(
                 children: [
                   MainCopy(size: size, scrollController2: scrollController2),
-                  LandingPage2(
+                  YellowCopy(
                     scrollController: scrollController,
                     scrollController2: scrollController2,
                   ),

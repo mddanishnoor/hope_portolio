@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/constant/theme/styles.dart';
-import '../../core/widgets/landing_widget.dart';
+import '../../../core/constant/theme/styles.dart';
+import '../../../core/widgets/landing_widget.dart';
 
 class MyMoto extends StatelessWidget {
   const MyMoto({

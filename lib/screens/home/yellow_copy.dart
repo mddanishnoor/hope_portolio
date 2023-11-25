@@ -6,18 +6,18 @@ import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../core/constant/theme/pallete.dart';
+import '../../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
-import '../core/helper/mouse_follower.dart';
-import '../core/widgets/animated_tile.dart';
-import '../core/widgets/custom_elevated_button.dart';
-import '../core/widgets/landing_widget.dart';
-import '../core/widgets/yellow_tile.dart';
-import 'landing_screen/connect/connect_tiles.dart';
-import 'project/projects_screen.dart';
+import '../../core/helper/mouse_follower.dart';
+import '../../core/widgets/animated_tile.dart';
+import '../../core/widgets/custom_elevated_button.dart';
+import '../../core/widgets/landing_widget.dart';
+import '../../core/widgets/yellow_tile.dart';
+import 'widgets/connect_tiles.dart';
+import '../project/projects_screen.dart';
 
-class LandingPage2 extends StatelessWidget {
-  const LandingPage2({
+class YellowCopy extends StatelessWidget {
+  const YellowCopy({
     super.key,
     required this.scrollController,
     required this.scrollController2,
