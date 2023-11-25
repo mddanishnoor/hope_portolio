@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
+import 'package:portfolio/screens/reqruiters/widgets/experience_widget.dart';
+import 'package:portfolio/screens/reqruiters/widgets/req_what_i_do.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
 import '../../core/helper/mouse_follower.dart';
-import '../../core/widgets/animated_tile.dart';
 import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../home/widgets/connect_tiles.dart';
+import 'widgets/req_animated_tile.dart';
 
 class RecruiterYellow extends StatelessWidget {
   const RecruiterYellow({
@@ -190,8 +192,10 @@ class RecruiterYellowChild extends StatelessWidget {
                     context.read<RecruitersProvider>().toggleHide(true),
                 onExit: (event) =>
                     context.read<RecruitersProvider>().toggleHide(false),
-                child: const LandingWidget(
-                    color: Palette.hYellow, child: SizedBox()),
+                child: LandingWidget(
+                    color: Palette.hYellow,
+                    child: ReqWhatIDoWidget(
+                        size: size, scrollController2: scrollController2)),
               ),
               LandingWidget(
                 color: Palette.hYellow,
@@ -274,6 +278,8 @@ class RecruiterYellowChild extends StatelessWidget {
                   ),
                 ),
               ),
+              ExperienceWidget(
+                  size: size, scrollController2: scrollController2),
               LandingWidget(
                 color: Palette.hYellow,
                 child: Column(
@@ -363,7 +369,7 @@ class RecruiterYellowChild extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          AnimatedTileContainer(
+                          ReqAnimatedTileContainer(
                             child1: Text(
                               'If you like to hire me',
                               style: GoogleFonts.syne(
@@ -389,7 +395,7 @@ class RecruiterYellowChild extends StatelessWidget {
                             ),
                           ),
                           const Spacer(),
-                          const AnimatedTileContainer(
+                          const ReqAnimatedTileContainer(
                             child1: CustomElevatedButton(
                               label: 'Click here',
                               isYellow: false,

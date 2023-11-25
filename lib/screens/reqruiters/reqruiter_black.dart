@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
+import 'package:portfolio/screens/reqruiters/widgets/experience_widget.dart';
 import 'package:portfolio/screens/reqruiters/widgets/req_about_widget.dart';
 import 'package:provider/provider.dart';
 import '../home/widgets/connect_widget.dart';
@@ -32,6 +33,7 @@ class RecruitersBlack extends StatelessWidget {
             ),
             ReqWhatIDoWidget(size: size, scrollController2: scrollController2),
             CertificateWidget(size: size),
+            ExperienceWidget(size: size, scrollController2: scrollController2),
             const MyMoto(),
             Connect(size: size)
           ],

@@ -3,10 +3,10 @@ import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/constant/theme/styles.dart';
-import '../../../core/widgets/animated_tile.dart';
 import '../../../core/widgets/black_tile.dart';
 import '../../../core/widgets/landing_widget.dart';
 import '../../../core/widgets/yellow_tile.dart';
+import 'req_animated_tile.dart';
 
 class ReqWhatIDoWidget extends StatefulWidget {
   const ReqWhatIDoWidget({
@@ -52,7 +52,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                   ),
                   Column(
                     children: [
-                      RunningAnimatedTileContainer(
+                      ReqRunningAnimatedTileContainer(
                         multiplier: 1,
                         scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
@@ -65,7 +65,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                           secondLabel: 'Mostly designing websites and apps',
                         ),
                       ),
-                      RunningAnimatedTileContainer(
+                      ReqRunningAnimatedTileContainer(
                         multiplier: 1.2,
                         scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
@@ -79,7 +79,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                               'Designing systems for the company to function efficiently',
                         ),
                       ),
-                      RunningAnimatedTileContainer(
+                      ReqRunningAnimatedTileContainer(
                         multiplier: 1.3,
                         scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
@@ -92,7 +92,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                           secondLabel: 'Helping others, design',
                         ),
                       ),
-                      RunningAnimatedTileContainer(
+                      ReqRunningAnimatedTileContainer(
                         multiplier: 1.4,
                         scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
@@ -105,7 +105,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                           secondLabel: 'My job is to know what the users wants',
                         ),
                       ),
-                      RunningAnimatedTileContainer(
+                      ReqRunningAnimatedTileContainer(
                         multiplier: 1.5,
                         scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(

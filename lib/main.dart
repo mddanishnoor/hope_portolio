@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/providers/project_provider.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
+import 'package:portfolio/screens/reqruiters/reqruiters_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/home/home.dart';
@@ -24,7 +25,7 @@ class MainApp extends StatelessWidget {
         builder: (context, _) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: HomeScreen(),
+            home: RecruitersScreen(),
           );
         });
   }
