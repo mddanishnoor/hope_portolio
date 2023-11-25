@@ -11,9 +11,9 @@ import '../core/constant/theme/pallete.dart';
 import '../core/helper/mouse_follower.dart';
 import '../core/widgets/animated_tile.dart';
 import '../core/widgets/custom_elevated_button.dart';
+import '../core/widgets/landing_widget.dart';
 import '../core/widgets/yellow_tile.dart';
 import 'landing_screen/connect/connect_tiles.dart';
-import 'landing_screen/landing_page_1.dart';
 import 'project/projects_screen.dart';
 
 class LandingPage2 extends StatelessWidget {

@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
 import '../../core/constant/theme/styles.dart';
+import '../../core/widgets/landing_widget.dart';
 import '../../core/widgets/project_card.dart';
-import 'landing_page_1.dart';
 
 class FavouriteProjects extends StatelessWidget {
   const FavouriteProjects({

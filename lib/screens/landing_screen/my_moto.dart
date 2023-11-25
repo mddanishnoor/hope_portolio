@@ -3,7 +3,7 @@ import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/constant/theme/styles.dart';
-import 'landing_page_1.dart';
+import '../../core/widgets/landing_widget.dart';
 
 class MyMoto extends StatelessWidget {
   const MyMoto({

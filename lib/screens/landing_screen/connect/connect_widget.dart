@@ -6,7 +6,7 @@ import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
 import '../../../core/widgets/animated_tile.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
-import '../landing_page_1.dart';
+import '../../../core/widgets/landing_widget.dart';
 import 'connect_tiles.dart';
 
 class Connect extends StatelessWidget {

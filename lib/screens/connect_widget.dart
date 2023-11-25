@@ -4,7 +4,7 @@ import 'package:svg_flutter/svg_flutter.dart';
 
 import '../core/constant/theme/pallete.dart';
 import '../core/constant/theme/styles.dart';
-import 'landing_screen/landing_page_1.dart';
+import '../core/widgets/landing_widget.dart';
 
 class ConnectWidget extends StatelessWidget {
   const ConnectWidget({

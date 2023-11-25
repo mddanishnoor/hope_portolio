@@ -7,8 +7,8 @@ import '../../core/constant/theme/styles.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../../providers/cursor_provider.dart';
 
-class AdvocateWidget extends StatelessWidget {
-  const AdvocateWidget({
+class HelpingWidget extends StatelessWidget {
+  const HelpingWidget({
     super.key,
     required this.size,
   });
