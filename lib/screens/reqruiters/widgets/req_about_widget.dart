@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
-
-// import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
 import '../../../core/widgets/landing_widget.dart';
-import '../../../core/widgets/running_text_widget.dart';
 
 class ReqAboutMeWidget extends StatefulWidget {
   const ReqAboutMeWidget({
@@ -51,15 +48,10 @@ class _ReqAboutMeWidgetState extends State<ReqAboutMeWidget> {
                         const SizedBox(
                           height: 16,
                         ),
-                        RunningText(
-                            index: 1,
-                            size: widget.size,
-                            offset: provider.scrollOffset,
-                            maxLines: 5,
-                            child: Text(
-                              'I am a fresh graduate with a masters degree in UX/UI design, (think of design thinking)',
-                              style: AppTextStyle.body,
-                            ))
+                        Text(
+                          'I am a fresh graduate with a masters degree in UX/UI design, (think of design thinking)                ',
+                          style: AppTextStyle.body,
+                        )
                       ],
                     ),
                   ),

@@ -106,7 +106,7 @@ class Connect extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RecruitersScreen(),
+                          builder: (context) => RecruitersScreen(),
                         ),
                       );
                     },
@@ -118,7 +118,7 @@ class Connect extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RecruitersScreen(),
+                          builder: (context) => RecruitersScreen(),
                         ),
                       );
                     },

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
 import '../../../core/widgets/landing_widget.dart';
-import '../../../providers/cursor_provider.dart';
 
-class HelpingWidget extends StatelessWidget {
-  const HelpingWidget({
+class HelpingUserWidget extends StatelessWidget {
+  const HelpingUserWidget({
     super.key,
     required this.size,
   });
@@ -39,8 +39,8 @@ class HelpingWidget extends StatelessWidget {
               const Spacer(),
               Align(
                 alignment: Alignment.center,
-                child:
-                    Consumer<CursorProvider>(builder: (context, provider, _) {
+                child: Consumer<RecruitersProvider>(
+                    builder: (context, provider, _) {
                   return MouseRegion(
                     onEnter: (event) => provider.toggleMagnify(true),
                     onExit: (event) => provider.toggleMagnify(false),

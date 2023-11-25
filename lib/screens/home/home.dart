@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 
 import 'main_copy.dart';
 
-class LandingPage1 extends StatelessWidget {
-  LandingPage1({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  HomeScreen({Key? key}) : super(key: key);
   final ScrollController scrollController = ScrollController();
 
   final ScrollController scrollController2 = ScrollController();
@@ -31,7 +31,7 @@ class LandingPage1 extends StatelessWidget {
               controller: scrollController2,
               child: Stack(
                 children: [
-                  MainCopy(size: size, scrollController2: scrollController2),
+                  BlackCopy(size: size, scrollController2: scrollController2),
                   YellowCopy(
                     scrollController: scrollController,
                     scrollController2: scrollController2,

@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/constant/theme/pallete.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:portfolio/screens/reqruiters/recruiter_yellow.dart';
 import 'package:portfolio/screens/reqruiters/reqruiter_black.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/constant/theme/pallete.dart';
 import '../../core/widgets/navigation_bar.dart';
 
 class RecruitersScreen extends StatelessWidget {
-  const RecruitersScreen({super.key});
-  static final ScrollController scrollController = ScrollController();
-
-  static final ScrollController scrollController2 = ScrollController();
+  RecruitersScreen({Key? key}) : super(key: key);
+  final ScrollController scrollController = ScrollController();
+  final ScrollController scrollController2 = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +32,7 @@ class RecruitersScreen extends StatelessWidget {
                 children: [
                   RecruitersBlack(
                       size: size, scrollController2: scrollController2),
-                  RecruitersYellow(
+                  RecruiterYellow(
                     scrollController: scrollController,
                     scrollController2: scrollController2,
                   ),

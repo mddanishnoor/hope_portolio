@@ -9,8 +9,8 @@ import 'widgets/favourite_projects.dart';
 import 'widgets/my_moto.dart';
 import 'widgets/what_i_do.dart';
 
-class MainCopy extends StatelessWidget {
-  const MainCopy({
+class BlackCopy extends StatelessWidget {
+  const BlackCopy({
     super.key,
     required this.size,
     required this.scrollController2,
