@@ -143,4 +143,7 @@ abstract class AppTextStyle {
     height: 1,
     color: Palette.hYellow,
   );
+
+  static TextStyle listTileSubtextStyle = GoogleFonts.archivo(
+      fontSize: 16, fontWeight: FontWeight.w500, color: Palette.bgBlack);
 }

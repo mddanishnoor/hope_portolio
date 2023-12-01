@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/providers/project_provider.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
-import 'package:portfolio/screens/reqruiters/reqruiters_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/home/home.dart';
+import 'screens/reqruiters/reqruiters_screen.dart';
 
 void main() {
   runApp(const MainApp());
