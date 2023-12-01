@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
-import 'package:portfolio/screens/reqruiters/widgets/experience_widget.dart';
 import 'package:portfolio/screens/reqruiters/widgets/req_what_i_do.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +13,7 @@ import '../../core/helper/mouse_follower.dart';
 import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../home/widgets/connect_tiles.dart';
+import 'widgets/certifcate_widget.dart';
 import 'widgets/req_animated_tile.dart';
 
 class RecruiterYellow extends StatelessWidget {
@@ -77,6 +77,7 @@ class RecruiterYellowChild extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+              ///HELPING WIDGET
               LandingWidget(
                 color: Palette.hYellow,
                 child: Stack(
@@ -145,6 +146,8 @@ class RecruiterYellowChild extends StatelessWidget {
                   ],
                 ),
               ),
+
+              ///ABOUTME WIDGET
               LandingWidget(
                   color: Palette.hYellow,
                   child: Padding(
@@ -187,99 +190,27 @@ class RecruiterYellowChild extends StatelessWidget {
                       ],
                     ),
                   )),
-              MouseRegion(
-                onEnter: (event) =>
-                    context.read<RecruitersProvider>().toggleHide(true),
-                onExit: (event) =>
-                    context.read<RecruitersProvider>().toggleHide(false),
-                child: LandingWidget(
-                    color: Palette.hYellow,
-                    child: ReqWhatIDoWidget(
-                        size: size, scrollController2: scrollController2)),
+
+              ///WHATIDO WIDGET
+              const LandingWidget(),
+
+              ///CERTIFICATE WIDGET
+              CertificateWidget(
+                size: size,
+                isYellow: true,
               ),
-              LandingWidget(
-                color: Palette.hYellow,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Certifications ',
-                        style: AppTextStyle.anotation
-                            .copyWith(color: Palette.bgBlack),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        height: size.height * 0.84,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border:
-                                Border.all(width: 1, color: Palette.bgBlack)),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.05,
-                                vertical: size.height * 0.0299,
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    'Google UX Design\nProfessional Certificate    ',
-                                    style: AppTextStyle.listExtended.copyWith(
-                                        fontSize: 45, color: Palette.bgBlack),
-                                  ),
-                                  const Spacer(),
-                                  InkWell(
-                                    onTap: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //         builder: (c) => ProjectScreen()));
-                                    },
-                                    child: Container(
-                                      width: 90,
-                                      height: 24,
-                                      decoration: BoxDecoration(
-                                        border:
-                                            Border.all(color: Palette.bgBlack),
-                                        borderRadius: BorderRadius.circular(6),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'See all >>',
-                                          style: AppTextStyle.buttonTextStyle
-                                              .copyWith(color: Palette.bgBlack),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                height: size.height * 0.653,
-                                decoration: BoxDecoration(
-                                  color: Palette.grey,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              ExperienceWidget(
-                  size: size, scrollController2: scrollController2),
+
+              ///EXPERIENCE WIDGET
+              const LandingWidget(),
+
+              ///EDUCATION WIDGET
+              const LandingWidget(),
+
+              ///PROJECTS WIDGET
+              const LandingWidget(),
+
+              ///                          WIDGET
+              const LandingWidget(),
               LandingWidget(
                 color: Palette.hYellow,
                 child: Column(

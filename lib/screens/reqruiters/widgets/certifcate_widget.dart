@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/providers/cursor_provider.dart';
+import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/constant/constants.dart';
@@ -13,9 +13,11 @@ class CertificateWidget extends StatelessWidget {
   const CertificateWidget({
     super.key,
     required this.size,
+    this.isYellow = false,
   });
 
   final Size size;
+  final bool isYellow;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,8 @@ class CertificateWidget extends StatelessWidget {
           children: [
             Text(
               'Certifications ',
-              style: AppTextStyle.anotation,
+              style: AppTextStyle.anotation
+                  .copyWith(color: isYellow ? Palette.black : null),
             ),
             const SizedBox(
               height: 10,
@@ -37,7 +40,9 @@ class CertificateWidget extends StatelessWidget {
               height: size.height * 0.84,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(width: 1, color: Palette.borderGrey)),
+                  border: Border.all(
+                      width: 1,
+                      color: isYellow ? Palette.black : Palette.borderGrey)),
               child: Column(
                 children: [
                   Padding(
@@ -48,17 +53,15 @@ class CertificateWidget extends StatelessWidget {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Google UX Design\nProfessional Certificate',
-                            style: AppTextStyle.listExtended
-                                .copyWith(fontSize: 45)),
+                        Text(
+                          'Google UX Design\nProfessional Certificate',
+                          style: AppTextStyle.listExtended.copyWith(
+                              fontSize: 45,
+                              color: isYellow ? Palette.black : null),
+                        ),
                         const Spacer(),
                         YellowOutlinedButton(
-                          onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (c) => ProjectScreen()));
-                          },
+                          onTap: () {},
                           label: 'Verify >>',
                         ),
                       ],
@@ -67,9 +70,9 @@ class CertificateWidget extends StatelessWidget {
                   Expanded(
                     child: MouseRegion(
                       onEnter: (event) =>
-                          context.read<CursorProvider>().toggleHide(true),
+                          context.read<RecruitersProvider>().toggleHide(true),
                       onExit: (event) =>
-                          context.read<CursorProvider>().toggleHide(false),
+                          context.read<RecruitersProvider>().toggleHide(false),
                       child: Container(
                         height: size.height * 0.653,
                         padding: const EdgeInsets.symmetric(vertical: 18),
@@ -120,10 +123,12 @@ class YellowOutlinedButton extends StatefulWidget {
     this.onTap,
     required this.label,
     this.labelStyle,
+    this.isYellow = false,
   });
   final Function()? onTap;
   final String label;
   final TextStyle? labelStyle;
+  final bool isYellow;
 
   @override
   State<YellowOutlinedButton> createState() => _YellowOutlinedButtonState();
@@ -135,15 +140,21 @@ class _YellowOutlinedButtonState extends State<YellowOutlinedButton> {
   Widget build(BuildContext context) {
     return MouseRegion(
       onEnter: (_) {
+        if (widget.isYellow) {
+          return;
+        }
         setState(() {
           isHovered = true;
-          context.read<CursorProvider>().toggleHide(true);
+          context.read<RecruitersProvider>().toggleHide(true);
         });
       },
       onExit: (_) {
+        if (widget.isYellow) {
+          return;
+        }
         setState(() {
           isHovered = false;
-          context.read<CursorProvider>().toggleHide(false);
+          context.read<RecruitersProvider>().toggleHide(false);
         });
       },
       child: InkWell(
@@ -153,9 +164,13 @@ class _YellowOutlinedButtonState extends State<YellowOutlinedButton> {
           decoration: BoxDecoration(
               border: Border.all(
                   width: 1.0,
-                  color: !isHovered ? Palette.hYellow : Palette.bgBlack),
+                  color: !(isHovered || widget.isYellow)
+                      ? Palette.hYellow
+                      : Palette.bgBlack),
               borderRadius: BorderRadius.circular(6),
-              color: isHovered ? Palette.hYellow : Palette.bgBlack
+              color: (isHovered || widget.isYellow)
+                  ? Palette.hYellow
+                  : Palette.bgBlack
               // You can set the background color here.
               // Example: color: buttonColor,
               ),
@@ -164,7 +179,9 @@ class _YellowOutlinedButtonState extends State<YellowOutlinedButton> {
             widget.label,
             style: widget.labelStyle ??
                 AppTextStyle.buttonTextStyle.copyWith(
-                    color: isHovered ? Palette.bgBlack : Palette.hYellow),
+                    color: (isHovered || widget.isYellow)
+                        ? Palette.bgBlack
+                        : Palette.hYellow),
           )),
         ),
       ),
