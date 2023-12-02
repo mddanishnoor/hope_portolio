@@ -35,6 +35,7 @@ class CoreCompetency extends StatelessWidget {
                 height: 10,
               ),
               RunningAnimatedTileContainer(
+                isRecruiter: true,
                 child1: Container(
                   height: 65,
                   width: double.infinity,
@@ -78,6 +79,7 @@ class CoreCompetency extends StatelessWidget {
               ///
 
               RunningAnimatedTileContainer(
+                isRecruiter: true,
                 child1: Container(
                   height: 65,
                   width: double.infinity,
@@ -119,6 +121,7 @@ class CoreCompetency extends StatelessWidget {
               ),
               //
               RunningAnimatedTileContainer(
+                isRecruiter: true,
                 child1: Container(
                   height: 65,
                   width: double.infinity,
@@ -166,6 +169,7 @@ class CoreCompetency extends StatelessWidget {
               ),
               //
               RunningAnimatedTileContainer(
+                isRecruiter: true,
                 child1: Container(
                   height: 65,
                   width: double.infinity,
@@ -198,6 +202,7 @@ class CoreCompetency extends StatelessWidget {
               ),
               //
               RunningAnimatedTileContainer(
+                isRecruiter: true,
                 child1: Container(
                   height: 65,
                   width: double.infinity,
@@ -229,6 +234,7 @@ class CoreCompetency extends StatelessWidget {
               ),
               //
               RunningAnimatedTileContainer(
+                isRecruiter: true,
                 child1: Container(
                   height: 65,
                   width: double.infinity,
@@ -260,6 +266,7 @@ class CoreCompetency extends StatelessWidget {
               ),
               //
               RunningAnimatedTileContainer(
+                isRecruiter: true,
                 child1: Container(
                   height: 65,
                   width: double.infinity,

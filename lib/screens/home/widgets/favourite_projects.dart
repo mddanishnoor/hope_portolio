@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/screens/project/projects_screen.dart';
 import 'package:provider/provider.dart';
@@ -11,12 +12,11 @@ import '../../../core/widgets/landing_widget.dart';
 import '../../../core/widgets/project_card.dart';
 
 class FavoriteProjects extends StatelessWidget {
-  const FavoriteProjects({
-    super.key,
-    required this.size,
-  });
+  const FavoriteProjects(
+      {super.key, required this.size, this.isRecruiter = false});
 
   final Size size;
+  final bool isRecruiter;
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +53,7 @@ class FavoriteProjects extends StatelessWidget {
                             style: AppTextStyle.listExtended),
                         const Spacer(),
                         YellowOutlinedButton(
+                          isRecruiter: isRecruiter,
                           onTap: () {
                             Navigator.push(
                                 context,
@@ -66,10 +67,12 @@ class FavoriteProjects extends StatelessWidget {
                   ),
                   Expanded(
                     child: MouseRegion(
-                      onEnter: (event) =>
-                          context.read<CursorProvider>().toggleHide(true),
-                      onExit: (event) =>
-                          context.read<CursorProvider>().toggleHide(false),
+                      onEnter: (event) => isRecruiter
+                          ? context.read<RecruitersProvider>().toggleHide(true)
+                          : context.read<CursorProvider>().toggleHide(true),
+                      onExit: (event) => isRecruiter
+                          ? context.read<RecruitersProvider>().toggleHide(false)
+                          : context.read<CursorProvider>().toggleHide(false),
                       child: Container(
                         height: size.height * 0.653,
                         padding: const EdgeInsets.symmetric(vertical: 18),
@@ -115,15 +118,16 @@ class FavoriteProjects extends StatelessWidget {
 }
 
 class YellowOutlinedButton extends StatefulWidget {
-  const YellowOutlinedButton({
-    super.key,
-    this.onTap,
-    required this.label,
-    this.labelStyle,
-  });
+  const YellowOutlinedButton(
+      {super.key,
+      this.onTap,
+      required this.label,
+      this.labelStyle,
+      this.isRecruiter = false});
   final Function()? onTap;
   final String label;
   final TextStyle? labelStyle;
+  final bool isRecruiter;
 
   @override
   State<YellowOutlinedButton> createState() => _YellowOutlinedButtonState();
@@ -137,13 +141,17 @@ class _YellowOutlinedButtonState extends State<YellowOutlinedButton> {
       onEnter: (_) {
         setState(() {
           isHovered = true;
-          context.read<CursorProvider>().toggleHide(true);
+          widget.isRecruiter
+              ? context.read<RecruitersProvider>().toggleHide(true)
+              : context.read<CursorProvider>().toggleHide(true);
         });
       },
       onExit: (_) {
         setState(() {
           isHovered = false;
-          context.read<CursorProvider>().toggleHide(false);
+          widget.isRecruiter
+              ? context.read<RecruitersProvider>().toggleHide(false)
+              : context.read<CursorProvider>().toggleHide(false);
         });
       },
       child: InkWell(

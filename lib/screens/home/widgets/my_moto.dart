@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
+import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/constant/theme/styles.dart';
@@ -8,7 +9,9 @@ import '../../../core/widgets/landing_widget.dart';
 class MyMoto extends StatelessWidget {
   const MyMoto({
     super.key,
+    this.isRecruitment = false,
   });
+  final bool isRecruitment;
 
   @override
   Widget build(BuildContext context) {
@@ -18,25 +21,34 @@ class MyMoto extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Spacer(),
-          Consumer<CursorProvider>(builder: (context, provider, _) {
-            return MouseRegion(
-              onEnter: (event) => provider.toggleMagnify(true),
-              onExit: (event) => provider.toggleMagnify(false),
-              child: Column(
-                children: [
-                  Text('MY MOTO', style: AppTextStyle.anotation),
-                  const SizedBox(
-                    height: 18,
-                  ),
-                  Text(
-                    'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
-                    textAlign: TextAlign.center,
-                    style: AppTextStyle.heading,
-                  ),
-                ],
-              ),
-            );
-          }),
+          MouseRegion(
+            onEnter: (event) => isRecruitment
+                ? context.read<RecruitersProvider>().toggleMagnify(true)
+                : context.read<CursorProvider>().toggleMagnify(true),
+            onExit: (event) => isRecruitment
+                ? context.read<RecruitersProvider>().toggleMagnify(false)
+                : context.read<CursorProvider>().toggleMagnify(false),
+            child: Column(
+              children: [
+                Text('MY MOTO', style: AppTextStyle.anotation),
+                const SizedBox(
+                  height: 18,
+                ),
+                Text(
+                  'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
+                  textAlign: TextAlign.center,
+                  style: AppTextStyle.heading,
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                Text(
+                  '- MOHAMMAD ALI',
+                  style: AppTextStyle.anotation,
+                ),
+              ],
+            ),
+          ),
           const Spacer(),
         ],
       ),

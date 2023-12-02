@@ -12,11 +12,9 @@ class ReqWhatIDoWidget extends StatefulWidget {
   const ReqWhatIDoWidget({
     super.key,
     required this.size,
-    required this.scrollController2,
   });
 
   final Size size;
-  final ScrollController scrollController2;
 
   @override
   State<ReqWhatIDoWidget> createState() => _ReqWhatIDoWidgetState();

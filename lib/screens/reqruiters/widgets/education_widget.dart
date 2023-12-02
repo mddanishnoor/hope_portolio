@@ -11,11 +11,9 @@ class EducationWidget extends StatefulWidget {
   const EducationWidget({
     super.key,
     required this.size,
-    required this.scrollController2,
   });
 
   final Size size;
-  final ScrollController scrollController2;
 
   @override
   State<EducationWidget> createState() => _EducationWidgetState();
@@ -52,6 +50,7 @@ class _EducationWidgetState extends State<EducationWidget> {
                   Column(
                     children: [
                       RunningAnimatedTileContainer(
+                        isRecruiter: true,
                         multiplier: 1,
                         scrollOffset: provider.scrollOffset,
                         child1: EducationTile(
@@ -72,6 +71,7 @@ class _EducationWidgetState extends State<EducationWidget> {
                                 'kudos to my professors for making this a utopian reality.'),
                       ),
                       RunningAnimatedTileContainer(
+                        isRecruiter: true,
                         multiplier: 1.2,
                         scrollOffset: provider.scrollOffset,
                         child1: EducationTile(
@@ -89,6 +89,7 @@ class _EducationWidgetState extends State<EducationWidget> {
                             subtext: 'A place where I found my purpose'),
                       ),
                       RunningAnimatedTileContainer(
+                        isRecruiter: true,
                         multiplier: 1.3,
                         scrollOffset: provider.scrollOffset,
                         child1: EducationTile(

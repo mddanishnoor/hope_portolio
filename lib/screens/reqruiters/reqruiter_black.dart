@@ -34,16 +34,30 @@ class RecruitersBlack extends StatelessWidget {
               size: size,
               scrollController: scrollController2,
             ),
-            ReqWhatIDoWidget(size: size, scrollController2: scrollController2),
+            ReqWhatIDoWidget(
+              size: size,
+            ),
             CertificateWidget(size: size),
-            ExperienceWidget(size: size, scrollController2: scrollController2),
-            EducationWidget(size: size, scrollController2: scrollController2),
-            FavoriteProjects(size: size),
+            ExperienceWidget(
+              size: size,
+            ),
+            EducationWidget(
+              size: size,
+            ),
+            FavoriteProjects(
+              size: size,
+              isRecruiter: true,
+            ),
             CoreCompetency(
               size: size,
             ),
-            const MyMoto(),
-            Connect(size: size)
+            const MyMoto(
+              isRecruitment: true,
+            ),
+            Connect(
+              size: size,
+              isRecruiter: true,
+            )
           ],
         );
       }),

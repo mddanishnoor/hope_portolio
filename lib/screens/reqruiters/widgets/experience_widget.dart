@@ -11,11 +11,9 @@ class ExperienceWidget extends StatefulWidget {
   const ExperienceWidget({
     super.key,
     required this.size,
-    required this.scrollController2,
   });
 
   final Size size;
-  final ScrollController scrollController2;
 
   @override
   State<ExperienceWidget> createState() => _ExperienceWidgetState();
@@ -52,6 +50,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                   Column(
                     children: [
                       RunningAnimatedTileContainer(
+                        isRecruiter: true,
                         multiplier: 1,
                         scrollOffset: provider.scrollOffset,
                         child1: ExperienceTile(
@@ -70,6 +69,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                                 'I learned to manage clients through dozens of projects'),
                       ),
                       RunningAnimatedTileContainer(
+                        isRecruiter: true,
                         multiplier: 1.2,
                         scrollOffset: provider.scrollOffset,
                         child1: ExperienceTile(
@@ -87,6 +87,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                             subtext: 'Taught me how to be efficient'),
                       ),
                       RunningAnimatedTileContainer(
+                        isRecruiter: true,
                         multiplier: 1.3,
                         scrollOffset: provider.scrollOffset,
                         child1: ExperienceTile(

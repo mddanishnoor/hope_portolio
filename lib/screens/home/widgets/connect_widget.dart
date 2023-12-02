@@ -10,10 +10,15 @@ import '../../../core/widgets/landing_widget.dart';
 import 'connect_tiles.dart';
 
 class Connect extends StatelessWidget {
-  const Connect({super.key, required this.size, this.isProject = false});
+  const Connect(
+      {super.key,
+      required this.size,
+      this.isProject = false,
+      this.isRecruiter = false});
 
   final Size size;
   final bool isProject;
+  final bool isRecruiter;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +41,7 @@ class Connect extends StatelessWidget {
               children: [
                 ConnectTiles(
                   isProject: isProject,
+                  isRecruiter: isRecruiter,
                   title: 'LinkedIn',
                   subtitle: 'Work, work, work',
                   connectType: 'EMAIL',
@@ -43,6 +49,7 @@ class Connect extends StatelessWidget {
                 ),
                 ConnectTiles(
                   isProject: isProject,
+                  isRecruiter: isRecruiter,
                   title: 'Behance',
                   subtitle: 'Another POV at my projects',
                   connectType: 'Phone',
@@ -50,6 +57,7 @@ class Connect extends StatelessWidget {
                 ),
                 ConnectTiles(
                   isProject: isProject,
+                  isRecruiter: isRecruiter,
                   title: 'Instagram',
                   subtitle: 'My inactive social face',
                   connectType: 'Phone',
@@ -72,8 +80,11 @@ class Connect extends StatelessWidget {
               children: [
                 AnimatedTileContainer(
                   isProject: isProject,
+                  isRecruiter: isRecruiter,
                   child1: Text(
-                    'If you like to hire me',
+                    isRecruiter
+                        ? 'Here is my resume '
+                        : 'If you like to hire me',
                     style: GoogleFonts.syne(
                       // 'Syne',
                       fontSize: 64,
@@ -85,7 +96,9 @@ class Connect extends StatelessWidget {
                   child2: ColoredBox(
                     color: Palette.hYellow,
                     child: Text(
-                      'If you like to hire me',
+                      isRecruiter
+                          ? 'Here is my resume '
+                          : 'If you like to hire me',
                       style: GoogleFonts.syne(
                         // 'Syne',
                         fontSize: 64,
@@ -99,28 +112,33 @@ class Connect extends StatelessWidget {
                 const Spacer(),
                 AnimatedTileContainer(
                   isProject: isProject,
+                  isRecruiter: isRecruiter,
                   child1: CustomElevatedButton(
-                    label: 'Click here',
+                    label: isRecruiter ? 'Download' : 'Click here',
                     isYellow: false,
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RecruitersScreen(),
-                        ),
-                      );
+                      isRecruiter
+                          ? null
+                          : Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RecruitersScreen(),
+                              ),
+                            );
                     },
                   ),
                   child2: CustomElevatedButton(
-                    label: 'Click here',
+                    label: isRecruiter ? 'Download' : 'Click here',
                     isYellow: true,
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RecruitersScreen(),
-                        ),
-                      );
+                      isRecruiter
+                          ? null
+                          : Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RecruitersScreen(),
+                              ),
+                            );
                     },
                   ),
                 ),

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
-import 'package:portfolio/screens/reqruiters/widgets/req_what_i_do.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/constant/theme/pallete.dart';
@@ -13,6 +12,7 @@ import '../../core/helper/mouse_follower.dart';
 import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../home/widgets/connect_tiles.dart';
+import '../project/projects_screen.dart';
 import 'widgets/certifcate_widget.dart';
 import 'widgets/req_animated_tile.dart';
 
@@ -207,10 +207,92 @@ class RecruiterYellowChild extends StatelessWidget {
               const LandingWidget(),
 
               ///PROJECTS WIDGET
+              LandingWidget(
+                color: Palette.hYellow,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'PROJECTS ',
+                        style: AppTextStyle.anotation
+                            .copyWith(color: Palette.bgBlack),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: size.height * 0.84,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border:
+                                Border.all(width: 1, color: Palette.bgBlack)),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.065,
+                                vertical: size.height * 0.0299,
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    'My favorite \nprojects',
+                                    style: AppTextStyle.listExtended
+                                        .copyWith(color: Palette.bgBlack),
+                                  ),
+                                  const Spacer(),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (c) => ProjectScreen()));
+                                    },
+                                    child: Container(
+                                      width: 90,
+                                      height: 24,
+                                      decoration: BoxDecoration(
+                                        border:
+                                            Border.all(color: Palette.bgBlack),
+                                        borderRadius: BorderRadius.circular(6),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'See all >>',
+                                          style: AppTextStyle.buttonTextStyle
+                                              .copyWith(color: Palette.bgBlack),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: size.height * 0.653,
+                                decoration: BoxDecoration(
+                                  color: Palette.grey,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+
+              ///CORECOMPETENCY WIDGET
               const LandingWidget(),
 
-              ///                          WIDGET
-              const LandingWidget(),
+              ///MOTO WIDGET
               LandingWidget(
                 color: Palette.hYellow,
                 child: Column(
@@ -239,6 +321,14 @@ class RecruiterYellowChild extends StatelessWidget {
                             'SAME\nSTROKES FOR\nSIMILAR\nFOLKS',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.heading
+                                .copyWith(color: Palette.bgBlack),
+                          ),
+                          const SizedBox(
+                            height: 18,
+                          ),
+                          Text(
+                            '- MOHAMMAD ALI',
+                            style: AppTextStyle.anotation
                                 .copyWith(color: Palette.bgBlack),
                           ),
                         ],
