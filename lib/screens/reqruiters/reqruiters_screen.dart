@@ -5,7 +5,7 @@ import 'package:portfolio/screens/reqruiters/recruiter_yellow.dart';
 import 'package:portfolio/screens/reqruiters/reqruiter_black.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/widgets/navigation_bar.dart';
+// import '../../core/widgets/navigation_bar.dart';
 
 class RecruitersScreen extends StatelessWidget {
   RecruitersScreen({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class RecruitersScreen extends StatelessWidget {
             onNotification: (notification) {
               controller.updateScrollOffset(scrollController2.offset);
               // scrollController.jumpTo(scrollController2.offset);
-              return false;
+              return true;
             },
             child: PrimaryScrollController(
               controller: scrollController2,
@@ -36,15 +36,15 @@ class RecruitersScreen extends StatelessWidget {
                     scrollController: scrollController,
                     scrollController2: scrollController2,
                   ),
-                  if (scrollController2.hasClients &&
-                      controller.scrollOffset >= (size.height / 2))
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: CustomNavbar(
-                        scrollController2,
-                        secondaryScrollController: scrollController,
-                      ),
-                    ),
+                  // if (scrollController2.hasClients &&
+                  //     controller.scrollOffset >= (size.height / 2))
+                  //   Align(
+                  //     alignment: Alignment.bottomCenter,
+                  //     child: CustomNavbar(
+                  //       scrollController2,
+                  //       secondaryScrollController: scrollController,
+                  //     ),
+                  //   ),
                 ],
               ),
             ),

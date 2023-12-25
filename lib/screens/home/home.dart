@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
             onNotification: (notification) {
               controller.updateScrollOffset(scrollController2.offset);
               // scrollController.jumpTo(scrollController2.offset);
-              return false;
+              return true;
             },
             child: PrimaryScrollController(
               controller: scrollController2,

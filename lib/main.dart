@@ -5,7 +5,7 @@ import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/home/home.dart';
-import 'screens/reqruiters/reqruiters_screen.dart';
+// import 'screens/reqruiters/reqruiters_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
         builder: (context, _) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: RecruitersScreen(),
+            home: HomeScreen(),
           );
         });
   }
