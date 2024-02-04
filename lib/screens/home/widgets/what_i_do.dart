@@ -131,3 +131,80 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
     );
   }
 }
+
+class MobileWhatIDoWidget extends StatefulWidget {
+  const MobileWhatIDoWidget({
+    super.key,
+    required this.size,
+    required this.scrollController2,
+  });
+
+  final Size size;
+  final ScrollController scrollController2;
+
+  @override
+  State<MobileWhatIDoWidget> createState() => _MobileWhatIDoWidgetState();
+}
+
+class _MobileWhatIDoWidgetState extends State<MobileWhatIDoWidget> {
+  GlobalKey widgetKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+      child: Column(
+        children: [
+          const Spacer(),
+          Consumer<CursorProvider>(
+            builder: (c, provider, _) => MouseRegion(
+              onEnter: (event) => provider.toggleHide(true),
+              onExit: (event) => provider.toggleHide(false),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: widget.size.width * 0.105),
+                    child: Text(
+                      'WHAT I DO',
+                      style: AppTextStyle.mobileAnnotation,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Column(
+                    children: [
+                      MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'UX/UI',
+                      ),
+                      MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'SYSTEMS',
+                      ),
+                      MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'FACILITATION',
+                      ),
+                      MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'RESEARCH',
+                      ),
+                      MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'TESTING',
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+          const Spacer(),
+        ],
+      ),
+    );
+  }
+}
