@@ -41,7 +41,9 @@ class BlackCopy extends StatelessWidget {
                     size: size, scrollController2: scrollController2)
                 : MobileWhatIDoWidget(
                     size: size, scrollController2: scrollController2),
-            FavoriteProjects(size: size),
+            size.width > 600
+                ? FavoriteProjects(size: size)
+                : MobileFavoriteProjects(size: size),
             const MyMoto(),
             Connect(size: size)
           ],

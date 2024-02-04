@@ -117,6 +117,107 @@ class FavoriteProjects extends StatelessWidget {
   }
 }
 
+class MobileFavoriteProjects extends StatelessWidget {
+  const MobileFavoriteProjects(
+      {super.key, required this.size, this.isRecruiter = false});
+
+  final Size size;
+  final bool isRecruiter;
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: size.width * 0.07),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'PROJECTS ',
+              style: AppTextStyle.mobileAnnotation,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: size.height * 0.84,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(width: 1, color: Palette.borderGrey)),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.065,
+                      vertical: size.height * 0.0299,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text('MY FAVORITE \nPROJECTS',
+                            style: AppTextStyle.mobileHeading),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        Row(
+                          children: [
+                            const Spacer(),
+                            YellowOutlinedButton(
+                              isRecruiter: isRecruiter,
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (c) => ProjectScreen()));
+                              },
+                              label: 'See all >>',
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 18),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Palette.grey,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: CarouselSlider(
+                        items: images
+                            .map((e) => ProjectsCard(
+                                size: Size(size.width, size.height), url: e))
+                            .toList(),
+                        options: CarouselOptions(
+                          aspectRatio: 1,
+                          viewportFraction: 0.7,
+                          initialPage: 0,
+                          enableInfiniteScroll: true,
+                          reverse: false,
+                          autoPlay: true,
+                          autoPlayInterval: const Duration(seconds: 2),
+                          autoPlayAnimationDuration: const Duration(seconds: 1),
+                          autoPlayCurve: Curves.fastOutSlowIn,
+                          enlargeCenterPage: true,
+                          enlargeFactor: 0.4,
+                          scrollDirection: Axis.horizontal,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class YellowOutlinedButton extends StatefulWidget {
   const YellowOutlinedButton(
       {super.key,
