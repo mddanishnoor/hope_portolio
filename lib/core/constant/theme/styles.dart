@@ -11,12 +11,28 @@ abstract class AppTextStyle {
     letterSpacing: 3.51,
     color: Palette.hWhite,
   );
+
+  static TextStyle mobileAnnotation = GoogleFonts.archivo(
+    fontSize: 9,
+    fontWeight: FontWeight.w400,
+    height: 1,
+    letterSpacing: 2.35,
+    color: Palette.hWhite,
+  );
+
   // heading Text Style
   static TextStyle heading = GoogleFonts.archivo(
     fontSize: 96,
     fontWeight: FontWeight.w700,
     height: 0.8599999746,
     letterSpacing: -5.28,
+    color: Palette.hWhite,
+  );
+  static TextStyle mobileHeading = GoogleFonts.archivo(
+    fontSize: 44,
+    fontWeight: FontWeight.w700,
+    height: 0.86,
+    letterSpacing: -2.42,
     color: Palette.hWhite,
   );
   // body Text Style
@@ -26,6 +42,15 @@ abstract class AppTextStyle {
     height: 0.97299999,
     color: Palette.hWhite,
   );
+
+  // body Text Style
+  static TextStyle mobileBody = GoogleFonts.archivo(
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+    height: 1,
+    color: Palette.hWhite,
+  );
+
   // listExtended Text Style
   static TextStyle listExtended = GoogleFonts.archivoBlack(
     fontSize: 64,

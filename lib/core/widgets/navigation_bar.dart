@@ -24,6 +24,7 @@ class CustomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     var h = MediaQuery.of(context).size.height;
     return Padding(
       padding: const EdgeInsets.only(bottom: 17),
@@ -36,9 +37,8 @@ class CustomNavbar extends StatelessWidget {
           ),
           child: Container(
             // landingpagenavbarstate31Mh (1:13)
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
             // width: size.width * 0.31844,
-            height: 49,
+            height: size.width > 600 ? 49 : 42,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: const Border(),
@@ -72,19 +72,23 @@ class CustomNavbar extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    NavButton(
-                      label: 'About me',
-                      onTap: () => {
-                        log('Abut me presssed'),
-                        scrollController.animateTo(h,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate),
-                        secondaryScrollController.animateTo(h,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate)
-                      },
-                      isActive: controller.scrollOffset >= activeHeight(h, 1) &&
-                          controller.scrollOffset < activeHeight(h, 2.7),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(5, 5, 0, 5),
+                      child: NavButton(
+                        label: 'About me',
+                        onTap: () => {
+                          log('Abut me presssed'),
+                          scrollController.animateTo(h,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate),
+                          secondaryScrollController.animateTo(h,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate)
+                        },
+                        isActive:
+                            controller.scrollOffset >= activeHeight(h, 1) &&
+                                controller.scrollOffset < activeHeight(h, 2.7),
+                      ),
                     ),
                     const SizedBox(
                       width: 5,
@@ -105,8 +109,14 @@ class CustomNavbar extends StatelessWidget {
                               controller.scrollOffset <
                                   (activeHeight(h, 5) - h * 0.2),
                     ),
+                    if (size.width < 600) ...[
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      const HoldMeButton(),
+                    ],
                     const SizedBox(
-                      width: 5,
+                      width: 4,
                     ),
                     NavButton(
                       label: 'Connect',
@@ -128,22 +138,26 @@ class CustomNavbar extends StatelessWidget {
                     const SizedBox(
                       width: 5,
                     ),
-                    NavButton(
-                      label: 'For requiters',
-                      onTap: () => {
-                        log('Recruiters presssed'),
-                        scrollController.animateTo(
-                            scrollController.position.maxScrollExtent,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate),
-                        secondaryScrollController.animateTo(
-                            scrollController.position.maxScrollExtent,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate)
-                      },
-                      isActive: controller.scrollOffset >
-                          (scrollController.position.maxScrollExtent -
-                              (h * 0.2)),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
+                      child: NavButton(
+                        label:
+                            size.width > 600 ? 'For requiters' : 'Recruiters',
+                        onTap: () => {
+                          log('Recruiters presssed'),
+                          scrollController.animateTo(
+                              scrollController.position.maxScrollExtent,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate),
+                          secondaryScrollController.animateTo(
+                              scrollController.position.maxScrollExtent,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate)
+                        },
+                        isActive: controller.scrollOffset >
+                            (scrollController.position.maxScrollExtent -
+                                (h * 0.2)),
+                      ),
                     )
                   ],
                 ),
@@ -151,6 +165,55 @@ class CustomNavbar extends StatelessWidget {
             }),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class HoldMeButton extends StatelessWidget {
+  const HoldMeButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 54,
+      height: 52,
+      // padding: const EdgeInsets.symmetric(
+      //     horizontal: 5, vertical: 10),
+      clipBehavior: Clip.antiAlias,
+      decoration: ShapeDecoration(
+        color: const Color(0xFFFBB023),
+        shape: RoundedRectangleBorder(
+          side: BorderSide(width: 1, color: Colors.white.withOpacity(0.5)),
+          borderRadius: BorderRadius.circular(45),
+        ),
+        shadows: const [
+          BoxShadow(
+            color: Color(0x72000000),
+            blurRadius: 5,
+            offset: Offset(0, 4),
+            spreadRadius: -2,
+          )
+        ],
+      ),
+      child: const Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            'Hold me',
+            style: TextStyle(
+              color: Color(0xFF141312),
+              fontSize: 10,
+              fontFamily: 'Syne',
+              fontWeight: FontWeight.w600,
+              height: 0,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -169,6 +232,7 @@ class NavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return InkWell(
       onTap: onTap,
       child: ClipRRect(
@@ -216,7 +280,7 @@ class NavButton extends StatelessWidget {
               child: Text(
                 label,
                 style: GoogleFonts.syne(
-                  fontSize: 16,
+                  fontSize: size.width > 600 ? 16 : 10,
                   fontWeight: FontWeight.w600,
                   height: 1.2,
                   color: const Color(0xffece5d3),

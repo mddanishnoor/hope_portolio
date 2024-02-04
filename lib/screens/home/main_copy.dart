@@ -26,11 +26,16 @@ class BlackCopy extends StatelessWidget {
         return Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            AdvocateWidget(size: size),
-            AboutMeWidget(
-              size: size,
-              scrollController: scrollController2,
-            ),
+            size.width > 600
+                ? AdvocateWidget(size: size)
+                : MobileAdvocateWidget(size: size),
+            size.width > 600
+                ? AboutMeWidget(
+                    size: size,
+                    scrollController: scrollController2,
+                  )
+                : MobileAboutMeWidget(
+                    size: size, scrollController: scrollController2),
             WhatIDoWidget(size: size, scrollController2: scrollController2),
             FavoriteProjects(size: size),
             const MyMoto(),
