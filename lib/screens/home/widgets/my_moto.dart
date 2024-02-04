@@ -55,3 +55,46 @@ class MyMoto extends StatelessWidget {
     );
   }
 }
+
+class MobileMyMoto extends StatelessWidget {
+  const MobileMyMoto({
+    super.key,
+    this.isRecruitment = false,
+  });
+  final bool isRecruitment;
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+      height: MediaQuery.of(context).size.height * 0.6,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // const Spacer(),
+          Column(
+            children: [
+              Text('MY MOTO', style: AppTextStyle.mobileAnnotation),
+              const SizedBox(
+                height: 18,
+              ),
+              Text(
+                'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
+                textAlign: TextAlign.center,
+                style: AppTextStyle.mobileHeading,
+              ),
+              const SizedBox(
+                height: 18,
+              ),
+              Text(
+                '- MOHAMMAD ALI',
+                style: AppTextStyle.mobileAnnotation,
+              ),
+            ],
+          ),
+          // const Spacer(),
+        ],
+      ),
+    );
+  }
+}

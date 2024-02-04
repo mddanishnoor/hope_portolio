@@ -152,9 +152,11 @@ class _MobileWhatIDoWidgetState extends State<MobileWhatIDoWidget> {
   @override
   Widget build(BuildContext context) {
     return LandingWidget(
+      height: MediaQuery.of(context).size.height * 0.6,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(),
+          // const Spacer(),
           Consumer<CursorProvider>(
             builder: (c, provider, _) => MouseRegion(
               onEnter: (event) => provider.toggleHide(true),
@@ -202,7 +204,7 @@ class _MobileWhatIDoWidgetState extends State<MobileWhatIDoWidget> {
               ),
             ),
           ),
-          const Spacer(),
+          // const Spacer(),
         ],
       ),
     );

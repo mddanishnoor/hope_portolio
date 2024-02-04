@@ -44,7 +44,7 @@ class BlackCopy extends StatelessWidget {
             size.width > 600
                 ? FavoriteProjects(size: size)
                 : MobileFavoriteProjects(size: size),
-            const MyMoto(),
+            size.width > 600 ? const MyMoto() : const MobileMyMoto(),
             Connect(size: size)
           ],
         );

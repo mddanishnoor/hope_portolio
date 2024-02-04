@@ -139,13 +139,15 @@ class _MobileAboutMeWidgetState extends State<MobileAboutMeWidget> {
   Widget build(BuildContext context) {
     return Consumer<CursorProvider>(builder: (context, provider, _) {
       return LandingWidget(
+          height: MediaQuery.of(context).size.height * 0.6,
           key: widgetKey,
           child: Padding(
             padding:
                 EdgeInsets.symmetric(horizontal: widget.size.width * 0.1046),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Spacer(),
+                // const Spacer(),
                 MouseRegion(
                   onEnter: (event) => provider.toggleMagnify(true),
                   onExit: (event) => provider.toggleMagnify(false),
@@ -191,7 +193,7 @@ class _MobileAboutMeWidgetState extends State<MobileAboutMeWidget> {
                     ),
                   ),
                 ),
-                const Spacer(),
+                // const Spacer(),
               ],
             ),
           ));
