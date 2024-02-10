@@ -81,75 +81,11 @@ class LandingPage2Child extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+              YellowAdvocateWidget(size: size),
               LandingWidget(
-                color: Palette.hYellow,
-                child: Stack(
-                  children: [
-                    Positioned(
-                      left: size.height * 0.0241,
-                      top: size.height * 0.063,
-                      child: Text(
-                        'HOPE',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.bebasNeue(
-                          fontSize: 32,
-                          fontWeight: FontWeight.w400,
-                          height: 0.8599999547,
-                          color: Palette.bgBlack,
-                        ),
-                      ),
-                    ),
-                    Column(
-                      children: [
-                        const Spacer(),
-                        Align(
-                          alignment: Alignment.center,
-                          child: MouseRegion(
-                            onEnter: (event) => context
-                                .read<CursorProvider>()
-                                .toggleMagnify(true),
-                            onExit: (event) => context
-                                .read<CursorProvider>()
-                                .toggleMagnify(false),
-                            child: Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'RAZA MEANS HOPE',
-                                    textAlign: TextAlign.center,
-                                    style: AppTextStyle.anotation
-                                        .copyWith(color: Palette.bgBlack),
-                                  ),
-                                  const SizedBox(
-                                    height: 16,
-                                  ),
-                                  Text(
-                                    'DRIVER',
-                                    overflow: TextOverflow.fade,
-                                    style: AppTextStyle.heading
-                                        .copyWith(color: Palette.bgBlack),
-                                  ),
-                                  Text(
-                                    'FOR COMPANY\nGROWTH',
-                                    textAlign: TextAlign.center,
-                                    style: AppTextStyle.heading
-                                        .copyWith(color: Palette.bgBlack),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        const Spacer()
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              LandingWidget(
+                  height: size.width > 600
+                      ? null
+                      : MediaQuery.of(context).size.height * 0.6,
                   color: Palette.hYellow,
                   child: Padding(
                     padding:
@@ -457,6 +393,94 @@ class LandingPage2Child extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class YellowAdvocateWidget extends StatelessWidget {
+  const YellowAdvocateWidget({
+    super.key,
+    required this.size,
+  });
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+      color: Palette.hYellow,
+      child: Stack(
+        children: [
+          Positioned(
+            left: size.height * 0.0241,
+            top: size.height * 0.063,
+            child: Text(
+              'HOPE',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.bebasNeue(
+                fontSize: size.width > 600 ? 32 : 21.961,
+                fontWeight: FontWeight.w400,
+                height: 0.8599999547,
+                color: Palette.bgBlack,
+              ),
+            ),
+          ),
+          Column(
+            children: [
+              const Spacer(),
+              Align(
+                alignment: Alignment.center,
+                child: MouseRegion(
+                  onEnter: (event) =>
+                      context.read<CursorProvider>().toggleMagnify(true),
+                  onExit: (event) =>
+                      context.read<CursorProvider>().toggleMagnify(false),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'RAZA MEANS HOPE',
+                          textAlign: TextAlign.center,
+                          style: size.width > 600
+                              ? AppTextStyle.anotation
+                                  .copyWith(color: Palette.bgBlack)
+                              : AppTextStyle.mobileAnnotation
+                                  .copyWith(color: Palette.bgBlack),
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        Text(
+                          'DRIVER',
+                          overflow: TextOverflow.fade,
+                          style: size.width > 600
+                              ? AppTextStyle.heading
+                                  .copyWith(color: Palette.bgBlack)
+                              : AppTextStyle.mobileHeading
+                                  .copyWith(color: Palette.bgBlack),
+                        ),
+                        Text(
+                          'FOR COMPANY\nGROWTH',
+                          textAlign: TextAlign.center,
+                          style: size.width > 600
+                              ? AppTextStyle.heading
+                                  .copyWith(color: Palette.bgBlack)
+                              : AppTextStyle.mobileHeading
+                                  .copyWith(color: Palette.bgBlack),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const Spacer()
+            ],
+          ),
+        ],
       ),
     );
   }
