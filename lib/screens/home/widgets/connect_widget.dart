@@ -150,3 +150,89 @@ class Connect extends StatelessWidget {
     );
   }
 }
+
+class MobileConnect extends StatelessWidget {
+  const MobileConnect(
+      {super.key,
+      required this.size,
+      this.isProject = false,
+      this.isRecruiter = false});
+
+  final Size size;
+  final bool isProject;
+  final bool isRecruiter;
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+      height: MediaQuery.of(context).size.height * 0.6,
+      child: Padding(
+        padding:
+            EdgeInsets.only(left: size.width * 0.105, right: size.width * 0.08),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Connect',
+              style: AppTextStyle.mobileAnnotation,
+            ),
+            const SizedBox(
+              height: 18,
+            ),
+            const Column(
+              children: [
+                MobileConnectTiles(
+                  title: 'LINKEDIN',
+                ),
+                MobileConnectTiles(
+                  title: 'BEHANCE',
+                ),
+                MobileConnectTiles(
+                  title: 'INSTAGRAM',
+                ),
+              ],
+            ),
+            SizedBox(
+              height: size.height * 0.2,
+            ),
+            Text(
+              'EMAIL',
+              style: AppTextStyle.mobileAnnotation,
+            ),
+            const SizedBox(
+              height: 3,
+            ),
+            Text('razamohdsajjad@gmail.com',
+                style: GoogleFonts.archivo(
+                  fontSize: 14,
+                  // fontWeight: FontWeight.w600,
+                  height: 1.0049999952,
+                  color: Palette.notWhite,
+                )),
+            const SizedBox(
+              height: 32,
+            ),
+            Text(
+              'PHONE ',
+              style: AppTextStyle.mobileAnnotation,
+            ),
+            const SizedBox(
+              height: 3,
+            ),
+            Text('+91 9818164010',
+                style: GoogleFonts.archivo(
+                  fontSize: 14,
+                  // fontWeight: FontWeight.w600,
+                  height: 1.0049999952,
+                  color: Palette.notWhite,
+                )),
+            const SizedBox(
+              height: 32,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

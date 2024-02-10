@@ -158,3 +158,36 @@ class ConnectTiles extends StatelessWidget {
     );
   }
 }
+
+class MobileConnectTiles extends StatelessWidget {
+  const MobileConnectTiles({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 5,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 12, right: 16),
+                child: SvgPicture.asset('assets/svg/rectangle.svg'),
+              ),
+              Text(
+                title,
+                style: AppTextStyle.mobileBody.copyWith(fontSize: 44),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}

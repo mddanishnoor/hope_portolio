@@ -93,21 +93,24 @@ class CustomNavbar extends StatelessWidget {
                     const SizedBox(
                       width: 5,
                     ),
-                    NavButton(
-                      label: 'Project',
-                      onTap: () => {
-                        log('Project presssed'),
-                        scrollController.animateTo(h * 3,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate),
-                        secondaryScrollController.animateTo(h * 3,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate)
-                      },
-                      isActive:
-                          controller.scrollOffset >= activeHeight(h, 2.7) &&
-                              controller.scrollOffset <
-                                  (activeHeight(h, 5) - h * 0.2),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      child: NavButton(
+                        label: 'Project',
+                        onTap: () => {
+                          log('Project presssed'),
+                          scrollController.animateTo(h * 3,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate),
+                          secondaryScrollController.animateTo(h * 3,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate)
+                        },
+                        isActive:
+                            controller.scrollOffset >= activeHeight(h, 2.7) &&
+                                controller.scrollOffset <
+                                    (activeHeight(h, 5) - h * 0.2),
+                      ),
                     ),
                     if (size.width < 600) ...[
                       const SizedBox(
@@ -118,22 +121,26 @@ class CustomNavbar extends StatelessWidget {
                     const SizedBox(
                       width: 4,
                     ),
-                    NavButton(
-                      label: 'Connect',
-                      onTap: () => {
-                        log('Connect presssed'),
-                        scrollController.animateTo((h * 5) - (h * 0.3),
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate),
-                        secondaryScrollController.animateTo((h * 5) - (h * 0.3),
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate)
-                      },
-                      isActive: controller.scrollOffset >=
-                              ((activeHeight(h, 5)) - (h * 0.2)) &&
-                          controller.scrollOffset <
-                              (scrollController.position.maxScrollExtent -
-                                  (h * 0.2)),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      child: NavButton(
+                        label: 'Connect',
+                        onTap: () => {
+                          log('Connect presssed'),
+                          scrollController.animateTo((h * 5) - (h * 0.3),
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate),
+                          secondaryScrollController.animateTo(
+                              (h * 5) - (h * 0.3),
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate)
+                        },
+                        isActive: controller.scrollOffset >=
+                                ((activeHeight(h, 5)) - (h * 0.2)) &&
+                            controller.scrollOffset <
+                                (scrollController.position.maxScrollExtent -
+                                    (h * 0.2)),
+                      ),
                     ),
                     const SizedBox(
                       width: 5,
