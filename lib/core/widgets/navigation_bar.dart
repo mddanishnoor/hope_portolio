@@ -116,7 +116,15 @@ class CustomNavbar extends StatelessWidget {
                       const SizedBox(
                         width: 4,
                       ),
-                      const HoldMeButton(),
+                      GestureDetector(
+                        onTapDown: (details) =>
+                            controller.toggleMagnify(true, fullScreen: true),
+                        onTapUp: (details) =>
+                            controller.toggleMagnify(false, fullScreen: false),
+                        onTapCancel: () =>
+                            controller.toggleMagnify(false, fullScreen: false),
+                        child: const HoldMeButton(),
+                      ),
                     ],
                     const SizedBox(
                       width: 4,
@@ -184,45 +192,47 @@ class HoldMeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 54,
-      height: 52,
-      // padding: const EdgeInsets.symmetric(
-      //     horizontal: 5, vertical: 10),
-      clipBehavior: Clip.antiAlias,
-      decoration: ShapeDecoration(
-        color: const Color(0xFFFBB023),
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: Colors.white.withOpacity(0.5)),
-          borderRadius: BorderRadius.circular(45),
-        ),
-        shadows: const [
-          BoxShadow(
-            color: Color(0x72000000),
-            blurRadius: 5,
-            offset: Offset(0, 4),
-            spreadRadius: -2,
-          )
-        ],
-      ),
-      child: const Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            'Hold me',
-            style: TextStyle(
-              color: Color(0xFF141312),
-              fontSize: 10,
-              fontFamily: 'Syne',
-              fontWeight: FontWeight.w600,
-              height: 0,
-            ),
+    return Consumer<CursorProvider>(builder: (context, provider, _) {
+      return Container(
+        width: 54,
+        height: 52,
+        // padding: const EdgeInsets.symmetric(
+        //     horizontal: 5, vertical: 10),
+        clipBehavior: Clip.antiAlias,
+        decoration: ShapeDecoration(
+          color: const Color(0xFFFBB023),
+          shape: RoundedRectangleBorder(
+            side: BorderSide(width: 1, color: Colors.white.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(45),
           ),
-        ],
-      ),
-    );
+          shadows: const [
+            BoxShadow(
+              color: Color(0x72000000),
+              blurRadius: 5,
+              offset: Offset(0, 4),
+              spreadRadius: -2,
+            )
+          ],
+        ),
+        child: const Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Hold me',
+              style: TextStyle(
+                color: Color(0xFF141312),
+                fontSize: 10,
+                fontFamily: 'Syne',
+                fontWeight: FontWeight.w600,
+                height: 0,
+              ),
+            ),
+          ],
+        ),
+      );
+    });
   }
 }
 

@@ -29,24 +29,28 @@ class YellowCopy extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Consumer<CursorProvider>(builder: (context, controller, _) {
-      if (MediaQuery.of(context).size.width > 766) {
-        return MouseFollower(
-            position: controller.position,
-            radius: controller.hide
-                ? 0
-                : controller.isMagnified
-                    ? size.height * 0.4
-                    : 15,
-            width: double.infinity,
-            height: 60,
-            child: LandingPage2Child(
-              scrollController: scrollController,
-              size: size,
-              scrollController2: scrollController2,
-            ));
-      } else {
-        return const SizedBox();
-      }
+      double radius = (size.width < 766) && !controller.fullMagnify
+          ? 0
+          : controller.hide
+              ? 0
+              : controller.isMagnified
+                  ? controller.fullMagnify
+                      ? size.height
+                      : size.height * 0.4
+                  : 15;
+      return MouseFollower(
+          position: controller.position,
+          radius: radius,
+          width: double.infinity,
+          height: 60,
+          child: LandingPage2Child(
+            scrollController: scrollController,
+            size: size,
+            scrollController2: scrollController2,
+          ));
+      // } else {
+      //   return const SizedBox();
+      // }
     });
   }
 }
