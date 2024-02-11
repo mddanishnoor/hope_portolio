@@ -148,49 +148,45 @@ class _MobileAboutMeWidgetState extends State<MobileAboutMeWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // const Spacer(),
-                MouseRegion(
-                  onEnter: (event) => provider.toggleMagnify(true),
-                  onExit: (event) => provider.toggleMagnify(false),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 12.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'ABOUT ME',
-                          style: AppTextStyle.mobileAnnotation,
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        RunningText(
-                          index: 1,
-                          size: widget.size,
-                          offset: provider.scrollOffset,
-                          maxLines: 5,
-                          child: RichText(
-                            text: TextSpan(
-                              style: AppTextStyle.mobileBody,
-                              children: [
-                                const TextSpan(
-                                  text: 'I am a ',
-                                ),
-                                TextSpan(
-                                  text: 'multidisciplinary',
-                                  style: AppTextStyle.mobileBody
-                                      .copyWith(color: Palette.hYellow),
-                                ),
-                                const TextSpan(
-                                  text:
-                                      ' designer creating inclusive experience through empathy and research.',
-                                ),
-                              ],
-                            ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'ABOUT ME',
+                        style: AppTextStyle.mobileAnnotation,
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      RunningText(
+                        index: 1,
+                        size: widget.size,
+                        offset: provider.scrollOffset,
+                        maxLines: 5,
+                        child: RichText(
+                          text: TextSpan(
+                            style: AppTextStyle.mobileBody,
+                            children: [
+                              const TextSpan(
+                                text: 'I am a ',
+                              ),
+                              TextSpan(
+                                text: 'multidisciplinary',
+                                style: AppTextStyle.mobileBody
+                                    .copyWith(color: Palette.hYellow),
+                              ),
+                              const TextSpan(
+                                text:
+                                    ' designer creating inclusive experience through empathy and research.',
+                              ),
+                            ],
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
                 // const Spacer(),

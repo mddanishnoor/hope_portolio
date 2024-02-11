@@ -19,34 +19,38 @@ class HomeScreen extends StatelessWidget {
     return Consumer<CursorProvider>(builder: (context, controller, _) {
       return Scaffold(
         backgroundColor: Palette.black,
-        body: MouseRegion(
-          onHover: (event) => controller.updatePositioned(event.position),
-          child: NotificationListener<ScrollNotification>(
-            onNotification: (notification) {
-              controller.updateScrollOffset(scrollController2.offset);
-              // scrollController.jumpTo(scrollController2.offset);
-              return true;
-            },
-            child: PrimaryScrollController(
-              controller: scrollController2,
-              child: Stack(
-                children: [
-                  BlackCopy(size: size, scrollController2: scrollController2),
-                  YellowCopy(
-                    scrollController: scrollController,
-                    scrollController2: scrollController2,
-                  ),
-                  if ((scrollController2.hasClients &&
-                          controller.scrollOffset >= (size.height / 2)) ||
-                      size.width <= 600)
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: CustomNavbar(
-                        scrollController2,
-                        secondaryScrollController: scrollController,
-                      ),
+        body: SafeArea(
+          child: MouseRegion(
+            onHover: (event) => size.width <= 600
+                ? controller.updatePositioned(event.position)
+                : null,
+            child: NotificationListener<ScrollNotification>(
+              onNotification: (notification) {
+                controller.updateScrollOffset(scrollController2.offset);
+                scrollController.jumpTo(scrollController2.offset);
+                return true;
+              },
+              child: PrimaryScrollController(
+                controller: scrollController2,
+                child: Stack(
+                  children: [
+                    BlackCopy(size: size, scrollController2: scrollController2),
+                    YellowCopy(
+                      scrollController: scrollController,
+                      scrollController2: scrollController2,
                     ),
-                ],
+                    if ((scrollController2.hasClients &&
+                            controller.scrollOffset >= (size.height / 2)) ||
+                        size.width <= 600)
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: CustomNavbar(
+                          scrollController2,
+                          secondaryScrollController: scrollController,
+                        ),
+                      ),
+                  ],
+                ),
               ),
             ),
           ),

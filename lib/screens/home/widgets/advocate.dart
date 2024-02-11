@@ -133,9 +133,12 @@ class _MobileAdvocateWidgetState extends State<MobileAdvocateWidget> {
       VideoPlayerController.asset('assets/video/mobile.mp4');
   @override
   void initState() {
-    videoController.initialize().then((value) => videoController.play());
-    videoController.setLooping(true);
-    videoController.setVolume(0);
+    videoController.initialize().then((value) => (
+          videoController.play(),
+          videoController.setLooping(true),
+          videoController.setVolume(0)
+        ));
+
     super.initState();
   }
 

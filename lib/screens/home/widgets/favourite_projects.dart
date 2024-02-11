@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/screens/project/projects_screen.dart';
@@ -153,10 +154,18 @@ class MobileFavoriteProjects extends StatelessWidget {
                       vertical: size.height * 0.0299,
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('MY FAVORITE \nPROJECTS',
-                            style: AppTextStyle.mobileHeading),
+                        Text(
+                          'MY FAVORITE \nPROJECTS',
+                          style: GoogleFonts.archivo(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w900,
+                            height: 0.86,
+                            letterSpacing: -1.42,
+                            color: Palette.hWhite,
+                          ),
+                        ),
                         const SizedBox(
                           height: 12,
                         ),

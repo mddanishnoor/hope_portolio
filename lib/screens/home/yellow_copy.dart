@@ -75,7 +75,9 @@ class LandingPage2Child extends StatelessWidget {
   Widget build(BuildContext context) {
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
-        scrollController2.jumpTo(scrollController.offset);
+        // if (size.width > 600) {
+        // scrollController.jumpTo(scrollController.offset);
+        // }
         return true;
       },
       child: ColoredBox(
@@ -650,12 +652,17 @@ class MobileProjectYellow extends StatelessWidget {
                       vertical: size.height * 0.0299,
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'MY FAVORITE \nPROJECTS',
-                          style: AppTextStyle.mobileHeading
-                              .copyWith(color: Palette.bgBlack),
+                          'PORTFOLIO\nCASE STUDIES',
+                          style: GoogleFonts.archivo(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w900,
+                            // height: 0.86,
+                            letterSpacing: -1.42,
+                            color: Palette.bgBlack,
+                          ),
                         ),
                         const SizedBox(
                           height: 12,
