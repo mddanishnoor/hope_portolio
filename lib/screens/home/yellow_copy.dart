@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:svg_flutter/svg.dart';
 
 import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
@@ -286,23 +287,31 @@ class LandingPage2Child extends StatelessWidget {
                     )
                   : MobileProjectYellow(size: size),
               LandingWidget(
+                height: size.width > 600
+                    ? null
+                    : MediaQuery.of(context).size.height * 0.6,
                 color: Palette.hYellow,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Spacer(),
                     MouseRegion(
-                      onEnter: (event) =>
-                          context.read<CursorProvider>().toggleMagnify(true),
-                      onExit: (event) =>
-                          context.read<CursorProvider>().toggleMagnify(false),
+                      onEnter: (event) => size.width > 600
+                          ? context.read<CursorProvider>().toggleMagnify(true)
+                          : null,
+                      onExit: (event) => size.width > 600
+                          ? context.read<CursorProvider>().toggleMagnify(false)
+                          : null,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             'MY MOTO',
-                            style: AppTextStyle.anotation
-                                .copyWith(color: Palette.bgBlack),
+                            style: size.width > 600
+                                ? AppTextStyle.anotation
+                                    .copyWith(color: Palette.bgBlack)
+                                : AppTextStyle.mobileAnnotation
+                                    .copyWith(color: Palette.bgBlack),
                           ),
                           const SizedBox(
                             height: 18,
@@ -310,110 +319,125 @@ class LandingPage2Child extends StatelessWidget {
                           Text(
                             'SAME\nSTROKES FOR\nSIMILAR\nFOLKS',
                             textAlign: TextAlign.center,
-                            style: AppTextStyle.heading
-                                .copyWith(color: Palette.bgBlack),
+                            style: size.width > 600
+                                ? AppTextStyle.heading
+                                    .copyWith(color: Palette.bgBlack)
+                                : AppTextStyle.mobileHeading
+                                    .copyWith(color: Palette.bgBlack),
                           ),
                         ],
                       ),
                     ),
-                    const Spacer(),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    Text(
+                      '- MOHAMMAD ALI',
+                      style: size.width > 600
+                          ? AppTextStyle.anotation
+                              .copyWith(color: Palette.bgBlack)
+                          : AppTextStyle.mobileAnnotation
+                              .copyWith(color: Palette.bgBlack),
+                    ),
                   ],
                 ),
               ),
-              LandingWidget(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      left: size.width * 0.105, right: size.width * 0.08),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Connect',
-                        style: AppTextStyle.anotation
-                            .copyWith(color: Palette.bgBlack),
-                      ),
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      const Column(
-                        children: [
-                          ConnectTiles(
-                            title: 'LinkedIn',
-                            subtitle: 'Work, work, work',
-                            connectType: 'EMAIL',
-                            value: 'razamohdsajjad@gmail.com',
-                          ),
-                          ConnectTiles(
-                            title: 'Behance',
-                            subtitle: 'Another POV at my projects',
-                            connectType: 'Phone',
-                            value: '+91 9818164010',
-                          ),
-                          ConnectTiles(
-                            title: 'Instagram',
-                            subtitle: 'My inactive social face',
-                            connectType: 'Phone',
-                            value: '+91 9818164010',
-                            hasConnectValue: false,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: size.height * 0.2,
-                      ),
-                      Text(
-                        'FOR REQRUITERS',
-                        style: AppTextStyle.anotation
-                            .copyWith(color: Palette.bgBlack),
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      Row(
-                        children: [
-                          AnimatedTileContainer(
-                            child1: Text(
-                              'If you like to hire me',
-                              style: GoogleFonts.syne(
-                                // 'Syne',
-                                fontSize: 64,
-                                fontWeight: FontWeight.w600,
-                                height: 1.0049999952,
-                                color: Palette.notWhite,
-                              ),
+              size.width > 600
+                  ? LandingWidget(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            left: size.width * 0.105, right: size.width * 0.08),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Connect',
+                              style: AppTextStyle.anotation
+                                  .copyWith(color: Palette.bgBlack),
                             ),
-                            child2: ColoredBox(
-                              color: Palette.hYellow,
-                              child: Text(
-                                'If you like to hire me',
-                                style: GoogleFonts.syne(
-                                  // 'Syne',
-                                  fontSize: 64,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1.0049999952,
-                                  color: Palette.bgBlack,
+                            const SizedBox(
+                              height: 18,
+                            ),
+                            const Column(
+                              children: [
+                                ConnectTiles(
+                                  title: 'LinkedIn',
+                                  subtitle: 'Work, work, work',
+                                  connectType: 'EMAIL',
+                                  value: 'razamohdsajjad@gmail.com',
                                 ),
-                              ),
+                                ConnectTiles(
+                                  title: 'Behance',
+                                  subtitle: 'Another POV at my projects',
+                                  connectType: 'Phone',
+                                  value: '+91 9818164010',
+                                ),
+                                ConnectTiles(
+                                  title: 'Instagram',
+                                  subtitle: 'My inactive social face',
+                                  connectType: 'Phone',
+                                  value: '+91 9818164010',
+                                  hasConnectValue: false,
+                                ),
+                              ],
                             ),
-                          ),
-                          const Spacer(),
-                          const AnimatedTileContainer(
-                            child1: CustomElevatedButton(
-                              label: 'Click here',
-                              isYellow: false,
+                            SizedBox(
+                              height: size.height * 0.2,
                             ),
-                            child2: CustomElevatedButton(
-                              label: 'Click here',
-                              isYellow: true,
+                            Text(
+                              'FOR REQRUITERS',
+                              style: AppTextStyle.anotation
+                                  .copyWith(color: Palette.bgBlack),
                             ),
-                          ),
-                        ],
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            Row(
+                              children: [
+                                AnimatedTileContainer(
+                                  child1: Text(
+                                    'If you like to hire me',
+                                    style: GoogleFonts.syne(
+                                      // 'Syne',
+                                      fontSize: 64,
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.0049999952,
+                                      color: Palette.notWhite,
+                                    ),
+                                  ),
+                                  child2: ColoredBox(
+                                    color: Palette.hYellow,
+                                    child: Text(
+                                      'If you like to hire me',
+                                      style: GoogleFonts.syne(
+                                        // 'Syne',
+                                        fontSize: 64,
+                                        fontWeight: FontWeight.w600,
+                                        height: 1.0049999952,
+                                        color: Palette.bgBlack,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const Spacer(),
+                                const AnimatedTileContainer(
+                                  child1: CustomElevatedButton(
+                                    label: 'Click here',
+                                    isYellow: false,
+                                  ),
+                                  child2: CustomElevatedButton(
+                                    label: 'Click here',
+                                    isYellow: true,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
-                ),
-              )
+                    )
+                  : MobileConnectYellow(size: size)
             ],
           ),
         ),
@@ -706,6 +730,134 @@ class MobileProjectYellow extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class MobileConnectYellow extends StatelessWidget {
+  const MobileConnectYellow(
+      {super.key,
+      required this.size,
+      this.isProject = false,
+      this.isRecruiter = false});
+
+  final Size size;
+  final bool isProject;
+  final bool isRecruiter;
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+      height: MediaQuery.of(context).size.height * 0.6,
+      child: Padding(
+        padding:
+            EdgeInsets.only(left: size.width * 0.105, right: size.width * 0.08),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Connect',
+              style: AppTextStyle.mobileAnnotation
+                  .copyWith(color: Palette.bgBlack),
+            ),
+            const SizedBox(
+              height: 18,
+            ),
+            const Column(
+              children: [
+                MobileConnectTilesYellow(
+                  title: 'LINKEDIN',
+                ),
+                MobileConnectTilesYellow(
+                  title: 'BEHANCE',
+                ),
+                MobileConnectTilesYellow(
+                  title: 'INSTAGRAM',
+                ),
+              ],
+            ),
+            SizedBox(
+              height: size.height * 0.2,
+            ),
+            Text(
+              'EMAIL',
+              style: AppTextStyle.mobileAnnotation
+                  .copyWith(color: Palette.bgBlack),
+            ),
+            const SizedBox(
+              height: 3,
+            ),
+            Text('razamohdsajjad@gmail.com',
+                style: GoogleFonts.archivo(
+                  fontSize: 14,
+                  // fontWeight: FontWeight.w600,
+                  height: 1.0049999952,
+                  color: Palette.bgBlack,
+                )),
+            const SizedBox(
+              height: 32,
+            ),
+            Text(
+              'PHONE ',
+              style: AppTextStyle.mobileAnnotation
+                  .copyWith(color: Palette.bgBlack),
+            ),
+            const SizedBox(
+              height: 3,
+            ),
+            Text('+91 9818164010',
+                style: GoogleFonts.archivo(
+                  fontSize: 14,
+                  // fontWeight: FontWeight.w600,
+                  height: 1.0049999952,
+                  color: Palette.bgBlack,
+                )),
+            const SizedBox(
+              height: 32,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MobileConnectTilesYellow extends StatelessWidget {
+  const MobileConnectTilesYellow({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 5,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 12, right: 16),
+                child: SvgPicture.asset(
+                  'assets/svg/rectangle.svg',
+                  color: Palette.bgBlack,
+                ),
+              ),
+              Text(
+                title,
+                style: AppTextStyle.mobileBody.copyWith(
+                  fontSize: 44,
+                  color: Palette.bgBlack,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
