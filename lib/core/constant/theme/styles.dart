@@ -29,7 +29,7 @@ abstract class AppTextStyle {
     color: Palette.hWhite,
   );
   static TextStyle mobileHeading = GoogleFonts.archivo(
-    fontSize: 44,
+    fontSize: 48,
     fontWeight: FontWeight.w700,
     height: 0.86,
     letterSpacing: -2.42,

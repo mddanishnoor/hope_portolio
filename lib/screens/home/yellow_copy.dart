@@ -94,12 +94,16 @@ class LandingPage2Child extends StatelessWidget {
                       children: [
                         const Spacer(),
                         MouseRegion(
-                          onEnter: (event) => context
-                              .read<CursorProvider>()
-                              .toggleMagnify(true),
-                          onExit: (event) => context
-                              .read<CursorProvider>()
-                              .toggleMagnify(false),
+                          onEnter: (event) => size.width > 600
+                              ? context
+                                  .read<CursorProvider>()
+                                  .toggleMagnify(true)
+                              : null,
+                          onExit: (event) => size.width > 600
+                              ? context
+                                  .read<CursorProvider>()
+                                  .toggleMagnify(false)
+                              : null,
                           child: Padding(
                             padding: const EdgeInsets.only(left: 12.0),
                             child: Column(
@@ -108,16 +112,22 @@ class LandingPage2Child extends StatelessWidget {
                               children: [
                                 Text(
                                   'ABOUT ME',
-                                  style: AppTextStyle.anotation
-                                      .copyWith(color: Palette.bgBlack),
+                                  style: size.width > 600
+                                      ? AppTextStyle.anotation
+                                          .copyWith(color: Palette.bgBlack)
+                                      : AppTextStyle.mobileAnnotation
+                                          .copyWith(color: Palette.bgBlack),
                                 ),
                                 const SizedBox(
                                   height: 16,
                                 ),
                                 Text(
                                   'A designer who does more than just design, for those who want more than just design.',
-                                  style: AppTextStyle.body
-                                      .copyWith(color: Palette.black),
+                                  style: size.width > 600
+                                      ? AppTextStyle.body
+                                          .copyWith(color: Palette.black)
+                                      : AppTextStyle.mobileBody
+                                          .copyWith(color: Palette.black),
                                 )
                               ],
                             ),
@@ -127,59 +137,62 @@ class LandingPage2Child extends StatelessWidget {
                       ],
                     ),
                   )),
-              LandingWidget(
-                color: Palette.hYellow,
-                child: Column(
-                  children: [
-                    const Spacer(),
-                    MouseRegion(
-                      onEnter: (event) =>
-                          context.read<CursorProvider>().toggleHide(true),
-                      onExit: (event) =>
-                          context.read<CursorProvider>().toggleHide(false),
+              size.width > 600
+                  ? LandingWidget(
+                      color: Palette.hYellow,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.105),
-                            child: Text(
-                              'WHAT I DO',
-                              style: AppTextStyle.anotation
-                                  .copyWith(color: Palette.bgBlack),
+                          const Spacer(),
+                          MouseRegion(
+                            onEnter: (event) =>
+                                context.read<CursorProvider>().toggleHide(true),
+                            onExit: (event) => context
+                                .read<CursorProvider>()
+                                .toggleHide(false),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: size.width * 0.105),
+                                  child: Text(
+                                    'WHAT I DO',
+                                    style: AppTextStyle.anotation
+                                        .copyWith(color: Palette.bgBlack),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                YellowTileWidget(
+                                  size: size,
+                                  label: 'UX/UI Design',
+                                  secondLabel: '',
+                                ),
+                                YellowTileWidget(
+                                  size: size,
+                                  label: 'Design systems',
+                                  secondLabel: '',
+                                ),
+                                YellowTileWidget(
+                                  size: size,
+                                  label: 'UX Research',
+                                  secondLabel: '',
+                                ),
+                                YellowTileWidget(
+                                  size: size,
+                                  label: 'Design Facilitation',
+                                  secondLabel: '',
+                                ),
+                              ],
                             ),
                           ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          YellowTileWidget(
-                            size: size,
-                            label: 'UX/UI Design',
-                            secondLabel: '',
-                          ),
-                          YellowTileWidget(
-                            size: size,
-                            label: 'Design systems',
-                            secondLabel: '',
-                          ),
-                          YellowTileWidget(
-                            size: size,
-                            label: 'UX Research',
-                            secondLabel: '',
-                          ),
-                          YellowTileWidget(
-                            size: size,
-                            label: 'Design Facilitation',
-                            secondLabel: '',
-                          ),
+                          const Spacer(),
                         ],
                       ),
-                    ),
-                    const Spacer(),
-                  ],
-                ),
-              ),
+                    )
+                  : MobileWhatIdoYellowWidget(size: size),
               LandingWidget(
                 color: Palette.hYellow,
                 child: Padding(
@@ -479,6 +492,87 @@ class YellowAdvocateWidget extends StatelessWidget {
               ),
               const Spacer()
             ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MobileWhatIdoYellowWidget extends StatelessWidget {
+  const MobileWhatIdoYellowWidget({super.key, required this.size});
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+      height: MediaQuery.of(context).size.height * 0.6,
+      color: Palette.hYellow,
+      child: Column(
+        children: [
+          const Spacer(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                child: Text(
+                  'WHAT I DO',
+                  style: AppTextStyle.mobileAnnotation
+                      .copyWith(color: Palette.bgBlack),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              elementWidget('UX/UI', 'Mostly designing websites and apps'),
+              elementWidget('SYSTEMS',
+                  'Designing systems for the company to function efficiently'),
+              elementWidget('FACILITATION', 'Helping others, design'),
+              elementWidget(
+                  'RESEARCH', 'My job is to know what the users wants'),
+            ],
+          ),
+          const Spacer(),
+        ],
+      ),
+    );
+  }
+
+  Container elementWidget(String label, String subtext) {
+    return Container(
+      width: double.infinity,
+      height: 60,
+      decoration: BoxDecoration(
+        color: Palette.hYellow,
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            color: Palette.white_30.withOpacity(0.2),
+          ),
+        ),
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: size.width * 0.105,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 4,
+          ),
+          Text(
+            label,
+            style: AppTextStyle.mobileHeading
+                .copyWith(color: Palette.bgBlack.withOpacity(0.6)),
+          ),
+          Text(
+            subtext,
+            style: GoogleFonts.archivo(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: Palette.bgBlack),
           ),
         ],
       ),
