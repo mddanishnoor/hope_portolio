@@ -42,13 +42,22 @@ class _AdvocateWidgetState extends State<AdvocateWidget> {
       child: Stack(
         children: [
           SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: VideoPlayer(videoController)),
-          Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.black.withOpacity(0.8)),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Transform.scale(
+              scale: 1.05,
+              child: Stack(
+                children: [
+                  AbsorbPointer(
+                      absorbing: true, child: VideoPlayer(videoController)),
+                  Container(
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
+                      color: Colors.black.withOpacity(0.8)),
+                ],
+              ),
+            ),
+          ),
           Positioned(
             left: widget.size.height * 0.0241,
             top: widget.size.height * 0.063,
@@ -142,7 +151,7 @@ class _MobileAdvocateWidgetState extends State<MobileAdvocateWidget> {
       child: Container(
         child: Stack(
           children: [
-            VideoPlayer(videoController),
+            AbsorbPointer(absorbing: true, child: VideoPlayer(videoController)),
             Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,

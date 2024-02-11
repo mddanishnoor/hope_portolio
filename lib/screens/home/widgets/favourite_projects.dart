@@ -141,7 +141,7 @@ class MobileFavoriteProjects extends StatelessWidget {
               height: 10,
             ),
             Container(
-              height: size.height * 0.84,
+              // height: size.height * 0.84,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(width: 1, color: Palette.borderGrey)),
@@ -178,34 +178,37 @@ class MobileFavoriteProjects extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 18),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Palette.grey,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: CarouselSlider(
-                        items: images
-                            .map((e) => ProjectsCard(
-                                size: Size(size.width, size.height), url: e))
-                            .toList(),
-                        options: CarouselOptions(
-                          aspectRatio: 1,
-                          viewportFraction: 0.7,
-                          initialPage: 0,
-                          enableInfiniteScroll: true,
-                          reverse: false,
-                          autoPlay: true,
-                          autoPlayInterval: const Duration(seconds: 2),
-                          autoPlayAnimationDuration: const Duration(seconds: 1),
-                          autoPlayCurve: Curves.fastOutSlowIn,
-                          enlargeCenterPage: true,
-                          enlargeFactor: 0.4,
-                          scrollDirection: Axis.horizontal,
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Palette.grey,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        CarouselSlider(
+                          items: images
+                              .map((e) => ProjectsCard(
+                                  size: Size(size.width, size.height), url: e))
+                              .toList(),
+                          options: CarouselOptions(
+                            aspectRatio: 4 / 5,
+                            // viewportFraction: 0.8,
+                            initialPage: 0,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlay: true,
+                            autoPlayInterval: const Duration(seconds: 2),
+                            autoPlayAnimationDuration:
+                                const Duration(seconds: 1),
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            enlargeCenterPage: true,
+                            enlargeFactor: 0.4,
+                            scrollDirection: Axis.horizontal,
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   )
                 ],

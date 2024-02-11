@@ -12,8 +12,8 @@ class ProjectsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width,
-      height: size.height,
+      // width: size.width,
+      // height: size.height,
       margin: const EdgeInsets.symmetric(vertical: 22),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),

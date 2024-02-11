@@ -119,8 +119,8 @@ class CustomNavbar extends StatelessWidget {
                       GestureDetector(
                         onTapDown: (details) =>
                             controller.toggleMagnify(true, fullScreen: true),
-                        onTapUp: (details) =>
-                            controller.toggleMagnify(false, fullScreen: false),
+                        // onTapUp: (details) =>
+                        //     controller.toggleMagnify(false, fullScreen: false),
                         onTapCancel: () =>
                             controller.toggleMagnify(false, fullScreen: false),
                         child: const HoldMeButton(),
