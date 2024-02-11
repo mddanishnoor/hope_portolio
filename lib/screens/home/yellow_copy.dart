@@ -1,17 +1,20 @@
 // import 'dart:developer';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
 import '../../core/helper/mouse_follower.dart';
 import '../../core/widgets/animated_tile.dart';
 import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/landing_widget.dart';
+import '../../core/widgets/project_card.dart';
 import '../../core/widgets/yellow_tile.dart';
 import 'widgets/connect_tiles.dart';
 import '../project/projects_screen.dart';
@@ -193,87 +196,95 @@ class LandingPage2Child extends StatelessWidget {
                       ),
                     )
                   : MobileWhatIdoYellowWidget(size: size),
-              LandingWidget(
-                color: Palette.hYellow,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'PROJECTS ',
-                        style: AppTextStyle.anotation
-                            .copyWith(color: Palette.bgBlack),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        height: size.height * 0.84,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border:
-                                Border.all(width: 1, color: Palette.bgBlack)),
+              size.width > 600
+                  ? LandingWidget(
+                      color: Palette.hYellow,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: size.width * 0.105),
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.065,
-                                vertical: size.height * 0.0299,
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                            Text(
+                              'PROJECTS ',
+                              style: AppTextStyle.anotation
+                                  .copyWith(color: Palette.bgBlack),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              height: size.height * 0.84,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      width: 1, color: Palette.bgBlack)),
+                              child: Column(
                                 children: [
-                                  Text(
-                                    'My favorite \nprojects',
-                                    style: AppTextStyle.listExtended
-                                        .copyWith(color: Palette.bgBlack),
-                                  ),
-                                  const Spacer(),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (c) => ProjectScreen()));
-                                    },
-                                    child: Container(
-                                      width: 90,
-                                      height: 24,
-                                      decoration: BoxDecoration(
-                                        border:
-                                            Border.all(color: Palette.bgBlack),
-                                        borderRadius: BorderRadius.circular(6),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'See all >>',
-                                          style: AppTextStyle.buttonTextStyle
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: size.width * 0.065,
+                                      vertical: size.height * 0.0299,
+                                    ),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          'My favorite \nprojects',
+                                          style: AppTextStyle.listExtended
                                               .copyWith(color: Palette.bgBlack),
                                         ),
-                                      ),
+                                        const Spacer(),
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (c) =>
+                                                        ProjectScreen()));
+                                          },
+                                          child: Container(
+                                            width: 90,
+                                            height: 24,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: Palette.bgBlack),
+                                              borderRadius:
+                                                  BorderRadius.circular(6),
+                                            ),
+                                            child: Center(
+                                              child: Text(
+                                                'See all >>',
+                                                style: AppTextStyle
+                                                    .buttonTextStyle
+                                                    .copyWith(
+                                                        color: Palette.bgBlack),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
+                                  Expanded(
+                                    child: Container(
+                                      height: size.height * 0.653,
+                                      decoration: BoxDecoration(
+                                        color: Palette.grey,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  )
                                 ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                height: size.height * 0.653,
-                                decoration: BoxDecoration(
-                                  color: Palette.grey,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
                               ),
                             )
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+                      ),
+                    )
+                  : MobileProjectYellow(size: size),
               LandingWidget(
                 color: Palette.hYellow,
                 child: Column(
@@ -575,6 +586,125 @@ class MobileWhatIdoYellowWidget extends StatelessWidget {
                 color: Palette.bgBlack),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MobileProjectYellow extends StatelessWidget {
+  const MobileProjectYellow({super.key, required this.size});
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return LandingWidget(
+      color: Palette.hYellow,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: size.width * 0.07),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'PROJECTS ',
+              style: AppTextStyle.mobileAnnotation
+                  .copyWith(color: Palette.bgBlack),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              // height: size.height * 0.84,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(width: 1, color: Palette.borderGrey)),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.065,
+                      vertical: size.height * 0.0299,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          'MY FAVORITE \nPROJECTS',
+                          style: AppTextStyle.mobileHeading
+                              .copyWith(color: Palette.bgBlack),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        Row(
+                          children: [
+                            const Spacer(),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (c) => ProjectScreen()));
+                              },
+                              child: Container(
+                                width: 90,
+                                height: 24,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Palette.bgBlack),
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'See all >>',
+                                    style: AppTextStyle.buttonTextStyle
+                                        .copyWith(color: Palette.bgBlack),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Palette.grey,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        CarouselSlider(
+                          items: images
+                              .map((e) => ProjectsCard(
+                                  size: Size(size.width, size.height), url: e))
+                              .toList(),
+                          options: CarouselOptions(
+                            aspectRatio: 4 / 5,
+                            // viewportFraction: 0.8,
+                            initialPage: 0,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlay: true,
+                            autoPlayInterval: const Duration(seconds: 2),
+                            autoPlayAnimationDuration:
+                                const Duration(seconds: 1),
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            enlargeCenterPage: true,
+                            enlargeFactor: 0.4,
+                            scrollDirection: Axis.horizontal,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
