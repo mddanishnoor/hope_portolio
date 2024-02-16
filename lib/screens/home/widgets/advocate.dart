@@ -143,6 +143,12 @@ class _MobileAdvocateWidgetState extends State<MobileAdvocateWidget> {
   }
 
   @override
+  void dispose() {
+    videoController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return LandingWidget(
       decoration: const BoxDecoration(

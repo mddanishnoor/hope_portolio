@@ -772,14 +772,16 @@ class MobileConnectYellow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LandingWidget(
-      height: MediaQuery.of(context).size.height * 0.6,
       child: Padding(
-        padding:
-            EdgeInsets.only(left: size.width * 0.105, right: size.width * 0.08),
+        padding: const EdgeInsets.only(left: 24, right: 24),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(
+              height: 62,
+            ),
             Text(
               'Connect',
               style: AppTextStyle.mobileAnnotation
@@ -801,8 +803,8 @@ class MobileConnectYellow extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: size.height * 0.2,
+            const SizedBox(
+              height: 50,
             ),
             Text(
               'EMAIL',
@@ -820,7 +822,7 @@ class MobileConnectYellow extends StatelessWidget {
                   color: Palette.bgBlack,
                 )),
             const SizedBox(
-              height: 32,
+              height: 17,
             ),
             Text(
               'PHONE ',
@@ -838,7 +840,48 @@ class MobileConnectYellow extends StatelessWidget {
                   color: Palette.bgBlack,
                 )),
             const SizedBox(
-              height: 32,
+              height: 62,
+            ),
+            Text(
+              'FOR REQRUITERS',
+              style: AppTextStyle.mobileAnnotation.copyWith(
+                color: Palette.bgBlack,
+              ),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Text('Want to know more?',
+                style:
+                    AppTextStyle.mobileBody.copyWith(color: Palette.bgBlack)),
+            const SizedBox(
+              height: 11,
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (c) => ProjectScreen()));
+              },
+              child: Container(
+                height: 24,
+                decoration: BoxDecoration(
+                  color: Palette.bgBlack,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Center(
+                  child: Text(
+                    'Click here',
+                    style: AppTextStyle.buttonTextStyle
+                        .copyWith(color: Palette.hYellow),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Image.asset(
+                'assets/png/skull.png',
+                fit: BoxFit.contain,
+              ),
             ),
           ],
         ),

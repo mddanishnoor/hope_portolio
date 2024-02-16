@@ -60,9 +60,7 @@ class MobileBlackTileWidget extends StatelessWidget {
           ),
         ),
       ),
-      padding: EdgeInsets.symmetric(
-        horizontal: size.width * 0.105,
-      ),
+      padding: const EdgeInsets.only(left: 24, right: 24),
       child: Align(
         alignment: Alignment.bottomLeft,
         child: Text(

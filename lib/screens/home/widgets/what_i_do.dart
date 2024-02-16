@@ -166,8 +166,7 @@ class _MobileWhatIDoWidgetState extends State<MobileWhatIDoWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: widget.size.width * 0.105),
+                    padding: const EdgeInsets.only(left: 24, right: 24),
                     child: Text(
                       'WHAT I DO',
                       style: AppTextStyle.mobileAnnotation,

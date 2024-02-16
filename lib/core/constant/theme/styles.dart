@@ -118,13 +118,13 @@ abstract class AppTextStyle {
     height: 9.09,
     fontFamily: 'Syne',
   );
-  // bodyMobile Text Style
-  static const TextStyle bodyMobile = TextStyle(
-    fontSize: 23.34000015258789,
-    fontWeight: FontWeight.w600, // semiBold
-    height: 1.5,
-    fontFamily: 'Syne',
-  );
+  // // bodyMobile Text Style
+  // static const TextStyle bodyMobile = TextStyle(
+  //   fontSize: 32,
+  //   fontWeight: FontWeight.w600, // semiBold
+  //   height: 1.5,
+  //   fontFamily: 'Syne',
+  // );
   // listExtendedMobile Text Style
   static const TextStyle listExtendedMobile = TextStyle(
     fontSize: 18.337453842163086,

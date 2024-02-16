@@ -67,33 +67,36 @@ class MobileMyMoto extends StatelessWidget {
   Widget build(BuildContext context) {
     return LandingWidget(
       height: MediaQuery.of(context).size.height * 0.6,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // const Spacer(),
-          Column(
-            children: [
-              Text('MY MOTO', style: AppTextStyle.mobileAnnotation),
-              const SizedBox(
-                height: 18,
-              ),
-              Text(
-                'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
-                textAlign: TextAlign.center,
-                style: AppTextStyle.mobileHeading,
-              ),
-              const SizedBox(
-                height: 18,
-              ),
-              Text(
-                '- MOHAMMAD ALI',
-                style: AppTextStyle.mobileAnnotation,
-              ),
-            ],
-          ),
-          // const Spacer(),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.only(left: 24, right: 24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // const Spacer(),
+            Column(
+              children: [
+                Text('MY MOTO', style: AppTextStyle.mobileAnnotation),
+                const SizedBox(
+                  height: 18,
+                ),
+                Text(
+                  'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
+                  textAlign: TextAlign.center,
+                  style: AppTextStyle.mobileHeading,
+                ),
+                const SizedBox(
+                  height: 18,
+                ),
+                Text(
+                  '- MOHAMMAD ALI',
+                  style: AppTextStyle.mobileAnnotation,
+                ),
+              ],
+            ),
+            // const Spacer(),
+          ],
+        ),
       ),
     );
   }
