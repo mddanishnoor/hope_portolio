@@ -155,10 +155,10 @@ class _MobileAdvocateWidgetState extends State<MobileAdvocateWidget> {
         child: Stack(
           children: [
             AbsorbPointer(absorbing: true, child: VideoPlayer(videoController)),
-            Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                color: Colors.black.withOpacity(0.8)),
+            // Container(
+            //     height: MediaQuery.of(context).size.height,
+            //     width: MediaQuery.of(context).size.width,
+            //     color: Colors.black.withOpacity(0.8)),
             Positioned(
               left: widget.size.height * 0.0241,
               top: widget.size.height * 0.063,

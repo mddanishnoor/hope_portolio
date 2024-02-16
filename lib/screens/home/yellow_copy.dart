@@ -33,25 +33,42 @@ class YellowCopy extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Consumer<CursorProvider>(builder: (context, controller, _) {
-      double radius = (size.width < 766) && !controller.fullMagnify
-          ? 0
-          : controller.hide
-              ? 0
-              : controller.isMagnified
-                  ? controller.fullMagnify
-                      ? size.height
-                      : size.height * 0.4
-                  : 15;
-      return MouseFollower(
-          position: controller.position,
-          radius: radius,
-          width: double.infinity,
-          height: 60,
-          child: LandingPage2Child(
-            scrollController: scrollController,
-            size: size,
-            scrollController2: scrollController2,
-          ));
+      // double radius = (size.width < 766) && !controller.fullMagnify
+      //     ? 0
+      //     : controller.hide
+      //         ? 0
+      //         : controller.isMagnified
+      //             ? controller.fullMagnify
+      //                 ? size.height
+      //                 : size.height * 0.4
+      //             : 15;
+      if (MediaQuery.of(context).size.width > 766) {
+        return MouseFollower(
+            position: controller.position,
+            radius: controller.hide
+                ? 0
+                : controller.isMagnified
+                    ? size.height * 0.4
+                    : 15,
+            width: double.infinity,
+            height: 60,
+            child: LandingPage2Child(
+              scrollController: scrollController,
+              size: size,
+              scrollController2: scrollController2,
+            ));
+      } else {
+        return MouseFollower(
+            position: controller.position,
+            radius: controller.fullMagnify ? size.height : 0,
+            width: double.infinity,
+            height: 60,
+            child: LandingPage2Child(
+              scrollController: scrollController,
+              size: size,
+              scrollController2: scrollController2,
+            ));
+      }
       // } else {
       //   return const SizedBox();
       // }
@@ -75,9 +92,9 @@ class LandingPage2Child extends StatelessWidget {
   Widget build(BuildContext context) {
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
-        // if (size.width > 600) {
-        // scrollController.jumpTo(scrollController.offset);
-        // }
+        if (size.width > 600) {
+          scrollController.jumpTo(scrollController.offset);
+        }
         return true;
       },
       child: ColoredBox(
