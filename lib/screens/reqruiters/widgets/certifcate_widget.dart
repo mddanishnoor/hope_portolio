@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,10 @@ class CertificateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return size.width > 600 ? webWidget(context) : mobileWidget(context);
+  }
+
+  LandingWidget webWidget(BuildContext context) {
     return LandingWidget(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
@@ -107,6 +112,73 @@ class CertificateWidget extends StatelessWidget {
                       ),
                     ),
                   )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  LandingWidget mobileWidget(BuildContext context) {
+    return LandingWidget(
+      height: size.height * 0.6,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Certificate',
+              style: AppTextStyle.mobileAnnotation,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+              // height: size.height * 0.84,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(width: 1, color: Palette.borderGrey)),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.065,
+                      vertical: size.height * 0.0299,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'GOOGLE UX DESIGN PROFESSIONAL CERTIFICATE',
+                          style: GoogleFonts.archivo(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w900,
+                            height: 0.86,
+                            letterSpacing: -1.42,
+                            color: Palette.hWhite,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        Row(
+                          children: [
+                            const Spacer(),
+                            YellowOutlinedButton(
+                              onTap: () {
+                                //TODO : Add Link for courseera
+                              },
+                              label: 'Verify >>',
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             )
