@@ -5,6 +5,8 @@ import 'package:portfolio/screens/reqruiters/recruiter_yellow.dart';
 import 'package:portfolio/screens/reqruiters/reqruiter_black.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/widgets/navigation_bar.dart';
+
 // import '../../core/widgets/navigation_bar.dart';
 
 class RecruitersScreen extends StatelessWidget {
@@ -36,15 +38,16 @@ class RecruitersScreen extends StatelessWidget {
                     scrollController: scrollController,
                     scrollController2: scrollController2,
                   ),
-                  // if (scrollController2.hasClients &&
-                  //     controller.scrollOffset >= (size.height / 2))
-                  //   Align(
-                  //     alignment: Alignment.bottomCenter,
-                  //     child: CustomNavbar(
-                  //       scrollController2,
-                  //       secondaryScrollController: scrollController,
-                  //     ),
-                  //   ),
+                  if ((scrollController2.hasClients &&
+                          controller.scrollOffset >= (size.height / 2)) ||
+                      size.width < 600)
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RecruiterNavbar(
+                        scrollController2,
+                        secondaryScrollController: scrollController,
+                      ),
+                    ),
                 ],
               ),
             ),

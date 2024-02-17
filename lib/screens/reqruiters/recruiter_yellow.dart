@@ -29,7 +29,7 @@ class RecruiterYellow extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Consumer<RecruitersProvider>(builder: (context, controller, _) {
-      if (MediaQuery.of(context).size.width > 766) {
+      if (MediaQuery.of(context).size.width > 600) {
         return MouseFollower(
             position: controller.position,
             radius: controller.hide
@@ -45,7 +45,11 @@ class RecruiterYellow extends StatelessWidget {
               scrollController2: scrollController2,
             ));
       } else {
-        return const SizedBox();
+        // return const SizedBox();
+        return MobileRecruiterYellowChild(
+            scrollController: scrollController,
+            size: size,
+            scrollController2: scrollController2);
       }
     });
   }
@@ -435,6 +439,439 @@ class RecruiterYellowChild extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class MobileRecruiterYellowChild extends StatelessWidget {
+  const MobileRecruiterYellowChild({
+    super.key,
+    required this.scrollController,
+    required this.size,
+    required this.scrollController2,
+  });
+
+  final ScrollController scrollController;
+  final ScrollController scrollController2;
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return NotificationListener<ScrollNotification>(
+      onNotification: (notification) {
+        scrollController2.jumpTo(scrollController.offset);
+        return true;
+      },
+      child: ColoredBox(
+        color: Palette.hYellow,
+        child: SingleChildScrollView(
+          controller: scrollController,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              ///HELPING WIDGET
+              LandingWidget(
+                color: Palette.hYellow,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: size.height * 0.0241,
+                      top: size.height * 0.063,
+                      child: Text(
+                        'HOPE',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.bebasNeue(
+                          fontSize: 21.961,
+                          fontWeight: FontWeight.w400,
+                          height: 0.8599999547,
+                          color: Palette.bgBlack,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        const Spacer(),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'RAZA MEANS HOPE',
+                                  textAlign: TextAlign.center,
+                                  style: AppTextStyle.mobileAnnotation
+                                      .copyWith(color: Palette.bgBlack),
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                Text(
+                                  'HELPING',
+                                  overflow: TextOverflow.fade,
+                                  style: AppTextStyle.mobileHeading
+                                      .copyWith(color: Palette.bgBlack),
+                                ),
+                                Text(
+                                  'CLIENTS\nMANEUVER',
+                                  textAlign: TextAlign.center,
+                                  style: AppTextStyle.mobileHeading
+                                      .copyWith(color: Palette.bgBlack),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        const Spacer()
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              ///ABOUTME WIDGET
+              LandingWidget(
+                  height: size.height * 0.6,
+                  color: Palette.hYellow,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'ABOUT ME',
+                          style: AppTextStyle.mobileAnnotation
+                              .copyWith(color: Palette.bgBlack),
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        Text(
+                          'I am a fresh graduate with a masters degree in UX/UI design, (think of design thinking)                ',
+                          style: AppTextStyle.mobileBody
+                              .copyWith(color: Palette.black),
+                        )
+                      ],
+                    ),
+                  )),
+
+              ///WHATIDO WIDGET
+              LandingWidget(
+                height: MediaQuery.of(context).size.height * 0.6,
+                color: Palette.hYellow,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                      child: Text(
+                        'WHAT I DO',
+                        style: AppTextStyle.mobileAnnotation
+                            .copyWith(color: Palette.bgBlack),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    elementWidget(
+                        'UX/UI', 'Mostly designing websites and apps'),
+                    elementWidget('SYSTEMS',
+                        'Designing systems for the company to function efficiently'),
+                    elementWidget('FACILITATION', 'Helping others, design'),
+                    elementWidget(
+                        'RESEARCH', 'My job is to know what the users wants'),
+                    elementWidget('TESTING',
+                        'Looking at numbers to prove success in usability'),
+                  ],
+                ),
+              ),
+
+              ///CERTIFICATE WIDGET
+              CertificateWidget(
+                size: size,
+                isYellow: true,
+              ),
+
+              ///EXPERIENCE WIDGET
+              const LandingWidget(),
+
+              ///EDUCATION WIDGET
+              const LandingWidget(),
+
+              ///PROJECTS WIDGET
+              LandingWidget(
+                color: Palette.hYellow,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'PROJECTS ',
+                        style: AppTextStyle.anotation
+                            .copyWith(color: Palette.bgBlack),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        height: size.height * 0.84,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border:
+                                Border.all(width: 1, color: Palette.bgBlack)),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.065,
+                                vertical: size.height * 0.0299,
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    'My favorite \nprojects',
+                                    style: AppTextStyle.listExtended
+                                        .copyWith(color: Palette.bgBlack),
+                                  ),
+                                  const Spacer(),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (c) => ProjectScreen()));
+                                    },
+                                    child: Container(
+                                      width: 90,
+                                      height: 24,
+                                      decoration: BoxDecoration(
+                                        border:
+                                            Border.all(color: Palette.bgBlack),
+                                        borderRadius: BorderRadius.circular(6),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'See all >>',
+                                          style: AppTextStyle.buttonTextStyle
+                                              .copyWith(color: Palette.bgBlack),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: size.height * 0.653,
+                                decoration: BoxDecoration(
+                                  color: Palette.grey,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+
+              ///CORECOMPETENCY WIDGET
+              const LandingWidget(),
+
+              ///MOTO WIDGET
+              LandingWidget(
+                color: Palette.hYellow,
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    MouseRegion(
+                      onEnter: (event) => context
+                          .read<RecruitersProvider>()
+                          .toggleMagnify(true),
+                      onExit: (event) => context
+                          .read<RecruitersProvider>()
+                          .toggleMagnify(false),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'MY MOTO',
+                            style: AppTextStyle.anotation
+                                .copyWith(color: Palette.bgBlack),
+                          ),
+                          const SizedBox(
+                            height: 18,
+                          ),
+                          Text(
+                            'SAME\nSTROKES FOR\nSIMILAR\nFOLKS',
+                            textAlign: TextAlign.center,
+                            style: AppTextStyle.heading
+                                .copyWith(color: Palette.bgBlack),
+                          ),
+                          const SizedBox(
+                            height: 18,
+                          ),
+                          Text(
+                            '- MOHAMMAD ALI',
+                            style: AppTextStyle.anotation
+                                .copyWith(color: Palette.bgBlack),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              ),
+              LandingWidget(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      left: size.width * 0.105, right: size.width * 0.08),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Connect',
+                        style: AppTextStyle.anotation
+                            .copyWith(color: Palette.bgBlack),
+                      ),
+                      const SizedBox(
+                        height: 18,
+                      ),
+                      const Column(
+                        children: [
+                          ConnectTiles(
+                            title: 'LinkedIn',
+                            subtitle: 'Work, work, work',
+                            connectType: 'EMAIL',
+                            value: 'razamohdsajjad@gmail.com',
+                          ),
+                          ConnectTiles(
+                            title: 'Behance',
+                            subtitle: 'Another POV at my projects',
+                            connectType: 'Phone',
+                            value: '+91 9818164010',
+                          ),
+                          ConnectTiles(
+                            title: 'Instagram',
+                            subtitle: 'My inactive social face',
+                            connectType: 'Phone',
+                            value: '+91 9818164010',
+                            hasConnectValue: false,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: size.height * 0.2,
+                      ),
+                      Text(
+                        'FOR REQRUITERS',
+                        style: AppTextStyle.anotation
+                            .copyWith(color: Palette.bgBlack),
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      Row(
+                        children: [
+                          ReqAnimatedTileContainer(
+                            child1: Text(
+                              'If you like to hire me',
+                              style: GoogleFonts.syne(
+                                // 'Syne',
+                                fontSize: 64,
+                                fontWeight: FontWeight.w600,
+                                height: 1.0049999952,
+                                color: Palette.notWhite,
+                              ),
+                            ),
+                            child2: ColoredBox(
+                              color: Palette.hYellow,
+                              child: Text(
+                                'If you like to hire me',
+                                style: GoogleFonts.syne(
+                                  // 'Syne',
+                                  fontSize: 64,
+                                  fontWeight: FontWeight.w600,
+                                  height: 1.0049999952,
+                                  color: Palette.bgBlack,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const Spacer(),
+                          const ReqAnimatedTileContainer(
+                            child1: CustomElevatedButton(
+                              label: 'Click here',
+                              isYellow: false,
+                            ),
+                            child2: CustomElevatedButton(
+                              label: 'Click here',
+                              isYellow: true,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container elementWidget(String label, String subtext) {
+    return Container(
+      width: double.infinity,
+      height: 60,
+      decoration: BoxDecoration(
+        color: Palette.hYellow,
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            color: Palette.white_30.withOpacity(0.2),
+          ),
+        ),
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: size.width * 0.105,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 4,
+          ),
+          Text(
+            label,
+            style: AppTextStyle.mobileHeading
+                .copyWith(color: Palette.bgBlack.withOpacity(0.6)),
+          ),
+          Text(
+            subtext,
+            style: GoogleFonts.archivo(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: Palette.bgBlack),
+          ),
+        ],
       ),
     );
   }

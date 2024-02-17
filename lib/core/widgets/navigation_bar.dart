@@ -310,3 +310,181 @@ class NavButton extends StatelessWidget {
     );
   }
 }
+
+class RecruiterNavbar extends StatelessWidget {
+  const RecruiterNavbar(
+    this.scrollController, {
+    super.key,
+    required this.secondaryScrollController,
+  });
+  final ScrollController scrollController;
+
+  final ScrollController secondaryScrollController;
+
+  double activeHeight(double height, double factor) {
+    var h = (height * factor) - (height * 0.3);
+    return h;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var h = MediaQuery.of(context).size.height;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 17),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(
+            sigmaX: 4,
+            sigmaY: 4,
+          ),
+          child: Container(
+            // landingpagenavbarstate31Mh (1:13)
+            // width: size.width * 0.31844,
+            height: size.width > 600 ? 49 : 42,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: const Border(),
+              gradient: const LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[Color(0x33ffffff), Color(0x00ffffff)],
+                stops: <double>[0, 1],
+              ),
+              boxShadow: const [
+                BoxShadow(
+                  offset: Offset(-0.5, 0),
+                  blurRadius: 2,
+                  spreadRadius: -1,
+                  blurStyle: BlurStyle.outer,
+                  color: Color.fromRGBO(255, 255, 255, 0.229),
+                ),
+                BoxShadow(
+                    offset: Offset(-0.5, 0),
+                    blurRadius: 2,
+                    spreadRadius: -1,
+                    blurStyle: BlurStyle.outer,
+                    color: Color.fromRGBO(255, 255, 255, 0.153)),
+              ],
+            ),
+            child: Consumer<CursorProvider>(builder: (context, controller, _) {
+              return MouseRegion(
+                onEnter: (event) => controller.toggleHide(true),
+                onExit: (event) => controller.toggleHide(false),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(5, 5, 0, 5),
+                      child: NavButton(
+                        label: 'About me',
+                        onTap: () => {
+                          log('Abut me presssed'),
+                          scrollController.animateTo(h,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate),
+                          secondaryScrollController.animateTo(h,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate)
+                        },
+                        isActive:
+                            controller.scrollOffset >= activeHeight(h, 1) &&
+                                controller.scrollOffset < activeHeight(h, 2.7),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      child: NavButton(
+                        label: 'Project',
+                        onTap: () => {
+                          log('Project presssed'),
+                          scrollController.animateTo(h * 3,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate),
+                          secondaryScrollController.animateTo(h * 3,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate)
+                        },
+                        isActive:
+                            controller.scrollOffset >= activeHeight(h, 2.7) &&
+                                controller.scrollOffset <
+                                    (activeHeight(h, 5) - h * 0.2),
+                      ),
+                    ),
+                    if (size.width < 600) ...[
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      GestureDetector(
+                        onTapDown: (details) =>
+                            controller.toggleMagnify(true, fullScreen: true),
+                        onTapUp: (details) =>
+                            controller.toggleMagnify(false, fullScreen: false),
+                        // onTapCancel: () =>
+                        //     controller.toggleMagnify(false, fullScreen: false),
+                        child: const HoldMeButton(),
+                      ),
+                    ],
+                    const SizedBox(
+                      width: 4,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      child: NavButton(
+                        label: 'Connect',
+                        onTap: () => {
+                          log('Connect presssed'),
+                          scrollController.animateTo((h * 5) - (h * 0.3),
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate),
+                          secondaryScrollController.animateTo(
+                              (h * 5) - (h * 0.3),
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate)
+                        },
+                        isActive: controller.scrollOffset >=
+                                ((activeHeight(h, 5)) - (h * 0.2)) &&
+                            controller.scrollOffset <
+                                (scrollController.position.maxScrollExtent -
+                                    (h * 0.2)),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
+                      child: NavButton(
+                        label:
+                            size.width > 600 ? 'For requiters' : 'Recruiters',
+                        onTap: () => {
+                          log('Recruiters presssed'),
+                          scrollController.animateTo(
+                              scrollController.position.maxScrollExtent,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate),
+                          secondaryScrollController.animateTo(
+                              scrollController.position.maxScrollExtent,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate)
+                        },
+                        isActive: controller.scrollOffset >
+                            (scrollController.position.maxScrollExtent -
+                                (h * 0.2)),
+                      ),
+                    )
+                  ],
+                ),
+              );
+            }),
+          ),
+        ),
+      ),
+    );
+  }
+}

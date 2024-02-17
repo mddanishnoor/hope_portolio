@@ -88,6 +88,42 @@ class _ReqRunningAnimatedTileContainerState
   }
 }
 
+class MobileReqRunningAnimatedTileContainer extends StatefulWidget {
+  const MobileReqRunningAnimatedTileContainer(
+      {super.key,
+      this.height = 65,
+      this.width = double.infinity,
+      required this.child,
+      required this.scrollOffset,
+      required this.multiplier});
+  final double? width, height;
+  final Widget child;
+  final double scrollOffset;
+  final double multiplier;
+
+  @override
+  State<MobileReqRunningAnimatedTileContainer> createState() =>
+      _MobileReqRunningAnimatedTileContainerState();
+}
+
+class _MobileReqRunningAnimatedTileContainerState
+    extends State<MobileReqRunningAnimatedTileContainer>
+    with SingleTickerProviderStateMixin {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        width: widget.width,
+        height: 47,
+        child: MobileRunningText(
+            index: (3.5) * widget.multiplier,
+            size: MediaQuery.of(context).size,
+            offset: widget.scrollOffset,
+            maxLines: 1,
+            height: 47,
+            child: widget.child));
+  }
+}
+
 class ReqAnimatedTileContainer extends StatefulWidget {
   const ReqAnimatedTileContainer({
     super.key,

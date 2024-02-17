@@ -62,3 +62,55 @@ class _RunningTextState extends State<RunningText> {
     );
   }
 }
+
+class MobileRunningText extends StatefulWidget {
+  const MobileRunningText(
+      {super.key,
+      required this.child,
+      required this.size,
+      required this.offset,
+      required this.maxLines,
+      this.height,
+      required this.index});
+  final Widget child;
+  final Size size;
+  final double offset;
+  final double maxLines;
+  final double? height;
+  final double index;
+
+  @override
+  State<MobileRunningText> createState() => _MobileRunningTextState();
+}
+
+class _MobileRunningTextState extends State<MobileRunningText> {
+  RenderBox? renderBox;
+  Offset? widgetOffset;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        widget.child,
+        AnimatedPositioned(
+          duration: const Duration(milliseconds: 350),
+          right: -((widgetOffset?.dy ?? (widget.offset - (90 * widget.index))) *
+              2 *
+              (1 / widget.size.height) *
+              widget.size.width),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+            for (int i = 1; i <= widget.maxLines; i++)
+              Container(
+                width: (widget.size.width) * (i + i),
+                height: 47,
+                decoration: BoxDecoration(
+                  backgroundBlendMode: BlendMode.darken,
+                  color: Palette.black.withOpacity(0.5),
+                ),
+              ),
+          ]),
+        )
+      ],
+    );
+  }
+}

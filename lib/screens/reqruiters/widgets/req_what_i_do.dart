@@ -25,6 +25,10 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    return widget.size.width > 600 ? webWidget() : mobileWidget();
+  }
+
+  LandingWidget webWidget() {
     return LandingWidget(
       child: Column(
         children: [
@@ -124,6 +128,81 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
             ),
           ),
           const Spacer(),
+        ],
+      ),
+    );
+  }
+
+  LandingWidget mobileWidget() {
+    return LandingWidget(
+      height: widget.size.height * 0.6,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Consumer<RecruitersProvider>(
+            builder: (c, provider, _) => Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: widget.size.width * 0.105),
+                  child: Text(
+                    'WHAT I DO',
+                    style: AppTextStyle.anotation,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Column(
+                  children: [
+                    MobileReqRunningAnimatedTileContainer(
+                      multiplier: 1,
+                      scrollOffset: provider.scrollOffset,
+                      child: MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'UX/UI',
+                      ),
+                    ),
+                    MobileReqRunningAnimatedTileContainer(
+                      multiplier: 1.2,
+                      scrollOffset: provider.scrollOffset,
+                      child: MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'Systems',
+                      ),
+                    ),
+                    MobileReqRunningAnimatedTileContainer(
+                      multiplier: 1.3,
+                      scrollOffset: provider.scrollOffset,
+                      child: MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'Facilitation',
+                      ),
+                    ),
+                    MobileReqRunningAnimatedTileContainer(
+                      multiplier: 1.4,
+                      scrollOffset: provider.scrollOffset,
+                      child: MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'Research',
+                      ),
+                    ),
+                    MobileReqRunningAnimatedTileContainer(
+                      multiplier: 1.5,
+                      scrollOffset: provider.scrollOffset,
+                      child: MobileBlackTileWidget(
+                        size: widget.size,
+                        label: 'Testing',
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          // const Spacer(),
         ],
       ),
     );
