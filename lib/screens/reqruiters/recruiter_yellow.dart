@@ -1,16 +1,19 @@
 // import 'dart:developer';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
 import '../../core/helper/mouse_follower.dart';
 import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/landing_widget.dart';
+import '../../core/widgets/project_card.dart';
 import '../home/widgets/connect_tiles.dart';
 import '../project/projects_screen.dart';
 import 'widgets/certifcate_widget.dart';
@@ -45,7 +48,7 @@ class RecruiterYellow extends StatelessWidget {
               scrollController2: scrollController2,
             ));
       } else {
-        // return const SizedBox();
+        return const SizedBox();
         return MobileRecruiterYellowChild(
             scrollController: scrollController,
             size: size,
@@ -930,25 +933,25 @@ class MobileRecruiterYellowChild extends StatelessWidget {
               LandingWidget(
                 color: Palette.hYellow,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'PROJECTS ',
-                        style: AppTextStyle.anotation
+                        style: AppTextStyle.mobileAnnotation
                             .copyWith(color: Palette.bgBlack),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Container(
-                        height: size.height * 0.84,
+                        // height: size.height * 0.84,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            border:
-                                Border.all(width: 1, color: Palette.bgBlack)),
+                            border: Border.all(
+                                width: 1, color: Palette.borderGrey)),
                         child: Column(
                           children: [
                             Padding(
@@ -956,49 +959,91 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                                 horizontal: size.width * 0.065,
                                 vertical: size.height * 0.0299,
                               ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'My favorite \nprojects',
-                                    style: AppTextStyle.listExtended
-                                        .copyWith(color: Palette.bgBlack),
+                                    'PORTFOLIO\nCASE STUDIES',
+                                    style: GoogleFonts.archivo(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w900,
+                                      // height: 0.86,
+                                      letterSpacing: -1.42,
+                                      color: Palette.bgBlack,
+                                    ),
                                   ),
-                                  const Spacer(),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (c) => ProjectScreen()));
-                                    },
-                                    child: Container(
-                                      width: 90,
-                                      height: 24,
-                                      decoration: BoxDecoration(
-                                        border:
-                                            Border.all(color: Palette.bgBlack),
-                                        borderRadius: BorderRadius.circular(6),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          'See all >>',
-                                          style: AppTextStyle.buttonTextStyle
-                                              .copyWith(color: Palette.bgBlack),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Spacer(),
+                                      InkWell(
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (c) =>
+                                                      ProjectScreen()));
+                                        },
+                                        child: Container(
+                                          width: 90,
+                                          height: 24,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color: Palette.bgBlack),
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              'See all >>',
+                                              style: AppTextStyle
+                                                  .buttonTextStyle
+                                                  .copyWith(
+                                                      color: Palette.bgBlack),
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
                                 ],
                               ),
                             ),
-                            Expanded(
-                              child: Container(
-                                height: size.height * 0.653,
-                                decoration: BoxDecoration(
-                                  color: Palette.grey,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(vertical: 18),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Palette.grey,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                children: [
+                                  CarouselSlider(
+                                    items: images
+                                        .map((e) => ProjectsCard(
+                                            size: Size(size.width, size.height),
+                                            url: e))
+                                        .toList(),
+                                    options: CarouselOptions(
+                                      aspectRatio: 4 / 5,
+                                      // viewportFraction: 0.8,
+                                      initialPage: 0,
+                                      enableInfiniteScroll: true,
+                                      reverse: false,
+                                      autoPlay: true,
+                                      autoPlayInterval:
+                                          const Duration(seconds: 2),
+                                      autoPlayAnimationDuration:
+                                          const Duration(seconds: 1),
+                                      autoPlayCurve: Curves.fastOutSlowIn,
+                                      enlargeCenterPage: true,
+                                      enlargeFactor: 0.4,
+                                      scrollDirection: Axis.horizontal,
+                                    ),
+                                  ),
+                                ],
                               ),
                             )
                           ],

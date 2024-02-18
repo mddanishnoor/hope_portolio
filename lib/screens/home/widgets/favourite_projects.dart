@@ -129,7 +129,7 @@ class MobileFavoriteProjects extends StatelessWidget {
   Widget build(BuildContext context) {
     return LandingWidget(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.07),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,

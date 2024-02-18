@@ -44,10 +44,12 @@ class RecruitersBlack extends StatelessWidget {
             EducationWidget(
               size: size,
             ),
-            FavoriteProjects(
-              size: size,
-              isRecruiter: true,
-            ),
+            size.width > 600
+                ? FavoriteProjects(
+                    size: size,
+                    isRecruiter: true,
+                  )
+                : MobileFavoriteProjects(size: size),
             CoreCompetency(
               size: size,
             ),
