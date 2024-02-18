@@ -48,7 +48,7 @@ class RecruiterYellow extends StatelessWidget {
               scrollController2: scrollController2,
             ));
       } else {
-        return const SizedBox();
+        // return const SizedBox();
         return MobileRecruiterYellowChild(
             scrollController: scrollController,
             size: size,
@@ -1089,47 +1089,34 @@ class MobileRecruiterYellowChild extends StatelessWidget {
 
               ///MOTO WIDGET
               LandingWidget(
+                height: size.height * 0.6,
                 color: Palette.hYellow,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Spacer(),
-                    MouseRegion(
-                      onEnter: (event) => context
-                          .read<RecruitersProvider>()
-                          .toggleMagnify(true),
-                      onExit: (event) => context
-                          .read<RecruitersProvider>()
-                          .toggleMagnify(false),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'MY MOTO',
-                            style: AppTextStyle.anotation
-                                .copyWith(color: Palette.bgBlack),
-                          ),
-                          const SizedBox(
-                            height: 18,
-                          ),
-                          Text(
-                            'SAME\nSTROKES FOR\nSIMILAR\nFOLKS',
-                            textAlign: TextAlign.center,
-                            style: AppTextStyle.heading
-                                .copyWith(color: Palette.bgBlack),
-                          ),
-                          const SizedBox(
-                            height: 18,
-                          ),
-                          Text(
-                            '- MOHAMMAD ALI',
-                            style: AppTextStyle.anotation
-                                .copyWith(color: Palette.bgBlack),
-                          ),
-                        ],
-                      ),
+                    Text(
+                      'MY MOTO',
+                      style: AppTextStyle.mobileAnnotation
+                          .copyWith(color: Palette.bgBlack),
                     ),
-                    const Spacer(),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    Text(
+                      'SAME\nSTROKES FOR\nSIMILAR\nFOLKS',
+                      textAlign: TextAlign.center,
+                      style: AppTextStyle.mobileHeading
+                          .copyWith(color: Palette.bgBlack),
+                    ),
+                    const SizedBox(
+                      height: 18,
+                    ),
+                    Text(
+                      '- MOHAMMAD ALI',
+                      style: AppTextStyle.mobileAnnotation
+                          .copyWith(color: Palette.bgBlack),
+                    ),
                   ],
                 ),
               ),

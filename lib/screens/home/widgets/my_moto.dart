@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/constant/theme/pallete.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
@@ -73,28 +74,34 @@ class MobileMyMoto extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // const Spacer(),
-            Column(
-              children: [
-                Text('MY MOTO', style: AppTextStyle.mobileAnnotation),
-                const SizedBox(
-                  height: 18,
-                ),
-                Text(
-                  'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
-                  textAlign: TextAlign.center,
-                  style: AppTextStyle.mobileHeading,
-                ),
-                const SizedBox(
-                  height: 18,
-                ),
-                Text(
-                  '- MOHAMMAD ALI',
-                  style: AppTextStyle.mobileAnnotation,
-                ),
-              ],
+            Text('MY MOTO', style: AppTextStyle.mobileAnnotation),
+            const SizedBox(
+              height: 18,
             ),
-            // const Spacer(),
+            RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                    text: 'DIFFERENT\nSTROKES ',
+                    style: AppTextStyle.mobileHeading,
+                    children: [
+                      TextSpan(
+                          text: 'FOR',
+                          style: AppTextStyle.mobileHeading
+                              .copyWith(color: Palette.hYellow)),
+                      const TextSpan(text: '\nDIFFERENT\nFOLKS')
+                    ])),
+            // Text(
+            //   'DIFFERENT\nSTROKES FOR',
+            //   textAlign: TextAlign.center,
+            //   style: AppTextStyle.mobileHeading,
+            // ),
+            const SizedBox(
+              height: 18,
+            ),
+            Text(
+              '- MOHAMMAD ALI',
+              style: AppTextStyle.mobileAnnotation,
+            ),
           ],
         ),
       ),

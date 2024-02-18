@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/widgets/running_text_widget.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';

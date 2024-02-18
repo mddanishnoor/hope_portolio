@@ -53,9 +53,13 @@ class RecruitersBlack extends StatelessWidget {
             CoreCompetency(
               size: size,
             ),
-            const MyMoto(
-              isRecruitment: true,
-            ),
+            size.width > 600
+                ? const MyMoto(
+                    isRecruitment: true,
+                  )
+                : MobileMyMoto(
+                    isRecruitment: true,
+                  ),
             Connect(
               size: size,
               isRecruiter: true,
