@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/widgets/running_text_widget.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
@@ -111,6 +113,7 @@ class _MobileReqRunningAnimatedTileContainerState
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
+    // log(widget.scrollOffset.toString());
     return SizedBox(
         width: widget.width,
         height: widget.height,

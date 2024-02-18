@@ -1055,7 +1055,37 @@ class MobileRecruiterYellowChild extends StatelessWidget {
               ),
 
               ///CORECOMPETENCY WIDGET
-              const LandingWidget(),
+              ///WHATIDO WIDGET
+              LandingWidget(
+                height: size.height * 0.6,
+                color: Palette.hYellow,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Text(
+                        'SKILLS',
+                        style: AppTextStyle.mobileAnnotation
+                            .copyWith(color: Palette.bgBlack),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    elementWidget(
+                        'UX/UI DESIGN', 'Mostly designing websites and apps'),
+                    elementWidget('SYSTEMS',
+                        'Designing systems for the company to function efficiently'),
+                    elementWidget('FACILITATION', 'Helping others, design'),
+                    elementWidget(
+                        'RESEARCH', 'My job is to know what the users wants'),
+                    elementWidget('TESTING',
+                        'Looking at numbers to prove success in usability'),
+                  ],
+                ),
+              ),
 
               ///MOTO WIDGET
               LandingWidget(
@@ -1207,7 +1237,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
   Container elementWidget(String label, String subtext) {
     return Container(
       width: double.infinity,
-      height: 60,
+      height: 64,
       decoration: BoxDecoration(
         color: Palette.hYellow,
         border: Border.symmetric(
