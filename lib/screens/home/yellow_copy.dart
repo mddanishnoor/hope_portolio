@@ -851,7 +851,10 @@ class MobileConnectYellow extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Text('Want to know more?',
+            Text(
+                isRecruiter
+                    ? 'Want a copy of my resume?'
+                    : 'Want to know more?',
                 style:
                     AppTextStyle.mobileBody.copyWith(color: Palette.bgBlack)),
             const SizedBox(
@@ -870,7 +873,7 @@ class MobileConnectYellow extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    'Click here',
+                    isRecruiter ? "Download" : 'Click here',
                     style: AppTextStyle.buttonTextStyle
                         .copyWith(color: Palette.hYellow),
                   ),

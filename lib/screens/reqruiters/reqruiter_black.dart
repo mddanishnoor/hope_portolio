@@ -60,10 +60,15 @@ class RecruitersBlack extends StatelessWidget {
                 : MobileMyMoto(
                     isRecruitment: true,
                   ),
-            Connect(
-              size: size,
-              isRecruiter: true,
-            )
+            size.width > 600
+                ? Connect(
+                    size: size,
+                    isRecruiter: true,
+                  )
+                : MobileConnect(
+                    size: size,
+                    isRecruiter: true,
+                  )
           ],
         );
       }),

@@ -241,7 +241,10 @@ class MobileConnect extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Text('Want to know more?',
+            Text(
+                isRecruiter
+                    ? 'Want a copy of my resume?'
+                    : 'Want to know more?',
                 style: AppTextStyle.mobileBody.copyWith(color: Palette.hWhite)),
             const SizedBox(
               height: 11,
@@ -251,7 +254,7 @@ class MobileConnect extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (c) => RecruitersScreen()));
               },
-              label: 'Click here',
+              label: isRecruiter ? 'Download' : 'Click here',
             ),
             Expanded(
               child: Image.asset(
