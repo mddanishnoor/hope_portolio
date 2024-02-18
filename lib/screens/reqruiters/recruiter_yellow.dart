@@ -45,7 +45,7 @@ class RecruiterYellow extends StatelessWidget {
               scrollController2: scrollController2,
             ));
       } else {
-        return const SizedBox();
+        // return const SizedBox();
         return MobileRecruiterYellowChild(
             scrollController: scrollController,
             size: size,
@@ -808,7 +808,123 @@ class MobileRecruiterYellowChild extends StatelessWidget {
               ),
 
               ///EDUCATION WIDGET
-              const LandingWidget(),
+              LandingWidget(
+                height: size.height * 0.6,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Text(
+                        'EDUCATION',
+                        style: AppTextStyle.mobileAnnotation
+                            .copyWith(color: Palette.bgBlack),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              top: BorderSide(
+                                color: Palette.bgBlack.withOpacity(0.3),
+                              ),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 21),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'M.Des',
+                                style: AppTextStyle.mobileBody.copyWith(
+                                    fontSize: 24,
+                                    color: Palette.bgBlack.withOpacity(0.6)),
+                              ),
+                              Text(
+                                'kudos to my professors for making this a utopian reality.',
+                                style: GoogleFonts.archivo(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11,
+                                    color: Palette.bgBlack),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              top: BorderSide(
+                                color: Palette.bgBlack.withOpacity(0.3),
+                              ),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 21),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'B.Tech',
+                                style: AppTextStyle.mobileBody.copyWith(
+                                    fontSize: 24,
+                                    color: Palette.bgBlack.withOpacity(0.6)),
+                              ),
+                              Text(
+                                'A place where I found my purpose',
+                                style: GoogleFonts.archivo(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11,
+                                    color: Palette.bgBlack),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              top: BorderSide(
+                                color: Palette.bgBlack.withOpacity(0.3),
+                              ),
+                              bottom: BorderSide(
+                                color: Palette.bgBlack.withOpacity(0.3),
+                              ),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 21),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'School',
+                                style: AppTextStyle.mobileBody.copyWith(
+                                    fontSize: 24,
+                                    color: Palette.bgBlack.withOpacity(0.6)),
+                              ),
+                              Text(
+                                'Exploring science, art and psychology',
+                                style: GoogleFonts.archivo(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11,
+                                    color: Palette.bgBlack),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
 
               ///PROJECTS WIDGET
               LandingWidget(
