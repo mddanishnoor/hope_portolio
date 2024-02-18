@@ -148,7 +148,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                   children: [
                     MobileReqRunningAnimatedTileContainer(
                       multiplier: 1,
-                      height: 54,
+                      height: 58,
                       scrollOffset: provider.scrollOffset,
                       child: MobileExperienceTile(
                         size: widget.size,
@@ -158,7 +158,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                       ),
                     ),
                     MobileReqRunningAnimatedTileContainer(
-                      height: 78,
+                      height: 82,
                       multiplier: 1.2,
                       scrollOffset: provider.scrollOffset,
                       child: MobileExperienceTile(
@@ -171,7 +171,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                     ),
                     MobileReqRunningAnimatedTileContainer(
                       multiplier: 1.3,
-                      height: 78,
+                      height: 82,
                       scrollOffset: provider.scrollOffset,
                       child: MobileExperienceTile(
                         size: widget.size,
@@ -182,7 +182,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                     ),
                     MobileReqRunningAnimatedTileContainer(
                       multiplier: 1.3,
-                      height: 78,
+                      height: 82,
                       scrollOffset: provider.scrollOffset,
                       child: MobileExperienceTile(
                         size: widget.size,

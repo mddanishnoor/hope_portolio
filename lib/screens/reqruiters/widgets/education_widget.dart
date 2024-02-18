@@ -300,44 +300,44 @@ class MobileEducationTile extends StatelessWidget {
           ),
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: size.width * 0.105,
+          horizontal: 24,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-                flex: 3,
+                // flex: 2,
                 child: Text(position,
                     style: AppTextStyle.mobileBody.copyWith(fontSize: 24))),
             Expanded(
-                flex: 2,
+                // flex: 2,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    RichText(
-                        text: TextSpan(
-                            text: timePeriod.split(' ').first,
-                            style: AppTextStyle.mobileBody.copyWith(
-                                fontSize: 24,
-                                color: Palette.hWhite.withOpacity(0.3)),
-                            children: [
-                          TextSpan(
-                            text: timePeriod.split(' ').last,
-                            style: AppTextStyle.mobileBody
-                                .copyWith(fontSize: 24, color: Palette.hWhite),
-                          )
-                        ])),
-                    Text(
-                      location,
-                      style: AppTextStyle.anotationBody.copyWith(
-                        fontSize: 11,
-                        color: Palette.white_30,
-                      ),
-                    )
-                  ],
-                )),
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RichText(
+                    text: TextSpan(
+                        text: timePeriod.split(' ').first,
+                        style: AppTextStyle.mobileBody.copyWith(
+                            fontSize: 24,
+                            color: Palette.hWhite.withOpacity(0.3)),
+                        children: [
+                      TextSpan(
+                        text: timePeriod.split(' ').last,
+                        style: AppTextStyle.mobileBody
+                            .copyWith(fontSize: 24, color: Palette.hWhite),
+                      )
+                    ])),
+                Text(
+                  location,
+                  style: AppTextStyle.anotationBody.copyWith(
+                    fontSize: 11,
+                    color: Palette.white_30,
+                  ),
+                )
+              ],
+            )),
           ],
         ));
   }
