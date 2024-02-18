@@ -91,7 +91,7 @@ class _ReqRunningAnimatedTileContainerState
 class MobileReqRunningAnimatedTileContainer extends StatefulWidget {
   const MobileReqRunningAnimatedTileContainer(
       {super.key,
-      this.height = 65,
+      this.height = 47,
       this.width = double.infinity,
       required this.child,
       required this.scrollOffset,
@@ -113,13 +113,13 @@ class _MobileReqRunningAnimatedTileContainerState
   Widget build(BuildContext context) {
     return SizedBox(
         width: widget.width,
-        height: 47,
+        height: widget.height,
         child: MobileRunningText(
             index: (3.5) * widget.multiplier,
             size: MediaQuery.of(context).size,
             offset: widget.scrollOffset,
             maxLines: 1,
-            height: 47,
+            height: widget.height,
             child: widget.child));
   }
 }

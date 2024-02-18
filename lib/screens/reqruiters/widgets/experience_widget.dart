@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
+import 'package:portfolio/screens/reqruiters/widgets/req_animated_tile.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/constant/theme/pallete.dart';
@@ -24,6 +26,10 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
 
   @override
   Widget build(BuildContext context) {
+    return widget.size.width > 600 ? webWidget() : mobileWidget();
+  }
+
+  LandingWidget webWidget() {
     return LandingWidget(
       child: Column(
         children: [
@@ -116,6 +122,85 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
       ),
     );
   }
+
+  LandingWidget mobileWidget() {
+    return LandingWidget(
+      height: widget.size.height * 0.6,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Consumer<RecruitersProvider>(
+            builder: (c, provider, _) => Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(
+                    'EXPERIENCE ',
+                    style: AppTextStyle.mobileAnnotation,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Column(
+                  children: [
+                    MobileReqRunningAnimatedTileContainer(
+                      multiplier: 1,
+                      height: 54,
+                      scrollOffset: provider.scrollOffset,
+                      child: MobileExperienceTile(
+                        size: widget.size,
+                        timePeriod: 'NOW',
+                        position: 'UX/UI DESG.',
+                        location: 'GYMSAPIEN, New Delhi',
+                      ),
+                    ),
+                    MobileReqRunningAnimatedTileContainer(
+                      height: 78,
+                      multiplier: 1.2,
+                      scrollOffset: provider.scrollOffset,
+                      child: MobileExperienceTile(
+                        size: widget.size,
+                        startTime: '2021',
+                        timePeriod: '2023',
+                        position: 'Freelance',
+                        location: 'India',
+                      ),
+                    ),
+                    MobileReqRunningAnimatedTileContainer(
+                      multiplier: 1.3,
+                      height: 78,
+                      scrollOffset: provider.scrollOffset,
+                      child: MobileExperienceTile(
+                        size: widget.size,
+                        timePeriod: '2023',
+                        position: 'Graphic design intern',
+                        location: 'Blue oktopus, Delhi NCR',
+                      ),
+                    ),
+                    MobileReqRunningAnimatedTileContainer(
+                      multiplier: 1.3,
+                      height: 78,
+                      scrollOffset: provider.scrollOffset,
+                      child: MobileExperienceTile(
+                        size: widget.size,
+                        startTime: '2019',
+                        timePeriod: '2021',
+                        position: 'Design head',
+                        location: 'IEEE, ADGITM, New Delhi ',
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class ExperienceTile extends StatelessWidget {
@@ -193,6 +278,82 @@ class ExperienceTile extends StatelessWidget {
                     color: isYellow ? Palette.black : null),
               ),
             )
+          ],
+        ));
+  }
+}
+
+class MobileExperienceTile extends StatelessWidget {
+  const MobileExperienceTile(
+      {super.key,
+      required this.size,
+      required this.timePeriod,
+      required this.position,
+      required this.location,
+      this.startTime});
+  final Size size;
+  final String timePeriod;
+  final String position;
+  final String location;
+  final String? startTime;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          border: Border.symmetric(
+            horizontal: BorderSide(
+              color: Palette.white_30,
+            ),
+          ),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (startTime != null)
+              Text(
+                startTime!,
+                style: AppTextStyle.mobileBody.copyWith(
+                    fontSize: 24, color: Palette.hWhite.withOpacity(0.5)),
+              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                    flex: 2,
+                    child: Text(
+                      timePeriod,
+                      style: AppTextStyle.mobileBody.copyWith(
+                          fontSize: 24,
+                          color: timePeriod == 'NOW' ? Palette.hYellow : null),
+                    )),
+                const SizedBox(
+                  width: 36,
+                ),
+                Expanded(
+                    flex: 3,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          position,
+                          style: AppTextStyle.mobileBody.copyWith(
+                            fontSize: 24,
+                          ),
+                        ),
+                        Text(
+                          location,
+                          style: GoogleFonts.archivo(
+                              fontSize: 11,
+                              color: Palette.hWhite.withOpacity(0.5)),
+                        )
+                      ],
+                    )),
+              ],
+            ),
           ],
         ));
   }

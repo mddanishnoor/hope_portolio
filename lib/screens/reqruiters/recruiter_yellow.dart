@@ -659,7 +659,153 @@ class MobileRecruiterYellowChild extends StatelessWidget {
               ),
 
               ///EXPERIENCE WIDGET
-              const LandingWidget(),
+              LandingWidget(
+                height: size.height * 0.6,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Text(
+                        'EXPERIENCE ',
+                        style: AppTextStyle.mobileAnnotation
+                            .copyWith(color: Palette.bgBlack),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              top: BorderSide(
+                                color: Palette.bgBlack.withOpacity(0.3),
+                              ),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 21),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '7months and counting',
+                                style: AppTextStyle.mobileBody.copyWith(
+                                    fontSize: 24,
+                                    color: Palette.bgBlack.withOpacity(0.6)),
+                              ),
+                              Text(
+                                'Solved more problems than just design ',
+                                style: GoogleFonts.archivo(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11,
+                                    color: Palette.bgBlack),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              top: BorderSide(
+                                color: Palette.bgBlack.withOpacity(0.3),
+                              ),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 21),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '3years of Freelance',
+                                style: AppTextStyle.mobileBody.copyWith(
+                                    fontSize: 24,
+                                    color: Palette.bgBlack.withOpacity(0.6)),
+                              ),
+                              Text(
+                                'I learned to manage clients through dozens of projects',
+                                style: GoogleFonts.archivo(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11,
+                                    color: Palette.bgBlack),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              top: BorderSide(
+                                color: Palette.bgBlack.withOpacity(0.3),
+                              ),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 21),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '3months of Internship',
+                                style: AppTextStyle.mobileBody.copyWith(
+                                    fontSize: 24,
+                                    color: Palette.bgBlack.withOpacity(0.6)),
+                              ),
+                              Text(
+                                'Taught me how to be efficient',
+                                style: GoogleFonts.archivo(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11,
+                                    color: Palette.bgBlack),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border(
+                              top: BorderSide(
+                                color: Palette.bgBlack.withOpacity(0.3),
+                              ),
+                              bottom: BorderSide(
+                                color: Palette.bgBlack.withOpacity(0.3),
+                              ),
+                            ),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 21),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '1year of leadership',
+                                style: AppTextStyle.mobileBody.copyWith(
+                                    fontSize: 24,
+                                    color: Palette.bgBlack.withOpacity(0.6)),
+                              ),
+                              Text(
+                                'Mastering the art of Leadership and Collaboration',
+                                style: GoogleFonts.archivo(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11,
+                                    color: Palette.bgBlack),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
 
               ///EDUCATION WIDGET
               const LandingWidget(),
