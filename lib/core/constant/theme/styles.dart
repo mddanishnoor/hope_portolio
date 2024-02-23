@@ -52,6 +52,14 @@ abstract class AppTextStyle {
   );
 
   // listExtended Text Style
+  static TextStyle mobileExtended = GoogleFonts.archivoBlack(
+    fontSize: 24,
+    fontWeight: FontWeight.w400,
+    height: 1.0049999952,
+    color: Palette.hWhite,
+  );
+
+  // listExtended Text Style
   static TextStyle listExtended = GoogleFonts.archivoBlack(
     fontSize: 64,
     fontWeight: FontWeight.w400,

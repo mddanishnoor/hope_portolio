@@ -2,25 +2,29 @@ import 'package:flutter/material.dart';
 
 class ProjectProvider extends ChangeNotifier {
   Offset position = const Offset(0, 0);
-  Offset cursorPosition = const Offset(0, 0);
-  double scrolloffset = 0;
-
+  // Offset cursorPosition = const Offset(0, 0);
+  double scrollOffset = 0;
   bool isMagnified = false;
+  bool fullMagnify = false;
   bool hide = false;
 
-  ProjectProvider();
+  ProjectProvider({this.position = const Offset(0, 0)});
 
   updatePosition(Offset pos) {
     position = pos;
     notifyListeners();
   }
 
-  updateCursorPositio(Offset pos) {
-    cursorPosition = pos;
-    // notifyListeners();
-  }
+  // updateCursorPosition(Offset pos) {
+  //   cursorPosition = pos;
+  //   // notifyListeners();
+  // }
 
-  toggleMagnify(bool val) {
+  toggleMagnify(bool val, {bool? fullScreen}) {
+    if (fullScreen != null) {
+      fullMagnify = fullScreen;
+      // cursorPosition = const Offset(1, 1);
+    }
     isMagnified = val;
     notifyListeners();
   }
@@ -31,7 +35,7 @@ class ProjectProvider extends ChangeNotifier {
   }
 
   updateScrollOffset(double offset) {
-    scrolloffset = offset;
+    scrollOffset = offset;
     notifyListeners();
   }
 }

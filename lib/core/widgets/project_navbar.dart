@@ -77,8 +77,8 @@ class ProjectNavbar extends StatelessWidget {
                       label: 'Hope',
                       onTap: () =>
                           {log('Hope presssed'), Navigator.pop(context)},
-                      isActive: controller.scrolloffset >= activeHeight(h, 1) &&
-                          controller.scrolloffset < activeHeight(h, 2.7),
+                      isActive: controller.scrollOffset >= activeHeight(h, 1) &&
+                          controller.scrollOffset < activeHeight(h, 2.7),
                     ),
                     const SizedBox(
                       width: 5,
@@ -95,8 +95,8 @@ class ProjectNavbar extends StatelessWidget {
                             curve: Curves.decelerate)
                       },
                       isActive:
-                          controller.scrolloffset >= activeHeight(h, 2.7) &&
-                              controller.scrolloffset <
+                          controller.scrollOffset >= activeHeight(h, 2.7) &&
+                              controller.scrollOffset <
                                   (activeHeight(h, 5) - h * 0.2),
                     ),
                     const SizedBox(
@@ -131,9 +131,9 @@ class ProjectNavbar extends StatelessWidget {
                             duration: const Duration(milliseconds: 1500),
                             curve: Curves.decelerate)
                       },
-                      isActive: controller.scrolloffset >=
+                      isActive: controller.scrollOffset >=
                               ((activeHeight(h, 5)) - (h * 0.2)) &&
-                          controller.scrolloffset <=
+                          controller.scrollOffset <=
                               (scrollController.position.maxScrollExtent),
                     )
                   ],

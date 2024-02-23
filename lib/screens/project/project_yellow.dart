@@ -21,6 +21,33 @@ class ProjectYellowCopy extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Consumer<ProjectProvider>(
       builder: (context, provider, child) {
+        if (MediaQuery.of(context).size.width > 766) {
+          return MouseFollower(
+              position: provider.position,
+              radius: provider.hide
+                  ? 0
+                  : provider.isMagnified
+                      ? size.height * 0.4
+                      : 15,
+              width: double.infinity,
+              height: 60,
+              child: ProjectYellowCopyChild(
+                scrollController: scrollController,
+                size: size,
+                scrollController2: scrollCOntroller2,
+              ));
+        } else {
+          return MouseFollower(
+              position: provider.position,
+              radius: provider.fullMagnify ? size.height : 0,
+              width: double.infinity,
+              height: 60,
+              child: ProjectYellowCopyChild(
+                scrollController: scrollController,
+                size: size,
+                scrollController2: scrollCOntroller2,
+              ));
+        }
         return size.width > 766
             ? MouseFollower(
                 position: provider.position,
@@ -56,7 +83,9 @@ class ProjectYellowCopyChild extends StatelessWidget {
   Widget build(BuildContext context) {
     return NotificationListener<ScrollNotification>(
         onNotification: (notification) {
-          scrollController2.jumpTo(scrollController.offset);
+          if (size.width > 600) {
+            scrollController.jumpTo(scrollController.offset);
+          }
           return true;
         },
         child: ColoredBox(
