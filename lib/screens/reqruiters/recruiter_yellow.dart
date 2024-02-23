@@ -49,7 +49,7 @@ class RecruiterYellow extends StatelessWidget {
               scrollController2: scrollController2,
             ));
       } else {
-        // return const SizedBox();
+        return const SizedBox();
         return MobileRecruiterYellowChild(
             scrollController: scrollController,
             size: size,
