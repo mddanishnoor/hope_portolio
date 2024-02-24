@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/providers/cursor_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
@@ -71,64 +73,84 @@ class Connect extends StatelessWidget {
             SizedBox(
               height: size.height * 0.2,
             ),
+            MouseRegion(
+                onEnter: (event) =>
+                    context.read<CursorProvider>().toggleHide(true),
+                onExit: (event) =>
+                    context.read<CursorProvider>().toggleHide(false),
+                child: RecruiterCard(isRecruiter: isRecruiter))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RecruiterCard extends StatefulWidget {
+  const RecruiterCard({
+    super.key,
+    required this.isRecruiter,
+  });
+
+  final bool isRecruiter;
+
+  @override
+  State<RecruiterCard> createState() => _RecruiterCardState();
+}
+
+class _RecruiterCardState extends State<RecruiterCard> {
+  bool isHovered = false;
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onHover: (event) => setState(() {
+        isHovered = true;
+      }),
+      onExit: (event) => setState(() {
+        isHovered = false;
+      }),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        decoration: BoxDecoration(
+            border: Border.all(color: Palette.hWhite),
+            borderRadius: BorderRadius.circular(10),
+            color: isHovered ? Palette.hYellow : null),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 15,
+          vertical: 15,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Text(
               'FOR REQRUITERS',
-              style: AppTextStyle.anotation,
+              style: AppTextStyle.anotation.copyWith(
+                  color: isHovered ? Palette.bgBlack : Palette.hWhite),
             ),
             const SizedBox(
               height: 16,
             ),
             Row(
               children: [
-                AnimatedTileContainer(
-                  isProject: isProject,
-                  isRecruiter: isRecruiter,
-                  child1: Text(
-                    isRecruiter
-                        ? 'Here is my resume '
-                        : 'If you like to hire me',
-                    style: GoogleFonts.syne(
-                      // 'Syne',
-                      fontSize: 64,
-                      fontWeight: FontWeight.w600,
-                      height: 1.0049999952,
-                      color: Palette.notWhite,
-                    ),
-                  ),
-                  child2: ColoredBox(
-                    color: Palette.hYellow,
-                    child: Text(
-                      isRecruiter
-                          ? 'Here is my resume '
-                          : 'If you like to hire me',
-                      style: GoogleFonts.syne(
-                        // 'Syne',
-                        fontSize: 64,
-                        fontWeight: FontWeight.w600,
-                        height: 1.0049999952,
-                        color: Palette.bgBlack,
-                      ),
-                    ),
-                  ),
+                Text(
+                  widget.isRecruiter
+                      ? 'Here is my resume '
+                      : 'Want to know more?',
+                  style: AppTextStyle.body.copyWith(
+                      color: isHovered ? Palette.bgBlack : Palette.hWhite),
                 ),
                 const Spacer(),
-                AnimatedTileContainer(
-                  isProject: isProject,
-                  isRecruiter: isRecruiter,
-                  child1: CustomElevatedButton(
-                    label: isRecruiter ? 'Download' : 'Click here',
-                    isYellow: false,
-                    onTap: () {
-                      isRecruiter ? null : context.goNamed(Routes.requiters);
-                    },
-                  ),
-                  child2: CustomElevatedButton(
-                    label: isRecruiter ? 'Download' : 'Click here',
-                    isYellow: true,
-                    onTap: () {
-                      isRecruiter ? null : context.goNamed(Routes.requiters);
-                    },
-                  ),
+                CustomElevatedButton(
+                  label: widget.isRecruiter ? 'Download' : 'Let\'s Go',
+                  margin: EdgeInsets.zero,
+                  isYellow: isHovered,
+                  onTap: () {
+                    widget.isRecruiter
+                        ? null
+                        : context.goNamed(Routes.requiters);
+                  },
                 ),
               ],
             ),
