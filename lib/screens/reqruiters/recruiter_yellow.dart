@@ -50,11 +50,16 @@ class RecruiterYellow extends StatelessWidget {
               scrollController2: scrollController2,
             ));
       } else {
-        return const SizedBox();
-        return MobileRecruiterYellowChild(
-            scrollController: scrollController,
-            size: size,
-            scrollController2: scrollController2);
+        return MouseFollower(
+            position: controller.position,
+            radius: controller.fullMagnify ? size.height : 0,
+            width: double.infinity,
+            height: 60,
+            child: MobileRecruiterYellowChild(
+              scrollController: scrollController,
+              size: size,
+              scrollController2: scrollController2,
+            ));
       }
     });
   }

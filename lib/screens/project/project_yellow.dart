@@ -20,7 +20,7 @@ class ProjectYellowCopy extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Consumer<ProjectProvider>(
       builder: (context, provider, child) {
-        if (MediaQuery.of(context).size.width > 766) {
+        if (MediaQuery.of(context).size.width > 600) {
           return MouseFollower(
               position: provider.position,
               radius: provider.hide

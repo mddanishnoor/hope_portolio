@@ -198,11 +198,12 @@ class ProjectMobileNavbar extends StatelessWidget {
                   color: Color.fromRGBO(255, 255, 255, 0.229),
                 ),
                 BoxShadow(
-                    offset: Offset(-0.5, 0),
-                    blurRadius: 2,
-                    spreadRadius: -1,
-                    blurStyle: BlurStyle.outer,
-                    color: Color.fromRGBO(255, 255, 255, 0.153)),
+                  offset: Offset(-0.5, 0),
+                  blurRadius: 2,
+                  spreadRadius: -1,
+                  blurStyle: BlurStyle.outer,
+                  color: Color.fromRGBO(255, 255, 255, 0.153),
+                ),
               ],
             ),
             child: Consumer<ProjectProvider>(builder: (context, controller, _) {
@@ -216,11 +217,18 @@ class ProjectMobileNavbar extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(5, 5, 0, 5),
                       child: NavButton(
-                        label: 'Hope',
-                        onTap: () => {context.pop(context)},
-                        isActive:
-                            controller.scrollOffset >= activeHeight(h, 1) &&
-                                controller.scrollOffset < activeHeight(h, 2.7),
+                        label: 'UI/UX',
+                        onTap: () => {
+                          scrollController.animateTo(h * 0.97,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate),
+                          secondaryScrollController.animateTo(h,
+                              duration: const Duration(milliseconds: 1500),
+                              curve: Curves.decelerate)
+                        },
+                        isActive: controller.scrollOffset >=
+                                activeHeight(h * 0.97, 1) &&
+                            controller.scrollOffset < activeHeight(h * 3.9, 1),
                       ),
                     ),
                     const SizedBox(
@@ -229,18 +237,18 @@ class ProjectMobileNavbar extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: NavButton(
-                        label: 'UI/UX',
+                        label: 'Branding',
                         onTap: () => {
-                          scrollController.animateTo(h,
+                          scrollController.animateTo(h * 3.2,
                               duration: const Duration(milliseconds: 1500),
                               curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(h,
+                          secondaryScrollController.animateTo(h * 3.2,
                               duration: const Duration(milliseconds: 1500),
                               curve: Curves.decelerate)
                         },
-                        isActive:
-                            controller.scrollOffset >= activeHeight(h, 1) &&
-                                controller.scrollOffset < activeHeight(h, 2.7),
+                        isActive: controller.scrollOffset >=
+                                activeHeight(h * 3.9, 1) &&
+                            controller.scrollOffset < activeHeight(h * 4.65, 1),
                       ),
                     ),
                     if (size.width < 600) ...[
@@ -263,9 +271,9 @@ class ProjectMobileNavbar extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: NavButton(
-                        label: 'Misc',
+                        label: 'Misc.',
                         onTap: () => {
-                          log('Connect presssed'),
+                          log('Connect pressed'),
                           scrollController.animateTo((h * 4) - (h * 0.3),
                               duration: const Duration(milliseconds: 1500),
                               curve: Curves.decelerate),
@@ -275,10 +283,10 @@ class ProjectMobileNavbar extends StatelessWidget {
                               curve: Curves.decelerate)
                         },
                         isActive: controller.scrollOffset >=
-                                ((activeHeight(h, 5)) - (h * 0.2)) &&
+                                activeHeight(h * 4.65, 1) &&
                             controller.scrollOffset <
                                 (scrollController.position.maxScrollExtent -
-                                    (h * 0.2)),
+                                    (h * 0.4)),
                       ),
                     ),
                     const SizedBox(
@@ -299,9 +307,9 @@ class ProjectMobileNavbar extends StatelessWidget {
                               duration: const Duration(milliseconds: 1500),
                               curve: Curves.decelerate)
                         },
-                        isActive: controller.scrollOffset >
+                        isActive: controller.scrollOffset >=
                             (scrollController.position.maxScrollExtent -
-                                (h * 0.2)),
+                                (h * 0.4)),
                       ),
                     )
                   ],

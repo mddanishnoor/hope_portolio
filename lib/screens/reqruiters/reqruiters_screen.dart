@@ -21,7 +21,7 @@ class RecruitersScreen extends StatelessWidget {
       return Scaffold(
         backgroundColor: Palette.black,
         body: MouseRegion(
-          onHover: (event) => controller.updatePositioned(event.position),
+          onHover: (event) => controller.updatePosition(event.position),
           child: NotificationListener<ScrollNotification>(
             onNotification: (notification) {
               controller.updateScrollOffset(scrollController2.offset);

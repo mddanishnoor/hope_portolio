@@ -307,7 +307,7 @@ class ProjectThumbnailWidget extends StatelessWidget {
                                     Text(
                                       e.subtext,
                                       style: GoogleFonts.archivo(
-                                          fontSize: 10, color: Palette.hWhite),
+                                          fontSize: 12, color: Palette.hWhite),
                                     ),
                                   ],
                                 ),
@@ -338,19 +338,22 @@ class MiscThumbnailWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height / 2,
-      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            miscProjects.category,
-            style: AppTextStyle.mobileAnnotation
-                .copyWith(color: isYellow ? Palette.bgBlack : null),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Text(
+              miscProjects.category,
+              style: AppTextStyle.mobileAnnotation
+                  .copyWith(color: isYellow ? Palette.bgBlack : null),
+            ),
           ),
           Expanded(
             child: ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               separatorBuilder: (context, index) => const SizedBox(
                 width: 16,
               ),
@@ -391,6 +394,17 @@ class MiscThumbnailWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              if (miscProjects.projects[index].subCategory !=
+                                  null) ...[
+                                Text(
+                                  miscProjects.projects[index].subCategory!,
+                                  style: GoogleFonts.archivo(
+                                      fontSize: 12, color: Palette.hWhite),
+                                ),
+                                const SizedBox(
+                                  height: 6,
+                                )
+                              ],
                               Text(
                                 miscProjects.projects[index].title,
                                 style: AppTextStyle.mobileExtended,
@@ -401,7 +415,7 @@ class MiscThumbnailWidget extends StatelessWidget {
                               Text(
                                 miscProjects.projects[index].subtext,
                                 style: GoogleFonts.archivo(
-                                    fontSize: 10, color: Palette.hWhite),
+                                    fontSize: 12, color: Palette.hWhite),
                               ),
                             ],
                           ),
@@ -521,15 +535,15 @@ List<CategoryModel> projectList = [
 
 CategoryModel miscProjects = CategoryModel(category: 'MISC', projects: [
   ProjectModel(
+      media: 'assets/png/dot_mobile.png',
+      subCategory: 'Game Design',
+      title: 'Dots',
+      subtext: 'Reimagining childhood game in the digital age'),
+  ProjectModel(
       media: 'assets/png/mobile_ways_of_death.png',
       subCategory: 'Graphic Design',
       title: 'Ways of Death',
       subtext: 'Symbolic portrayal of kinds of human demise.'),
-  ProjectModel(
-      media: 'assets/png/dot_mobile.png',
-      subCategory: 'Graphic Design',
-      title: 'Dots',
-      subtext: 'Reimagining childhood game in the digital age'),
   ProjectModel(
       media: 'assets/png/mobile_sins.png',
       subCategory: 'Graphic Design',

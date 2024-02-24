@@ -2,24 +2,29 @@ import 'package:flutter/material.dart';
 
 class RecruitersProvider extends ChangeNotifier {
   Offset position = const Offset(0, 0);
-  Offset cursorPosition = const Offset(0, 0);
+  // Offset cursorPosition = const Offset(0, 0);
   double scrollOffset = 0;
   bool isMagnified = false;
+  bool fullMagnify = false;
   bool hide = false;
 
-  RecruitersProvider();
+  RecruitersProvider({this.position = const Offset(0, 0)});
 
-  updatePositioned(Offset pos) {
+  updatePosition(Offset pos) {
     position = pos;
     notifyListeners();
   }
 
-  updateCursorPosition(Offset pos) {
-    cursorPosition = pos;
-    // notifyListeners();
-  }
+  // updateCursorPosition(Offset pos) {
+  //   cursorPosition = pos;
+  //   // notifyListeners();
+  // }
 
-  toggleMagnify(bool val) {
+  toggleMagnify(bool val, {bool? fullScreen}) {
+    if (fullScreen != null) {
+      fullMagnify = fullScreen;
+      // cursorPosition = const Offset(1, 1);
+    }
     isMagnified = val;
     notifyListeners();
   }
