@@ -23,8 +23,12 @@ class FavoriteProjects extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onHover: (event) => context.read<CursorProvider>().toggleHide(true),
-      onExit: (event) => context.read<CursorProvider>().toggleHide(false),
+      onEnter: (event) => isRecruiter
+          ? context.read<RecruitersProvider>().toggleHide(true)
+          : context.read<CursorProvider>().toggleHide(true),
+      onExit: (event) => isRecruiter
+          ? context.read<RecruitersProvider>().toggleHide(false)
+          : context.read<CursorProvider>().toggleHide(false),
       child: LandingWidget(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
@@ -39,59 +43,51 @@ class FavoriteProjects extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              MouseRegion(
-                onEnter: (event) => isRecruiter
-                    ? context.read<RecruitersProvider>().toggleHide(true)
-                    : context.read<CursorProvider>().toggleHide(true),
-                onExit: (event) => isRecruiter
-                    ? context.read<RecruitersProvider>().toggleHide(false)
-                    : context.read<CursorProvider>().toggleHide(false),
-                child: Container(
-                  height: size.height * 0.84,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(width: 1, color: Palette.borderGrey)),
-                  child: Column(
-                    children: [
-                      TitleWidget(size: size, isRecruiter: isRecruiter),
-                      Expanded(
-                        child: Container(
-                          height: size.height * 0.653,
-                          padding: const EdgeInsets.symmetric(vertical: 18),
-                          width: double.infinity,
-                          decoration: const BoxDecoration(
-                            color: Palette.grey,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10)),
-                          ),
-                          child: CarouselSlider(
-                            items: images
-                                .map((e) => ProjectsCard(
-                                    size: Size(
-                                        size.width * 0.4, size.height * 0.4),
-                                    url: e))
-                                .toList(),
-                            options: CarouselOptions(
-                              aspectRatio: 700 / 420,
-                              viewportFraction: 0.65,
-                              initialPage: 0,
-                              enableInfiniteScroll: true,
-                              reverse: false,
-                              autoPlay: true,
-                              autoPlayInterval: const Duration(seconds: 2),
-                              autoPlayAnimationDuration:
-                                  const Duration(seconds: 1),
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                              enlargeCenterPage: true,
-                              enlargeFactor: 0.35,
-                              scrollDirection: Axis.horizontal,
-                            ),
+              Container(
+                height: size.height * 0.84,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(width: 1, color: Palette.borderGrey)),
+                child: Column(
+                  children: [
+                    TitleWidget(size: size, isRecruiter: isRecruiter),
+                    Expanded(
+                      child: Container(
+                        height: size.height * 0.653,
+                        padding: const EdgeInsets.symmetric(vertical: 18),
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          color: Palette.grey,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10)),
+                        ),
+                        child: CarouselSlider(
+                          items: images
+                              .map((e) => ProjectsCard(
+                                  size:
+                                      Size(size.width * 0.4, size.height * 0.4),
+                                  url: e))
+                              .toList(),
+                          options: CarouselOptions(
+                            aspectRatio: 700 / 420,
+                            viewportFraction: 0.65,
+                            initialPage: 0,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlay: true,
+                            autoPlayInterval: const Duration(seconds: 2),
+                            autoPlayAnimationDuration:
+                                const Duration(seconds: 1),
+                            autoPlayCurve: Curves.fastOutSlowIn,
+                            enlargeCenterPage: true,
+                            enlargeFactor: 0.35,
+                            scrollDirection: Axis.horizontal,
                           ),
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
               )
             ],
@@ -143,7 +139,7 @@ class _TitleWidgetState extends State<TitleWidget> {
             Expanded(
               child: Text(
                   isHovered
-                      ? 'Portfolio Case Studies'
+                      ? 'Portfolio Case\nStudies'
                       : 'My favorite \nprojects',
                   style: AppTextStyle.listExtended
                       .copyWith(color: isHovered ? Palette.bgBlack : null)),

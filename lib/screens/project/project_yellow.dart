@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
 import 'package:portfolio/core/helper/mouse_follower.dart';
+import 'package:portfolio/core/widgets/landing_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/project_provider.dart';
@@ -96,7 +97,8 @@ class ProjectYellowCopyChild extends StatelessWidget {
                 size: size,
                 isYellow: true,
               ),
-              ProjectList(size: size),
+              const LandingWidget(), const LandingWidget()
+              // ProjectList(size: size),
               // Connect(
               //   size: size,
               //   isProject: true,

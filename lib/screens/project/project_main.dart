@@ -115,12 +115,14 @@ class SajjadRazaWidget extends StatelessWidget {
 
   LandingWidget webWidget(BuildContext context) {
     return LandingWidget(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                'assets/png/project_landing.png',
-              ),
-              fit: BoxFit.cover)),
+      decoration: isYellow
+          ? null
+          : const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    'assets/png/project_landing.png',
+                  ),
+                  fit: BoxFit.cover)),
       child: Stack(
         children: [
           Positioned(
@@ -228,30 +230,27 @@ class ProjectList extends StatelessWidget {
     return MouseRegion(
       onEnter: (event) => context.read<ProjectProvider>().toggleHide(true),
       onExit: (event) => context.read<ProjectProvider>().toggleHide(false),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.1046),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 33,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 33,
+          ),
+          ...webProjectList
+              .map((e) =>
+                  WebProjectThumbnailWidget(project: e, isYellow: isYellow))
+              .toList(),
+          SizedBox(
+            height: size.height * 0.75,
+            child: WebMiscThumbnailWidget(
+              isYellow: isYellow,
             ),
-            ...webProjectList
-                .map((e) =>
-                    WebProjectThumbnailWidget(project: e, isYellow: isYellow))
-                .toList(),
-            SizedBox(
-              height: size.height * 0.75,
-              child: WebMiscThumbnailWidget(
-                isYellow: isYellow,
-              ),
-            ),
-            Connect(
-              size: size,
-              isProject: true,
-            )
-          ],
-        ),
+          ),
+          Connect(
+            size: size,
+            isProject: true,
+          )
+        ],
       ),
     );
   }
@@ -271,7 +270,8 @@ class WebProjectThumbnailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // height: MediaQuery.of(context).size.height * 0.9,
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.1046),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -593,16 +593,18 @@ class WebMiscThumbnailWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.1046),
             child: Text(
               webMiscProjects.category,
-              style: AppTextStyle.mobileAnnotation
+              style: AppTextStyle.annotation
                   .copyWith(color: isYellow ? Palette.bgBlack : null),
             ),
           ),
           Expanded(
             child: ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.1046),
               separatorBuilder: (context, index) => const SizedBox(
                 width: 16,
               ),
