@@ -452,7 +452,8 @@ class RecruiterYellowChild extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
+              const LandingWidget()
             ],
           ),
         ),

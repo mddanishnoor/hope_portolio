@@ -97,6 +97,9 @@ class ProjectYellowCopyChild extends StatelessWidget {
                 size: size,
                 isYellow: true,
               ),
+              const LandingWidget(), const LandingWidget(),
+              const LandingWidget(), const LandingWidget(),
+              const LandingWidget(), const LandingWidget(),
               const LandingWidget(), const LandingWidget()
               // ProjectList(size: size),
               // Connect(

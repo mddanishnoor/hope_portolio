@@ -26,64 +26,88 @@ class Connect extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LandingWidget(
-      child: Padding(
-        padding:
-            EdgeInsets.only(left: size.width * 0.105, right: size.width * 0.08),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Connect',
-              style: AppTextStyle.annotation,
-            ),
-            const SizedBox(
-              height: 18,
-            ),
-            Column(
+    return Column(
+      children: [
+        LandingWidget(
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: size.width * 0.105, right: size.width * 0.08),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ConnectTiles(
-                  isProject: isProject,
-                  isRecruiter: isRecruiter,
-                  title: 'LinkedIn',
-                  subtitle: 'Work, work, work',
-                  connectType: 'EMAIL',
-                  value: 'razamohdsajjad@gmail.com',
+                Text(
+                  'Connect',
+                  style: AppTextStyle.annotation,
                 ),
-                ConnectTiles(
-                  isProject: isProject,
-                  isRecruiter: isRecruiter,
-                  title: 'Behance',
-                  subtitle: 'Another POV at my projects',
-                  connectType: 'Phone',
-                  value: '+91 9818164010',
+                const SizedBox(
+                  height: 18,
                 ),
-                ConnectTiles(
-                  isProject: isProject,
-                  isRecruiter: isRecruiter,
-                  title: 'Instagram',
-                  subtitle: 'My inactive social face',
-                  connectType: 'Phone',
-                  value: '+91 9818164010',
-                  hasConnectValue: false,
+                Column(
+                  children: [
+                    ConnectTiles(
+                      isProject: isProject,
+                      isRecruiter: isRecruiter,
+                      title: 'LinkedIn',
+                      subtitle: 'Work, work, work',
+                      connectType: 'EMAIL',
+                      value: 'razamohdsajjad@gmail.com',
+                    ),
+                    ConnectTiles(
+                      isProject: isProject,
+                      isRecruiter: isRecruiter,
+                      title: 'Behance',
+                      subtitle: 'Another POV at my projects',
+                      connectType: 'Phone',
+                      value: '+91 9818164010',
+                    ),
+                    ConnectTiles(
+                      isProject: isProject,
+                      isRecruiter: isRecruiter,
+                      title: 'Instagram',
+                      subtitle: 'My inactive social face',
+                      connectType: 'Phone',
+                      value: '+91 9818164010',
+                      hasConnectValue: false,
+                    ),
+                  ],
                 ),
+                const SizedBox(
+                  height: 20,
+                )
+                // SizedBox(
+                //   height: size.height * 0.2,
+                // ),
               ],
             ),
-            SizedBox(
-              height: size.height * 0.2,
-            ),
-            MouseRegion(
-                onEnter: (event) => isRecruiter
-                    ? context.read<RecruitersProvider>().toggleHide(true)
-                    : context.read<CursorProvider>().toggleHide(true),
-                onExit: (event) => isRecruiter
-                    ? context.read<RecruitersProvider>().toggleHide(false)
-                    : context.read<CursorProvider>().toggleHide(false),
-                child: RecruiterCard(isRecruiter: isRecruiter))
-          ],
+          ),
         ),
-      ),
+        LandingWidget(
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/png/web_footer.png'))),
+          child: MouseRegion(
+              onEnter: (event) => isRecruiter
+                  ? context.read<RecruitersProvider>().toggleHide(true)
+                  : context.read<CursorProvider>().toggleHide(true),
+              onExit: (event) => isRecruiter
+                  ? context.read<RecruitersProvider>().toggleHide(false)
+                  : context.read<CursorProvider>().toggleHide(false),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  RecruiterCard(
+                    isRecruiter: isRecruiter,
+                    size: size,
+                  ),
+                  const Spacer()
+                ],
+              )),
+        )
+      ],
     );
   }
 }
@@ -92,9 +116,11 @@ class RecruiterCard extends StatefulWidget {
   const RecruiterCard({
     super.key,
     required this.isRecruiter,
+    required this.size,
   });
 
   final bool isRecruiter;
+  final Size size;
 
   @override
   State<RecruiterCard> createState() => _RecruiterCardState();
@@ -111,53 +137,99 @@ class _RecruiterCardState extends State<RecruiterCard> {
       onExit: (event) => setState(() {
         isHovered = false;
       }),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
-        decoration: BoxDecoration(
-            border: Border.all(color: Palette.hWhite),
-            borderRadius: BorderRadius.circular(10),
-            color: isHovered ? Palette.hYellow : null),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 15,
-          vertical: 15,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+                left: widget.size.width * 0.105,
+                right: widget.size.width * 0.08),
+            child: Text(
               'FOR REQRUITERS',
-              style: AppTextStyle.annotation.copyWith(
-                  color: isHovered ? Palette.bgBlack : Palette.hWhite),
+              style: AppTextStyle.annotation.copyWith(color: Palette.hWhite),
             ),
-            const SizedBox(
-              height: 16,
-            ),
-            Row(
-              children: [
-                Text(
-                  widget.isRecruiter
-                      ? 'Here is my resume '
-                      : 'Want to know more?',
-                  style: AppTextStyle.body.copyWith(
-                      color: isHovered ? Palette.bgBlack : Palette.hWhite),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Stack(
+            children: [
+              Container(
+                padding: EdgeInsets.only(
+                    top: 8,
+                    bottom: 8,
+                    left: widget.size.width * 0.105,
+                    right: widget.size.width * 0.08),
+                child: Row(
+                  children: [
+                    Text(
+                      widget.isRecruiter
+                          ? 'Here is my resume '
+                          : 'Want to know more?',
+                      style: AppTextStyle.body.copyWith(
+                          color: isHovered ? Palette.bgBlack : Palette.hWhite),
+                    ),
+                    const Spacer(),
+                    CustomElevatedButton(
+                      label:
+                          widget.isRecruiter ? 'Download Resume' : 'Let\'s Go',
+                      margin: EdgeInsets.zero,
+                      isYellow: isHovered,
+                      onTap: () {
+                        widget.isRecruiter
+                            ? null
+                            : context.goNamed(Routes.requiters);
+                      },
+                    ),
+                  ],
                 ),
-                const Spacer(),
-                CustomElevatedButton(
-                  label: widget.isRecruiter ? 'Download Resume' : 'Let\'s Go',
-                  margin: EdgeInsets.zero,
-                  isYellow: isHovered,
-                  onTap: () {
-                    widget.isRecruiter
-                        ? null
-                        : context.goNamed(Routes.requiters);
-                  },
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: AnimatedContainer(
+                  padding: EdgeInsets.only(
+                      top: 8,
+                      bottom: 8,
+                      left: widget.size.width * 0.105,
+                      right: widget.size.width * 0.08),
+                  duration: const Duration(milliseconds: 150),
+                  color: Palette.hYellow,
+                  height: isHovered ? null : 0,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Text(
+                          widget.isRecruiter
+                              ? 'Here is my resume '
+                              : 'exp. education and rest',
+                          style: AppTextStyle.body.copyWith(
+                              color:
+                                  isHovered ? Palette.bgBlack : Palette.hWhite),
+                        ),
+                      ),
+                      const Spacer(),
+                      CustomElevatedButton(
+                        label: widget.isRecruiter
+                            ? 'Download Resume'
+                            : 'Let\'s Go',
+                        margin: EdgeInsets.zero,
+                        isYellow: isHovered,
+                        onTap: () {
+                          widget.isRecruiter
+                              ? null
+                              : context.goNamed(Routes.requiters);
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

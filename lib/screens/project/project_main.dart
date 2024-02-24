@@ -241,7 +241,7 @@ class ProjectList extends StatelessWidget {
                   WebProjectThumbnailWidget(project: e, isYellow: isYellow))
               .toList(),
           SizedBox(
-            height: size.height * 0.75,
+            height: size.height * 0.70,
             child: WebMiscThumbnailWidget(
               isYellow: isYellow,
             ),
@@ -296,11 +296,14 @@ class WebProjectThumbnailWidget extends StatelessWidget {
                           children: [
                             WebThumbnailAssetWidget(
                               media: e.media,
+                              width: MediaQuery.of(context).size.width * 0.85,
+                              height: MediaQuery.of(context).size.height * 0.85,
                             ),
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Container(
-                                height: double.infinity,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.85,
                                 width:
                                     (MediaQuery.of(context).size.width * 0.85) *
                                         0.5,
@@ -614,7 +617,7 @@ class WebMiscThumbnailWidget extends StatelessWidget {
               itemBuilder: (context, index) => ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.55,
+                  width: MediaQuery.of(context).size.width * 0.65,
                   height: MediaQuery.of(context).size.height * 0.70,
                   decoration: BoxDecoration(
                     // border: Border.all(color: Colors.white),
@@ -625,7 +628,7 @@ class WebMiscThumbnailWidget extends StatelessWidget {
                     children: [
                       WebThumbnailAssetWidget(
                         media: webMiscProjects.projects[index].media,
-                        width: MediaQuery.of(context).size.width * 0.55,
+                        width: MediaQuery.of(context).size.width * 0.65,
                         height: MediaQuery.of(context).size.height * 0.70,
                       ),
                       Align(
@@ -633,7 +636,7 @@ class WebMiscThumbnailWidget extends StatelessWidget {
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.70,
                           width:
-                              (MediaQuery.of(context).size.width * 0.75) * 0.5,
+                              (MediaQuery.of(context).size.width * 0.65) * 0.5,
                           padding: const EdgeInsets.symmetric(
                               vertical: 20, horizontal: 81),
                           decoration: BoxDecoration(
@@ -747,27 +750,34 @@ class _WebThumbnailAssetWidgetState extends State<WebThumbnailAssetWidget> {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
-      child: widget.media.contains('.mp4')
-          ? FittedBox(
-              fit: BoxFit.cover,
-              clipBehavior: Clip.hardEdge,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.85,
-                height: MediaQuery.of(context).size.height * 0.85,
-                child: VideoPlayer(_videoController),
+      child: SizedBox.expand(
+        // width: widget.width ?? double.infinity,
+        // height: widget.height ?? double.infinity,
+        child: widget.media.contains('.mp4')
+            // ? FittedBox(
+            //     fit: BoxFit.cover,
+            //     clipBehavior: Clip.hardEdge,
+            //     child: SizedBox(
+            //       width:
+            //           widget.width ?? MediaQuery.of(context).size.width * 0.85,
+            //       height: widget.height ??
+            //           MediaQuery.of(context).size.height * 0.85,
+            //       child: VideoPlayer(_videoController),
+            //     ),
+            //   )
+            ? Image.asset(
+                'assets/png/test.gif',
+                width: widget.width ?? double.infinity,
+                height: widget.height,
+                fit: BoxFit.cover,
+              )
+            : Image.asset(
+                widget.media,
+                width: widget.width ?? double.infinity,
+                height: widget.height,
+                fit: BoxFit.cover,
               ),
-            )
-          // ? FittedBox(
-          //     fit: BoxFit.cover,
-          //     child: AspectRatio(
-          //         aspectRatio: 271 / 383, child: VideoPlayer(_videoController)),
-          //   )
-          : Image.asset(
-              widget.media,
-              width: widget.width ?? double.infinity,
-              height: widget.height,
-              fit: BoxFit.cover,
-            ),
+      ),
     );
   }
 
@@ -817,20 +827,20 @@ class _ThumbnailAssetWidgetState extends State<ThumbnailAssetWidget> {
         height: MediaQuery.of(context).size.height * 0.59,
         width: double.infinity,
         child: widget.media.contains('.mp4')
-            ? FittedBox(
-                fit: BoxFit.cover,
-                clipBehavior: Clip.hardEdge,
-                child: SizedBox(
-                  width: _videoController.value.size.width,
-                  height: _videoController.value.size.height,
-                  child: VideoPlayer(_videoController),
-                ),
-              )
             // ? FittedBox(
             //     fit: BoxFit.cover,
-            //     child: AspectRatio(
-            //         aspectRatio: 271 / 383, child: VideoPlayer(_videoController)),
+            //     clipBehavior: Clip.hardEdge,
+            //     child: SizedBox(
+            //       width: _videoController.value.size.width,
+            //       height: _videoController.value.size.height,
+            //       child: VideoPlayer(_videoController),
+            //     ),
             //   )
+            ? Image.asset(
+                'assets/png/test.gif',
+                width: double.infinity,
+                fit: BoxFit.cover,
+              )
             : Image.asset(
                 widget.media,
                 width: double.infinity,

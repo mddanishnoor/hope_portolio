@@ -449,7 +449,8 @@ class LandingPage2Child extends StatelessWidget {
                         ),
                       ),
                     )
-                  : MobileConnectYellow(size: size)
+                  : MobileConnectYellow(size: size),
+              const LandingWidget()
             ],
           ),
         ),
