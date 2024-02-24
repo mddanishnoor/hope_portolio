@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
 import '../../../core/router/routes.dart';
-import '../../../core/widgets/animated_tile.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
 import '../../../core/widgets/landing_widget.dart';
 import '../../reqruiters/widgets/certifcate_widget.dart';
