@@ -198,7 +198,7 @@ class RecruiterYellowChild extends StatelessWidget {
                                   height: 16,
                                 ),
                                 Text(
-                                  'I am a fresh graduate with a masters degree in UX/UI design, (think of design thinking)                ',
+                                  'Call me Raza, I was designer before i knew it was called design.\n\nMy retreat? Immersing in legends and epics. Just losing myself in the timeless tales of heroes and adventures.',
                                   style: AppTextStyle.body
                                       .copyWith(color: Palette.black),
                                 )

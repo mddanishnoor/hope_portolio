@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/constant/theme/pallete.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 import '../../../core/constant/theme/styles.dart';
@@ -52,10 +53,36 @@ class _ReqAboutMeWidgetState extends State<ReqAboutMeWidget> {
                         const SizedBox(
                           height: 16,
                         ),
-                        Text(
-                          'I am a fresh graduate with a masters degree in UX/UI design, (think of design thinking)                ',
-                          style: AppTextStyle.body,
-                        )
+                        //[]
+
+// [ ]
+                        // Text(
+                        //   'I am a fresh graduate with a masters degree in UX/UI design, (think of design thinking)                ',
+                        //   style: AppTextStyle.body,
+                        // )
+                        RichText(
+                            text: TextSpan(
+                                text: "Hey! I'm ",
+                                style: AppTextStyle.body.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                children: [
+                              TextSpan(
+                                  text: "Mohammad Sajjad Raza,",
+                                  style: AppTextStyle.body
+                                      .copyWith(color: Palette.hYellow)),
+                              const TextSpan(
+                                  text:
+                                      " engineer turned product designer in Delhi, India."),
+                              //
+                              const TextSpan(
+                                  text:
+                                      "\n\nMy mission? helping folks work smarter and feel more confident through"),
+                              TextSpan(
+                                  text: " designs that tap into psychology.",
+                                  style: AppTextStyle.body
+                                      .copyWith(color: Palette.hYellow)),
+                            ]))
                       ],
                     ),
                   ),
