@@ -144,7 +144,7 @@ class RecruiterYellowChild extends StatelessWidget {
                                     height: 16,
                                   ),
                                   Text(
-                                    'HEL PING',
+                                    'HELPING',
                                     overflow: TextOverflow.fade,
                                     style: AppTextStyle.heading
                                         .copyWith(color: Palette.bgBlack),
