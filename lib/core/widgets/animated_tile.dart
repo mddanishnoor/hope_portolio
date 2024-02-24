@@ -123,7 +123,7 @@ class _AnimatedTileContainerState extends State<AnimatedTileContainer>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 50));
+        vsync: this, duration: const Duration(milliseconds: 100));
     // width = TweenSequence<double>(<TweenSequenceItem<double>>[
     //   TweenSequenceItem(tween: Tween(begin: 0, end: widget.width), weight: 50),
     // ]).animate(_controller);
@@ -165,7 +165,9 @@ class _AnimatedTileContainerState extends State<AnimatedTileContainer>
           child: Stack(
             children: [
               widget.child1,
-              SizedBox(height: height.value, child: widget.child2)
+              Align(
+                  alignment: Alignment.bottomLeft,
+                  child: SizedBox(height: height.value, child: widget.child2))
             ],
           )),
     );

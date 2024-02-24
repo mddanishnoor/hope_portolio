@@ -109,6 +109,9 @@ class ConnectTiles extends StatelessWidget {
             ],
           ),
         ),
+        const SizedBox(
+          width: 10,
+        ),
         Expanded(
           flex: 2,
           child: hasConnectValue
@@ -116,6 +119,7 @@ class ConnectTiles extends StatelessWidget {
                   isProject: isProject,
                   isRecruiter: isRecruiter,
                   child1: Container(
+                    width: double.infinity,
                     padding: const EdgeInsets.all(4),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,6 +136,7 @@ class ConnectTiles extends StatelessWidget {
                     ),
                   ),
                   child2: Container(
+                    width: double.infinity,
                     padding: const EdgeInsets.all(4),
                     color: Palette.hYellow,
                     child: Column(
