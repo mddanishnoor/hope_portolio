@@ -2,8 +2,10 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
+import 'package:portfolio/core/router/routes.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:svg_flutter/svg.dart';
@@ -259,11 +261,12 @@ class LandingPage2Child extends StatelessWidget {
                                         const Spacer(),
                                         InkWell(
                                           onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (c) =>
-                                                        ProjectScreen()));
+                                            context.goNamed(Routes.projects);
+                                            // Navigator.push(
+                                            //     context,
+                                            //     MaterialPageRoute(
+                                            //         builder: (c) =>
+                                            //             ProjectScreen()));
                                           },
                                           child: Container(
                                             width: 90,
@@ -689,10 +692,11 @@ class MobileProjectYellow extends StatelessWidget {
                             const Spacer(),
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (c) => ProjectScreen()));
+                                context.goNamed(Routes.projects);
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (c) => ProjectScreen()));
                               },
                               child: Container(
                                 width: 90,
@@ -862,8 +866,9 @@ class MobileConnectYellow extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (c) => ProjectScreen()));
+                context.goNamed(Routes.requiters);
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (c) => ProjectScreen()));
               },
               child: Container(
                 height: 24,

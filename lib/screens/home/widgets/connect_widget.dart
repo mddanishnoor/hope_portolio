@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/screens/reqruiters/reqruiters_screen.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
+import '../../../core/router/routes.dart';
 import '../../../core/widgets/animated_tile.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
 import '../../../core/widgets/landing_widget.dart';
@@ -118,28 +120,14 @@ class Connect extends StatelessWidget {
                     label: isRecruiter ? 'Download' : 'Click here',
                     isYellow: false,
                     onTap: () {
-                      isRecruiter
-                          ? null
-                          : Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RecruitersScreen(),
-                              ),
-                            );
+                      isRecruiter ? null : context.goNamed(Routes.requiters);
                     },
                   ),
                   child2: CustomElevatedButton(
                     label: isRecruiter ? 'Download' : 'Click here',
                     isYellow: true,
                     onTap: () {
-                      isRecruiter
-                          ? null
-                          : Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RecruitersScreen(),
-                              ),
-                            );
+                      isRecruiter ? null : context.goNamed(Routes.requiters);
                     },
                   ),
                 ),
@@ -251,8 +239,9 @@ class MobileConnect extends StatelessWidget {
             ),
             YellowOutlinedButton(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (c) => RecruitersScreen()));
+                context.goNamed(Routes.requiters);
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (c) => RecruitersScreen()));
               },
               label: isRecruiter ? 'Download' : 'Click here',
             ),

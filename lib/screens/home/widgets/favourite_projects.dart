@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
@@ -9,6 +10,7 @@ import 'package:provider/provider.dart';
 import '../../../core/constant/constants.dart';
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
+import '../../../core/router/routes.dart';
 import '../../../core/widgets/landing_widget.dart';
 import '../../../core/widgets/project_card.dart';
 
@@ -56,10 +58,11 @@ class FavoriteProjects extends StatelessWidget {
                         YellowOutlinedButton(
                           isRecruiter: isRecruiter,
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (c) => ProjectScreen()));
+                            context.goNamed(Routes.projects);
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (c) => ProjectScreen()));
                           },
                           label: 'See all >>',
                         ),
@@ -175,10 +178,11 @@ class MobileFavoriteProjects extends StatelessWidget {
                             YellowOutlinedButton(
                               isRecruiter: isRecruiter,
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (c) => ProjectScreen()));
+                                context.goNamed(Routes.projects);
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (c) => ProjectScreen()));
                               },
                               label: 'See all >>',
                             ),

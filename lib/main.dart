@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/router/routes.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/providers/project_provider.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
-import 'package:portfolio/screens/project/projects_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'screens/home/home.dart';
+// import 'screens/home/home.dart';
 // import 'screens/reqruiters/reqruiters_screen.dart';
 
 void main() {
@@ -24,9 +24,9 @@ class MainApp extends StatelessWidget {
           ChangeNotifierProvider(create: (c) => RecruitersProvider())
         ],
         builder: (context, _) {
-          return MaterialApp(
+          return MaterialApp.router(
             debugShowCheckedModeBanner: false,
-            home: ProjectScreen(),
+            routerConfig: router,
           );
         });
   }

@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
 import 'package:provider/provider.dart';
@@ -216,7 +217,7 @@ class ProjectMobileNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(5, 5, 0, 5),
                       child: NavButton(
                         label: 'Hope',
-                        onTap: () => {Navigator.pop(context)},
+                        onTap: () => {context.pop(context)},
                         isActive:
                             controller.scrollOffset >= activeHeight(h, 1) &&
                                 controller.scrollOffset < activeHeight(h, 2.7),

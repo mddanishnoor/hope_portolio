@@ -2,6 +2,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
@@ -12,6 +13,7 @@ import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
 import '../../core/helper/mouse_follower.dart';
+import '../../core/router/routes.dart';
 import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../../core/widgets/project_card.dart';
@@ -255,10 +257,11 @@ class RecruiterYellowChild extends StatelessWidget {
                                   const Spacer(),
                                   InkWell(
                                     onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (c) => ProjectScreen()));
+                                      context.goNamed(Routes.projects);
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //         builder: (c) => ProjectScreen()));
                                     },
                                     child: Container(
                                       width: 90,
@@ -981,11 +984,12 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                                       const Spacer(),
                                       InkWell(
                                         onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (c) =>
-                                                      ProjectScreen()));
+                                          context.goNamed(Routes.projects);
+                                          // Navigator.push(
+                                          //     context,
+                                          //     MaterialPageRoute(
+                                          //         builder: (c) =>
+                                          //             ProjectScreen()));
                                         },
                                         child: Container(
                                           width: 90,
