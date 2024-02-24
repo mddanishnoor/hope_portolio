@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
+import '../../../core/router/routes.dart';
 import '../../../core/widgets/landing_widget.dart';
 
 class HelpingUserWidget extends StatelessWidget {
@@ -17,7 +19,7 @@ class HelpingUserWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return size.width > 600 ? webWidget(context) : mobileWidget();
+    return size.width > 600 ? webWidget(context) : mobileWidget(context);
   }
 
   LandingWidget webWidget(context) {
@@ -93,7 +95,7 @@ class HelpingUserWidget extends StatelessWidget {
     );
   }
 
-  LandingWidget mobileWidget() {
+  LandingWidget mobileWidget(BuildContext context) {
     return LandingWidget(
       decoration: const BoxDecoration(
           image: DecorationImage(
@@ -102,17 +104,20 @@ class HelpingUserWidget extends StatelessWidget {
         children: [
           Positioned(
             left: size.height * 0.0241,
-            top: size.height * 0.063,
-            child: Hero(
-              tag: 'hope',
-              child: Text(
-                'HOPE',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 21.961,
-                  fontWeight: FontWeight.w400,
-                  height: 0.8599999547,
-                  color: Palette.white,
+            top: size.height * 0.04,
+            child: GestureDetector(
+              onTap: () => context.goNamed(Routes.homeScreen),
+              child: Hero(
+                tag: 'hope',
+                child: Text(
+                  'HOPE',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.bebasNeue(
+                    fontSize: 21.961,
+                    fontWeight: FontWeight.w400,
+                    height: 0.8599999547,
+                    color: Palette.white,
+                  ),
                 ),
               ),
             ),

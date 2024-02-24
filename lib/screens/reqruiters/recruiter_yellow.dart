@@ -495,7 +495,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                   children: [
                     Positioned(
                       left: size.height * 0.0241,
-                      top: size.height * 0.063,
+                      top: size.height * 0.04,
                       child: Hero(
                         tag: 'hope',
                         child: GestureDetector(

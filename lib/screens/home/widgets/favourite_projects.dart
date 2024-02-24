@@ -6,12 +6,11 @@ import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/constant/constants.dart';
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
 import '../../../core/router/routes.dart';
 import '../../../core/widgets/landing_widget.dart';
-import '../../../core/widgets/project_card.dart';
+import '../../project/project_main.dart';
 
 class FavoriteProjects extends StatelessWidget {
   const FavoriteProjects(
@@ -63,12 +62,146 @@ class FavoriteProjects extends StatelessWidget {
                               topRight: Radius.circular(10)),
                         ),
                         child: CarouselSlider(
-                          items: images
-                              .map((e) => ProjectsCard(
-                                  size:
-                                      Size(size.width * 0.4, size.height * 0.4),
-                                  url: e))
+                          items: webProjectList.first.projects
+                              .map((e) => ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.85,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.85,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      margin: const EdgeInsets.only(top: 12),
+                                      child: Stack(
+                                        children: [
+                                          WebThumbnailAssetWidget(
+                                            media: e.media,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.85,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.85,
+                                          ),
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Container(
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.85,
+                                                width: (MediaQuery.of(context)
+                                                            .size
+                                                            .width *
+                                                        0.85) *
+                                                    0.5,
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 20,
+                                                        horizontal: 81),
+                                                decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                        begin: Alignment
+                                                            .centerLeft,
+                                                        end: Alignment
+                                                            .centerRight,
+                                                        colors: [
+                                                      Colors.black
+                                                          .withOpacity(0.56),
+                                                      Colors.transparent
+                                                    ])),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      e.subCategory ?? '',
+                                                      style:
+                                                          GoogleFonts.archivo(
+                                                              fontSize: 12,
+                                                              color: Palette
+                                                                  .hWhite),
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 6,
+                                                    ),
+                                                    Text(
+                                                      e.title,
+                                                      style: AppTextStyle
+                                                          .listExtended,
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 6,
+                                                    ),
+                                                    Text(
+                                                        e.subtext
+                                                            .split('-')
+                                                            .join('\n • '),
+                                                        style:
+                                                            GoogleFonts.archivo(
+                                                                fontSize: 24,
+                                                                color: Palette
+                                                                    .white)),
+                                                    const SizedBox(
+                                                      height: 16,
+                                                    ),
+                                                    InkWell(
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                vertical: 4,
+                                                                horizontal: 8),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(6),
+                                                          border: Border.all(
+                                                              color: Palette
+                                                                  .hWhite),
+                                                        ),
+                                                        child: Text(
+                                                          'View case study >>',
+                                                          style: AppTextStyle
+                                                              .buttonTextStyle
+                                                              .copyWith(
+                                                                  color: Palette
+                                                                      .hWhite),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ))
                               .toList(),
+
+                          // images
+                          //     .map((e) =>
+
+                          //     ProjectsCard(
+                          //         size:
+                          //             Size(size.width * 0.4, size.height * 0.4),
+                          //         url: e))
+                          //     .toList(),
                           options: CarouselOptions(
                             aspectRatio: 700 / 420,
                             viewportFraction: 0.65,
@@ -138,9 +271,7 @@ class _TitleWidgetState extends State<TitleWidget> {
           children: [
             Expanded(
               child: Text(
-                  isHovered
-                      ? 'Portfolio Case\nStudies'
-                      : 'My favorite \nprojects',
+                  isHovered ? 'Portfolio Case Studies' : 'My favorite projects',
                   style: AppTextStyle.listExtended
                       .copyWith(color: isHovered ? Palette.bgBlack : null)),
             ),
@@ -264,9 +395,74 @@ class MobileFavoriteProjects extends StatelessWidget {
                     child: Column(
                       children: [
                         CarouselSlider(
-                          items: images
-                              .map((e) => ProjectsCard(
-                                  size: Size(size.width, size.height), url: e))
+                          items: projectList.first.projects
+                              .map((e) => ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.59,
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      margin: const EdgeInsets.only(top: 12),
+                                      child: Stack(
+                                        children: [
+                                          ThumbnailAssetWidget(
+                                            media: e.media,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.bottomCenter,
+                                            child: Container(
+                                              // height: MediaQuery.of(context)
+                                              //         .size
+                                              //         .height *
+                                              //     0.15,
+                                              width: double.infinity,
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 20,
+                                                      horizontal: 17.5),
+                                              decoration: BoxDecoration(
+                                                  gradient: LinearGradient(
+                                                      begin: Alignment
+                                                          .bottomCenter,
+                                                      end: Alignment.topCenter,
+                                                      colors: [
+                                                    Colors.black
+                                                        .withOpacity(0.56),
+                                                    Colors.transparent
+                                                  ])),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    e.title,
+                                                    style: AppTextStyle
+                                                        .mobileExtended,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 6,
+                                                  ),
+                                                  Text(
+                                                    e.subtext,
+                                                    style: GoogleFonts.archivo(
+                                                        fontSize: 12,
+                                                        color: Palette.hWhite),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ))
                               .toList(),
                           options: CarouselOptions(
                             aspectRatio: 4 / 5,

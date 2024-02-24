@@ -226,7 +226,7 @@ class RecruiterMobileNavbar extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(5, 5, 0, 5),
                       child: NavButton(
-                        label: 'UI/UX',
+                        label: 'About Me',
                         onTap: () => {
                           scrollController.animateTo(h * 0.97,
                               duration: const Duration(milliseconds: 1500),
@@ -246,9 +246,9 @@ class RecruiterMobileNavbar extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: NavButton(
-                        label: 'Branding',
+                        label: 'Projects',
                         onTap: () => {
-                          scrollController.animateTo(h * 3.2,
+                          scrollController.animateTo(h * 4.2,
                               duration: const Duration(milliseconds: 1500),
                               curve: Curves.decelerate),
                           secondaryScrollController.animateTo(h * 3.2,
@@ -256,7 +256,7 @@ class RecruiterMobileNavbar extends StatelessWidget {
                               curve: Curves.decelerate)
                         },
                         isActive: controller.scrollOffset >=
-                                activeHeight(h * 3.9, 1) &&
+                                activeHeight(h * 4, 1) &&
                             controller.scrollOffset < activeHeight(h * 4.65, 1),
                       ),
                     ),
@@ -280,7 +280,7 @@ class RecruiterMobileNavbar extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: NavButton(
-                        label: 'Misc.',
+                        label: 'Connect',
                         onTap: () => {
                           scrollController.animateTo((h * 4) - (h * 0.3),
                               duration: const Duration(milliseconds: 1500),
@@ -303,7 +303,7 @@ class RecruiterMobileNavbar extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
                       child: NavButton(
-                        label: 'Connect',
+                        label: 'For Recruiter',
                         onTap: () => {
                           scrollController.animateTo(
                               scrollController.position.maxScrollExtent,

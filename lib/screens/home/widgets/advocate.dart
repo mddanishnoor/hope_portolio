@@ -175,7 +175,7 @@ class _MobileAdvocateWidgetState extends State<MobileAdvocateWidget> {
             //     color: Colors.black.withOpacity(0.8)),
             Positioned(
               left: widget.size.height * 0.0241,
-              top: widget.size.height * 0.063,
+              top: widget.size.height * 0.04,
               child: Hero(
                 tag: 'hope',
                 child: GestureDetector(
