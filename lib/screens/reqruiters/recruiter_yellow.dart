@@ -137,7 +137,7 @@ class RecruiterYellowChild extends StatelessWidget {
                                   Text(
                                     'RAZA MEANS HOPE',
                                     textAlign: TextAlign.center,
-                                    style: AppTextStyle.anotation
+                                    style: AppTextStyle.annotation
                                         .copyWith(color: Palette.bgBlack),
                                   ),
                                   const SizedBox(
@@ -191,7 +191,7 @@ class RecruiterYellowChild extends StatelessWidget {
                               children: [
                                 Text(
                                   'ABOUT ME',
-                                  style: AppTextStyle.anotation
+                                  style: AppTextStyle.annotation
                                       .copyWith(color: Palette.bgBlack),
                                 ),
                                 const SizedBox(
@@ -237,7 +237,7 @@ class RecruiterYellowChild extends StatelessWidget {
                     children: [
                       Text(
                         'PROJECTS ',
-                        style: AppTextStyle.anotation
+                        style: AppTextStyle.annotation
                             .copyWith(color: Palette.bgBlack),
                       ),
                       const SizedBox(
@@ -332,7 +332,7 @@ class RecruiterYellowChild extends StatelessWidget {
                         children: [
                           Text(
                             'MY MOTO',
-                            style: AppTextStyle.anotation
+                            style: AppTextStyle.annotation
                                 .copyWith(color: Palette.bgBlack),
                           ),
                           const SizedBox(
@@ -348,8 +348,8 @@ class RecruiterYellowChild extends StatelessWidget {
                             height: 18,
                           ),
                           Text(
-                            '- MOHAMMAD ALI',
-                            style: AppTextStyle.anotation
+                            '- MOHAMMAD SAJJAD RAZA',
+                            style: AppTextStyle.annotation
                                 .copyWith(color: Palette.bgBlack),
                           ),
                         ],
@@ -369,7 +369,7 @@ class RecruiterYellowChild extends StatelessWidget {
                     children: [
                       Text(
                         'Connect',
-                        style: AppTextStyle.anotation
+                        style: AppTextStyle.annotation
                             .copyWith(color: Palette.bgBlack),
                       ),
                       const SizedBox(
@@ -403,7 +403,7 @@ class RecruiterYellowChild extends StatelessWidget {
                       ),
                       Text(
                         'FOR REQRUITERS',
-                        style: AppTextStyle.anotation
+                        style: AppTextStyle.annotation
                             .copyWith(color: Palette.bgBlack),
                       ),
                       const SizedBox(

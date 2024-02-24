@@ -44,7 +44,7 @@ class _WhatIDoWidgetState extends State<WhatIDoWidget> {
                         horizontal: widget.size.width * 0.105),
                     child: Text(
                       'WHAT I DO',
-                      style: AppTextStyle.anotation,
+                      style: AppTextStyle.annotation,
                     ),
                   ),
                   const SizedBox(

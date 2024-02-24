@@ -25,7 +25,7 @@ class ConnectWidget extends StatelessWidget {
           children: [
             Text(
               'Connect',
-              style: AppTextStyle.anotation,
+              style: AppTextStyle.annotation,
             ),
             const SizedBox(
               height: 18,
@@ -109,7 +109,7 @@ class ConnectWidget extends StatelessWidget {
             ),
             Text(
               'FOR REQRUITERS',
-              style: AppTextStyle.anotation,
+              style: AppTextStyle.annotation,
             ),
             const SizedBox(
               height: 16,

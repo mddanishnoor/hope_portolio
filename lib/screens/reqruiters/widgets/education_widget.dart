@@ -46,7 +46,7 @@ class _EducationWidgetState extends State<EducationWidget> {
                         horizontal: widget.size.width * 0.105),
                     child: Text(
                       'EDUCATION ',
-                      style: AppTextStyle.anotation,
+                      style: AppTextStyle.annotation,
                     ),
                   ),
                   const SizedBox(
@@ -299,7 +299,7 @@ class MobileEducationTile extends StatelessWidget {
             ),
           ),
         ),
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 24,
         ),
         child: Row(

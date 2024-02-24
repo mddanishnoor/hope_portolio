@@ -34,31 +34,27 @@ class FavoriteProjects extends StatelessWidget {
             children: [
               Text(
                 'PROJECTS ',
-                style: AppTextStyle.anotation,
+                style: AppTextStyle.annotation,
               ),
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                height: size.height * 0.84,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(width: 1, color: Palette.borderGrey)),
-                child: Column(
-                  children: [
-                    TitleWidget(size: size, isRecruiter: isRecruiter),
-                    Expanded(
-                      child: MouseRegion(
-                        onEnter: (event) => isRecruiter
-                            ? context
-                                .read<RecruitersProvider>()
-                                .toggleHide(true)
-                            : context.read<CursorProvider>().toggleHide(true),
-                        onExit: (event) => isRecruiter
-                            ? context
-                                .read<RecruitersProvider>()
-                                .toggleHide(false)
-                            : context.read<CursorProvider>().toggleHide(false),
+              MouseRegion(
+                onEnter: (event) => isRecruiter
+                    ? context.read<RecruitersProvider>().toggleHide(true)
+                    : context.read<CursorProvider>().toggleHide(true),
+                onExit: (event) => isRecruiter
+                    ? context.read<RecruitersProvider>().toggleHide(false)
+                    : context.read<CursorProvider>().toggleHide(false),
+                child: Container(
+                  height: size.height * 0.84,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(width: 1, color: Palette.borderGrey)),
+                  child: Column(
+                    children: [
+                      TitleWidget(size: size, isRecruiter: isRecruiter),
+                      Expanded(
                         child: Container(
                           height: size.height * 0.653,
                           padding: const EdgeInsets.symmetric(vertical: 18),
@@ -93,9 +89,9 @@ class FavoriteProjects extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               )
             ],

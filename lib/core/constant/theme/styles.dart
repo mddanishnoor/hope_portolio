@@ -4,7 +4,7 @@ import 'package:portfolio/core/constant/theme/pallete.dart';
 
 abstract class AppTextStyle {
   // anotation Text Style
-  static TextStyle anotation = GoogleFonts.archivo(
+  static TextStyle annotation = GoogleFonts.archivo(
     fontSize: 13,
     fontWeight: FontWeight.w400,
     height: 1,

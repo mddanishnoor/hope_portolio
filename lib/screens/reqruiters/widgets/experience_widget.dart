@@ -46,7 +46,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                         horizontal: widget.size.width * 0.105),
                     child: Text(
                       'EXPERIENCE ',
-                      style: AppTextStyle.anotation,
+                      style: AppTextStyle.annotation,
                     ),
                   ),
                   const SizedBox(

@@ -46,7 +46,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                         horizontal: widget.size.width * 0.105),
                     child: Text(
                       'WHAT I DO',
-                      style: AppTextStyle.anotation,
+                      style: AppTextStyle.annotation,
                     ),
                   ),
                   const SizedBox(
@@ -149,7 +149,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                       horizontal: widget.size.width * 0.105),
                   child: Text(
                     'WHAT I DO',
-                    style: AppTextStyle.anotation,
+                    style: AppTextStyle.annotation,
                   ),
                 ),
                 const SizedBox(

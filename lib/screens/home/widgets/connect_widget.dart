@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
+import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/constant/theme/pallete.dart';
@@ -35,7 +36,7 @@ class Connect extends StatelessWidget {
           children: [
             Text(
               'Connect',
-              style: AppTextStyle.anotation,
+              style: AppTextStyle.annotation,
             ),
             const SizedBox(
               height: 18,
@@ -73,10 +74,12 @@ class Connect extends StatelessWidget {
               height: size.height * 0.2,
             ),
             MouseRegion(
-                onEnter: (event) =>
-                    context.read<CursorProvider>().toggleHide(true),
-                onExit: (event) =>
-                    context.read<CursorProvider>().toggleHide(false),
+                onEnter: (event) => isRecruiter
+                    ? context.read<RecruitersProvider>().toggleHide(true)
+                    : context.read<CursorProvider>().toggleHide(true),
+                onExit: (event) => isRecruiter
+                    ? context.read<RecruitersProvider>().toggleHide(false)
+                    : context.read<CursorProvider>().toggleHide(false),
                 child: RecruiterCard(isRecruiter: isRecruiter))
           ],
         ),
@@ -125,7 +128,7 @@ class _RecruiterCardState extends State<RecruiterCard> {
           children: [
             Text(
               'FOR REQRUITERS',
-              style: AppTextStyle.anotation.copyWith(
+              style: AppTextStyle.annotation.copyWith(
                   color: isHovered ? Palette.bgBlack : Palette.hWhite),
             ),
             const SizedBox(
@@ -142,7 +145,7 @@ class _RecruiterCardState extends State<RecruiterCard> {
                 ),
                 const Spacer(),
                 CustomElevatedButton(
-                  label: widget.isRecruiter ? 'Download' : 'Let\'s Go',
+                  label: widget.isRecruiter ? 'Download Resume' : 'Let\'s Go',
                   margin: EdgeInsets.zero,
                   isYellow: isHovered,
                   onTap: () {

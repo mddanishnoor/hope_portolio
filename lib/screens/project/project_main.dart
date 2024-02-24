@@ -155,7 +155,7 @@ class SajjadRazaWidget extends StatelessWidget {
                       children: [
                         Text('MOHAMMAD SAJJAD RAZA',
                             textAlign: TextAlign.center,
-                            style: AppTextStyle.anotation.copyWith(
+                            style: AppTextStyle.annotation.copyWith(
                                 color: isYellow ? Palette.bgBlack : null)),
                         const SizedBox(
                           height: 16,
@@ -229,7 +229,7 @@ class ProjectList extends StatelessWidget {
         children: [
           Text(
             'Branding',
-            style: AppTextStyle.anotation
+            style: AppTextStyle.annotation
                 .copyWith(color: isYellow ? Palette.bgBlack : null),
           ),
           Column(

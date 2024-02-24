@@ -62,7 +62,7 @@ class HelpingUserWidget extends StatelessWidget {
                         children: [
                           Text('MOHAMMAD SAJJAD RAZA',
                               textAlign: TextAlign.center,
-                              style: AppTextStyle.anotation),
+                              style: AppTextStyle.annotation),
                           const SizedBox(
                             height: 16,
                           ),

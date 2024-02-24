@@ -61,7 +61,7 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                       children: [
                         Text(
                           'ABOUT ME',
-                          style: AppTextStyle.anotation,
+                          style: AppTextStyle.annotation,
                         ),
                         const SizedBox(
                           height: 16,

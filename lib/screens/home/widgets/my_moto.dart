@@ -31,7 +31,7 @@ class MyMoto extends StatelessWidget {
                 : context.read<CursorProvider>().toggleMagnify(false),
             child: Column(
               children: [
-                Text('MY MOTO', style: AppTextStyle.anotation),
+                Text('MY MOTO', style: AppTextStyle.annotation),
                 const SizedBox(
                   height: 18,
                 ),
@@ -45,7 +45,7 @@ class MyMoto extends StatelessWidget {
                 ),
                 Text(
                   '- MOHAMMAD ALI',
-                  style: AppTextStyle.anotation,
+                  style: AppTextStyle.annotation,
                 ),
               ],
             ),

@@ -1,14 +1,11 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/constant/constants.dart';
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
 import '../../../core/widgets/landing_widget.dart';
-import '../../../core/widgets/project_card.dart';
 
 class CertificateWidget extends StatelessWidget {
   const CertificateWidget({
@@ -25,100 +22,11 @@ class CertificateWidget extends StatelessWidget {
     return size.width > 600 ? webWidget(context) : mobileWidget(context);
   }
 
-  LandingWidget webWidget(BuildContext context) {
-    return LandingWidget(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Certifications ',
-              style: AppTextStyle.anotation
-                  .copyWith(color: isYellow ? Palette.black : null),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              height: size.height * 0.84,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                      width: 1,
-                      color: isYellow ? Palette.black : Palette.borderGrey)),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.05,
-                      vertical: size.height * 0.0299,
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Google UX Design\nProfessional Certificate',
-                          style: AppTextStyle.listExtended.copyWith(
-                              fontSize: 45,
-                              color: isYellow ? Palette.black : null),
-                        ),
-                        const Spacer(),
-                        YellowOutlinedButton(
-                          onTap: () {},
-                          label: 'Verify >>',
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: MouseRegion(
-                      onEnter: (event) =>
-                          context.read<RecruitersProvider>().toggleHide(true),
-                      onExit: (event) =>
-                          context.read<RecruitersProvider>().toggleHide(false),
-                      child: Container(
-                        height: size.height * 0.653,
-                        padding: const EdgeInsets.symmetric(vertical: 18),
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Palette.grey,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: CarouselSlider(
-                          items: images
-                              .map((e) => ProjectsCard(
-                                  size:
-                                      Size(size.width * 0.4, size.height * 0.4),
-                                  url: e))
-                              .toList(),
-                          options: CarouselOptions(
-                            aspectRatio: 700 / 420,
-                            viewportFraction: 0.65,
-                            initialPage: 0,
-                            enableInfiniteScroll: true,
-                            reverse: false,
-                            autoPlay: true,
-                            autoPlayInterval: const Duration(seconds: 2),
-                            autoPlayAnimationDuration:
-                                const Duration(seconds: 1),
-                            autoPlayCurve: Curves.fastOutSlowIn,
-                            enlargeCenterPage: true,
-                            enlargeFactor: 0.35,
-                            scrollDirection: Axis.horizontal,
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+  Widget webWidget(BuildContext context) {
+    return MouseRegion(
+        onEnter: (event) => context.read<RecruitersProvider>().toggleHide(true),
+        onExit: (event) => context.read<RecruitersProvider>().toggleHide(false),
+        child: WebCertificate(size: size, isYellow: isYellow));
   }
 
   LandingWidget mobileWidget(BuildContext context) {
@@ -180,6 +88,107 @@ class CertificateWidget extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class WebCertificate extends StatefulWidget {
+  const WebCertificate({
+    super.key,
+    required this.size,
+    required this.isYellow,
+  });
+
+  final Size size;
+  final bool isYellow;
+
+  @override
+  State<WebCertificate> createState() => _WebCertificateState();
+}
+
+class _WebCertificateState extends State<WebCertificate> {
+  bool isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (event) => setState(() {
+        isHovered = true;
+      }),
+      onExit: (event) => setState(() {
+        isHovered = false;
+      }),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: widget.size.width * 0.105),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Certifications ',
+              style: AppTextStyle.annotation
+                  .copyWith(color: isHovered ? Palette.black : null),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 250),
+              // height: size.height * 0.84,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: isHovered ? Palette.hYellow : null,
+                  border: Border.all(width: 1, color: Palette.borderGrey)),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: widget.size.width * 0.05,
+                  vertical: widget.size.height * 0.0299,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Google UX Design\nProfessional Certificate',
+                      style: AppTextStyle.listExtended.copyWith(
+                          fontSize: 45,
+                          color: isHovered ? Palette.black : null),
+                    ),
+                    const Spacer(),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 4, horizontal: 8),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 1.0,
+                                color: !(isHovered || widget.isYellow)
+                                    ? Palette.hYellow
+                                    : Palette.bgBlack),
+                            borderRadius: BorderRadius.circular(6),
+                            color: (isHovered || widget.isYellow)
+                                ? Palette.hYellow
+                                : Palette.bgBlack
+                            // You can set the background color here.
+                            // Example: color: buttonColor,
+                            ),
+                        child: Center(
+                            child: Text(
+                          'Verify >>',
+                          style: AppTextStyle.buttonTextStyle.copyWith(
+                              color: (isHovered || widget.isYellow)
+                                  ? Palette.bgBlack
+                                  : Palette.hYellow),
+                        )),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             )
           ],

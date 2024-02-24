@@ -98,7 +98,7 @@ class _AdvocateWidgetState extends State<AdvocateWidget> {
                         children: [
                           Text('MOHAMMAD SAJJAD RAZA',
                               textAlign: TextAlign.center,
-                              style: AppTextStyle.anotation),
+                              style: AppTextStyle.annotation),
                           const SizedBox(
                             height: 16,
                           ),

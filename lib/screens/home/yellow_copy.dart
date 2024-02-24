@@ -128,7 +128,7 @@ class LandingPage2Child extends StatelessWidget {
                                 Text(
                                   'ABOUT ME',
                                   style: size.width > 600
-                                      ? AppTextStyle.anotation
+                                      ? AppTextStyle.annotation
                                           .copyWith(color: Palette.bgBlack)
                                       : AppTextStyle.mobileAnnotation
                                           .copyWith(color: Palette.bgBlack),
@@ -173,7 +173,7 @@ class LandingPage2Child extends StatelessWidget {
                                       horizontal: size.width * 0.105),
                                   child: Text(
                                     'WHAT I DO',
-                                    style: AppTextStyle.anotation
+                                    style: AppTextStyle.annotation
                                         .copyWith(color: Palette.bgBlack),
                                   ),
                                 ),
@@ -220,7 +220,7 @@ class LandingPage2Child extends StatelessWidget {
                           children: [
                             Text(
                               'PROJECTS ',
-                              style: AppTextStyle.anotation
+                              style: AppTextStyle.annotation
                                   .copyWith(color: Palette.bgBlack),
                             ),
                             const SizedBox(
@@ -320,7 +320,7 @@ class LandingPage2Child extends StatelessWidget {
                           Text(
                             'MY MOTO',
                             style: size.width > 600
-                                ? AppTextStyle.anotation
+                                ? AppTextStyle.annotation
                                     .copyWith(color: Palette.bgBlack)
                                 : AppTextStyle.mobileAnnotation
                                     .copyWith(color: Palette.bgBlack),
@@ -346,7 +346,7 @@ class LandingPage2Child extends StatelessWidget {
                     Text(
                       '- MOHAMMAD ALI',
                       style: size.width > 600
-                          ? AppTextStyle.anotation
+                          ? AppTextStyle.annotation
                               .copyWith(color: Palette.bgBlack)
                           : AppTextStyle.mobileAnnotation
                               .copyWith(color: Palette.bgBlack),
@@ -365,7 +365,7 @@ class LandingPage2Child extends StatelessWidget {
                           children: [
                             Text(
                               'Connect',
-                              style: AppTextStyle.anotation
+                              style: AppTextStyle.annotation
                                   .copyWith(color: Palette.bgBlack),
                             ),
                             const SizedBox(
@@ -399,7 +399,7 @@ class LandingPage2Child extends StatelessWidget {
                             ),
                             Text(
                               'FOR REQRUITERS',
-                              style: AppTextStyle.anotation
+                              style: AppTextStyle.annotation
                                   .copyWith(color: Palette.bgBlack),
                             ),
                             const SizedBox(
@@ -512,7 +512,7 @@ class YellowAdvocateWidget extends StatelessWidget {
                           'RAZA MEANS HOPE',
                           textAlign: TextAlign.center,
                           style: size.width > 600
-                              ? AppTextStyle.anotation
+                              ? AppTextStyle.annotation
                                   .copyWith(color: Palette.bgBlack)
                               : AppTextStyle.mobileAnnotation
                                   .copyWith(color: Palette.bgBlack),
