@@ -22,6 +22,12 @@ class HelpingUserWidget extends StatelessWidget {
 
   LandingWidget webWidget(context) {
     return LandingWidget(
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                'assets/png/recruiter_landing.png',
+              ),
+              fit: BoxFit.cover)),
       child: Stack(
         children: [
           Positioned(

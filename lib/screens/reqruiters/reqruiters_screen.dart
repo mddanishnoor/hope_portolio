@@ -5,7 +5,7 @@ import 'package:portfolio/screens/reqruiters/recruiter_yellow.dart';
 import 'package:portfolio/screens/reqruiters/reqruiter_black.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/widgets/navigation_bar.dart';
+import '../../core/widgets/recruiter_navbar.dart';
 
 // import '../../core/widgets/navigation_bar.dart';
 
@@ -38,43 +38,18 @@ class RecruitersScreen extends StatelessWidget {
                     scrollController: scrollController,
                     scrollController2: scrollController2,
                   ),
-                  // if ((scrollController2.hasClients &&
-                  //         controller.scrollOffset >= (size.height / 2)) ||
-                  //     size.width < 600)
-                  //   Align(
-                  //     alignment: Alignment.bottomCenter,
-                  //     child: Container(
-                  //       height: 54,
-                  //       width: 54,
-                  //       margin: const EdgeInsets.only(right: 8, bottom: 11),
-                  //       decoration: ShapeDecoration(
-                  //         color: const Color(0xFFFBB023),
-                  //         shape: RoundedRectangleBorder(
-                  //           side: BorderSide(
-                  //               width: 1, color: Colors.white.withOpacity(0.5)),
-                  //           borderRadius: BorderRadius.circular(45),
-                  //         ),
-                  //         shadows: const [
-                  //           BoxShadow(
-                  //             color: Color(0x72000000),
-                  //             blurRadius: 5,
-                  //             offset: Offset(0, 4),
-                  //             spreadRadius: -2,
-                  //           )
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
                   if ((scrollController2.hasClients &&
                           controller.scrollOffset >= (size.height / 2)) ||
                       size.width < 600)
                     Align(
-                      alignment: Alignment.bottomCenter,
-                      child: RecruiterNavbar(
-                        scrollController2,
-                        secondaryScrollController: scrollController,
-                      ),
-                    ),
+                        alignment: Alignment.bottomCenter,
+                        child: size.width > 600
+                            ? RecruiterNavbar(scrollController2,
+                                secondaryScrollController: scrollController)
+                            : RecruiterMobileNavbar(
+                                scrollController2,
+                                secondaryScrollController: scrollController,
+                              ))
                 ],
               ),
             ),

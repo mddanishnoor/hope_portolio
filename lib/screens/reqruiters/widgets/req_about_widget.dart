@@ -67,10 +67,10 @@ class _ReqAboutMeWidgetState extends State<ReqAboutMeWidget> {
                                   fontWeight: FontWeight.bold,
                                 ),
                                 children: [
-                              TextSpan(
-                                  text: "Mohammad Sajjad Raza,",
-                                  style: AppTextStyle.body
-                                      .copyWith(color: Palette.hYellow)),
+                              // TextSpan(
+                              //     text: "Mohammad Sajjad Raza,",
+                              //     style: AppTextStyle.body
+                              //         .copyWith(color: Palette.hYellow)),
                               const TextSpan(
                                   text:
                                       " engineer turned product designer in Delhi, India."),

@@ -17,6 +17,12 @@ class MyMoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LandingWidget(
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(
+                'assets/png/moto_bg.png',
+              ),
+              fit: BoxFit.cover)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
