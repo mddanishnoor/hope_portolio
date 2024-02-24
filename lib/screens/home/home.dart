@@ -21,13 +21,13 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Palette.black,
         body: SafeArea(
           child: MouseRegion(
-            onHover: (event) => size.width <= 600
+            onHover: (event) => size.width >= 600
                 ? controller.updatePositioned(event.position)
                 : null,
             child: NotificationListener<ScrollNotification>(
               onNotification: (notification) {
                 controller.updateScrollOffset(scrollController2.offset);
-                scrollController.jumpTo(scrollController2.offset);
+                // scrollController.jumpTo(scrollController2.offset);
                 return true;
               },
               child: PrimaryScrollController(

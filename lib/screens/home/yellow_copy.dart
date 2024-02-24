@@ -34,16 +34,7 @@ class YellowCopy extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Consumer<CursorProvider>(builder: (context, controller, _) {
-      // double radius = (size.width < 766) && !controller.fullMagnify
-      //     ? 0
-      //     : controller.hide
-      //         ? 0
-      //         : controller.isMagnified
-      //             ? controller.fullMagnify
-      //                 ? size.height
-      //                 : size.height * 0.4
-      //             : 15;
-      if (MediaQuery.of(context).size.width > 766) {
+      if (MediaQuery.of(context).size.width > 600) {
         return MouseFollower(
             position: controller.position,
             radius: controller.hide
@@ -94,7 +85,7 @@ class LandingPage2Child extends StatelessWidget {
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
         if (size.width > 600) {
-          scrollController.jumpTo(scrollController.offset);
+          scrollController2.jumpTo(scrollController.offset);
         }
         return true;
       },
