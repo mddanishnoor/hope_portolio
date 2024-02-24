@@ -83,7 +83,7 @@ class ProjectYellowCopyChild extends StatelessWidget {
     return NotificationListener<ScrollNotification>(
         onNotification: (notification) {
           if (size.width > 600) {
-            scrollController.jumpTo(scrollController.offset);
+            scrollController2.jumpTo(scrollController.offset);
           }
           return true;
         },
