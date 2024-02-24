@@ -42,28 +42,28 @@ class ProjectYellowCopy extends StatelessWidget {
               radius: provider.fullMagnify ? size.height : 0,
               width: double.infinity,
               height: 60,
-              child: ProjectYellowCopyChild(
+              child: MobileProjectYellowCopyChild(
                 scrollController: scrollController,
                 size: size,
                 scrollController2: scrollCOntroller2,
               ));
         }
-        return size.width > 766
-            ? MouseFollower(
-                position: provider.position,
-                radius: provider.hide
-                    ? 0
-                    : provider.isMagnified
-                        ? size.height * 0.4
-                        : 15,
-                height: 60,
-                width: double.infinity,
-                child: ProjectYellowCopyChild(
-                  scrollController: scrollController,
-                  size: size,
-                  scrollController2: scrollCOntroller2,
-                ))
-            : const SizedBox();
+        // return size.width > 766
+        //     ? MouseFollower(
+        //         position: provider.position,
+        //         radius: provider.hide
+        //             ? 0
+        //             : provider.isMagnified
+        //                 ? size.height * 0.4
+        //                 : 15,
+        //         height: 60,
+        //         width: double.infinity,
+        //         child: ProjectYellowCopyChild(
+        //           scrollController: scrollController,
+        //           size: size,
+        //           scrollController2: scrollCOntroller2,
+        //         ))
+        //     : const SizedBox();
       },
     );
   }
@@ -98,12 +98,47 @@ class ProjectYellowCopyChild extends StatelessWidget {
                 isYellow: true,
               ),
               ProjectList(size: size),
-              Connect(
-                size: size,
-                isProject: true,
-              )
+              // Connect(
+              //   size: size,
+              //   isProject: true,
+              // )
             ]),
           ),
         ));
+  }
+}
+
+class MobileProjectYellowCopyChild extends StatelessWidget {
+  const MobileProjectYellowCopyChild(
+      {super.key,
+      required this.scrollController,
+      required this.scrollController2,
+      required this.size});
+  final ScrollController scrollController;
+  final ScrollController scrollController2;
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: Palette.hYellow,
+      child: SingleChildScrollView(
+        controller: scrollController,
+        child: Column(children: [
+          SajjadRazaWidget(
+            size: size,
+            isYellow: true,
+          ),
+          ProjectList(
+            size: size,
+            isYellow: true,
+          ),
+          // Connect(
+          //   size: size,
+          //   isProject: true,
+          // )
+        ]),
+      ),
+    );
   }
 }

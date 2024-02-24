@@ -11,6 +11,7 @@ import '../../core/widgets/landing_widget.dart';
 import '../../core/widgets/project_card.dart';
 import '../../providers/project_provider.dart';
 import '../home/widgets/connect_widget.dart';
+import '../home/yellow_copy.dart';
 
 class ProjectMainCopy extends StatelessWidget {
   const ProjectMainCopy(
@@ -28,10 +29,6 @@ class ProjectMainCopy extends StatelessWidget {
             return Column(children: [
               SajjadRazaWidget(size: size),
               ProjectList(size: size),
-              Connect(
-                size: size,
-                isProject: true,
-              )
             ]);
           },
         ));
@@ -188,32 +185,24 @@ class ProjectList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return size.width > 600 ? webWidget() : mobileWidget();
+    return size.width > 600 ? webWidget() : mobileWidget(context);
   }
 
-  Padding mobileWidget() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        children: projectList
-            .map((e) => ProjectThumbnailWidget(project: e, isYellow: isYellow))
-            .toList(),
-      ),
-      // Column(
-      //   children: [
-      //     Column(
-      //       children: projectList.map((e) =>  ProjectThumbnailWidget(
-      //           project: e, isYellow: isYellow)).toList(),
-      //     ),
-      //     ListView.builder(
-      //       shrinkWrap: true,
-      //       itemCount: projectList.length,
-      //       itemBuilder: (context, index) => ProjectThumbnailWidget(
-      //           project: projectList[index], isYellow: isYellow),
-      //     ),
-      //   ],
-      // ),
-    );
+  Widget mobileWidget(context) {
+    return Column(children: [
+      ...projectList
+          .map((e) => ProjectThumbnailWidget(project: e, isYellow: isYellow))
+          .toList(),
+      isYellow
+          ? MobileConnectYellow(
+              size: size,
+              isProject: true,
+            )
+          : MobileConnect(
+              size: size,
+              isProject: true,
+            ),
+    ]);
   }
 
   Padding webWidget() {
@@ -232,6 +221,10 @@ class ProjectList extends StatelessWidget {
                 .map((e) => ProjectsCard(
                     size: Size(size.width * 0.8, size.height * 0.8), url: e))
                 .toList(),
+          ),
+          Connect(
+            size: size,
+            isProject: true,
           )
         ],
       ),
@@ -251,77 +244,81 @@ class ProjectThumbnailWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          project.category,
-          style: AppTextStyle.mobileAnnotation
-              .copyWith(color: isYellow ? Palette.bgBlack : null),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: project.projects
-              .map((e) => ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.59,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      margin: const EdgeInsets.only(top: 12),
-                      child: Stack(
-                        children: [
-                          ThumbnailAssetWidget(
-                            media: e.media,
-                          ),
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.15,
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 20, horizontal: 17.5),
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                      begin: Alignment.bottomCenter,
-                                      end: Alignment.topCenter,
-                                      colors: [
-                                    Colors.black.withOpacity(0.56),
-                                    Colors.transparent
-                                  ])),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    e.title,
-                                    style: AppTextStyle.mobileExtended,
-                                  ),
-                                  const SizedBox(
-                                    height: 6,
-                                  ),
-                                  Text(
-                                    e.subtext,
-                                    style: GoogleFonts.archivo(
-                                        fontSize: 10, color: Palette.hWhite),
-                                  ),
-                                ],
-                              ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            project.category,
+            style: AppTextStyle.mobileAnnotation
+                .copyWith(color: isYellow ? Palette.bgBlack : null),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: project.projects
+                .map((e) => ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.59,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        margin: const EdgeInsets.only(top: 12),
+                        child: Stack(
+                          children: [
+                            ThumbnailAssetWidget(
+                              media: e.media,
                             ),
-                          )
-                        ],
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.15,
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 17.5),
+                                decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                        begin: Alignment.bottomCenter,
+                                        end: Alignment.topCenter,
+                                        colors: [
+                                      Colors.black.withOpacity(0.56),
+                                      Colors.transparent
+                                    ])),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      e.title,
+                                      style: AppTextStyle.mobileExtended,
+                                    ),
+                                    const SizedBox(
+                                      height: 6,
+                                    ),
+                                    Text(
+                                      e.subtext,
+                                      style: GoogleFonts.archivo(
+                                          fontSize: 10, color: Palette.hWhite),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ))
-              .toList(),
-        ),
-        const SizedBox(
-          height: 36,
-        )
-      ],
+                    ))
+                .toList(),
+          ),
+          const SizedBox(
+            height: 36,
+          ),
+        ],
+      ),
     );
   }
 }

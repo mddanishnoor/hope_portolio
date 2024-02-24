@@ -33,17 +33,23 @@ class ProjectScreen extends StatelessWidget {
                       children: [
                         ProjectMainCopy(
                             size: size, scrollController: scrollController2),
-                        // ProjectYellowCopy(
-                        //     scrollController: scrollController,
-                        //     scrollCOntroller2: scrollController2),
-                        if (scrollController2.hasClients &&
-                            provider.scrollOffset >= (size.height / 2))
+                        ProjectYellowCopy(
+                            scrollController: scrollController,
+                            scrollCOntroller2: scrollController2),
+                        if ((scrollController2.hasClients &&
+                                provider.scrollOffset >= (size.height / 2)) ||
+                            size.width < 600)
                           Align(
                               alignment: Alignment.bottomCenter,
-                              child: ProjectNavbar(
-                                scrollController2,
-                                secondaryScrollController: scrollController,
-                              ))
+                              child: size.width < 600
+                                  ? ProjectMobileNavbar(scrollController2,
+                                      secondaryScrollController:
+                                          scrollController)
+                                  : ProjectNavbar(
+                                      scrollController2,
+                                      secondaryScrollController:
+                                          scrollController,
+                                    ))
                       ],
                     )),
               )),
