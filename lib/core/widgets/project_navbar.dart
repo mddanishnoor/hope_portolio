@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
+import 'package:portfolio/core/router/routes.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/project_provider.dart';
@@ -76,8 +77,7 @@ class ProjectNavbar extends StatelessWidget {
                   children: [
                     NavButton(
                       label: 'Hope',
-                      onTap: () =>
-                          {log('Hope presssed'), Navigator.pop(context)},
+                      onTap: () => context.goNamed(Routes.homeScreen),
                       isActive: controller.scrollOffset >= activeHeight(h, 1) &&
                           controller.scrollOffset < activeHeight(h, 2.7),
                     ),

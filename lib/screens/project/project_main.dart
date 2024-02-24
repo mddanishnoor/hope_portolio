@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
@@ -6,6 +7,7 @@ import 'package:video_player/video_player.dart';
 import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
 import '../../core/constant/theme/styles.dart';
+import '../../core/router/routes.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../../core/widgets/project_card.dart';
 import '../../providers/project_provider.dart';
@@ -53,14 +55,20 @@ class SajjadRazaWidget extends StatelessWidget {
           Positioned(
             left: size.height * 0.0241,
             top: size.height * 0.063,
-            child: Text(
-              'HOPE',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.bebasNeue(
-                fontSize: 32,
-                fontWeight: FontWeight.w400,
-                height: 0.8599999547,
-                color: isYellow ? Palette.bgBlack : Palette.white,
+            child: Hero(
+              tag: 'hope',
+              child: GestureDetector(
+                onTap: () => context.goNamed(Routes.homeScreen),
+                child: Text(
+                  'HOPE',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.bebasNeue(
+                    fontSize: 21.961,
+                    fontWeight: FontWeight.w400,
+                    height: 0.8599999547,
+                    color: isYellow ? Palette.bgBlack : Palette.white,
+                  ),
+                ),
               ),
             ),
           ),
@@ -115,14 +123,17 @@ class SajjadRazaWidget extends StatelessWidget {
           Positioned(
             left: size.height * 0.0241,
             top: size.height * 0.063,
-            child: Text(
-              'HOPE',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.bebasNeue(
-                fontSize: 32,
-                fontWeight: FontWeight.w400,
-                height: 0.8599999547,
-                color: isYellow ? Palette.bgBlack : Palette.white,
+            child: GestureDetector(
+              onTap: () => context.goNamed(Routes.homeScreen),
+              child: Text(
+                'HOPE',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.bebasNeue(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w400,
+                  height: 0.8599999547,
+                  color: isYellow ? Palette.bgBlack : Palette.white,
+                ),
               ),
             ),
           ),

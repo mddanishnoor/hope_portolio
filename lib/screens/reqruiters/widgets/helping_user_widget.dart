@@ -17,24 +17,30 @@ class HelpingUserWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return size.width > 600 ? webWidget() : mobileWidget();
+    return size.width > 600 ? webWidget(context) : mobileWidget();
   }
 
-  LandingWidget webWidget() {
+  LandingWidget webWidget(context) {
     return LandingWidget(
       child: Stack(
         children: [
           Positioned(
             left: size.height * 0.0241,
             top: size.height * 0.063,
-            child: Text(
-              'HOPE',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.bebasNeue(
-                fontSize: 32,
-                fontWeight: FontWeight.w400,
-                height: 0.8599999547,
-                color: Palette.white,
+            child: Hero(
+              tag: 'hope',
+              child: GestureDetector(
+                onTap: () => {},
+                child: Text(
+                  'HOPE',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.bebasNeue(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w400,
+                    height: 0.8599999547,
+                    color: Palette.white,
+                  ),
+                ),
               ),
             ),
           ),
@@ -91,14 +97,17 @@ class HelpingUserWidget extends StatelessWidget {
           Positioned(
             left: size.height * 0.0241,
             top: size.height * 0.063,
-            child: Text(
-              'HOPE',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.bebasNeue(
-                fontSize: 21.961,
-                fontWeight: FontWeight.w400,
-                height: 0.8599999547,
-                color: Palette.white,
+            child: Hero(
+              tag: 'hope',
+              child: Text(
+                'HOPE',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.bebasNeue(
+                  fontSize: 21.961,
+                  fontWeight: FontWeight.w400,
+                  height: 0.8599999547,
+                  color: Palette.white,
+                ),
               ),
             ),
           ),
