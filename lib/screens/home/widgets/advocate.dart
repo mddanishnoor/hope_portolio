@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:video_player/video_player.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
@@ -23,7 +22,7 @@ class AdvocateWidget extends StatefulWidget {
 }
 
 class _AdvocateWidgetState extends State<AdvocateWidget> {
-  final videoController = VideoPlayerController.asset('assets/video/web.mp4');
+  // final videoController = VideoPlayerController.asset('assets/video/web.mp4');
   @override
   void initState() {
     // videoController.initialize().then((value) => videoController.play());
@@ -36,30 +35,30 @@ class _AdvocateWidgetState extends State<AdvocateWidget> {
   Widget build(BuildContext context) {
     return LandingWidget(
       decoration: const BoxDecoration(
-          // image: DecorationImage(
-          //     opacity: 0.4,
-          //     image: AssetImage('assets/png/hero_bg.jpeg'),
-          //     fit: BoxFit.cover),
-          ),
+        image: DecorationImage(
+            // opacity: 0.4,
+            image: AssetImage('assets/png/home_landing_web.gif'),
+            fit: BoxFit.cover),
+      ),
       child: Stack(
         children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: Transform.scale(
-              scale: 1.05,
-              child: Stack(
-                children: [
-                  AbsorbPointer(
-                      absorbing: true, child: VideoPlayer(videoController)),
-                  Container(
-                      height: MediaQuery.of(context).size.height,
-                      width: MediaQuery.of(context).size.width,
-                      color: Colors.black.withOpacity(0.8)),
-                ],
-              ),
-            ),
-          ),
+          // SizedBox(
+          //   width: MediaQuery.of(context).size.width,
+          //   height: MediaQuery.of(context).size.height,
+          //   child: Transform.scale(
+          //     scale: 1.05,
+          //     child: Stack(
+          //       children: [
+          //         // AbsorbPointer(
+          //         //     absorbing: true, child: VideoPlayer(videoController)),
+          //         Container(
+          //             height: MediaQuery.of(context).size.height,
+          //             width: MediaQuery.of(context).size.width,
+          //             color: Colors.black.withOpacity(0.8)),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           Positioned(
             left: widget.size.height * 0.0241,
             top: widget.size.height * 0.063,
@@ -137,42 +136,18 @@ class MobileAdvocateWidget extends StatefulWidget {
 }
 
 class _MobileAdvocateWidgetState extends State<MobileAdvocateWidget> {
-  final videoController =
-      VideoPlayerController.asset('assets/video/mobile.mp4');
-  @override
-  void initState() {
-    // videoController.initialize().then((value) => (
-    //       videoController.play(),
-    //       videoController.setLooping(true),
-    //       videoController.setVolume(0)
-    //     ));
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    videoController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return LandingWidget(
       decoration: const BoxDecoration(
-          // image: DecorationImage(
-          //     opacity: 0.4,
-          //     image: AssetImage('assets/png/hero_bg.jpeg'),
-          //     fit: BoxFit.cover),
-          ),
+        image: DecorationImage(
+            opacity: 0.4,
+            image: AssetImage('assets/png/home_landing.gif'),
+            fit: BoxFit.cover),
+      ),
       child: Container(
         child: Stack(
           children: [
-            AbsorbPointer(absorbing: true, child: VideoPlayer(videoController)),
-            // Container(
-            //     height: MediaQuery.of(context).size.height,
-            //     width: MediaQuery.of(context).size.width,
-            //     color: Colors.black.withOpacity(0.8)),
             Positioned(
               left: widget.size.height * 0.0241,
               top: widget.size.height * 0.04,

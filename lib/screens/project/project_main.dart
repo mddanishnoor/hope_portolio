@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:video_player/video_player.dart';
+// import 'package:video_player/video_player.dart';
 import '../../core/constant/theme/pallete.dart';
 import '../../core/constant/theme/styles.dart';
 import '../../core/router/routes.dart';
@@ -730,19 +730,19 @@ class WebThumbnailAssetWidget extends StatefulWidget {
 }
 
 class _WebThumbnailAssetWidgetState extends State<WebThumbnailAssetWidget> {
-  late VideoPlayerController _videoController;
+  // late VideoPlayerController _videoController;
 
   @override
   void initState() {
-    if (widget.media.contains('.mp4')) {
-      _videoController = VideoPlayerController.asset(widget.media,
-          videoPlayerOptions: VideoPlayerOptions());
+    // if (widget.media.contains('.mp4')) {
+    //   _videoController = VideoPlayerController.asset(widget.media,
+    //       videoPlayerOptions: VideoPlayerOptions());
 
-      _videoController.initialize().then((value) => setState(() {}));
-      _videoController
-        ..play()
-        ..setLooping(true);
-    }
+    //   _videoController.initialize().then((value) => setState(() {}));
+    //   _videoController
+    //     ..play()
+    //     ..setLooping(true);
+    // }
     super.initState();
   }
 
@@ -781,13 +781,13 @@ class _WebThumbnailAssetWidgetState extends State<WebThumbnailAssetWidget> {
     );
   }
 
-  @override
-  void dispose() {
-    if (widget.media.contains('.mp4')) {
-      _videoController.dispose();
-    }
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   if (widget.media.contains('.mp4')) {
+  //     _videoController.dispose();
+  //   }
+  //   super.dispose();
+  // }
 }
 
 class ThumbnailAssetWidget extends StatefulWidget {
@@ -803,21 +803,21 @@ class ThumbnailAssetWidget extends StatefulWidget {
 }
 
 class _ThumbnailAssetWidgetState extends State<ThumbnailAssetWidget> {
-  late VideoPlayerController _videoController;
+  // late VideoPlayerController _videoController;
 
-  @override
-  void initState() {
-    if (widget.media.contains('.mp4')) {
-      _videoController = VideoPlayerController.asset(widget.media,
-          videoPlayerOptions: VideoPlayerOptions());
+  // @override
+  // void initState() {
+  //   if (widget.media.contains('.mp4')) {
+  //     _videoController = VideoPlayerController.asset(widget.media,
+  //         videoPlayerOptions: VideoPlayerOptions());
 
-      _videoController.initialize().then((value) => setState(() {}));
-      _videoController
-        ..play()
-        ..setLooping(true);
-    }
-    super.initState();
-  }
+  //     _videoController.initialize().then((value) => setState(() {}));
+  //     _videoController
+  //       ..play()
+  //       ..setLooping(true);
+  //   }
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -850,19 +850,19 @@ class _ThumbnailAssetWidgetState extends State<ThumbnailAssetWidget> {
     );
   }
 
-  @override
-  void dispose() {
-    if (widget.media.contains('.mp4')) {
-      _videoController.dispose();
-    }
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   if (widget.media.contains('.mp4')) {
+  //     _videoController.dispose();
+  //   }
+  //   super.dispose();
+  // }
 }
 
 List<CategoryModel> webProjectList = [
   CategoryModel(category: 'UI/UX', projects: [
     ProjectModel(
-        media: 'assets/video/digitandoor.mp4',
+        media: 'assets/png/web_DIgi_website.gif',
         title: 'Digitandoor',
         subCategory: 'Building An Online Presence For\nAn Advertisement Firm.',
         subtext: '-Landing Page-Responsive-Copywriting-Illustration'),
@@ -885,7 +885,7 @@ List<CategoryModel> webProjectList = [
   ]),
   CategoryModel(category: 'BRANDING', projects: [
     ProjectModel(
-        media: 'assets/video/digitandoor_branding_thumbnail.mp4',
+        media: 'assets/png/web_Digi_branding.gif',
         title: 'Digitandoor',
         subtext: 'Landing Page-Logo-Brand Merchandise-Illustrations',
         subCategory: 'Curating Brand Identity\nAnd Landing Page'),
@@ -919,7 +919,7 @@ CategoryModel webMiscProjects =
 List<CategoryModel> projectList = [
   CategoryModel(category: 'UI/UX', projects: [
     ProjectModel(
-        media: 'assets/video/digitandoor.mp4',
+        media: 'assets/png/mobile_DIgi_website.gif',
         title: 'Digitandoor',
         subtext: 'Building an online presence for an advertisement firm.'),
     ProjectModel(
@@ -938,7 +938,7 @@ List<CategoryModel> projectList = [
   ]),
   CategoryModel(category: 'BRANDING', projects: [
     ProjectModel(
-        media: 'assets/video/digitandoor_branding_thumbnail.mp4',
+        media: 'assets/png/mobile_Digi_branding.gif',
         title: 'Digitandoor',
         subtext: 'Building an online presence for an advertisement firm.'),
   ])
