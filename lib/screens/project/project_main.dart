@@ -192,6 +192,12 @@ class ProjectList extends StatelessWidget {
       ...projectList
           .map((e) => ProjectThumbnailWidget(project: e, isYellow: isYellow))
           .toList(),
+      SizedBox(
+        height: size.height * 0.5,
+        child: MiscThumbnailWidget(
+          isYellow: isYellow,
+        ),
+      ),
       isYellow
           ? MobileConnectYellow(
               size: size,
@@ -322,6 +328,100 @@ class ProjectThumbnailWidget extends StatelessWidget {
   }
 }
 
+class MiscThumbnailWidget extends StatelessWidget {
+  const MiscThumbnailWidget({
+    super.key,
+    required this.isYellow,
+  });
+
+  final bool isYellow;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height / 2,
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            miscProjects.category,
+            style: AppTextStyle.mobileAnnotation
+                .copyWith(color: isYellow ? Palette.bgBlack : null),
+          ),
+          Expanded(
+            child: ListView.separated(
+              separatorBuilder: (context, index) => const SizedBox(
+                width: 16,
+              ),
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: miscProjects.projects.length,
+              itemBuilder: (context, index) => ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Container(
+                  // height: MediaQuery.of(context).size.height * 0.4,
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  margin: const EdgeInsets.only(top: 12),
+                  child: Stack(
+                    children: [
+                      ThumbnailAssetWidget(
+                        media: miscProjects.projects[index].media,
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 2,
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 17.5),
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                  colors: [
+                                Colors.black.withOpacity(0.56),
+                                Colors.transparent
+                              ])),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                miscProjects.projects[index].title,
+                                style: AppTextStyle.mobileExtended,
+                              ),
+                              const SizedBox(
+                                height: 6,
+                              ),
+                              Text(
+                                miscProjects.projects[index].subtext,
+                                style: GoogleFonts.archivo(
+                                    fontSize: 10, color: Palette.hWhite),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 36,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class ThumbnailAssetWidget extends StatefulWidget {
   const ThumbnailAssetWidget({
     super.key,
@@ -419,6 +519,29 @@ List<CategoryModel> projectList = [
   ])
 ];
 
+CategoryModel miscProjects = CategoryModel(category: 'MISC', projects: [
+  ProjectModel(
+      media: 'assets/png/mobile_ways_of_death.png',
+      subCategory: 'Graphic Design',
+      title: 'Ways of Death',
+      subtext: 'Symbolic portrayal of kinds of human demise.'),
+  ProjectModel(
+      media: 'assets/png/dot_mobile.png',
+      subCategory: 'Graphic Design',
+      title: 'Dots',
+      subtext: 'Reimagining childhood game in the digital age'),
+  ProjectModel(
+      media: 'assets/png/mobile_sins.png',
+      subCategory: 'Graphic Design',
+      title: '7 Deadly Sins',
+      subtext: 'Graphical portrayal of seven deadly sins'),
+  ProjectModel(
+      media: 'assets/png/paper_town_mobile.png',
+      subCategory: 'Graphic Design',
+      title: 'Paper Town',
+      subtext: 'Embark on a journey through pages'),
+]);
+
 class CategoryModel {
   String category;
   List<ProjectModel> projects;
@@ -432,7 +555,9 @@ class ProjectModel {
   String media;
   String title;
   String subtext;
+  String? subCategory;
   ProjectModel({
+    this.subCategory,
     required this.media,
     required this.title,
     required this.subtext,
