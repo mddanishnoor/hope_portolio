@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
-import '../../../core/widgets/animated_tile.dart';
 import '../../../core/widgets/landing_widget.dart';
 
 class ExperienceWidget extends StatefulWidget {
@@ -55,8 +54,22 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                   ),
                   Column(
                     children: [
-                      RunningAnimatedTileContainer(
-                        isRecruiter: true,
+                      ReqRunningAnimatedTileContainer(
+                        multiplier: 1.3,
+                        scrollOffset: provider.scrollOffset,
+                        child1: ExperienceTile(
+                            size: widget.size,
+                            timePeriod: 'NOW',
+                            position: 'UX/UI designer',
+                            location: 'GYMSAPIEN, New Delhi',
+                            subtext: ''),
+                        child2: YellowExperienceTile(
+                            size: widget.size,
+                            timePeriod: '7 months and counting',
+                            description:
+                                'Solved more problems than just design '),
+                      ),
+                      ReqRunningAnimatedTileContainer(
                         multiplier: 1,
                         scrollOffset: provider.scrollOffset,
                         child1: ExperienceTile(
@@ -65,17 +78,13 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                             position: 'Freelance',
                             location: 'India ',
                             subtext: ''),
-                        child2: ExperienceTile(
-                            isYellow: true,
+                        child2: YellowExperienceTile(
                             size: widget.size,
-                            timePeriod: '3 yrs',
-                            position: 'Freelance',
-                            location: 'India ',
-                            subtext:
+                            timePeriod: '3 years of Freelance',
+                            description:
                                 'I learned to manage clients through dozens of projects'),
                       ),
-                      RunningAnimatedTileContainer(
-                        isRecruiter: true,
+                      ReqRunningAnimatedTileContainer(
                         multiplier: 1.2,
                         scrollOffset: provider.scrollOffset,
                         child1: ExperienceTile(
@@ -84,16 +93,12 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                             position: 'Graphic design intern',
                             location: 'Blue oktopus, Delhi NCR ',
                             subtext: ''),
-                        child2: ExperienceTile(
-                            isYellow: true,
+                        child2: YellowExperienceTile(
                             size: widget.size,
-                            timePeriod: '3 mos',
-                            position: 'Graphic design intern',
-                            location: 'Blue oktopus, Delhi NCR ',
-                            subtext: 'Taught me how to be efficient'),
+                            timePeriod: '3 months of Internship',
+                            description: 'Taught me how to be efficient'),
                       ),
-                      RunningAnimatedTileContainer(
-                        isRecruiter: true,
+                      ReqRunningAnimatedTileContainer(
                         multiplier: 1.3,
                         scrollOffset: provider.scrollOffset,
                         child1: ExperienceTile(
@@ -101,15 +106,12 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                             timePeriod: '2019-21',
                             position: 'Design head',
                             location: 'IEEE, ADGITM, New Delhi ',
-                            subtext:
-                                'Mastering the art of Leadership and Collaboration '),
-                        child2: ExperienceTile(
-                            isYellow: true,
+                            subtext: ''),
+                        child2: YellowExperienceTile(
                             size: widget.size,
-                            timePeriod: '1 yr ',
-                            position: 'Design head',
-                            location: 'India ',
-                            subtext: 'Exploring science, art and psychology'),
+                            timePeriod: '1 year of leadership',
+                            description:
+                                'Mastering the art of Leadership and Collaboration'),
                       ),
                     ],
                   )
@@ -242,7 +244,12 @@ class ExperienceTile extends StatelessWidget {
                 child: Text(
                   timePeriod,
                   style: AppTextStyle.body.copyWith(
-                      fontSize: 45, color: isYellow ? Palette.black : null),
+                      fontSize: 45,
+                      color: isYellow
+                          ? Palette.black
+                          : timePeriod == 'NOW'
+                              ? Palette.hYellow
+                              : null),
                 )),
             const SizedBox(
               width: 16,
@@ -276,6 +283,61 @@ class ExperienceTile extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     fontFamily: 'Syne',
                     color: isYellow ? Palette.black : null),
+              ),
+            )
+          ],
+        ));
+  }
+}
+
+class YellowExperienceTile extends StatelessWidget {
+  const YellowExperienceTile({
+    super.key,
+    required this.size,
+    required this.timePeriod,
+    required this.description,
+  });
+  final Size size;
+  final String timePeriod;
+  final String description;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: double.infinity,
+        height: 65,
+        decoration: const BoxDecoration(
+            border: Border.symmetric(
+              horizontal: BorderSide(
+                color: Palette.white_30,
+              ),
+            ),
+            color: Palette.hYellow),
+        padding: EdgeInsets.symmetric(
+          horizontal: size.width * 0.105,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+                flex: 3,
+                child: Text(
+                  timePeriod,
+                  style: AppTextStyle.body
+                      .copyWith(fontSize: 45, color: Palette.black),
+                )),
+            const SizedBox(
+              width: 16,
+            ),
+            Expanded(
+              flex: 2,
+              child: Text(
+                description,
+                style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Syne',
+                    color: Palette.black),
               ),
             )
           ],
