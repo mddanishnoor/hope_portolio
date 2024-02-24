@@ -20,7 +20,6 @@ import '../../core/widgets/landing_widget.dart';
 import '../../core/widgets/project_card.dart';
 import '../../core/widgets/yellow_tile.dart';
 import 'widgets/connect_tiles.dart';
-import '../project/projects_screen.dart';
 
 class YellowCopy extends StatelessWidget {
   const YellowCopy({

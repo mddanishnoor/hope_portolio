@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:portfolio/screens/reqruiters/reqruiters_screen.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';

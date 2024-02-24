@@ -18,7 +18,6 @@ import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../../core/widgets/project_card.dart';
 import '../home/widgets/connect_tiles.dart';
-import '../project/projects_screen.dart';
 import 'widgets/certifcate_widget.dart';
 import 'widgets/req_animated_tile.dart';
 
