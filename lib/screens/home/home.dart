@@ -27,7 +27,14 @@ class HomeScreen extends StatelessWidget {
             child: NotificationListener<ScrollNotification>(
               onNotification: (notification) {
                 controller.updateScrollOffset(scrollController2.offset);
-                // scrollController.jumpTo(scrollController2.offset);
+                if (size.width > 600) {
+                  // if ((scrollController2.offset - scrollController.offset) <=
+                  //         -10 ||
+                  //     (scrollController.offset - scrollController2.offset) >=
+                  //         10) {
+                  scrollController.jumpTo(scrollController2.offset);
+                  // }
+                }
                 return true;
               },
               child: PrimaryScrollController(

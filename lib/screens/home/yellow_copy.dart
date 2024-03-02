@@ -85,7 +85,10 @@ class LandingPage2Child extends StatelessWidget {
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
         if (size.width > 600) {
+          // if ((scrollController.offset - scrollController2.offset) <= -10 ||
+          //     (scrollController2.offset - scrollController.offset) >= 10) {
           scrollController2.jumpTo(scrollController.offset);
+          // }
         }
         return true;
       },
@@ -306,6 +309,7 @@ class LandingPage2Child extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const Spacer(),
                     MouseRegion(
                       onEnter: (event) => size.width > 600
                           ? context.read<CursorProvider>().toggleMagnify(true)
@@ -337,20 +341,21 @@ class LandingPage2Child extends StatelessWidget {
                                 : AppTextStyle.mobileHeading
                                     .copyWith(color: Palette.bgBlack),
                           ),
+                          const SizedBox(
+                            height: 18,
+                          ),
+                          Text(
+                            '- MOHAMMAD ALI',
+                            style: size.width > 600
+                                ? AppTextStyle.annotation
+                                    .copyWith(color: Palette.bgBlack)
+                                : AppTextStyle.mobileAnnotation
+                                    .copyWith(color: Palette.bgBlack),
+                          ),
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 18,
-                    ),
-                    Text(
-                      '- MOHAMMAD ALI',
-                      style: size.width > 600
-                          ? AppTextStyle.annotation
-                              .copyWith(color: Palette.bgBlack)
-                          : AppTextStyle.mobileAnnotation
-                              .copyWith(color: Palette.bgBlack),
-                    ),
+                    const Spacer(),
                   ],
                 ),
               ),
