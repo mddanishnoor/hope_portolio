@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/helper/custom_scroll_physics.dart';
 import 'widgets/about_me.dart';
 import 'widgets/advocate.dart';
 import 'widgets/connect_widget.dart';
@@ -22,6 +23,7 @@ class BlackCopy extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       primary: true,
+      physics: const CustomPhysics(),
       child: Consumer<CursorProvider>(builder: (context, provider, _) {
         return Column(
           mainAxisSize: MainAxisSize.max,

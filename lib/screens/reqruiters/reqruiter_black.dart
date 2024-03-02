@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/helper/custom_scroll_physics.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:portfolio/screens/home/widgets/favourite_projects.dart';
 import 'package:portfolio/screens/reqruiters/widgets/core_competency_widget.dart';
@@ -24,6 +25,7 @@ class RecruitersBlack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: const CustomPhysics(),
       primary: true,
       child: Consumer<RecruitersProvider>(builder: (context, provider, _) {
         return Column(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
+import 'package:portfolio/core/helper/custom_scroll_physics.dart';
 import 'package:portfolio/core/helper/mouse_follower.dart';
 import 'package:portfolio/core/widgets/landing_widget.dart';
 import 'package:provider/provider.dart';
@@ -91,6 +92,7 @@ class ProjectYellowCopyChild extends StatelessWidget {
         child: ColoredBox(
           color: Palette.hYellow,
           child: SingleChildScrollView(
+            physics: const CustomPhysics(),
             controller: scrollController,
             child: Column(children: [
               SajjadRazaWidget(

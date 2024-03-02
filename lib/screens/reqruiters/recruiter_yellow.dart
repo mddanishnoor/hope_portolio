@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
+import 'package:portfolio/core/helper/custom_scroll_physics.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:portfolio/screens/home/yellow_copy.dart';
 import 'package:provider/provider.dart';
@@ -87,6 +88,7 @@ class RecruiterYellowChild extends StatelessWidget {
       child: ColoredBox(
         color: Palette.hYellow,
         child: SingleChildScrollView(
+          physics: const CustomPhysics(),
           controller: scrollController,
           child: Column(
             mainAxisSize: MainAxisSize.max,

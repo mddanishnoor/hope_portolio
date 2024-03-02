@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/core/helper/custom_scroll_physics.dart';
 import 'package:provider/provider.dart';
 // import 'package:video_player/video_player.dart';
 import '../../core/constant/theme/pallete.dart';
@@ -22,6 +23,7 @@ class ProjectMainCopy extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         primary: true,
+        physics: const CustomPhysics(),
         child: Consumer<ProjectProvider>(
           builder: (context, provider, child) {
             return Column(children: [
