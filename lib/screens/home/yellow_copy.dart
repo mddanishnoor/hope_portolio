@@ -86,10 +86,7 @@ class LandingPage2Child extends StatelessWidget {
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
         if (size.width > 600) {
-          // if ((scrollController.offset - scrollController2.offset) <= -10 ||
-          //     (scrollController2.offset - scrollController.offset) >= 10) {
           scrollController2.jumpTo(scrollController.offset);
-          // }
         }
         return true;
       },

@@ -82,7 +82,9 @@ class RecruiterYellowChild extends StatelessWidget {
   Widget build(BuildContext context) {
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
-        scrollController2.jumpTo(scrollController.offset);
+        if (size.width > 600) {
+          scrollController2.jumpTo(scrollController.offset);
+        }
         return true;
       },
       child: ColoredBox(

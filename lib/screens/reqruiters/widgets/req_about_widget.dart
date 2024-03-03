@@ -62,7 +62,7 @@ class _ReqAboutMeWidgetState extends State<ReqAboutMeWidget> {
                         // )
                         RichText(
                             text: TextSpan(
-                                text: "Hey! I'm ",
+                                text: "Hey! I'm an",
                                 style: AppTextStyle.body.copyWith(
                                   fontWeight: FontWeight.bold,
                                 ),

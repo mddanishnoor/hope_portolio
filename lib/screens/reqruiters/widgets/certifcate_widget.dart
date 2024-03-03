@@ -131,8 +131,7 @@ class _WebCertificateState extends State<WebCertificate> {
           children: [
             Text(
               'Certifications ',
-              style: AppTextStyle.annotation
-                  .copyWith(color: isHovered ? Palette.black : null),
+              style: AppTextStyle.annotation,
             ),
             const SizedBox(
               height: 10,

@@ -76,19 +76,7 @@ class CustomNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(5, 5, 0, 5),
                       child: NavButton(
                         label: 'About me',
-                        onTap: () => {
-                          log('Abut me presssed'),
-                          scrollController.jumpTo(
-                            h,
-                            // duration: const Duration(milliseconds: 1500),
-                            // curve: Curves.decelerate
-                          ),
-                          // secondaryScrollController.jumpTo(
-                          //   h,
-                          //   // duration: const Duration(milliseconds: 1500),
-                          //   // curve: Curves.decelerate
-                          // )
-                        },
+                        onTap: () => scrollController.jumpTo(h),
                         isActive:
                             controller.scrollOffset >= activeHeight(h, 1) &&
                                 controller.scrollOffset < activeHeight(h, 2.2),
@@ -101,17 +89,7 @@ class CustomNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: NavButton(
                         label: 'Project',
-                        onTap: () => {
-                          log('Project presssed'),
-                          // scrollController.animateTo(h * 3,
-                          //     duration: const Duration(milliseconds: 1500),
-                          //     curve: Curves.decelerate),
-                          secondaryScrollController.jumpTo(
-                            h * 3,
-                            // duration: const Duration(milliseconds: 1500),
-                            // curve: Curves.decelerate
-                          )
-                        },
+                        onTap: () => secondaryScrollController.jumpTo(h * 3),
                         isActive:
                             controller.scrollOffset >= activeHeight(h, 2.7) &&
                                 controller.scrollOffset <
@@ -127,8 +105,6 @@ class CustomNavbar extends StatelessWidget {
                             controller.toggleMagnify(true, fullScreen: true),
                         onTapUp: (details) =>
                             controller.toggleMagnify(false, fullScreen: false),
-                        // onTapCancel: () =>
-                        //     controller.toggleMagnify(false, fullScreen: false),
                         child: const HoldMeButton(),
                       ),
                     ],
@@ -139,18 +115,8 @@ class CustomNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: NavButton(
                         label: 'Connect',
-                        onTap: () => {
-                          log('Connect presssed'),
-                          scrollController.jumpTo(
-                            (h * 5.3) - (h * 0.3),
-                            // duration: const Duration(milliseconds: 1500),
-                            // curve: Curves.decelerate
-                          ),
-                          // secondaryScrollController.animateTo(
-                          //     (h * 5) - (h * 0.3),
-                          //     duration: const Duration(milliseconds: 1500),
-                          //     curve: Curves.decelerate)
-                        },
+                        onTap: () =>
+                            scrollController.jumpTo((h * 5.3) - (h * 0.3)),
                         isActive: controller.scrollOffset >=
                                 ((activeHeight(h, 5)) - (h * 0.2)) &&
                             controller.scrollOffset <
@@ -166,18 +132,8 @@ class CustomNavbar extends StatelessWidget {
                       child: NavButton(
                         label:
                             size.width > 600 ? 'For requiters' : 'Recruiters',
-                        onTap: () => {
-                          log('Recruiters presssed'),
-                          scrollController.jumpTo(
-                            scrollController.position.maxScrollExtent,
-                            // duration: const Duration(milliseconds: 1500),
-                            // curve: Curves.decelerate
-                          ),
-                          // secondaryScrollController.animateTo(
-                          //     scrollController.position.maxScrollExtent,
-                          //     duration: const Duration(milliseconds: 1500),
-                          //     curve: Curves.decelerate)
-                        },
+                        onTap: () => scrollController
+                            .jumpTo(scrollController.position.maxScrollExtent),
                         isActive: controller.scrollOffset >
                             (scrollController.position.maxScrollExtent -
                                 (h * 0.4)),

@@ -7,8 +7,6 @@ import 'package:provider/provider.dart';
 
 import '../../core/widgets/recruiter_navbar.dart';
 
-// import '../../core/widgets/navigation_bar.dart';
-
 class RecruitersScreen extends StatelessWidget {
   RecruitersScreen({Key? key}) : super(key: key);
   final ScrollController scrollController = ScrollController();
@@ -21,11 +19,15 @@ class RecruitersScreen extends StatelessWidget {
       return Scaffold(
         backgroundColor: Palette.black,
         body: MouseRegion(
-          onHover: (event) => controller.updatePosition(event.position),
+          onHover: (event) => size.width >= 600
+              ? controller.updatePosition(event.position)
+              : null,
           child: NotificationListener<ScrollNotification>(
             onNotification: (notification) {
               controller.updateScrollOffset(scrollController2.offset);
-              // scrollController.jumpTo(scrollController2.offset);
+              if (size.width > 600) {
+                scrollController.jumpTo(scrollController2.offset);
+              }
               return true;
             },
             child: PrimaryScrollController(
