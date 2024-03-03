@@ -78,16 +78,20 @@ class CustomNavbar extends StatelessWidget {
                         label: 'About me',
                         onTap: () => {
                           log('Abut me presssed'),
-                          scrollController.animateTo(h,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(h,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
+                          scrollController.jumpTo(
+                            h,
+                            // duration: const Duration(milliseconds: 1500),
+                            // curve: Curves.decelerate
+                          ),
+                          // secondaryScrollController.jumpTo(
+                          //   h,
+                          //   // duration: const Duration(milliseconds: 1500),
+                          //   // curve: Curves.decelerate
+                          // )
                         },
                         isActive:
                             controller.scrollOffset >= activeHeight(h, 1) &&
-                                controller.scrollOffset < activeHeight(h, 2.7),
+                                controller.scrollOffset < activeHeight(h, 2.2),
                       ),
                     ),
                     const SizedBox(
@@ -99,17 +103,19 @@ class CustomNavbar extends StatelessWidget {
                         label: 'Project',
                         onTap: () => {
                           log('Project presssed'),
-                          scrollController.animateTo(h * 3,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(h * 3,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
+                          // scrollController.animateTo(h * 3,
+                          //     duration: const Duration(milliseconds: 1500),
+                          //     curve: Curves.decelerate),
+                          secondaryScrollController.jumpTo(
+                            h * 3,
+                            // duration: const Duration(milliseconds: 1500),
+                            // curve: Curves.decelerate
+                          )
                         },
                         isActive:
                             controller.scrollOffset >= activeHeight(h, 2.7) &&
                                 controller.scrollOffset <
-                                    (activeHeight(h, 5) - h * 0.2),
+                                    (activeHeight(h, 4) - h * 0.2),
                       ),
                     ),
                     if (size.width < 600) ...[
@@ -135,19 +141,21 @@ class CustomNavbar extends StatelessWidget {
                         label: 'Connect',
                         onTap: () => {
                           log('Connect presssed'),
-                          scrollController.animateTo((h * 5) - (h * 0.3),
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(
-                              (h * 5) - (h * 0.3),
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
+                          scrollController.jumpTo(
+                            (h * 5.3) - (h * 0.3),
+                            // duration: const Duration(milliseconds: 1500),
+                            // curve: Curves.decelerate
+                          ),
+                          // secondaryScrollController.animateTo(
+                          //     (h * 5) - (h * 0.3),
+                          //     duration: const Duration(milliseconds: 1500),
+                          //     curve: Curves.decelerate)
                         },
                         isActive: controller.scrollOffset >=
                                 ((activeHeight(h, 5)) - (h * 0.2)) &&
                             controller.scrollOffset <
                                 (scrollController.position.maxScrollExtent -
-                                    (h * 0.2)),
+                                    (h * 0.4)),
                       ),
                     ),
                     const SizedBox(
@@ -160,18 +168,19 @@ class CustomNavbar extends StatelessWidget {
                             size.width > 600 ? 'For requiters' : 'Recruiters',
                         onTap: () => {
                           log('Recruiters presssed'),
-                          scrollController.animateTo(
-                              scrollController.position.maxScrollExtent,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(
-                              scrollController.position.maxScrollExtent,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
+                          scrollController.jumpTo(
+                            scrollController.position.maxScrollExtent,
+                            // duration: const Duration(milliseconds: 1500),
+                            // curve: Curves.decelerate
+                          ),
+                          // secondaryScrollController.animateTo(
+                          //     scrollController.position.maxScrollExtent,
+                          //     duration: const Duration(milliseconds: 1500),
+                          //     curve: Curves.decelerate)
                         },
                         isActive: controller.scrollOffset >
                             (scrollController.position.maxScrollExtent -
-                                (h * 0.2)),
+                                (h * 0.4)),
                       ),
                     )
                   ],
