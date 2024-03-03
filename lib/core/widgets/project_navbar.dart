@@ -38,9 +38,7 @@ class ProjectNavbar extends StatelessWidget {
             sigmaY: 4,
           ),
           child: Container(
-            // landingpagenavbarstate31Mh (1:13)
             padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-            // width: size.width * 0.31844,
             height: 49,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -86,15 +84,7 @@ class ProjectNavbar extends StatelessWidget {
                     ),
                     NavButton(
                       label: 'UX/UI',
-                      onTap: () => {
-                        log('UX/UI'),
-                        scrollController.animateTo(h * 3,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate),
-                        secondaryScrollController.animateTo(h * 3,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate)
-                      },
+                      onTap: () => scrollController.jumpTo(h),
                       isActive:
                           controller.scrollOffset >= activeHeight(h, 2.7) &&
                               controller.scrollOffset <
@@ -105,35 +95,25 @@ class ProjectNavbar extends StatelessWidget {
                     ),
                     NavButton(
                       label: 'Misc',
-                      onTap: () => {
-                        log('Misc presssed'),
-                        scrollController.animateTo((h * 5) - (h * 0.3),
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate),
-                        secondaryScrollController.animateTo((h * 5) - (h * 0.3),
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate)
-                      },
-                      isActive: false,
+                      onTap: () =>
+                          scrollController.jumpTo((h * 5.6) - (h * 0.3)),
+                      isActive:
+                          controller.scrollOffset >= activeHeight(h * 5, 1) &&
+                              controller.scrollOffset <
+                                  scrollController.position.maxScrollExtent -
+                                      (h * 1.19),
                     ),
                     const SizedBox(
                       width: 5,
                     ),
                     NavButton(
                       label: 'Connect',
-                      onTap: () => {
-                        log('Connect presssed'),
-                        scrollController.animateTo(
-                            scrollController.position.maxScrollExtent,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate),
-                        secondaryScrollController.animateTo(
-                            scrollController.position.maxScrollExtent,
-                            duration: const Duration(milliseconds: 1500),
-                            curve: Curves.decelerate)
-                      },
+                      onTap: () => scrollController.jumpTo(
+                          scrollController.position.maxScrollExtent -
+                              (h * 1.1)),
                       isActive: controller.scrollOffset >=
-                              ((activeHeight(h, 5)) - (h * 0.2)) &&
+                              (scrollController.position.maxScrollExtent -
+                                  (h * 1.2)) &&
                           controller.scrollOffset <=
                               (scrollController.position.maxScrollExtent),
                     )

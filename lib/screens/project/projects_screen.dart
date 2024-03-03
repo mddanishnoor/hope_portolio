@@ -20,11 +20,15 @@ class ProjectScreen extends StatelessWidget {
         return Scaffold(
           backgroundColor: Palette.bgBlack,
           body: MouseRegion(
-              onHover: (event) => provider.updatePosition(event.position),
+              onHover: (event) => size.width >= 600
+                  ? provider.updatePosition(event.position)
+                  : null,
               child: NotificationListener<ScrollNotification>(
                 onNotification: (notification) {
-                  // scrollController.jumpTo(scrollController2.offset);
                   provider.updateScrollOffset(scrollController2.offset);
+                  if (size.width > 600) {
+                    scrollController.jumpTo(scrollController2.offset);
+                  }
                   return true;
                 },
                 child: PrimaryScrollController(
