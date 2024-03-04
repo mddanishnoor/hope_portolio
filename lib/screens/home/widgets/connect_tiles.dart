@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:svg_flutter/svg_flutter.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
@@ -35,7 +34,7 @@ class ConnectTiles extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 12, right: 16),
-                child: SvgPicture.asset('svg/rectangle.svg'),
+                child: Image.asset('assets/png/rectangle.png'),
               ),
               Expanded(
                 child: AnimatedTileContainer(
@@ -183,7 +182,7 @@ class MobileConnectTiles extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 12, right: 16),
-                child: SvgPicture.asset('assets/svg/rectangle.svg'),
+                child: Image.asset('assets/png/rectangle.png'),
               ),
               Text(
                 title,

@@ -9,7 +9,6 @@ import 'package:portfolio/core/helper/custom_scroll_physics.dart';
 import 'package:portfolio/core/router/routes.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:svg_flutter/svg.dart';
 
 import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
@@ -918,10 +917,7 @@ class MobileConnectTilesYellow extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 12, right: 16),
-                child: SvgPicture.asset(
-                  'assets/svg/rectangle.svg',
-                  color: Palette.bgBlack,
-                ),
+                child: Image.asset('assets/png/rectangle.png'),
               ),
               Text(
                 title,

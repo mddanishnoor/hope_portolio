@@ -36,29 +36,11 @@ class _AdvocateWidgetState extends State<AdvocateWidget> {
     return LandingWidget(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            // opacity: 0.4,
             image: AssetImage('assets/png/home_landing_web.gif'),
             fit: BoxFit.cover),
       ),
       child: Stack(
         children: [
-          // SizedBox(
-          //   width: MediaQuery.of(context).size.width,
-          //   height: MediaQuery.of(context).size.height,
-          //   child: Transform.scale(
-          //     scale: 1.05,
-          //     child: Stack(
-          //       children: [
-          //         // AbsorbPointer(
-          //         //     absorbing: true, child: VideoPlayer(videoController)),
-          //         Container(
-          //             height: MediaQuery.of(context).size.height,
-          //             width: MediaQuery.of(context).size.width,
-          //             color: Colors.black.withOpacity(0.8)),
-          //       ],
-          //     ),
-          //   ),
-          // ),
           Positioned(
             left: widget.size.height * 0.0241,
             top: widget.size.height * 0.063,
