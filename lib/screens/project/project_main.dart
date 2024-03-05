@@ -89,17 +89,17 @@ class SajjadRazaWidget extends StatelessWidget {
                       const SizedBox(
                         height: 16,
                       ),
-                      Text('MY',
+                      Text(isYellow ? "PORTFOLIO" : 'MY',
                           textAlign: TextAlign.center,
                           style: AppTextStyle.mobileHeading.copyWith(
                               color: isYellow ? Palette.bgBlack : null)),
-                      Text('FAVORITE',
+                      Text(isYellow ? "CASE" : 'FAVORITE',
                           overflow: TextOverflow.fade,
                           style: AppTextStyle.mobileHeading.copyWith(
                               color: isYellow
                                   ? Palette.bgBlack
                                   : Palette.hYellow)),
-                      Text('PROJECTS',
+                      Text(isYellow ? "STUDIES" : 'PROJECTS',
                           textAlign: TextAlign.center,
                           style: AppTextStyle.mobileHeading.copyWith(
                               color: isYellow ? Palette.bgBlack : null)),
@@ -167,17 +167,17 @@ class SajjadRazaWidget extends StatelessWidget {
                         const SizedBox(
                           height: 16,
                         ),
-                        Text('MY',
+                        Text(isYellow ? "PORTFOLIO" : 'MY',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.heading.copyWith(
                                 color: isYellow ? Palette.bgBlack : null)),
-                        Text('FAVORITE',
+                        Text(isYellow ? "CASE" : 'FAVORITE',
                             overflow: TextOverflow.fade,
                             style: AppTextStyle.heading.copyWith(
                                 color: isYellow
                                     ? Palette.bgBlack
                                     : Palette.hYellow)),
-                        Text('PROJECTS',
+                        Text(isYellow ? "STUDIES" : 'PROJECTS',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.heading.copyWith(
                                 color: isYellow ? Palette.bgBlack : null)),
@@ -655,7 +655,8 @@ class WebMiscThumbnailWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                miscProjects.projects[index].subCategory ?? '',
+                                webMiscProjects.projects[index].subCategory ??
+                                    '',
                                 style: GoogleFonts.archivo(
                                     fontSize: 12, color: Palette.hWhite),
                               ),
@@ -663,7 +664,7 @@ class WebMiscThumbnailWidget extends StatelessWidget {
                                 height: 6,
                               ),
                               Text(
-                                miscProjects.projects[index].title,
+                                webMiscProjects.projects[index].title,
                                 style: AppTextStyle.listExtended
                                     .copyWith(fontSize: 47.94),
                               ),
@@ -671,7 +672,7 @@ class WebMiscThumbnailWidget extends StatelessWidget {
                                 height: 6,
                               ),
                               Text(
-                                  miscProjects.projects[index].subtext
+                                  webMiscProjects.projects[index].subtext
                                       .split('-')
                                       .join('\n • '),
                                   style: GoogleFonts.archivo(
@@ -900,22 +901,23 @@ CategoryModel webMiscProjects =
       media: 'assets/png/web_thumbnail_Dots.png',
       subCategory: 'Game Design',
       title: 'Dots',
-      subtext: 'Reimagining childhood game in the digital age'),
+      subtext: '-Game Design-App Design-Prototyping'),
   ProjectModel(
       media: 'assets/png/web_thumbnail_Ways_of_death.png',
       subCategory: 'Graphic Design',
       title: 'Ways of Death',
-      subtext: 'Symbolic portrayal of kinds of human demise.'),
+      subtext: '-Graphic Design-Photo Manipulation-Poster Design'),
   ProjectModel(
       media: 'assets/png/web_thumbnail_7_Deadly_Sins.png',
       subCategory: 'Graphic Design',
       title: '7 Deadly Sins',
-      subtext: 'Graphical portrayal of seven deadly sins'),
+      subtext:
+          '-Graphic Design-Continuous Line Art-Colour Theory-Poster Design'),
   ProjectModel(
       media: 'assets/png/web_thumbnail_Paper_town.png',
       subCategory: 'Graphic Design',
       title: 'Paper Town',
-      subtext: 'Embark on a journey through pages'),
+      subtext: '-Graphic Design-Illustration-Poster Design'),
 ]);
 
 List<CategoryModel> projectList = [
