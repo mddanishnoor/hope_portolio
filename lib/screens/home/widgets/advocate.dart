@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -44,22 +46,16 @@ class _AdvocateWidgetState extends State<AdvocateWidget> {
           Positioned(
             left: widget.size.height * 0.0241,
             top: widget.size.height * 0.063,
-            child: Hero(
-              tag: 'hope',
-              child: GestureDetector(
-                onTap: () => context.goNamed(Routes.homeScreen),
-                child: Text(
-                  'HOPE',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.bebasNeue(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w400,
-                    height: 0.8599999547,
-                    color: Palette.white,
-                  ),
+            child: Consumer<CursorProvider>(builder: (context, provider, _) {
+              return MouseRegion(
+                onEnter: (event) => provider.toggleHide(true),
+                onExit: (event) => provider.toggleHide(false),
+                child: const Hero(
+                  tag: 'hope',
+                  child: HopeWidget(),
                 ),
-              ),
-            ),
+              );
+            }),
           ),
           Column(
             children: [
@@ -101,6 +97,53 @@ class _AdvocateWidgetState extends State<AdvocateWidget> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class HopeWidget extends StatefulWidget {
+  const HopeWidget({
+    super.key,
+  });
+
+  @override
+  State<HopeWidget> createState() => _HopeWidgetState();
+}
+
+class _HopeWidgetState extends State<HopeWidget> {
+  bool animating = false;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        if (animating) {
+          return;
+        }
+        setState(() {
+          animating = true;
+          Timer(const Duration(seconds: 6), () {
+            setState(() {
+              animating = false;
+            });
+          });
+        });
+      },
+      child: animating
+          ? Image.asset(
+              'assets/png/loder_transparent.gif',
+              width: 50,
+              // height: 28,
+            )
+          : Text(
+              'HOPE',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.bebasNeue(
+                fontSize: 32,
+                fontWeight: FontWeight.w400,
+                height: 0.8599999547,
+                color: Palette.white,
+              ),
+            ),
     );
   }
 }
