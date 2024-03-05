@@ -28,99 +28,101 @@ class _EducationWidgetState extends State<EducationWidget> {
     return widget.size.width > 600 ? webWidget() : mobileWidget();
   }
 
-  LandingWidget webWidget() {
-    return LandingWidget(
-      child: Column(
-        children: [
-          const Spacer(),
-          Consumer<RecruitersProvider>(
-            builder: (c, provider, _) => MouseRegion(
-              onEnter: (event) => provider.toggleHide(true),
-              onExit: (event) => provider.toggleHide(false),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: widget.size.width * 0.105),
-                    child: Text(
-                      'EDUCATION ',
-                      style: AppTextStyle.annotation,
+  Widget webWidget() {
+    return Column(
+      children: [
+        SizedBox(
+          height: widget.size.height * 0.25,
+        ),
+        Consumer<RecruitersProvider>(
+          builder: (c, provider, _) => MouseRegion(
+            onEnter: (event) => provider.toggleHide(true),
+            onExit: (event) => provider.toggleHide(false),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: widget.size.width * 0.105),
+                  child: Text(
+                    'EDUCATION ',
+                    style: AppTextStyle.annotation,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Column(
+                  children: [
+                    RunningAnimatedTileContainer(
+                      isRecruiter: true,
+                      multiplier: 1,
+                      scrollOffset: provider.scrollOffset,
+                      child1: EducationTile(
+                          size: widget.size,
+                          timePeriod: 'Masters of Design',
+                          position: '2021-23',
+                          location:
+                              'Department of Design and Innovation, J.M.I ',
+                          subtext: ''),
+                      child2: EducationTile(
+                          isYellow: true,
+                          size: widget.size,
+                          timePeriod: 'M.Des',
+                          position: '2021-23',
+                          location:
+                              'Department of Design and Innovation, J.M.I',
+                          subtext:
+                              'kudos to my professors for making this a utopian reality.'),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Column(
-                    children: [
-                      RunningAnimatedTileContainer(
-                        isRecruiter: true,
-                        multiplier: 1,
-                        scrollOffset: provider.scrollOffset,
-                        child1: EducationTile(
-                            size: widget.size,
-                            timePeriod: 'Masters of Design',
-                            position: '2021-23',
-                            location:
-                                'Department of Design and Innovation, J.M.I ',
-                            subtext: ''),
-                        child2: EducationTile(
-                            isYellow: true,
-                            size: widget.size,
-                            timePeriod: 'M.Des',
-                            position: '2021-23',
-                            location:
-                                'Department of Design and Innovation, J.M.I',
-                            subtext:
-                                'kudos to my professors for making this a utopian reality.'),
-                      ),
-                      RunningAnimatedTileContainer(
-                        isRecruiter: true,
-                        multiplier: 1.2,
-                        scrollOffset: provider.scrollOffset,
-                        child1: EducationTile(
-                            size: widget.size,
-                            timePeriod: 'Bachelor of Tech.',
-                            position: '2017-21',
-                            location: 'ADGITM - GGSIPU, Delhi ',
-                            subtext: ''),
-                        child2: EducationTile(
-                            isYellow: true,
-                            size: widget.size,
-                            timePeriod: 'B.Tech',
-                            position: '2017-21',
-                            location: 'ADGITM - GGSIPU, Delhi ',
-                            subtext: 'A place where I found my purpose'),
-                      ),
-                      RunningAnimatedTileContainer(
-                        isRecruiter: true,
-                        multiplier: 1.3,
-                        scrollOffset: provider.scrollOffset,
-                        child1: EducationTile(
-                            size: widget.size,
-                            timePeriod: 'Senior Secondary',
-                            position: '2015-17',
-                            location: 'Jamia Millia Islamia',
-                            subtext:
-                                'Mastering the art of Leadership and Collaboration '),
-                        child2: EducationTile(
-                            isYellow: true,
-                            size: widget.size,
-                            timePeriod: 'School',
-                            position: '2015-17',
-                            location: 'Jamia Millia Islamia',
-                            subtext: 'Exploring science, art and psychology'),
-                      ),
-                    ],
-                  )
-                ],
-              ),
+                    RunningAnimatedTileContainer(
+                      isRecruiter: true,
+                      multiplier: 1.2,
+                      scrollOffset: provider.scrollOffset,
+                      child1: EducationTile(
+                          size: widget.size,
+                          timePeriod: 'Bachelor of Tech.',
+                          position: '2017-21',
+                          location: 'ADGITM - GGSIPU, Delhi ',
+                          subtext: ''),
+                      child2: EducationTile(
+                          isYellow: true,
+                          size: widget.size,
+                          timePeriod: 'B.Tech',
+                          position: '2017-21',
+                          location: 'ADGITM - GGSIPU, Delhi ',
+                          subtext: 'A place where I found my purpose'),
+                    ),
+                    RunningAnimatedTileContainer(
+                      isRecruiter: true,
+                      multiplier: 1.3,
+                      scrollOffset: provider.scrollOffset,
+                      child1: EducationTile(
+                          size: widget.size,
+                          timePeriod: 'Senior Secondary',
+                          position: '2015-17',
+                          location: 'Jamia Millia Islamia',
+                          subtext:
+                              'Mastering the art of Leadership and Collaboration '),
+                      child2: EducationTile(
+                          isYellow: true,
+                          size: widget.size,
+                          timePeriod: 'School',
+                          position: '2015-17',
+                          location: 'Jamia Millia Islamia',
+                          subtext: 'Exploring science, art and psychology'),
+                    ),
+                  ],
+                )
+              ],
             ),
           ),
-          const Spacer(),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: widget.size.height * 0.25,
+        ),
+      ],
     );
   }
 

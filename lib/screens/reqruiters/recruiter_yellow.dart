@@ -15,12 +15,11 @@ import '../../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
 import '../../core/helper/mouse_follower.dart';
 import '../../core/router/routes.dart';
-import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../../core/widgets/project_card.dart';
-import '../home/widgets/connect_tiles.dart';
 import 'widgets/certifcate_widget.dart';
-import 'widgets/req_animated_tile.dart';
+import 'widgets/education_widget.dart';
+import 'widgets/experience_widget.dart';
 
 class RecruiterYellow extends StatelessWidget {
   const RecruiterYellow({
@@ -225,10 +224,14 @@ class RecruiterYellowChild extends StatelessWidget {
               ),
 
               ///EXPERIENCE WIDGET
-              const LandingWidget(),
+              ExperienceWidget(
+                size: size,
+              ),
 
               ///EDUCATION WIDGET
-              const LandingWidget(),
+              EducationWidget(
+                size: size,
+              ),
 
               ///PROJECTS WIDGET
               LandingWidget(
@@ -363,100 +366,101 @@ class RecruiterYellowChild extends StatelessWidget {
                   ],
                 ),
               ),
-              LandingWidget(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      left: size.width * 0.105, right: size.width * 0.08),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Connect',
-                        style: AppTextStyle.annotation
-                            .copyWith(color: Palette.bgBlack),
-                      ),
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      const Column(
-                        children: [
-                          ConnectTiles(
-                            title: 'LinkedIn',
-                            subtitle: 'Work, work, work',
-                            connectType: 'EMAIL',
-                            value: 'razamohdsajjad@gmail.com',
-                          ),
-                          ConnectTiles(
-                            title: 'Behance',
-                            subtitle: 'Another POV at my projects',
-                            connectType: 'Phone',
-                            value: '+91 9818164010',
-                          ),
-                          ConnectTiles(
-                            title: 'Instagram',
-                            subtitle: 'My inactive social face',
-                            connectType: 'Phone',
-                            value: '+91 9818164010',
-                            hasConnectValue: false,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: size.height * 0.2,
-                      ),
-                      Text(
-                        'FOR RECRUITERS',
-                        style: AppTextStyle.annotation
-                            .copyWith(color: Palette.bgBlack),
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      Row(
-                        children: [
-                          ReqAnimatedTileContainer(
-                            child1: Text(
-                              'If you like to hire me',
-                              style: GoogleFonts.syne(
-                                // 'Syne',
-                                fontSize: 64,
-                                fontWeight: FontWeight.w600,
-                                height: 1.0049999952,
-                                color: Palette.notWhite,
-                              ),
-                            ),
-                            child2: ColoredBox(
-                              color: Palette.hYellow,
-                              child: Text(
-                                'If you like to hire me',
-                                style: GoogleFonts.syne(
-                                  // 'Syne',
-                                  fontSize: 64,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1.0049999952,
-                                  color: Palette.bgBlack,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                          const ReqAnimatedTileContainer(
-                            child1: CustomElevatedButton(
-                              label: 'Click here',
-                              isYellow: false,
-                            ),
-                            child2: CustomElevatedButton(
-                              label: 'Click here',
-                              isYellow: true,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+              const LandingWidget(
+                  // child: Padding(
+                  //   padding: EdgeInsets.only(
+                  //       left: size.width * 0.105, right: size.width * 0.08),
+                  //   child: Column(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Text(
+                  //         'Connect',
+                  //         style: AppTextStyle.annotation
+                  //             .copyWith(color: Palette.bgBlack),
+                  //       ),
+                  //       const SizedBox(
+                  //         height: 18,
+                  //       ),
+                  //       const Column(
+                  //         children: [
+                  //           ConnectTiles(
+                  //             title: 'LinkedIn',
+                  //             subtitle: 'Work, work, work',
+                  //             connectType: 'EMAIL',
+                  //             value: 'razamohdsajjad@gmail.com',
+                  //           ),
+                  //           ConnectTiles(
+                  //             title: 'Behance',
+                  //             subtitle: 'Another POV at my projects',
+                  //             connectType: 'Phone',
+                  //             value: '+91 9818164010',
+                  //           ),
+                  //           ConnectTiles(
+                  //             title: 'Instagram',
+                  //             subtitle: 'My inactive social face',
+                  //             connectType: 'Phone',
+                  //             value: '+91 9818164010',
+                  //             hasConnectValue: false,
+                  //           ),
+                  //         ],
+                  //       ),
+                  //       SizedBox(
+                  //         height: size.height * 0.2,
+                  //       ),
+                  //       Text(
+                  //         'FOR RECRUITERS',
+                  //         style: AppTextStyle.annotation
+                  //             .copyWith(color: Palette.bgBlack),
+                  //       ),
+                  //       const SizedBox(
+                  //         height: 16,
+                  //       ),
+                  //       Row(
+                  //         children: [
+                  //           ReqAnimatedTileContainer(
+                  //             child1: Text(
+                  //               'If you like to hire me',
+                  //               style: GoogleFonts.syne(
+                  //                 // 'Syne',
+                  //                 fontSize: 64,
+                  //                 fontWeight: FontWeight.w600,
+                  //                 height: 1.0049999952,
+                  //                 color: Palette.notWhite,
+                  //               ),
+                  //             ),
+                  //             child2: ColoredBox(
+                  //               color: Palette.hYellow,
+                  //               child: Text(
+                  //                 'If you like to hire me',
+                  //                 style: GoogleFonts.syne(
+                  //                   // 'Syne',
+                  //                   fontSize: 64,
+                  //                   fontWeight: FontWeight.w600,
+                  //                   height: 1.0049999952,
+                  //                   color: Palette.bgBlack,
+                  //                 ),
+                  //               ),
+                  //             ),
+                  //           ),
+                  //           const Spacer(),
+                  //           const ReqAnimatedTileContainer(
+                  //             child1: CustomElevatedButton(
+                  //               label: 'Click here',
+                  //               isYellow: false,
+                  //             ),
+                  //             child2: CustomElevatedButton(
+                  //               label: 'Click here',
+                  //               isYellow: true,
+                  //             ),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+
                   ),
-                ),
-              ),
               const LandingWidget()
             ],
           ),
@@ -1094,7 +1098,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Text(
-                        'SKILLS',
+                        'CORE COMPETENCIES',
                         style: AppTextStyle.mobileAnnotation
                             .copyWith(color: Palette.bgBlack),
                       ),

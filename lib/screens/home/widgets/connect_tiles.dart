@@ -33,7 +33,7 @@ class ConnectTiles extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 12, right: 16),
+                padding: const EdgeInsets.only(right: 16),
                 child: Image.asset('assets/png/rectangle.png'),
               ),
               Expanded(

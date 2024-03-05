@@ -55,11 +55,9 @@ class FavoriteProjects extends StatelessWidget {
                         height: size.height * 0.653,
                         padding: const EdgeInsets.symmetric(vertical: 18),
                         width: double.infinity,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           color: Palette.grey,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10)),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         child: const ProjectCarouselWidget(),
                       ),
@@ -244,7 +242,7 @@ class _TitleWidgetState extends State<TitleWidget> {
                 topLeft: Radius.circular(10), topRight: Radius.circular(10)),
             color: isHovered ? Palette.hYellow : null),
         padding: EdgeInsets.symmetric(
-          horizontal: widget.size.width * 0.065,
+          horizontal: 48,
           vertical: widget.size.height * 0.0299,
         ),
         child: Row(
@@ -252,7 +250,7 @@ class _TitleWidgetState extends State<TitleWidget> {
           children: [
             Expanded(
               child: Text(
-                  isHovered ? 'Portfolio Case Studies' : 'My favorite projects',
+                  isHovered ? 'Portfolio Case Studies' : 'My Favorite Projects',
                   style: AppTextStyle.listExtended
                       .copyWith(color: isHovered ? Palette.bgBlack : null)),
             ),

@@ -108,7 +108,7 @@ class RecruiterNavbar extends StatelessWidget {
                     ),
                     NavButton(
                       label: MediaQuery.of(context).size.width > 600
-                          ? 'For requiters'
+                          ? 'For Recruiters'
                           : 'Recruiters',
                       onTap: () => scrollController
                           .jumpTo(scrollController.position.maxScrollExtent),

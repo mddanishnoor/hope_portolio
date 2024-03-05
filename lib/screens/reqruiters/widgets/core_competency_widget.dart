@@ -33,7 +33,7 @@ class CoreCompetency extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
                 child: Text(
-                  'SKILLS',
+                  'CORE COMPETENCIES',
                   style: AppTextStyle.annotation,
                 ),
               ),
@@ -318,7 +318,7 @@ class CoreCompetency extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 24, right: 24),
             child: Text(
-              'SKILLS',
+              'CORE COMPETENCIES',
               style: AppTextStyle.mobileAnnotation,
             ),
           ),

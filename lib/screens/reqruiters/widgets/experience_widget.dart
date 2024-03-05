@@ -28,100 +28,99 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
     return widget.size.width > 600 ? webWidget() : mobileWidget();
   }
 
-  LandingWidget webWidget() {
-    return LandingWidget(
-      child: Column(
-        children: [
-          const Spacer(),
-          Consumer<RecruitersProvider>(
-            builder: (c, provider, _) => MouseRegion(
-              onEnter: (event) => provider.toggleHide(true),
-              onExit: (event) => provider.toggleHide(false),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: widget.size.width * 0.105),
-                    child: Text(
-                      'EXPERIENCE ',
-                      style: AppTextStyle.annotation,
+  Widget webWidget() {
+    return Column(
+      children: [
+        SizedBox(
+          height: widget.size.height * 0.25,
+        ),
+        Consumer<RecruitersProvider>(
+          builder: (c, provider, _) => MouseRegion(
+            onEnter: (event) => provider.toggleHide(true),
+            onExit: (event) => provider.toggleHide(false),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: widget.size.width * 0.105),
+                  child: Text(
+                    'EXPERIENCE ',
+                    style: AppTextStyle.annotation,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Column(
+                  children: [
+                    ReqRunningAnimatedTileContainer(
+                      multiplier: 1.3,
+                      scrollOffset: provider.scrollOffset,
+                      child1: ExperienceTile(
+                          size: widget.size,
+                          timePeriod: 'NOW',
+                          position: 'UX/UI designer',
+                          location: 'GYMSAPIEN, New Delhi',
+                          subtext: ''),
+                      child2: YellowExperienceTile(
+                          size: widget.size,
+                          timePeriod: '7 months and counting',
+                          description:
+                              'Solved more problems than just design '),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Column(
-                    children: [
-                      ReqRunningAnimatedTileContainer(
-                        multiplier: 1.3,
-                        scrollOffset: provider.scrollOffset,
-                        child1: ExperienceTile(
-                            size: widget.size,
-                            timePeriod: 'NOW',
-                            position: 'UX/UI designer',
-                            location: 'GYMSAPIEN, New Delhi',
-                            subtext: ''),
-                        child2: YellowExperienceTile(
-                            size: widget.size,
-                            timePeriod: '7 months and counting',
-                            description:
-                                'Solved more problems than just design '),
-                      ),
-                      ReqRunningAnimatedTileContainer(
-                        multiplier: 1,
-                        scrollOffset: provider.scrollOffset,
-                        child1: ExperienceTile(
-                            size: widget.size,
-                            timePeriod: '2020-23',
-                            position: 'Freelance',
-                            location: 'India ',
-                            subtext: ''),
-                        child2: YellowExperienceTile(
-                            size: widget.size,
-                            timePeriod: '3 years of Freelance',
-                            description:
-                                'I learned to manage clients through dozens of projects'),
-                      ),
-                      ReqRunningAnimatedTileContainer(
-                        multiplier: 1.2,
-                        scrollOffset: provider.scrollOffset,
-                        child1: ExperienceTile(
-                            size: widget.size,
-                            timePeriod: '06-09/21',
-                            position: 'Graphic design intern',
-                            location: 'Blue oktopus, Delhi NCR ',
-                            subtext: ''),
-                        child2: YellowExperienceTile(
-                            size: widget.size,
-                            timePeriod: '3 months of Internship',
-                            description: 'Taught me how to be efficient'),
-                      ),
-                      ReqRunningAnimatedTileContainer(
-                        multiplier: 1.3,
-                        scrollOffset: provider.scrollOffset,
-                        child1: ExperienceTile(
-                            size: widget.size,
-                            timePeriod: '2019-21',
-                            position: 'Design head',
-                            location: 'IEEE, ADGITM, New Delhi ',
-                            subtext: ''),
-                        child2: YellowExperienceTile(
-                            size: widget.size,
-                            timePeriod: '1 year of leadership',
-                            description:
-                                'Mastering the art of Leadership and Collaboration'),
-                      ),
-                    ],
-                  )
-                ],
-              ),
+                    ReqRunningAnimatedTileContainer(
+                      multiplier: 1,
+                      scrollOffset: provider.scrollOffset,
+                      child1: ExperienceTile(
+                          size: widget.size,
+                          timePeriod: '2020-23',
+                          position: 'Freelance',
+                          location: 'India ',
+                          subtext: ''),
+                      child2: YellowExperienceTile(
+                          size: widget.size,
+                          timePeriod: '3 years of Freelance',
+                          description:
+                              'I learned to manage clients through dozens of projects'),
+                    ),
+                    ReqRunningAnimatedTileContainer(
+                      multiplier: 1.2,
+                      scrollOffset: provider.scrollOffset,
+                      child1: ExperienceTile(
+                          size: widget.size,
+                          timePeriod: '06-09/21',
+                          position: 'Graphic design intern',
+                          location: 'Blue oktopus, Delhi NCR ',
+                          subtext: ''),
+                      child2: YellowExperienceTile(
+                          size: widget.size,
+                          timePeriod: '3 months of Internship',
+                          description: 'Taught me how to be efficient'),
+                    ),
+                    ReqRunningAnimatedTileContainer(
+                      multiplier: 1.3,
+                      scrollOffset: provider.scrollOffset,
+                      child1: ExperienceTile(
+                          size: widget.size,
+                          timePeriod: '2019-21',
+                          position: 'Design head',
+                          location: 'IEEE, ADGITM, New Delhi ',
+                          subtext: ''),
+                      child2: YellowExperienceTile(
+                          size: widget.size,
+                          timePeriod: '1 year of leadership',
+                          description:
+                              'Mastering the art of Leadership and Collaboration'),
+                    ),
+                  ],
+                )
+              ],
             ),
           ),
-          const Spacer(),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
