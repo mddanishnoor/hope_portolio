@@ -165,7 +165,7 @@ class CustomNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
                       child: NavButton(
                         label:
-                            size.width > 600 ? 'For requiters' : 'Recruiters',
+                            size.width > 600 ? 'For recruiters' : 'Recruiters',
                         onTap: () => {
                           log('Recruiters presssed'),
                           scrollController.jumpTo(
@@ -470,7 +470,7 @@ class RecruiterNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
                       child: NavButton(
                         label:
-                            size.width > 600 ? 'For requiters' : 'Recruiters',
+                            size.width > 600 ? 'For recruiters' : 'Recruiters',
                         onTap: () => {
                           log('Recruiters presssed'),
                           scrollController.animateTo(
