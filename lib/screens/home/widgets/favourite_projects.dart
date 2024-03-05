@@ -209,7 +209,7 @@ class FavoriteProjects extends StatelessWidget {
                             enableInfiniteScroll: true,
                             reverse: false,
                             autoPlay: true,
-                            autoPlayInterval: const Duration(seconds: 2),
+                            autoPlayInterval: const Duration(seconds: 3),
                             autoPlayAnimationDuration:
                                 const Duration(seconds: 1),
                             autoPlayCurve: Curves.fastOutSlowIn,

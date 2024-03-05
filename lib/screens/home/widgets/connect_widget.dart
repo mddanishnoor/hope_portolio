@@ -147,7 +147,7 @@ class _RecruiterCardState extends State<RecruiterCard> {
                 left: widget.size.width * 0.105,
                 right: widget.size.width * 0.08),
             child: Text(
-              'FOR REQRUITERS',
+              'FOR REQUITERS',
               style: AppTextStyle.annotation.copyWith(color: Palette.hWhite),
             ),
           ),
@@ -348,7 +348,7 @@ class MobileConnect extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 40,
         ),
         Image.asset(
