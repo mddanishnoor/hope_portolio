@@ -130,9 +130,8 @@ class _WebCertificateState extends State<WebCertificate> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Certifications ',
-              style: AppTextStyle.annotation
-                  .copyWith(color: isHovered ? Palette.black : null),
+              'CERTIFICATIONS ',
+              style: AppTextStyle.annotation,
             ),
             const SizedBox(
               height: 10,
@@ -153,7 +152,9 @@ class _WebCertificateState extends State<WebCertificate> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Google UX Design\nProfessional Certificate',
+                      isHovered
+                          ? 'Yes I’m google\ncertified'
+                          : 'Google UX Design\nProfessional Certificate',
                       style: AppTextStyle.listExtended.copyWith(
                           fontSize: 45,
                           color: isHovered ? Palette.black : null),

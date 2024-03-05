@@ -200,17 +200,24 @@ class _RecruiterCardState extends State<RecruiterCard> {
                   child: Row(
                     children: [
                       Expanded(
-                        flex: 3,
-                        child: Text(
-                          widget.isRecruiter
-                              ? 'Here is my resume '
-                              : 'exp. education and rest',
-                          style: AppTextStyle.body.copyWith(
-                              color:
-                                  isHovered ? Palette.bgBlack : Palette.hWhite),
+                        // flex: 3,
+                        child: Row(
+                          children: [
+                            Text(
+                              widget.isRecruiter
+                                  ? 'Here is my resume '
+                                  : 'exp. education and rest',
+                              style: AppTextStyle.body.copyWith(
+                                  color: isHovered
+                                      ? Palette.bgBlack
+                                      : Palette.hWhite),
+                            ),
+                            isHovered && widget.isRecruiter
+                                ? const Text('For documentation purposes')
+                                : const Spacer(),
+                          ],
                         ),
                       ),
-                      const Spacer(),
                       CustomElevatedButton(
                         label: widget.isRecruiter
                             ? 'Download Resume'
