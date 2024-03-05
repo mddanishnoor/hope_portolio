@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
-import 'package:portfolio/core/helper/custom_scroll_physics.dart';
 import 'package:portfolio/core/router/routes.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
@@ -92,7 +91,6 @@ class LandingPage2Child extends StatelessWidget {
       child: ColoredBox(
         color: Palette.hYellow,
         child: SingleChildScrollView(
-          physics: const CustomPhysics(),
           controller: scrollController,
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -307,7 +305,6 @@ class LandingPage2Child extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Spacer(),
                     MouseRegion(
                       onEnter: (event) => size.width > 600
                           ? context.read<CursorProvider>().toggleMagnify(true)
@@ -343,7 +340,7 @@ class LandingPage2Child extends StatelessWidget {
                             height: 18,
                           ),
                           Text(
-                            '- MOHAMMAD ALI',
+                            '- MOHAMMAD SAJJAD RAZA',
                             style: size.width > 600
                                 ? AppTextStyle.annotation
                                     .copyWith(color: Palette.bgBlack)
@@ -353,7 +350,6 @@ class LandingPage2Child extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const Spacer(),
                   ],
                 ),
               ),
@@ -401,7 +397,7 @@ class LandingPage2Child extends StatelessWidget {
                               height: size.height * 0.2,
                             ),
                             Text(
-                              'FOR REQRUITERS',
+                              'FOR RECRUITERS',
                               style: AppTextStyle.annotation
                                   .copyWith(color: Palette.bgBlack),
                             ),
@@ -847,7 +843,7 @@ class MobileConnectYellow extends StatelessWidget {
               height: 62,
             ),
             Text(
-              'FOR REQRUITERS',
+              'FOR RECRUITERS',
               style: AppTextStyle.mobileAnnotation.copyWith(
                 color: Palette.bgBlack,
               ),

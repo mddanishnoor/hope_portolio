@@ -30,7 +30,7 @@ class ConnectTiles extends StatelessWidget {
         Expanded(
           flex: 5,
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 12, right: 16),
@@ -130,7 +130,8 @@ class ConnectTiles extends StatelessWidget {
                         const SizedBox(
                           height: 8.9,
                         ),
-                        Text(value, style: AppTextStyle.anotationBody),
+                        SelectableText(value,
+                            style: AppTextStyle.anotationBody),
                       ],
                     ),
                   ),
@@ -149,7 +150,7 @@ class ConnectTiles extends StatelessWidget {
                         const SizedBox(
                           height: 8.9,
                         ),
-                        Text(value,
+                        SelectableText(value,
                             style: AppTextStyle.anotationBody
                                 .copyWith(color: Palette.bgBlack)),
                       ],

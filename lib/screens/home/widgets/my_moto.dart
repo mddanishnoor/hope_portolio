@@ -41,11 +41,19 @@ class MyMoto extends StatelessWidget {
                 const SizedBox(
                   height: 18,
                 ),
-                Text(
-                  'DIFFERENT\nSTROKES FOR\nDIFFERENT\nFOLKS',
-                  textAlign: TextAlign.center,
-                  style: AppTextStyle.heading,
-                ),
+                RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                        text: 'DIFFERENT\nSTROKES ',
+                        style: AppTextStyle.heading,
+                        children: [
+                          TextSpan(
+                            text: 'FOR',
+                            style: AppTextStyle.heading
+                                .copyWith(color: Palette.hYellow),
+                          ),
+                          const TextSpan(text: '\nDIFFERENT\nFOLKS')
+                        ])),
                 const SizedBox(
                   height: 18,
                 ),
@@ -73,13 +81,7 @@ class MobileMyMoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LandingWidget(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                'assets/png/moto_bg_mobile.png',
-              ),
-              fit: BoxFit.fitWidth)),
-      height: MediaQuery.of(context).size.height * 0.8,
+      height: MediaQuery.of(context).size.height * 0.6,
       child: Padding(
         padding: const EdgeInsets.only(left: 24, right: 24),
         child: Column(

@@ -33,7 +33,7 @@ class CoreCompetency extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
                 child: Text(
-                  'What I Do',
+                  'SKILLS',
                   style: AppTextStyle.annotation,
                 ),
               ),

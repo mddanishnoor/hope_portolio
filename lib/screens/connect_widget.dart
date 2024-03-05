@@ -107,7 +107,7 @@ class ConnectWidget extends StatelessWidget {
               height: size.height * 0.2,
             ),
             Text(
-              'FOR REQRUITERS',
+              'FOR RECRUITERS',
               style: AppTextStyle.annotation,
             ),
             const SizedBox(
