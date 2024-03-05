@@ -40,10 +40,18 @@
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
   <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
     .container {
       width: 100vw;
       height: 100vh;
       display: flex;
+      color: #141312;
+      background-color: #141312;
       /* Default Axis is X*/
       justify-content: center;
       /* Main Axis */
@@ -52,14 +60,14 @@
     }
 
     .indicator {
-      width: 50vw;
+      width: 10vw;
     }
   </style>
 </head>
 
 <body style="overflow: hidden">
   <div id="loading_indicator" class="container">
-    <img class="indicator" src="./assets/png/web_DIgi_website.gif" />
+    <img class="indicator" src="loader.gif" />
   </div>
   <script>
     window.addEventListener('load', function (ev) {
@@ -69,21 +77,33 @@
           serviceWorkerVersion: serviceWorkerVersion,
         },
         onEntrypointLoaded: function (engineInitializer) {
-          engineInitializer.initializeEngine().then(function (appRunner) {
-            appRunner.runApp();
+          new Promise(function (resolve) {
+            setTimeout(function () {
+              var loadingIndicator = document.getElementById("loading_indicator");
+              if (loadingIndicator) {
+                loadingIndicator.remove();
+              }
+              resolve();
+            }, 4000);
+          }).then(function () {
+            // Call engineInitializer only after 10 seconds
+            engineInitializer.initializeEngine().then(function (appRunner) {
+              appRunner.runApp();
+            });
           });
         }
       });
     });
+
   </script>
-  window.onload = function () {
+  <!-- window.onload = function () {
   setTimeout(function () {
   var loadingIndicator = document.getElementById("loading_indicator");
   if (loadingIndicator) {
   loadingIndicator.remove();
   }
   }, 10000);
-  };
+  }; -->
 </body>
 
 </html>
