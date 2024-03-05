@@ -84,7 +84,7 @@ class RecruiterNavbar extends StatelessWidget {
                     ),
                     NavButton(
                       label: 'Project',
-                      onTap: () => scrollController.jumpTo(h * 5.2),
+                      onTap: () => scrollController.jumpTo(h * 4.8),
                       isActive: controller.scrollOffset >= activeHeight(h, 5) &&
                           controller.scrollOffset < (activeHeight(h, 6)),
                     ),
