@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
@@ -45,30 +46,42 @@ class Connect extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    ConnectTiles(
-                      isProject: isProject,
-                      isRecruiter: isRecruiter,
-                      title: 'LinkedIn',
-                      subtitle: 'Work, work, work',
-                      connectType: 'EMAIL',
-                      value: 'razamohdsajjad@gmail.com',
+                    GestureDetector(
+                      onTap: () => launchUrl(Uri.parse(
+                          'https://www.linkedin.com/in/mohammad-sajjad-raza-82b906180/')),
+                      child: ConnectTiles(
+                        isProject: isProject,
+                        isRecruiter: isRecruiter,
+                        title: 'LinkedIn',
+                        subtitle: 'Work, work, work',
+                        connectType: 'EMAIL',
+                        value: 'razamohdsajjad@gmail.com',
+                      ),
                     ),
-                    ConnectTiles(
-                      isProject: isProject,
-                      isRecruiter: isRecruiter,
-                      title: 'Behance',
-                      subtitle: 'Another POV at my projects',
-                      connectType: 'Phone',
-                      value: '+91 9818164010',
+                    GestureDetector(
+                      onTap: () => launchUrl(
+                          Uri.parse('https://www.behance.net/sajjadraza')),
+                      child: ConnectTiles(
+                        isProject: isProject,
+                        isRecruiter: isRecruiter,
+                        title: 'Behance',
+                        subtitle: 'Another POV at my projects',
+                        connectType: 'Phone',
+                        value: '+91 9818164010',
+                      ),
                     ),
-                    ConnectTiles(
-                      isProject: isProject,
-                      isRecruiter: isRecruiter,
-                      title: 'Instagram',
-                      subtitle: 'My inactive social face',
-                      connectType: 'Phone',
-                      value: '+91 9818164010',
-                      hasConnectValue: false,
+                    GestureDetector(
+                      onTap: () => launchUrl(Uri.parse(
+                          'https://www.instagram.com/_akahope?igsh=dWlrZGs1cWI3c2oz')),
+                      child: ConnectTiles(
+                        isProject: isProject,
+                        isRecruiter: isRecruiter,
+                        title: 'Instagram',
+                        subtitle: 'My inactive social face',
+                        connectType: 'Phone',
+                        value: '+91 9818164010',
+                        hasConnectValue: false,
+                      ),
                     ),
                   ],
                 ),
