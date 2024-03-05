@@ -2,10 +2,8 @@ import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/pallete.dart';
-import 'package:portfolio/core/router/routes.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/project_provider.dart';
@@ -74,31 +72,30 @@ class ProjectNavbar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     NavButton(
-                      label: 'Hope',
-                      onTap: () => context.goNamed(Routes.homeScreen),
-                      isActive: controller.scrollOffset >= activeHeight(h, 1) &&
-                          controller.scrollOffset < activeHeight(h, 2.7),
+                      label: 'UX/UI',
+                      onTap: () => scrollController.jumpTo(h),
+                      isActive: controller.scrollOffset >=
+                              activeHeight(h, 2.7) &&
+                          controller.scrollOffset < activeHeight(h * 5.39, 1),
                     ),
                     const SizedBox(
                       width: 5,
                     ),
                     NavButton(
-                      label: 'UX/UI',
-                      onTap: () => scrollController.jumpTo(h),
-                      isActive:
-                          controller.scrollOffset >= activeHeight(h, 2.7) &&
-                              controller.scrollOffset <
-                                  (activeHeight(h, 5) - h * 0.2),
+                      label: 'Branding',
+                      onTap: () => scrollController.jumpTo(h * 4.55),
+                      isActive: controller.scrollOffset >=
+                              activeHeight(h * 5.4, 1) &&
+                          controller.scrollOffset < activeHeight(h * 6.99, 1),
                     ),
                     const SizedBox(
                       width: 5,
                     ),
                     NavButton(
                       label: 'Misc',
-                      onTap: () =>
-                          scrollController.jumpTo((h * 5.6) - (h * 0.3)),
+                      onTap: () => scrollController.jumpTo(h * 5.3),
                       isActive:
-                          controller.scrollOffset >= activeHeight(h * 5, 1) &&
+                          controller.scrollOffset >= activeHeight(h * 7, 1) &&
                               controller.scrollOffset <
                                   scrollController.position.maxScrollExtent -
                                       (h * 1.19),
@@ -110,7 +107,7 @@ class ProjectNavbar extends StatelessWidget {
                       label: 'Connect',
                       onTap: () => scrollController.jumpTo(
                           scrollController.position.maxScrollExtent -
-                              (h * 1.1)),
+                              (h * 1.05)),
                       isActive: controller.scrollOffset >=
                               (scrollController.position.maxScrollExtent -
                                   (h * 1.2)) &&
