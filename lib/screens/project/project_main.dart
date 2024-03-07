@@ -628,92 +628,101 @@ class WebMiscThumbnailWidget extends StatelessWidget {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: webMiscProjects.projects.length,
-              itemBuilder: (context, index) => ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.65,
-                  height: MediaQuery.of(context).size.height * 0.70,
-                  decoration: BoxDecoration(
-                    // border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  margin: const EdgeInsets.only(top: 12),
-                  child: Stack(
-                    children: [
-                      WebThumbnailAssetWidget(
-                        media: webMiscProjects.projects[index].media,
-                        width: MediaQuery.of(context).size.width * 0.65,
-                        height: MediaQuery.of(context).size.height * 0.70,
-                      ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Container(
+              itemBuilder: (context, index) => InkWell(
+                onTap: () => {
+                  context.read<ProjectProvider>().updateProjectIndex(
+                      webMiscProjects.projects[index].index),
+                  showDialog(
+                      context: context,
+                      builder: (context) => const ProjectViewer())
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.65,
+                    height: MediaQuery.of(context).size.height * 0.70,
+                    decoration: BoxDecoration(
+                      // border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    margin: const EdgeInsets.only(top: 12),
+                    child: Stack(
+                      children: [
+                        WebThumbnailAssetWidget(
+                          media: webMiscProjects.projects[index].media,
+                          width: MediaQuery.of(context).size.width * 0.65,
                           height: MediaQuery.of(context).size.height * 0.70,
-                          width:
-                              (MediaQuery.of(context).size.width * 0.65) * 0.5,
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 81),
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                  colors: [
-                                Colors.black.withOpacity(0.56),
-                                Colors.transparent
-                              ])),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                webMiscProjects.projects[index].subCategory ??
-                                    '',
-                                style: GoogleFonts.archivo(
-                                    fontSize: 12, color: Palette.hWhite),
-                              ),
-                              const SizedBox(
-                                height: 6,
-                              ),
-                              Text(
-                                webMiscProjects.projects[index].title,
-                                style: AppTextStyle.listExtended
-                                    .copyWith(fontSize: 47.94),
-                              ),
-                              const SizedBox(
-                                height: 6,
-                              ),
-                              Text(
-                                  webMiscProjects.projects[index].subtext
-                                      .split('-')
-                                      .join('\n • '),
-                                  style: GoogleFonts.archivo(
-                                      fontSize: 17.99, color: Palette.white)),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              InkWell(
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 4, horizontal: 8),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(6),
-                                    border: Border.all(color: Palette.hWhite),
-                                  ),
-                                  child: Text(
-                                    'View case study >>',
-                                    style: AppTextStyle.buttonTextStyle
-                                        .copyWith(
-                                            color: Palette.hWhite,
-                                            fontSize: 12),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
                         ),
-                      )
-                    ],
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.70,
+                            width: (MediaQuery.of(context).size.width * 0.65) *
+                                0.5,
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 81),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.centerLeft,
+                                    end: Alignment.centerRight,
+                                    colors: [
+                                  Colors.black.withOpacity(0.56),
+                                  Colors.transparent
+                                ])),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  webMiscProjects.projects[index].subCategory ??
+                                      '',
+                                  style: GoogleFonts.archivo(
+                                      fontSize: 12, color: Palette.hWhite),
+                                ),
+                                const SizedBox(
+                                  height: 6,
+                                ),
+                                Text(
+                                  webMiscProjects.projects[index].title,
+                                  style: AppTextStyle.listExtended
+                                      .copyWith(fontSize: 47.94),
+                                ),
+                                const SizedBox(
+                                  height: 6,
+                                ),
+                                Text(
+                                    webMiscProjects.projects[index].subtext
+                                        .split('-')
+                                        .join('\n • '),
+                                    style: GoogleFonts.archivo(
+                                        fontSize: 17.99, color: Palette.white)),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                InkWell(
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 4, horizontal: 8),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(6),
+                                      border: Border.all(color: Palette.hWhite),
+                                    ),
+                                    child: Text(
+                                      'View case study >>',
+                                      style: AppTextStyle.buttonTextStyle
+                                          .copyWith(
+                                              color: Palette.hWhite,
+                                              fontSize: 12),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
