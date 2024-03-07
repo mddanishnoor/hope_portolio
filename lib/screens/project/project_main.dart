@@ -306,9 +306,6 @@ class WebProjectThumbnailWidget extends StatelessWidget {
                               child: Container(
                                 height:
                                     MediaQuery.of(context).size.height * 0.85,
-                                width:
-                                    (MediaQuery.of(context).size.width * 0.85) *
-                                        0.5,
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 20, horizontal: 81),
                                 decoration: BoxDecoration(
