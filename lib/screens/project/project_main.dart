@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/helper/custom_scroll_physics.dart';
+import 'package:portfolio/screens/project/project_modal.dart';
 import 'package:provider/provider.dart';
 // import 'package:video_player/video_player.dart';
 import '../../core/constant/theme/pallete.dart';
@@ -285,86 +286,97 @@ class WebProjectThumbnailWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: project.projects
-                .map((e) => ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.85,
-                        height: MediaQuery.of(context).size.height * 0.85,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        margin: const EdgeInsets.only(top: 12),
-                        child: Stack(
-                          children: [
-                            WebThumbnailAssetWidget(
-                              media: e.media,
-                              width: MediaQuery.of(context).size.width * 0.85,
-                              height: MediaQuery.of(context).size.height * 0.85,
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
+                .map((e) => InkWell(
+                      onTap: () => showDialog(
+                          context: context,
+                          builder: (context) => ProjectViewer(
+                                data: digiTandoor,
+                              )),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.85,
+                          height: MediaQuery.of(context).size.height * 0.85,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          margin: const EdgeInsets.only(top: 12),
+                          child: Stack(
+                            children: [
+                              WebThumbnailAssetWidget(
+                                media: e.media,
+                                width: MediaQuery.of(context).size.width * 0.85,
                                 height:
                                     MediaQuery.of(context).size.height * 0.85,
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 81),
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                        colors: [
-                                      Colors.black.withOpacity(0.56),
-                                      Colors.transparent
-                                    ])),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      e.subCategory ?? '',
-                                      style: GoogleFonts.archivo(
-                                          fontSize: 12, color: Palette.hWhite),
-                                    ),
-                                    const SizedBox(
-                                      height: 6,
-                                    ),
-                                    Text(
-                                      e.title,
-                                      style: AppTextStyle.listExtended,
-                                    ),
-                                    const SizedBox(
-                                      height: 6,
-                                    ),
-                                    Text(e.subtext.split('-').join('\n • '),
-                                        style: GoogleFonts.archivo(
-                                            fontSize: 24,
-                                            color: Palette.white)),
-                                    const SizedBox(
-                                      height: 16,
-                                    ),
-                                    InkWell(
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 4, horizontal: 8),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(6),
-                                          border:
-                                              Border.all(color: Palette.hWhite),
-                                        ),
-                                        child: Text(
-                                          'View case study >>',
-                                          style: AppTextStyle.buttonTextStyle
-                                              .copyWith(color: Palette.hWhite),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
                               ),
-                            )
-                          ],
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.85,
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 20, horizontal: 81),
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                          begin: Alignment.centerLeft,
+                                          end: Alignment.centerRight,
+                                          colors: [
+                                        Colors.black.withOpacity(0.56),
+                                        Colors.transparent
+                                      ])),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        e.subCategory ?? '',
+                                        style: GoogleFonts.archivo(
+                                            fontSize: 12,
+                                            color: Palette.hWhite),
+                                      ),
+                                      const SizedBox(
+                                        height: 6,
+                                      ),
+                                      Text(
+                                        e.title,
+                                        style: AppTextStyle.listExtended,
+                                      ),
+                                      const SizedBox(
+                                        height: 6,
+                                      ),
+                                      Text(e.subtext.split('-').join('\n • '),
+                                          style: GoogleFonts.archivo(
+                                              fontSize: 24,
+                                              color: Palette.white)),
+                                      const SizedBox(
+                                        height: 16,
+                                      ),
+                                      InkWell(
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 4, horizontal: 8),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                            border: Border.all(
+                                                color: Palette.hWhite),
+                                          ),
+                                          child: Text(
+                                            'View case study >>',
+                                            style: AppTextStyle.buttonTextStyle
+                                                .copyWith(
+                                                    color: Palette.hWhite),
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ))
