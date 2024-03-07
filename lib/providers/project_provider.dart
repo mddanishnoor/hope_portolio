@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProjectProvider extends ChangeNotifier {
+  int currentProjectIndex = 0;
   Offset position = const Offset(0, 0);
   // Offset cursorPosition = const Offset(0, 0);
   double scrollOffset = 0;
@@ -12,6 +13,11 @@ class ProjectProvider extends ChangeNotifier {
 
   updatePosition(Offset pos) {
     position = pos;
+    notifyListeners();
+  }
+
+  updateProjectIndex(int index) {
+    currentProjectIndex = index;
     notifyListeners();
   }
 

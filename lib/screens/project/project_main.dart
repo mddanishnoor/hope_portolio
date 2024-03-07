@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
 import 'package:portfolio/core/helper/custom_scroll_physics.dart';
 import 'package:portfolio/screens/project/project_modal.dart';
-import 'package:provider/provider.dart';
-// import 'package:video_player/video_player.dart';
 import '../../core/constant/theme/pallete.dart';
 import '../../core/constant/theme/styles.dart';
 import '../../core/router/routes.dart';
@@ -287,11 +287,14 @@ class WebProjectThumbnailWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: project.projects
                 .map((e) => InkWell(
-                      onTap: () => showDialog(
-                          context: context,
-                          builder: (context) => ProjectViewer(
-                                data: digiTandoor,
-                              )),
+                      onTap: () => {
+                        context
+                            .read<ProjectProvider>()
+                            .updateProjectIndex(e.index),
+                        showDialog(
+                            context: context,
+                            builder: (context) => const ProjectViewer())
+                      },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
@@ -874,22 +877,26 @@ class _ThumbnailAssetWidgetState extends State<ThumbnailAssetWidget> {
 List<CategoryModel> webProjectList = [
   CategoryModel(category: 'UI/UX', projects: [
     ProjectModel(
+        index: 0,
         media: 'assets/png/web_DIgi_website.gif',
         title: 'Digitandoor',
         subCategory: 'Building An Online Presence For\nAn Advertisement Firm.',
         subtext: '-Landing Page-Responsive-Copywriting-Illustration'),
     ProjectModel(
+        index: 1,
         media: 'assets/png/web_sarathi_parivahan.png',
         title: 'Sarathi\nParivahan',
         subtext: '-Website-Information Architecture-UX/UI-Research',
         subCategory:
             'Reimagining The Experience Of\nApplication Process For Drivers License'),
     ProjectModel(
+        index: 2,
         media: 'assets/png/web_thumbnail_msme.png',
         title: 'M.S.M.E',
         subtext: '-UX Research-Prototyping-Style guide-Design Facilitation',
         subCategory: 'Payment And Collection\nDashboard For Accountants'),
     ProjectModel(
+        index: 3,
         media: 'assets/png/web_thumbnail_bus_easy.png',
         title: 'Bus Easy',
         subtext: '-App Design-User Research-Prototyping-User testing',
@@ -897,6 +904,7 @@ List<CategoryModel> webProjectList = [
   ]),
   CategoryModel(category: 'BRANDING', projects: [
     ProjectModel(
+        index: 4,
         media: 'assets/png/web_Digi_branding.gif',
         title: 'Digitandoor',
         subtext: 'Landing Page-Logo-Brand Merchandise-Illustrations',
@@ -907,22 +915,26 @@ List<CategoryModel> webProjectList = [
 CategoryModel webMiscProjects =
     CategoryModel(category: 'MISCELLANEOUS', projects: [
   ProjectModel(
+      index: 5,
       media: 'assets/png/web_thumbnail_Dots.png',
       subCategory: 'Game Design',
       title: 'Dots',
       subtext: '-Game Design-App Design-Prototyping'),
   ProjectModel(
+      index: 6,
       media: 'assets/png/web_thumbnail_Ways_of_death.png',
       subCategory: 'Graphic Design',
       title: 'Ways of Death',
       subtext: '-Graphic Design-Photo Manipulation-Poster Design'),
   ProjectModel(
+      index: 7,
       media: 'assets/png/web_thumbnail_7_Deadly_Sins.png',
       subCategory: 'Graphic Design',
       title: '7 Deadly Sins',
       subtext:
           '-Graphic Design-Continuous Line Art-Colour Theory-Poster Design'),
   ProjectModel(
+      index: 8,
       media: 'assets/png/web_thumbnail_Paper_town.png',
       subCategory: 'Graphic Design',
       title: 'Paper Town',
@@ -932,25 +944,30 @@ CategoryModel webMiscProjects =
 List<CategoryModel> projectList = [
   CategoryModel(category: 'UI/UX', projects: [
     ProjectModel(
+        index: 0,
         media: 'assets/png/mobile_DIgi_website.gif',
         title: 'Digitandoor',
         subtext: 'Building an online presence for an advertisement firm.'),
     ProjectModel(
+        index: 1,
         media: 'assets/png/mobile_sarathi.png',
         title: 'Sarathi\nParivahan',
         subtext:
             'Reimagining the experience of application process for drivers license'),
     ProjectModel(
+        index: 2,
         media: 'assets/png/mobile_msme.png',
         title: 'M.S.M.E',
         subtext: 'Payment and collection dashboard for accountants'),
     ProjectModel(
+        index: 3,
         media: 'assets/png/mobile_bus_easy.png',
         title: 'Bus Easy',
         subtext: 'User centric approach to bus navigation'),
   ]),
   CategoryModel(category: 'BRANDING', projects: [
     ProjectModel(
+        index: 4,
         media: 'assets/png/mobile_Digi_branding.gif',
         title: 'Digitandoor',
         subtext: 'Building an online presence for an advertisement firm.'),
@@ -959,21 +976,25 @@ List<CategoryModel> projectList = [
 
 CategoryModel miscProjects = CategoryModel(category: 'MISC', projects: [
   ProjectModel(
+      index: 5,
       media: 'assets/png/dot_mobile.png',
       subCategory: 'Game Design',
       title: 'Dots',
       subtext: 'Reimagining childhood game in the digital age'),
   ProjectModel(
+      index: 6,
       media: 'assets/png/mobile_ways_of_death.png',
       subCategory: 'Graphic Design',
       title: 'Ways of Death',
       subtext: 'Symbolic portrayal of kinds of human demise.'),
   ProjectModel(
+      index: 7,
       media: 'assets/png/mobile_sins.png',
       subCategory: 'Graphic Design',
       title: '7 Deadly Sins',
       subtext: 'Graphical portrayal of seven deadly sins'),
   ProjectModel(
+      index: 8,
       media: 'assets/png/paper_town_mobile.png',
       subCategory: 'Graphic Design',
       title: 'Paper Town',
@@ -994,10 +1015,12 @@ class ProjectModel {
   String title;
   String subtext;
   String? subCategory;
+  int index;
   ProjectModel({
-    this.subCategory,
     required this.media,
     required this.title,
     required this.subtext,
+    this.subCategory,
+    required this.index,
   });
 }
