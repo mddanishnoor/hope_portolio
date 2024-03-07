@@ -75,7 +75,7 @@ class ProjectNavbar extends StatelessWidget {
                       label: 'UX/UI',
                       onTap: () => scrollController.jumpTo(h),
                       isActive: controller.scrollOffset >=
-                              activeHeight(h, 2.7) &&
+                              activeHeight(h * 0.5, 1) &&
                           controller.scrollOffset < activeHeight(h * 5.39, 1),
                     ),
                     const SizedBox(
