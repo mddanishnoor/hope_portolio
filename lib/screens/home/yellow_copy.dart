@@ -49,11 +49,9 @@ class YellowCopy extends StatelessWidget {
               scrollController2: scrollController2,
             ));
       } else {
-        return MouseFollower(
-            position: controller.position,
-            radius: controller.fullMagnify ? size.height : 0,
-            width: double.infinity,
-            height: 60,
+        return AnimatedContainer(
+            duration: const Duration(milliseconds: 150),
+            height: controller.fullMagnify ? size.height : 0,
             child: LandingPage2Child(
               scrollController: scrollController,
               size: size,

@@ -27,9 +27,9 @@ class HomeScreen extends StatelessWidget {
             child: NotificationListener<ScrollNotification>(
               onNotification: (notification) {
                 controller.updateScrollOffset(scrollController2.offset);
-                if (size.width > 600) {
-                  scrollController.jumpTo(scrollController2.offset);
-                }
+                // if (size.width > 600) {
+                scrollController.jumpTo(scrollController2.offset);
+                // }
                 return true;
               },
               child: PrimaryScrollController(
@@ -37,19 +37,25 @@ class HomeScreen extends StatelessWidget {
                 child: Stack(
                   children: [
                     BlackCopy(size: size, scrollController2: scrollController2),
-                    YellowCopy(
-                      scrollController: scrollController,
-                      scrollController2: scrollController2,
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: YellowCopy(
+                        scrollController: scrollController,
+                        scrollController2: scrollController2,
+                      ),
                     ),
                     if ((scrollController2.hasClients &&
                             controller.scrollOffset >= (size.height / 2)) ||
                         size.width <= 600)
                       Align(
                         alignment: Alignment.bottomCenter,
-                        child: CustomNavbar(
-                          scrollController2,
-                          secondaryScrollController: scrollController,
-                        ),
+                        child: size.width <= 600
+                            ? MobileNavbar(scrollController2,
+                                secondaryScrollController: scrollController)
+                            : CustomNavbar(
+                                scrollController2,
+                                secondaryScrollController: scrollController,
+                              ),
                       ),
                   ],
                 ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class CursorProvider extends ChangeNotifier {
@@ -21,6 +23,7 @@ class CursorProvider extends ChangeNotifier {
   // }
 
   toggleMagnify(bool val, {bool? fullScreen}) {
+    log("magnify:$val \nfullScreen:$fullScreen");
     if (fullScreen != null) {
       fullMagnify = fullScreen;
       // cursorPosition = const Offset(1, 1);
