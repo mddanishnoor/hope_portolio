@@ -356,22 +356,19 @@ class WebProjectThumbnailWidget extends StatelessWidget {
                                       const SizedBox(
                                         height: 16,
                                       ),
-                                      InkWell(
-                                        child: Container(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 4, horizontal: 8),
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(6),
-                                            border: Border.all(
-                                                color: Palette.hWhite),
-                                          ),
-                                          child: Text(
-                                            'View case study >>',
-                                            style: AppTextStyle.buttonTextStyle
-                                                .copyWith(
-                                                    color: Palette.hWhite),
-                                          ),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 4, horizontal: 8),
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                          border:
+                                              Border.all(color: Palette.hWhite),
+                                        ),
+                                        child: Text(
+                                          'View case study >>',
+                                          style: AppTextStyle.buttonTextStyle
+                                              .copyWith(color: Palette.hWhite),
                                         ),
                                       )
                                     ],
@@ -700,21 +697,19 @@ class WebMiscThumbnailWidget extends StatelessWidget {
                                 const SizedBox(
                                   height: 16,
                                 ),
-                                InkWell(
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 4, horizontal: 8),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(6),
-                                      border: Border.all(color: Palette.hWhite),
-                                    ),
-                                    child: Text(
-                                      'View case study >>',
-                                      style: AppTextStyle.buttonTextStyle
-                                          .copyWith(
-                                              color: Palette.hWhite,
-                                              fontSize: 12),
-                                    ),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 4, horizontal: 8),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(6),
+                                    border: Border.all(color: Palette.hWhite),
+                                  ),
+                                  child: Text(
+                                    'View case study >>',
+                                    style: AppTextStyle.buttonTextStyle
+                                        .copyWith(
+                                            color: Palette.hWhite,
+                                            fontSize: 12),
                                   ),
                                 )
                               ],
