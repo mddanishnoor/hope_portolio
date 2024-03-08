@@ -11,6 +11,7 @@ import '../../core/router/routes.dart';
 import '../../core/widgets/landing_widget.dart';
 import '../../providers/project_provider.dart';
 import '../home/widgets/connect_widget.dart';
+import '../home/widgets/visit_destop.dart';
 import '../home/yellow_copy.dart';
 
 class ProjectMainCopy extends StatelessWidget {
@@ -22,17 +23,19 @@ class ProjectMainCopy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        primary: true,
-        physics: const CustomPhysics(),
-        child: Consumer<ProjectProvider>(
-          builder: (context, provider, child) {
-            return Column(children: [
-              SajjadRazaWidget(size: size),
-              ProjectList(size: size),
-            ]);
-          },
-        ));
+    return size.width < 600
+        ? const VisitDesktop()
+        : SingleChildScrollView(
+            primary: true,
+            physics: const CustomPhysics(),
+            child: Consumer<ProjectProvider>(
+              builder: (context, provider, child) {
+                return Column(children: [
+                  SajjadRazaWidget(size: size),
+                  ProjectList(size: size),
+                ]);
+              },
+            ));
   }
 }
 
