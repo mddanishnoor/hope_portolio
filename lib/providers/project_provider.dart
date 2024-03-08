@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 
 class ProjectProvider extends ChangeNotifier {
@@ -18,7 +21,15 @@ class ProjectProvider extends ChangeNotifier {
 
   updateProjectIndex(int index) {
     currentProjectIndex = index;
+    var cancel = BotToast.showCustomLoading(
+      toastBuilder: (cancelFunc) => Container(
+        child: Center(
+          child: Image.asset('assets/png/loader.gif'),
+        ),
+      ),
+    );
     notifyListeners();
+    Timer(const Duration(seconds: 2), () => cancel());
   }
 
   // updateCursorPosition(Offset pos) {

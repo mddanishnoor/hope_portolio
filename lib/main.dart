@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/router/routes.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
@@ -17,6 +18,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final botToastBuilder = BotToastInit();
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (c) => CursorProvider()),
@@ -26,6 +28,10 @@ class MainApp extends StatelessWidget {
         builder: (context, _) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
+            builder: (context, child) {
+              child = botToastBuilder(context, child);
+              return child;
+            },
             routerConfig: router,
           );
         });

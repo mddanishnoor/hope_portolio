@@ -50,10 +50,7 @@ class _AdvocateWidgetState extends State<AdvocateWidget> {
               return MouseRegion(
                 onEnter: (event) => provider.toggleHide(true),
                 onExit: (event) => provider.toggleHide(false),
-                child: const Hero(
-                  tag: 'hope',
-                  child: HopeWidget(),
-                ),
+                child: const HopeWidget(),
               );
             }),
           ),
@@ -176,19 +173,16 @@ class _MobileAdvocateWidgetState extends State<MobileAdvocateWidget> {
             Positioned(
               left: widget.size.height * 0.0241,
               top: widget.size.height * 0.04,
-              child: Hero(
-                tag: 'hope',
-                child: GestureDetector(
-                  onTap: () => context.goNamed(Routes.homeScreen),
-                  child: Text(
-                    'HOPE',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.bebasNeue(
-                      fontSize: 21.961,
-                      fontWeight: FontWeight.w400,
-                      height: 0.8599999547,
-                      color: Palette.white,
-                    ),
+              child: GestureDetector(
+                onTap: () => context.goNamed(Routes.homeScreen),
+                child: Text(
+                  'HOPE',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.bebasNeue(
+                    fontSize: 21.961,
+                    fontWeight: FontWeight.w400,
+                    height: 0.8599999547,
+                    color: Palette.white,
                   ),
                 ),
               ),

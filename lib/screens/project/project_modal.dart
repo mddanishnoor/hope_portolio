@@ -334,6 +334,7 @@ final List<List<String>> viewerList = [
   msme,
   bus,
   bd,
+  mDots,
   mWTd,
   mSins,
   mTown
@@ -418,7 +419,7 @@ final List<String> bus = [
 ];
 
 final List<String> mDots = [
-  'assets/png/m_dots_01.png',
+  'assets/png/m_dot_01.png',
 ];
 
 final List<String> mWTd = [
@@ -448,12 +449,12 @@ final List<String> mSins = [
 ];
 
 final List<String> mTown = [
-  'assets/png/m_town_01.png',
-  'assets/png/m_town_02.png',
-  'assets/png/m_town_03.png',
-  'assets/png/m_town_04.png',
-  'assets/png/m_town_05.png',
-  'assets/png/m_town_06.png',
-  'assets/png/m_town_07.png',
-  'assets/png/m_town_08.png',
+  'assets/png/m_town_01.jpg',
+  'assets/png/m_town_02.jpg',
+  'assets/png/m_town_03.jpg',
+  'assets/png/m_town_04.jpg',
+  'assets/png/m_town_05.jpg',
+  'assets/png/m_town_06.jpg',
+  'assets/png/m_town_07.jpg',
+  'assets/png/m_town_08.jpg',
 ];

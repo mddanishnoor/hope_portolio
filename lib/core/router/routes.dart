@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:go_router/go_router.dart';
 import '../../screens/home/home.dart';
 import '../../screens/project/projects_screen.dart';
@@ -9,7 +10,9 @@ class Routes {
   static const requiters = 'recruiter';
 }
 
-final router = GoRouter(routes: [
+final router = GoRouter(observers: [
+  BotToastNavigatorObserver()
+], routes: [
   GoRoute(
       path: Routes.homeScreen,
       name: Routes.homeScreen,

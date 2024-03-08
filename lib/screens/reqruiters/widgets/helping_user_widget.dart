@@ -35,19 +35,16 @@ class HelpingUserWidget extends StatelessWidget {
           Positioned(
             left: size.height * 0.0241,
             top: size.height * 0.063,
-            child: Hero(
-              tag: 'hope',
-              child: GestureDetector(
-                onTap: () => {},
-                child: Text(
-                  'HOPE',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.bebasNeue(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w400,
-                    height: 0.8599999547,
-                    color: Palette.white,
-                  ),
+            child: GestureDetector(
+              onTap: () => {},
+              child: Text(
+                'HOPE',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.bebasNeue(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w400,
+                  height: 0.8599999547,
+                  color: Palette.white,
                 ),
               ),
             ),
@@ -107,17 +104,14 @@ class HelpingUserWidget extends StatelessWidget {
             top: size.height * 0.04,
             child: GestureDetector(
               onTap: () => context.goNamed(Routes.homeScreen),
-              child: Hero(
-                tag: 'hope',
-                child: Text(
-                  'HOPE',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.bebasNeue(
-                    fontSize: 21.961,
-                    fontWeight: FontWeight.w400,
-                    height: 0.8599999547,
-                    color: Palette.white,
-                  ),
+              child: Text(
+                'HOPE',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.bebasNeue(
+                  fontSize: 21.961,
+                  fontWeight: FontWeight.w400,
+                  height: 0.8599999547,
+                  color: Palette.white,
                 ),
               ),
             ),
