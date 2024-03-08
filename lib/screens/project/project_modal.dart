@@ -272,7 +272,7 @@ class MoreProjectTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 11),
       child: InkWell(
-        onTap:
+        onTap: () =>
             context.read<ProjectProvider>().updateProjectIndex(project.index),
         child: Stack(
           children: [
