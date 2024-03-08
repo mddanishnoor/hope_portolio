@@ -56,22 +56,36 @@ class ProjectViewer extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      ...viewerList[provider.currentProjectIndex]
-                          .map(
-                            (e) => Image.asset(
-                              e,
-                              fit: BoxFit.fitWidth,
-                            ),
-                          )
-                          .toList(),
-                      const MoreProjectsContainer()
-                    ],
-                  ),
-                ),
+                child: ListView.builder(
+                    cacheExtent: 20 * MediaQuery.of(context).size.height,
+                    // shrinkWrap: true,
+                    itemCount:
+                        viewerList[provider.currentProjectIndex].length + 1,
+                    itemBuilder: (context, index) =>
+                        index == viewerList[provider.currentProjectIndex].length
+                            ? const MoreProjectsContainer()
+                            : Image.asset(
+                                viewerList[provider.currentProjectIndex][index],
+                                fit: BoxFit.fitWidth,
+                              )),
               ),
+              // Expanded(
+              //   child: SingleChildScrollView(
+              //     child: Column(
+              //       children: [
+              //         ...viewerList[provider.currentProjectIndex]
+              //             .map(
+              //               (e) => Image.asset(
+              //                 e,
+              //                 fit: BoxFit.fitWidth,
+              //               ),
+              //             )
+              //             .toList(),
+              //         const MoreProjectsContainer()
+              //       ],
+              //     ),
+              //   ),
+              // ),
               Padding(
                 padding: const EdgeInsets.all(11.0),
                 child: Column(
