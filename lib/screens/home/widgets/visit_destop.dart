@@ -55,7 +55,7 @@ class VisitDesktop extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: AppTextStyle.mobileAnnotation),
                         const SizedBox(
-                          height: 16,
+                          height: 8,
                         ),
                         Text('VISIT',
                             textAlign: TextAlign.center,
@@ -67,6 +67,9 @@ class VisitDesktop extends StatelessWidget {
                         Text('VERSION',
                             textAlign: TextAlign.center,
                             style: AppTextStyle.mobileHeading),
+                        const SizedBox(
+                          height: 8,
+                        ),
                         Text(
                           '- MOHAMMAD SAJJAD RAZA',
                           style: AppTextStyle.mobileAnnotation,
