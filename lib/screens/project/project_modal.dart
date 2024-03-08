@@ -342,7 +342,7 @@ final List<List<String>> viewerList = [
 ];
 
 final List<String> digiTandoor = [
-  'assets/png/web_Digi_branding.gif',
+  'assets/png/dg_1.gif',
   'assets/png/dg_2.png',
   'assets/png/dg_3.png',
   'assets/png/dg_3.png',
@@ -353,11 +353,11 @@ final List<String> digiTandoor = [
   'assets/png/dg_8.png',
 ];
 final List<String> bd = [
-  'assets/png/web_Digi_branding.gif',
+  'assets/png/bd_01.gif',
   'assets/png/bd_02.png',
-  'assets/png/web_Digi_branding.gif',
+  'assets/png/bd_03.gif',
   'assets/png/bd_04.png',
-  'assets/png/web_Digi_branding.gif',
+  'assets/png/bd_05.gif',
   'assets/png/bd_06.png',
 ];
 
