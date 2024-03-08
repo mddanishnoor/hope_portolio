@@ -84,9 +84,9 @@
                 loadingIndicator.remove();
               }
               resolve();
-            }, 4000);
+            }, 2000);
           }).then(function () {
-            // Call engineInitializer only after 10 seconds
+            // Call engineInitializer only after 2 seconds
             engineInitializer.initializeEngine().then(function (appRunner) {
               appRunner.runApp();
             });

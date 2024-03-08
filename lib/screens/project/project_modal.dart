@@ -32,7 +32,7 @@ class ProjectViewer extends StatelessWidget {
                       onTap: () {
                         if (provider.currentProjectIndex != 0) {
                           provider.updateProjectIndex(
-                              provider.currentProjectIndex - 1);
+                              provider.currentProjectIndex - 1, context);
                         }
                       },
                       child: const CircleAvatar(
@@ -98,7 +98,7 @@ class ProjectViewer extends StatelessWidget {
                             if (provider.currentProjectIndex !=
                                 viewerList.length) {
                               provider.updateProjectIndex(
-                                  provider.currentProjectIndex + 1);
+                                  provider.currentProjectIndex + 1, context);
                             }
                           },
                           child: const CircleAvatar(
@@ -272,8 +272,9 @@ class MoreProjectTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 11),
       child: InkWell(
-        onTap: () =>
-            context.read<ProjectProvider>().updateProjectIndex(project.index),
+        onTap: () => context
+            .read<ProjectProvider>()
+            .updateProjectIndex(project.index, context),
         child: Stack(
           children: [
             Image.asset(

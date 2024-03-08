@@ -287,7 +287,7 @@ class WebProjectThumbnailWidget extends StatelessWidget {
                       onTap: () => {
                         context
                             .read<ProjectProvider>()
-                            .updateProjectIndex(e.index),
+                            .updateProjectIndex(e.index, context),
                         showDialog(
                             context: context,
                             builder: (context) => const ProjectViewer())
@@ -625,7 +625,7 @@ class WebMiscThumbnailWidget extends StatelessWidget {
               itemBuilder: (context, index) => InkWell(
                 onTap: () => {
                   context.read<ProjectProvider>().updateProjectIndex(
-                      webMiscProjects.projects[index].index),
+                      webMiscProjects.projects[index].index, context),
                   showDialog(
                       context: context,
                       builder: (context) => const ProjectViewer())

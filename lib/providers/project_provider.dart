@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/constant/theme/pallete.dart';
 
 class ProjectProvider extends ChangeNotifier {
   int currentProjectIndex = 0;
@@ -19,17 +20,34 @@ class ProjectProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  updateProjectIndex(int index) {
-    currentProjectIndex = index;
-    var cancel = BotToast.showCustomLoading(
+  updateProjectIndex(int index, BuildContext context) {
+    var cancel = BotToast.showWidget(
       toastBuilder: (cancelFunc) => Container(
+        color: Palette.bgBlack.withOpacity(0.9),
+        width: double.infinity,
+        height: double.infinity,
+        padding: const EdgeInsets.all(50),
         child: Center(
-          child: Image.asset('assets/png/loader.gif'),
+          child: Container(
+            width: 200,
+            height: 200,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.contain,
+                image: AssetImage('assets/png/loder_transparent.gif'),
+              ),
+            ),
+          ),
         ),
       ),
     );
+    currentProjectIndex = index;
+    // var cancel = BotToast.showLoading();
+
     notifyListeners();
-    Timer(const Duration(seconds: 2), () => cancel());
+    Timer(const Duration(seconds: 2), () {
+      cancel();
+    });
   }
 
   // updateCursorPosition(Offset pos) {
