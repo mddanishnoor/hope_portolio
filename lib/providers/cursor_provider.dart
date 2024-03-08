@@ -15,15 +15,9 @@ class CursorProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // updateCursorPosition(Offset pos) {
-  //   cursorPosition = pos;
-  //   // notifyListeners();
-  // }
-
   toggleMagnify(bool val, {bool? fullScreen}) {
     if (fullScreen != null) {
       fullMagnify = fullScreen;
-      // cursorPosition = const Offset(1, 1);
     }
     isMagnified = val;
     notifyListeners();

@@ -345,7 +345,6 @@ final List<String> digiTandoor = [
   'assets/png/dg_1.gif',
   'assets/png/dg_2.png',
   'assets/png/dg_3.png',
-  'assets/png/dg_3.png',
   'assets/png/dg_4.png',
   'assets/png/dg_5.png',
   'assets/png/dg_6.png',

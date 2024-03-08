@@ -45,7 +45,7 @@ class ProjectProvider extends ChangeNotifier {
     // var cancel = BotToast.showLoading();
 
     notifyListeners();
-    Timer(const Duration(seconds: 2), () {
+    Timer(const Duration(milliseconds: 2500), () {
       cancel();
     });
   }
