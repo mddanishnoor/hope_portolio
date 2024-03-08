@@ -96,7 +96,7 @@ class ProjectViewer extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             if (provider.currentProjectIndex !=
-                                viewerList.length) {
+                                (viewerList.length - 1)) {
                               provider.updateProjectIndex(
                                   provider.currentProjectIndex + 1, context);
                             }
