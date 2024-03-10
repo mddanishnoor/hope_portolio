@@ -28,10 +28,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
-    # - assets/svg/
+    - assets/pdf/
     - assets/png/
-    - assets/video/
   
   fonts:
     - family: Syne

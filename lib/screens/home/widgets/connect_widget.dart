@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
+import '../../../core/helper/download_service.dart';
 import '../../../core/router/routes.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
 import '../../../core/widgets/landing_widget.dart';
@@ -191,9 +192,12 @@ class _RecruiterCardState extends State<RecruiterCard> {
                       margin: EdgeInsets.zero,
                       isYellow: isHovered,
                       onTap: () {
-                        widget.isRecruiter
-                            ? null
-                            : context.goNamed(Routes.requiters);
+                        if (widget.isRecruiter) {
+                          downloadFileFromAssets('assets/pdf/resume.pdf',
+                              'Resume_Mohammad_Sajjad_Raza.pdf');
+                          return;
+                        }
+                        context.goNamed(Routes.requiters);
                       },
                     ),
                   ],
@@ -238,9 +242,12 @@ class _RecruiterCardState extends State<RecruiterCard> {
                         margin: EdgeInsets.zero,
                         isYellow: isHovered,
                         onTap: () {
-                          widget.isRecruiter
-                              ? null
-                              : context.goNamed(Routes.requiters);
+                          if (widget.isRecruiter) {
+                            downloadFileFromAssets('assets/pdf/resume.pdf',
+                                'Resume_Mohammad_Sajjad_Raza.pdf');
+                            return;
+                          }
+                          context.goNamed(Routes.requiters);
                         },
                       ),
                     ],
