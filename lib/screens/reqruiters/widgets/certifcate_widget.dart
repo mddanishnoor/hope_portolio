@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
@@ -6,6 +9,7 @@ import 'package:provider/provider.dart';
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
 import '../../../core/widgets/landing_widget.dart';
+import 'certificate_modal.dart';
 
 class CertificateWidget extends StatelessWidget {
   const CertificateWidget({
@@ -78,7 +82,35 @@ class CertificateWidget extends StatelessWidget {
                             const Spacer(),
                             YellowOutlinedButton(
                               onTap: () {
-                                //TODO : Add Link for courseera
+                                var cancel = BotToast.showWidget(
+                                  toastBuilder: (cancelFunc) => Container(
+                                    color: Palette.bgBlack.withOpacity(0.9),
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    padding: const EdgeInsets.all(50),
+                                    child: Center(
+                                      child: Container(
+                                        width: 200,
+                                        height: 200,
+                                        decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                            fit: BoxFit.contain,
+                                            image: AssetImage(
+                                                'assets/png/loder_transparent.gif'),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+
+                                showDialog(
+                                    context: context,
+                                    builder: (context) =>
+                                        const CertificateViewer());
+                                Timer(const Duration(seconds: 2), () {
+                                  cancel();
+                                });
                               },
                               label: 'Verify >>',
                             ),
@@ -161,7 +193,36 @@ class _WebCertificateState extends State<WebCertificate> {
                     ),
                     const Spacer(),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        var cancel = BotToast.showWidget(
+                          toastBuilder: (cancelFunc) => Container(
+                            color: Palette.bgBlack.withOpacity(0.9),
+                            width: double.infinity,
+                            height: double.infinity,
+                            padding: const EdgeInsets.all(50),
+                            child: Center(
+                              child: Container(
+                                width: 200,
+                                height: 200,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    fit: BoxFit.contain,
+                                    image: AssetImage(
+                                        'assets/png/loder_transparent.gif'),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+
+                        showDialog(
+                            context: context,
+                            builder: (context) => const CertificateViewer());
+                        Timer(const Duration(seconds: 2), () {
+                          cancel();
+                        });
+                      },
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                             vertical: 4, horizontal: 8),

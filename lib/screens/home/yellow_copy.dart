@@ -9,7 +9,6 @@ import 'package:portfolio/core/helper/download_service.dart';
 import 'package:portfolio/core/router/routes.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';

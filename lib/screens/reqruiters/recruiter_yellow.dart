@@ -1,5 +1,8 @@
 // import 'dart:developer';
 
+import 'dart:async';
+
+import 'package:bot_toast/bot_toast.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -8,6 +11,7 @@ import 'package:portfolio/core/constant/theme/styles.dart';
 import 'package:portfolio/core/helper/custom_scroll_physics.dart';
 import 'package:portfolio/providers/reqruiters_provider.dart';
 import 'package:portfolio/screens/home/yellow_copy.dart';
+import 'package:portfolio/screens/reqruiters/widgets/certificate_modal.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/constant/constants.dart';
@@ -669,7 +673,38 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                                       const Spacer(),
                                       YellowOutlinedButton(
                                         onTap: () {
-                                          //TODO : Add Link for courseera
+                                          var cancel = BotToast.showWidget(
+                                            toastBuilder: (cancelFunc) =>
+                                                Container(
+                                              color: Palette.bgBlack
+                                                  .withOpacity(0.9),
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                              padding: const EdgeInsets.all(50),
+                                              child: Center(
+                                                child: Container(
+                                                  width: 200,
+                                                  height: 200,
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.contain,
+                                                      image: AssetImage(
+                                                          'assets/png/loder_transparent.gif'),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) =>
+                                                  const CertificateViewer());
+                                          Timer(const Duration(seconds: 2), () {
+                                            cancel();
+                                          });
                                         },
                                         label: 'Verify >>',
                                       ),
