@@ -861,7 +861,7 @@ class MobileConnectYellow extends StatelessWidget {
             InkWell(
               onTap: () {
                 if (isRecruiter) {
-                  downloadFileFromAssets('assets/pdf/resume.pdf',
+                  downloadFileFromAssets('assets/assets/pdf/resume.pdf',
                       'Resume_Mohammad_Sajjad_Raza.pdf');
                   return;
                 }
