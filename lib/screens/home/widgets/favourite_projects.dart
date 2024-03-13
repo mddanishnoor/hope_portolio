@@ -10,7 +10,9 @@ import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
 import '../../../core/router/routes.dart';
 import '../../../core/widgets/landing_widget.dart';
+import '../../../providers/project_provider.dart';
 import '../../project/project_main.dart';
+import '../../project/project_modal.dart';
 
 class FavoriteProjects extends StatelessWidget {
   const FavoriteProjects(
@@ -95,69 +97,79 @@ class _ProjectCarouselWidgetState extends State<ProjectCarouselWidget> {
       }),
       child: CarouselSlider(
         items: webProjectList.first.projects
-            .map((e) => ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    height: MediaQuery.of(context).size.height * 0.85,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    margin: const EdgeInsets.only(top: 12),
-                    child: Stack(
-                      children: [
-                        WebThumbnailAssetWidget(
-                          media: e.media,
-                          width: MediaQuery.of(context).size.width * 0.85,
-                          height: MediaQuery.of(context).size.height * 0.85,
-                        ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.85,
-                              width:
-                                  (MediaQuery.of(context).size.width * 0.85) *
-                                      0.5,
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 20, horizontal: 81),
-                              decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                      begin: Alignment.centerLeft,
-                                      end: Alignment.centerRight,
-                                      colors: [
-                                    Colors.black.withOpacity(0.56),
-                                    Colors.transparent
-                                  ])),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    e.subCategory ?? '',
-                                    style: GoogleFonts.archivo(
-                                        fontSize: 12, color: Palette.hWhite),
-                                  ),
-                                  const SizedBox(
-                                    height: 6,
-                                  ),
-                                  Text(
-                                    e.title,
-                                    style: AppTextStyle.listExtended,
-                                  ),
-                                  const SizedBox(
-                                    height: 6,
-                                  ),
-                                  Text(e.subtext.split('-').join('\n • '),
+            .map((e) => InkWell(
+                  onTap: () {
+                    context
+                        .read<ProjectProvider>()
+                        .updateProjectIndex(e.index, context);
+                    showDialog(
+                        context: context,
+                        builder: (context) => const ProjectViewer());
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.85,
+                      height: MediaQuery.of(context).size.height * 0.85,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      margin: const EdgeInsets.only(top: 12),
+                      child: Stack(
+                        children: [
+                          WebThumbnailAssetWidget(
+                            media: e.media,
+                            width: MediaQuery.of(context).size.width * 0.85,
+                            height: MediaQuery.of(context).size.height * 0.85,
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.85,
+                                width:
+                                    (MediaQuery.of(context).size.width * 0.85) *
+                                        0.5,
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 81),
+                                decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                        colors: [
+                                      Colors.black.withOpacity(0.56),
+                                      Colors.transparent
+                                    ])),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      e.subCategory ?? '',
                                       style: GoogleFonts.archivo(
-                                          fontSize: 24, color: Palette.white)),
-                                  const SizedBox(
-                                    height: 16,
-                                  ),
-                                  InkWell(
-                                    child: Container(
+                                          fontSize: 12, color: Palette.hWhite),
+                                    ),
+                                    const SizedBox(
+                                      height: 6,
+                                    ),
+                                    Text(
+                                      e.title,
+                                      style: AppTextStyle.listExtended,
+                                    ),
+                                    const SizedBox(
+                                      height: 6,
+                                    ),
+                                    Text(e.subtext.split('-').join('\n • '),
+                                        style: GoogleFonts.archivo(
+                                            fontSize: 24,
+                                            color: Palette.white)),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                                    Container(
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 4, horizontal: 8),
                                       decoration: BoxDecoration(
@@ -170,14 +182,14 @@ class _ProjectCarouselWidgetState extends State<ProjectCarouselWidget> {
                                         style: AppTextStyle.buttonTextStyle
                                             .copyWith(color: Palette.hWhite),
                                       ),
-                                    ),
-                                  )
-                                ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ))
