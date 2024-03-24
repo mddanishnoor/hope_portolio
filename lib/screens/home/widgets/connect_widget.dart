@@ -193,8 +193,9 @@ class _RecruiterCardState extends State<RecruiterCard> {
                       isYellow: isHovered,
                       onTap: () {
                         if (widget.isRecruiter) {
-                          downloadFileFromAssets('assets/assets/pdf/resume.pdf',
-                              'Resume_Mohammad_Sajjad_Raza.pdf');
+                          //TODO: Uncomment for web
+                          // downloadFileFromAssets('assets/assets/pdf/resume.pdf',
+                          //     'Resume_Mohammad_Sajjad_Raza.pdf');
                           return;
                         }
                         context.goNamed(Routes.requiters);
@@ -243,9 +244,9 @@ class _RecruiterCardState extends State<RecruiterCard> {
                         isYellow: isHovered,
                         onTap: () {
                           if (widget.isRecruiter) {
-                            downloadFileFromAssets(
-                                'assets/assets/pdf/resume.pdf',
-                                'Resume_Mohammad_Sajjad_Raza.pdf');
+                            //TODO: Uncomment for web
+                            // downloadFileFromAssets('assets/assets/pdf/resume.pdf',
+                            //     'Resume_Mohammad_Sajjad_Raza.pdf');
                             return;
                           }
                           context.goNamed(Routes.requiters);

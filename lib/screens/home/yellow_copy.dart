@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constant/theme/styles.dart';
-import 'package:portfolio/core/helper/download_service.dart';
 import 'package:portfolio/core/router/routes.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
@@ -861,8 +860,9 @@ class MobileConnectYellow extends StatelessWidget {
             InkWell(
               onTap: () {
                 if (isRecruiter) {
-                  downloadFileFromAssets('assets/assets/pdf/resume.pdf',
-                      'Resume_Mohammad_Sajjad_Raza.pdf');
+                  //TODO: Uncomment for web
+                  // downloadFileFromAssets('assets/assets/pdf/resume.pdf',
+                  //     'Resume_Mohammad_Sajjad_Raza.pdf');
                   return;
                 }
                 context.goNamed(Routes.requiters);
