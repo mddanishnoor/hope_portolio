@@ -16,53 +16,49 @@ class RecruitersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return size.width < 600
-        ? const VisitDesktop()
-        : Consumer<RecruitersProvider>(builder: (context, controller, _) {
-            return Scaffold(
-              backgroundColor: Palette.black,
-              body: MouseRegion(
-                onHover: (event) => size.width >= 600
-                    ? controller.updatePosition(event.position)
-                    : null,
-                child: NotificationListener<ScrollNotification>(
-                  onNotification: (notification) {
-                    controller.updateScrollOffset(scrollController2.offset);
-                    if (size.width > 600) {
-                      scrollController.jumpTo(scrollController2.offset);
-                    }
-                    return true;
-                  },
-                  child: PrimaryScrollController(
-                    controller: scrollController2,
-                    child: Stack(
-                      children: [
-                        RecruitersBlack(
-                            size: size, scrollController2: scrollController2),
-                        RecruiterYellow(
-                          scrollController: scrollController,
-                          scrollController2: scrollController2,
-                        ),
-                        if ((scrollController2.hasClients &&
-                                controller.scrollOffset >= (size.height / 2)) ||
-                            size.width < 600)
-                          Align(
-                              alignment: Alignment.bottomCenter,
-                              child: size.width > 600
-                                  ? RecruiterNavbar(scrollController2,
-                                      secondaryScrollController:
-                                          scrollController)
-                                  : RecruiterMobileNavbar(
-                                      scrollController2,
-                                      secondaryScrollController:
-                                          scrollController,
-                                    ))
-                      ],
-                    ),
+    return Consumer<RecruitersProvider>(builder: (context, controller, _) {
+      return Scaffold(
+        backgroundColor: Palette.black,
+        body: MouseRegion(
+          onHover: (event) => size.width >= 600
+              ? controller.updatePosition(event.position)
+              : null,
+          child: NotificationListener<ScrollNotification>(
+            onNotification: (notification) {
+              controller.updateScrollOffset(scrollController2.offset);
+              if (size.width > 600) {
+                scrollController.jumpTo(scrollController2.offset);
+              }
+              return true;
+            },
+            child: PrimaryScrollController(
+              controller: scrollController2,
+              child: Stack(
+                children: [
+                  RecruitersBlack(
+                      size: size, scrollController2: scrollController2),
+                  RecruiterYellow(
+                    scrollController: scrollController,
+                    scrollController2: scrollController2,
                   ),
-                ),
+                  if ((scrollController2.hasClients &&
+                          controller.scrollOffset >= (size.height / 2)) ||
+                      size.width < 600)
+                    Align(
+                        alignment: Alignment.bottomCenter,
+                        child: size.width > 600
+                            ? RecruiterNavbar(scrollController2,
+                                secondaryScrollController: scrollController)
+                            : RecruiterMobileNavbar(
+                                scrollController2,
+                                secondaryScrollController: scrollController,
+                              ))
+                ],
               ),
-            );
-          });
+            ),
+          ),
+        ),
+      );
+    });
   }
 }

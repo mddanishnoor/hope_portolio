@@ -8,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/constant/theme/pallete.dart';
 import '../../../core/constant/theme/styles.dart';
-import '../../../core/helper/download_service.dart';
+// import '../../../core/helper/download_service.dart';
 import '../../../core/router/routes.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
 import '../../../core/widgets/landing_widget.dart';
