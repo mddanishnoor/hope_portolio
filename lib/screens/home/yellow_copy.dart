@@ -93,22 +93,25 @@ class LandingPage2Child extends StatelessWidget {
       child: ColoredBox(
         color: Palette.hYellow,
         child: SingleChildScrollView(
+          physics:
+              size.width > 600 ? null : const NeverScrollableScrollPhysics(),
           controller: scrollController,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               YellowAdvocateWidget(size: size),
               LandingWidget(
-                  height: size.width > 600
-                      ? null
-                      : MediaQuery.of(context).size.height * 0.6,
+                  height: size.width > 600 ? null : size.height * 0.6,
                   color: Palette.hYellow,
                   child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: size.width * 0.1046),
+                    padding: size.width > 600
+                        ? EdgeInsets.symmetric(horizontal: size.width * 0.1046)
+                        : const EdgeInsets.only(left: 24, right: 24),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Spacer(),
+                        // const Spacer(),
                         MouseRegion(
                           onEnter: (event) => size.width > 600
                               ? context
@@ -121,7 +124,8 @@ class LandingPage2Child extends StatelessWidget {
                                   .toggleMagnify(false)
                               : null,
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 12.0),
+                            padding: EdgeInsets.only(
+                                left: size.width > 600 ? 12.0 : 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,7 +153,7 @@ class LandingPage2Child extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Spacer(),
+                        // const Spacer(),
                       ],
                     ),
                   )),
@@ -516,8 +520,8 @@ class YellowAdvocateWidget extends StatelessWidget {
                               : AppTextStyle.mobileAnnotation
                                   .copyWith(color: Palette.bgBlack),
                         ),
-                        const SizedBox(
-                          height: 16,
+                        SizedBox(
+                          height: size.width > 600 ? 16 : 8,
                         ),
                         Text(
                           'DRIVER',
@@ -561,14 +565,15 @@ class MobileWhatIdoYellowWidget extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.6,
       color: Palette.hYellow,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(),
+          // const Spacer(),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.105),
+                padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
                   'WHAT I DO',
                   style: AppTextStyle.mobileAnnotation
@@ -586,7 +591,7 @@ class MobileWhatIdoYellowWidget extends StatelessWidget {
                   'RESEARCH', 'My job is to know what the users wants'),
             ],
           ),
-          const Spacer(),
+          // const Spacer(),
         ],
       ),
     );
@@ -604,8 +609,8 @@ class MobileWhatIdoYellowWidget extends StatelessWidget {
           ),
         ),
       ),
-      padding: EdgeInsets.symmetric(
-        horizontal: size.width * 0.105,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 24,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
