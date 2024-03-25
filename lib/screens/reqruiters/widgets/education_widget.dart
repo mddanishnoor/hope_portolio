@@ -128,67 +128,70 @@ class _EducationWidgetState extends State<EducationWidget> {
 
   LandingWidget mobileWidget() {
     return LandingWidget(
-      height: widget.size.height * 0.6,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Consumer<RecruitersProvider>(
-            builder: (c, provider, _) => Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+      height: widget.size.height * 0.4,
+      child: Consumer<RecruitersProvider>(
+        builder: (c, provider, _) => Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Text(
+                'EDUCATION ',
+                style: AppTextStyle.mobileAnnotation,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Text(
-                    'EDUCATION ',
-                    style: AppTextStyle.mobileAnnotation,
+                MobileReqRunningAnimatedTileContainer(
+                  multiplier: 1,
+                  height: 62,
+                  scrollOffset: provider.scrollOffset,
+                  child: MobileEducationTile(
+                      size: widget.size,
+                      timePeriod: '20 21-23',
+                      position: 'Masters of Design',
+                      location: 'Department of Design and Innovation, J.M.I ',
+                      subtext: ''),
+                ),
+                MobileReqRunningAnimatedTileContainer(
+                  multiplier: 1.2,
+                  height: 62,
+                  scrollOffset: provider.scrollOffset,
+                  child: MobileEducationTile(
+                      size: widget.size,
+                      timePeriod: '20 17-21',
+                      position: 'Bachelor of Technology',
+                      location: 'ADGITM - GGSIPU, Delhi',
+                      subtext: ''),
+                ),
+                MobileReqRunningAnimatedTileContainer(
+                  multiplier: 1.3,
+                  height: 62,
+                  scrollOffset: provider.scrollOffset,
+                  child: MobileEducationTile(
+                    size: widget.size,
+                    timePeriod: '20 15-17',
+                    position: 'Senior Secondary',
+                    location: 'Jamia Millia Islamia',
+                    subtext: '',
+                    border: const Border(
+                      top: BorderSide(
+                        color: Palette.white_30,
+                      ),
+                      bottom: BorderSide(
+                        color: Palette.white_30,
+                      ),
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Column(
-                  children: [
-                    MobileReqRunningAnimatedTileContainer(
-                      multiplier: 1,
-                      height: 62,
-                      scrollOffset: provider.scrollOffset,
-                      child: MobileEducationTile(
-                          size: widget.size,
-                          timePeriod: '20 21-23',
-                          position: 'Masters of Design',
-                          location:
-                              'Department of Design and Innovation, J.M.I ',
-                          subtext: ''),
-                    ),
-                    MobileReqRunningAnimatedTileContainer(
-                      multiplier: 1.2,
-                      height: 62,
-                      scrollOffset: provider.scrollOffset,
-                      child: MobileEducationTile(
-                          size: widget.size,
-                          timePeriod: '20 17-21',
-                          position: 'Bachelor of Technology',
-                          location: 'ADGITM - GGSIPU, Delhi',
-                          subtext: ''),
-                    ),
-                    MobileReqRunningAnimatedTileContainer(
-                      multiplier: 1.3,
-                      height: 62,
-                      scrollOffset: provider.scrollOffset,
-                      child: MobileEducationTile(
-                          size: widget.size,
-                          timePeriod: '20 15-17',
-                          position: 'Senior Secondary',
-                          location: 'Jamia Millia Islamia',
-                          subtext: ''),
-                    ),
-                  ],
-                )
               ],
-            ),
-          ),
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -283,23 +286,26 @@ class MobileEducationTile extends StatelessWidget {
     required this.position,
     required this.location,
     required this.subtext,
+    this.border,
   });
   final Size size;
   final String timePeriod;
   final String position;
   final String location;
   final String? subtext;
+  final BoxBorder? border;
   @override
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
         height: 65,
-        decoration: const BoxDecoration(
-          border: Border.symmetric(
-            horizontal: BorderSide(
-              color: Palette.white_30,
-            ),
-          ),
+        decoration: BoxDecoration(
+          border: border ??
+              const Border(
+                top: BorderSide(
+                  color: Palette.white_30,
+                ),
+              ),
         ),
         padding: const EdgeInsets.symmetric(
           horizontal: 24,

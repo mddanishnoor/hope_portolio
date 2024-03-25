@@ -26,9 +26,9 @@ class RecruitersScreen extends StatelessWidget {
           child: NotificationListener<ScrollNotification>(
             onNotification: (notification) {
               controller.updateScrollOffset(scrollController2.offset);
-              if (size.width > 600) {
-                scrollController.jumpTo(scrollController2.offset);
-              }
+              // if (size.width > 600) {
+              scrollController.jumpTo(scrollController2.offset);
+              // }
               return true;
             },
             child: PrimaryScrollController(
@@ -42,17 +42,23 @@ class RecruitersScreen extends StatelessWidget {
                     scrollController2: scrollController2,
                   ),
                   if ((scrollController2.hasClients &&
-                          controller.scrollOffset >= (size.height / 2)) ||
-                      size.width < 600)
+                          controller.scrollOffset >= (size.height / 2)) &&
+                      size.width > 600)
                     Align(
-                        alignment: Alignment.bottomCenter,
-                        child: size.width > 600
-                            ? RecruiterNavbar(scrollController2,
-                                secondaryScrollController: scrollController)
-                            : RecruiterMobileNavbar(
-                                scrollController2,
-                                secondaryScrollController: scrollController,
-                              ))
+                      alignment: Alignment.bottomCenter,
+                      child: RecruiterNavbar(
+                        scrollController2,
+                        secondaryScrollController: scrollController,
+                      ),
+                    ),
+                  if ((scrollController2.hasClients && size.width <= 600))
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: RecruiterMobileNavbar(
+                        scrollController2,
+                        secondaryScrollController: scrollController,
+                      ),
+                    ),
                 ],
               ),
             ),

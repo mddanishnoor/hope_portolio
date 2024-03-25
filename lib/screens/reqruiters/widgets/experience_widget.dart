@@ -128,7 +128,7 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
     return LandingWidget(
       height: widget.size.height * 0.6,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Consumer<RecruitersProvider>(
             builder: (c, provider, _) => Column(
@@ -156,6 +156,11 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                         timePeriod: 'NOW',
                         position: 'UX/UI DESG.',
                         location: 'GYMSAPIEN, New Delhi',
+                        border: const Border(
+                          top: BorderSide(
+                            color: Palette.white_30,
+                          ),
+                        ),
                       ),
                     ),
                     MobileReqRunningAnimatedTileContainer(
@@ -168,6 +173,11 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                         timePeriod: '2023',
                         position: 'Freelance',
                         location: 'India',
+                        border: const Border(
+                          top: BorderSide(
+                            color: Palette.white_30,
+                          ),
+                        ),
                       ),
                     ),
                     MobileReqRunningAnimatedTileContainer(
@@ -179,6 +189,11 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                         timePeriod: '2023',
                         position: 'Graphic design intern',
                         location: 'Blue oktopus, Delhi NCR',
+                        border: const Border(
+                          top: BorderSide(
+                            color: Palette.white_30,
+                          ),
+                        ),
                       ),
                     ),
                     MobileReqRunningAnimatedTileContainer(
@@ -191,6 +206,14 @@ class _ExperienceWidgetState extends State<ExperienceWidget> {
                         timePeriod: '2021',
                         position: 'Design head',
                         location: 'IEEE, ADGITM, New Delhi ',
+                        border: const Border(
+                          top: BorderSide(
+                            color: Palette.white_30,
+                          ),
+                          bottom: BorderSide(
+                            color: Palette.white_30,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -351,23 +374,25 @@ class MobileExperienceTile extends StatelessWidget {
       required this.timePeriod,
       required this.position,
       required this.location,
-      this.startTime});
+      this.startTime,
+      required this.border});
   final Size size;
   final String timePeriod;
   final String position;
   final String location;
+  final BoxBorder border;
   final String? startTime;
   @override
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
-          border: Border.symmetric(
-            horizontal: BorderSide(
-              color: Palette.white_30,
+        decoration: BoxDecoration(border: border
+            // border: Border.symmetric(
+            //   horizontal: BorderSide(
+            //     color: Palette.white_30,
+            //   ),
+            // ),
             ),
-          ),
-        ),
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

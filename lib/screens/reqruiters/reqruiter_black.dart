@@ -59,7 +59,7 @@ class RecruitersBlack extends StatelessWidget {
                 ? const MyMoto(
                     isRecruitment: true,
                   )
-                : MobileMyMoto(
+                : const MobileMyMoto(
                     isRecruitment: true,
                   ),
             size.width > 600

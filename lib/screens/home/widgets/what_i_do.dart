@@ -156,7 +156,6 @@ class _MobileWhatIDoWidgetState extends State<MobileWhatIDoWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // const Spacer(),
           Consumer<CursorProvider>(
             builder: (c, provider, _) => MouseRegion(
               onEnter: (event) => provider.toggleHide(true),

@@ -96,7 +96,6 @@ class _ReqAboutMeWidgetState extends State<ReqAboutMeWidget> {
 
   LandingWidget mobileWidget() {
     return LandingWidget(
-        height: widget.size.height * 0.6,
         key: widgetKey,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -114,10 +113,25 @@ class _ReqAboutMeWidgetState extends State<ReqAboutMeWidget> {
                   const SizedBox(
                     height: 16,
                   ),
-                  Text(
-                    'I am a fresh graduate with a masters degree in UX/UI design, (think of design thinking)                ',
-                    style: AppTextStyle.mobileBody,
-                  )
+                  RichText(
+                      text: TextSpan(
+                          text: "Hey! I'm an",
+                          style: AppTextStyle.mobileBody.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                          children: [
+                        const TextSpan(
+                            text:
+                                " engineer turned product designer in Delhi, India."),
+                        //
+                        const TextSpan(
+                            text:
+                                "\n\nMy mission? helping folks work smarter and feel more confident through"),
+                        TextSpan(
+                            text: " designs that tap into psychology.",
+                            style: AppTextStyle.mobileBody
+                                .copyWith(color: Palette.hYellow)),
+                      ]))
                 ],
               ),
             ],

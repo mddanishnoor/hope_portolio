@@ -14,13 +14,12 @@ import 'package:portfolio/screens/home/yellow_copy.dart';
 import 'package:portfolio/screens/reqruiters/widgets/certificate_modal.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
 import '../../core/helper/mouse_follower.dart';
 import '../../core/router/routes.dart';
 import '../../core/widgets/landing_widget.dart';
-import '../../core/widgets/project_card.dart';
+import '../project/project_main.dart';
 import 'widgets/certifcate_widget.dart';
 import 'widgets/education_widget.dart';
 import 'widgets/experience_widget.dart';
@@ -55,10 +54,12 @@ class RecruiterYellow extends StatelessWidget {
             ));
       } else {
         return MouseFollower(
-            position: controller.position,
+            position: !controller.fullMagnify
+                ? Offset(size.width / 2, size.height * 0.9)
+                : Offset(size.width / 2, 0),
             radius: controller.fullMagnify ? size.height : 0,
-            width: double.infinity,
-            height: 60,
+            width: controller.fullMagnify ? double.infinity : 0,
+            height: controller.fullMagnify ? size.height : 0,
             child: MobileRecruiterYellowChild(
               scrollController: scrollController,
               size: size,
@@ -495,6 +496,8 @@ class MobileRecruiterYellowChild extends StatelessWidget {
       child: ColoredBox(
         color: Palette.hYellow,
         child: SingleChildScrollView(
+          physics:
+              size.width > 600 ? null : const NeverScrollableScrollPhysics(),
           controller: scrollController,
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -566,7 +569,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
 
               ///ABOUTME WIDGET
               LandingWidget(
-                  height: size.height * 0.6,
+                  // height: size.height * 0.6,
                   color: Palette.hYellow,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -583,7 +586,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                           height: 16,
                         ),
                         Text(
-                          'I am a fresh graduate with a masters degree in UX/UI design, (think of design thinking)                ',
+                          'Call me Raza, I was designer before i knew it was called design.\n\nMy retreat? Immersing in legends and epics. Just losing myself in the timeless tales of heroes and adventures.',
                           style: AppTextStyle.mobileBody
                               .copyWith(color: Palette.black),
                         )
@@ -596,7 +599,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.6,
                 color: Palette.hYellow,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -629,7 +632,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -725,7 +728,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
               LandingWidget(
                 height: size.height * 0.6,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -872,9 +875,9 @@ class MobileRecruiterYellowChild extends StatelessWidget {
 
               ///EDUCATION WIDGET
               LandingWidget(
-                height: size.height * 0.6,
+                height: size.height * 0.4,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -995,7 +998,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -1027,7 +1030,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                                     style: GoogleFonts.archivo(
                                       fontSize: 32,
                                       fontWeight: FontWeight.w900,
-                                      // height: 0.86,
+                                      height: 0.86,
                                       letterSpacing: -1.42,
                                       color: Palette.bgBlack,
                                     ),
@@ -1082,10 +1085,88 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                               child: Column(
                                 children: [
                                   CarouselSlider(
-                                    items: images
-                                        .map((e) => ProjectsCard(
-                                            size: Size(size.width, size.height),
-                                            url: e))
+                                    items: projectList.first.projects
+                                        .map((e) => ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              child: Container(
+                                                height: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.59,
+                                                width: double.infinity,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                margin: const EdgeInsets.only(
+                                                    top: 12),
+                                                child: Stack(
+                                                  children: [
+                                                    ThumbnailAssetWidget(
+                                                      media: e.media,
+                                                    ),
+                                                    Align(
+                                                      alignment: Alignment
+                                                          .bottomCenter,
+                                                      child: Container(
+                                                        // height: MediaQuery.of(context)
+                                                        //         .size
+                                                        //         .height *
+                                                        //     0.15,
+                                                        width: double.infinity,
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                vertical: 20,
+                                                                horizontal:
+                                                                    17.5),
+                                                        decoration: BoxDecoration(
+                                                            gradient: LinearGradient(
+                                                                begin: Alignment
+                                                                    .bottomCenter,
+                                                                end: Alignment.topCenter,
+                                                                colors: [
+                                                              Colors.black
+                                                                  .withOpacity(
+                                                                      0.56),
+                                                              Colors.transparent
+                                                            ])),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Text(
+                                                              e.title,
+                                                              style: AppTextStyle
+                                                                  .mobileExtended,
+                                                            ),
+                                                            const SizedBox(
+                                                              height: 6,
+                                                            ),
+                                                            Text(
+                                                              e.subtext,
+                                                              style: GoogleFonts
+                                                                  .archivo(
+                                                                      fontSize:
+                                                                          12,
+                                                                      color: Palette
+                                                                          .hWhite),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ))
                                         .toList(),
                                     options: CarouselOptions(
                                       aspectRatio: 4 / 5,
@@ -1121,7 +1202,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                 height: size.height * 0.6,
                 color: Palette.hYellow,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -1150,7 +1231,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
 
               ///MOTO WIDGET
               LandingWidget(
-                height: size.height * 0.6,
+                // height: size.height * 0.6,
                 color: Palette.hYellow,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -1174,7 +1255,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                       height: 18,
                     ),
                     Text(
-                      '- MOHAMMAD ALI',
+                      '- MOHAMMAD SAJJAD RAZA',
                       style: AppTextStyle.mobileAnnotation
                           .copyWith(color: Palette.bgBlack),
                     ),
@@ -1195,7 +1276,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
   Container elementWidget(String label, String subtext) {
     return Container(
       width: double.infinity,
-      height: 64,
+      // height: 64,
       decoration: BoxDecoration(
         color: Palette.hYellow,
         border: Border.symmetric(
@@ -1225,6 +1306,9 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
                 color: Palette.bgBlack),
+          ),
+          const SizedBox(
+            height: 2.4,
           ),
         ],
       ),

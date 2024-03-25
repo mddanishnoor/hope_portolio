@@ -312,7 +312,7 @@ class CoreCompetency extends StatelessWidget {
     return LandingWidget(
       height: size.height * 0.6,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(

@@ -137,7 +137,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
     return LandingWidget(
       height: widget.size.height * 0.6,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Consumer<RecruitersProvider>(
             builder: (c, provider, _) => Column(
@@ -145,11 +145,10 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: widget.size.width * 0.105),
+                  padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
                     'WHAT I DO',
-                    style: AppTextStyle.annotation,
+                    style: AppTextStyle.mobileAnnotation,
                   ),
                 ),
                 const SizedBox(

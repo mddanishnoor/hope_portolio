@@ -626,6 +626,9 @@ class MobileWhatIdoYellowWidget extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 color: Palette.bgBlack),
           ),
+          const SizedBox(
+            height: 2.4,
+          ),
         ],
       ),
     );
