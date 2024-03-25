@@ -202,13 +202,13 @@ class RecruiterMobileNavbar extends StatelessWidget {
                           scrollController.animateTo(h * 0.97,
                               duration: const Duration(milliseconds: 1500),
                               curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(h,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
+                          // secondaryScrollController.animateTo(h,
+                          //     duration: const Duration(milliseconds: 1500),
+                          //     curve: Curves.decelerate)
                         },
-                        isActive: controller.scrollOffset >=
-                                activeHeight(h * 0.97, 1) &&
-                            controller.scrollOffset < activeHeight(h * 3.9, 1),
+                        isActive:
+                            controller.scrollOffset >= activeHeight(h, 0.7) &&
+                                controller.scrollOffset < activeHeight(h, 1.5),
                       ),
                     ),
                     const SizedBox(
@@ -219,16 +219,16 @@ class RecruiterMobileNavbar extends StatelessWidget {
                       child: NavButton(
                         label: 'Projects',
                         onTap: () => {
-                          scrollController.animateTo(h * 4.2,
+                          scrollController.animateTo(h * 4.05,
                               duration: const Duration(milliseconds: 1500),
                               curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(h * 3.2,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
+                          // secondaryScrollController.animateTo(h * 3.2,
+                          //     duration: const Duration(milliseconds: 1500),
+                          //     curve: Curves.decelerate)
                         },
-                        isActive: controller.scrollOffset >=
-                                activeHeight(h * 4, 1) &&
-                            controller.scrollOffset < activeHeight(h * 4.65, 1),
+                        isActive:
+                            controller.scrollOffset >= activeHeight(h, 3.65) &&
+                                controller.scrollOffset < activeHeight(h, 4.6),
                       ),
                     ),
                     if (size.width < 600) ...[
@@ -245,19 +245,18 @@ class RecruiterMobileNavbar extends StatelessWidget {
                       child: NavButton(
                         label: 'Connect',
                         onTap: () => {
-                          scrollController.animateTo((h * 4) - (h * 0.3),
+                          scrollController.animateTo(
+                              scrollController.position.maxScrollExtent -
+                                  (h * 0.5),
                               duration: const Duration(milliseconds: 1500),
                               curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(
-                              (h * 5) - (h * 0.3),
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
                         },
                         isActive: controller.scrollOffset >=
-                                activeHeight(h * 4.65, 1) &&
+                                scrollController.position.maxScrollExtent -
+                                    (h) &&
                             controller.scrollOffset <
                                 (scrollController.position.maxScrollExtent -
-                                    (h * 0.4)),
+                                    (h * 0.35)),
                       ),
                     ),
                     const SizedBox(
@@ -279,7 +278,7 @@ class RecruiterMobileNavbar extends StatelessWidget {
                         },
                         isActive: controller.scrollOffset >=
                             (scrollController.position.maxScrollExtent -
-                                (h * 0.4)),
+                                (h * 0.35)),
                       ),
                     )
                   ],
