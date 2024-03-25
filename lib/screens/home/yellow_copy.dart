@@ -304,19 +304,6 @@ class LandingPage2Child extends StatelessWidget {
                     )
                   : MobileProjectYellow(size: size),
               LandingWidget(
-                height: size.width > 600
-                    ? null
-                    : MediaQuery.of(context).size.height * 0.6,
-                decoration: size.width > 600
-                    ? null
-                    : const BoxDecoration(
-                        color: Palette.hYellow,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          opacity: 0.4,
-                          image: AssetImage('assets/png/moto_bg_mobile.png'),
-                        ),
-                      ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
