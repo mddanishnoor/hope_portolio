@@ -754,7 +754,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                             ),
                           ),
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 21),
+                              horizontal: 24, vertical: 8),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -894,6 +894,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                     Column(
                       children: [
                         Container(
+                          height: 65,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             border: Border(
@@ -902,10 +903,10 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                               ),
                             ),
                           ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 21),
+                          padding: const EdgeInsets.symmetric(horizontal: 24),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 'M.Des',
@@ -924,6 +925,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                           ),
                         ),
                         Container(
+                          height: 65,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             border: Border(
@@ -933,9 +935,11 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                             ),
                           ),
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 21),
+                            horizontal: 24,
+                          ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 'B.Tech',
@@ -954,6 +958,7 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                           ),
                         ),
                         Container(
+                          height: 65,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             border: Border(
@@ -965,10 +970,10 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                               ),
                             ),
                           ),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 21),
+                          padding: const EdgeInsets.symmetric(horizontal: 24),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 'School',

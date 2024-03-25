@@ -72,11 +72,11 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                         scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
                           size: widget.size,
-                          label: 'Systems',
+                          label: 'SYSTEMS',
                         ),
                         child2: YellowTileWidget(
                           size: widget.size,
-                          label: 'Systems',
+                          label: 'SYSTEMS',
                           secondLabel:
                               'Designing systems for the company to function efficiently',
                         ),
@@ -86,11 +86,11 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                         scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
                           size: widget.size,
-                          label: 'Facilitation',
+                          label: 'FACILITATION',
                         ),
                         child2: YellowTileWidget(
                           size: widget.size,
-                          label: 'Facilitation',
+                          label: 'FACILITATION',
                           secondLabel: 'Helping others, design',
                         ),
                       ),
@@ -99,11 +99,11 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                         scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
                           size: widget.size,
-                          label: 'Research',
+                          label: 'RESEARCH',
                         ),
                         child2: YellowTileWidget(
                           size: widget.size,
-                          label: 'Research',
+                          label: 'RESEARCH',
                           secondLabel: 'My job is to know what the users wants',
                         ),
                       ),
@@ -112,11 +112,11 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                         scrollOffset: provider.scrollOffset,
                         child1: BlackTileWidget(
                           size: widget.size,
-                          label: 'Testing',
+                          label: 'TESTING',
                         ),
                         child2: YellowTileWidget(
                           size: widget.size,
-                          label: 'Testing',
+                          label: 'TESTING',
                           secondLabel:
                               'Looking at numbers to prove success in usability ',
                         ),
@@ -145,7 +145,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
                     'WHAT I DO',
                     style: AppTextStyle.mobileAnnotation,
@@ -169,7 +169,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                       scrollOffset: provider.scrollOffset,
                       child: MobileBlackTileWidget(
                         size: widget.size,
-                        label: 'Systems',
+                        label: 'SYSTEMS',
                       ),
                     ),
                     MobileReqRunningAnimatedTileContainer(
@@ -177,7 +177,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                       scrollOffset: provider.scrollOffset,
                       child: MobileBlackTileWidget(
                         size: widget.size,
-                        label: 'Facilitation',
+                        label: 'FACILITATION',
                       ),
                     ),
                     MobileReqRunningAnimatedTileContainer(
@@ -185,7 +185,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                       scrollOffset: provider.scrollOffset,
                       child: MobileBlackTileWidget(
                         size: widget.size,
-                        label: 'Research',
+                        label: 'RESEARCH',
                       ),
                     ),
                     MobileReqRunningAnimatedTileContainer(
@@ -193,7 +193,7 @@ class _ReqWhatIDoWidgetState extends State<ReqWhatIDoWidget> {
                       scrollOffset: provider.scrollOffset,
                       child: MobileBlackTileWidget(
                         size: widget.size,
-                        label: 'Testing',
+                        label: 'TESTING',
                       ),
                     ),
                   ],
