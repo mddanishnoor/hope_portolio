@@ -9,15 +9,14 @@ import 'package:portfolio/core/router/routes.dart';
 import 'package:portfolio/providers/cursor_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/constant/constants.dart';
 import '../../core/constant/theme/pallete.dart';
 // import '../core/widgets/animated_tile.dart';
 import '../../core/helper/mouse_follower.dart';
 import '../../core/widgets/animated_tile.dart';
 import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/landing_widget.dart';
-import '../../core/widgets/project_card.dart';
 import '../../core/widgets/yellow_tile.dart';
+import '../project/project_main.dart';
 import 'widgets/connect_tiles.dart';
 
 class YellowCopy extends StatelessWidget {
@@ -644,9 +643,9 @@ class MobileProjectYellow extends StatelessWidget {
     return LandingWidget(
       color: Palette.hYellow,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.07),
+        padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -661,7 +660,7 @@ class MobileProjectYellow extends StatelessWidget {
               // height: size.height * 0.84,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(width: 1, color: Palette.borderGrey)),
+                  border: Border.all(width: 1, color: Palette.bgBlack)),
               child: Column(
                 children: [
                   Padding(
@@ -677,7 +676,7 @@ class MobileProjectYellow extends StatelessWidget {
                           style: GoogleFonts.archivo(
                             fontSize: 32,
                             fontWeight: FontWeight.w900,
-                            // height: 0.86,
+                            height: 0.86,
                             letterSpacing: -1.42,
                             color: Palette.bgBlack,
                           ),
@@ -694,7 +693,8 @@ class MobileProjectYellow extends StatelessWidget {
                                 // Navigator.push(
                                 //     context,
                                 //     MaterialPageRoute(
-                                //         builder: (c) => ProjectScreen()));
+                                //         builder: (c) =>
+                                //             ProjectScreen()));
                               },
                               child: Container(
                                 width: 90,
@@ -727,9 +727,74 @@ class MobileProjectYellow extends StatelessWidget {
                     child: Column(
                       children: [
                         CarouselSlider(
-                          items: images
-                              .map((e) => ProjectsCard(
-                                  size: Size(size.width, size.height), url: e))
+                          items: projectList.first.projects
+                              .map((e) => ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.59,
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      margin: const EdgeInsets.only(top: 12),
+                                      child: Stack(
+                                        children: [
+                                          ThumbnailAssetWidget(
+                                            media: e.media,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.bottomCenter,
+                                            child: Container(
+                                              // height: MediaQuery.of(context)
+                                              //         .size
+                                              //         .height *
+                                              //     0.15,
+                                              width: double.infinity,
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 20,
+                                                      horizontal: 17.5),
+                                              decoration: BoxDecoration(
+                                                  gradient: LinearGradient(
+                                                      begin: Alignment
+                                                          .bottomCenter,
+                                                      end: Alignment.topCenter,
+                                                      colors: [
+                                                    Colors.black
+                                                        .withOpacity(0.56),
+                                                    Colors.transparent
+                                                  ])),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    e.title,
+                                                    style: AppTextStyle
+                                                        .mobileExtended,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 6,
+                                                  ),
+                                                  Text(
+                                                    e.subtext,
+                                                    style: GoogleFonts.archivo(
+                                                        fontSize: 12,
+                                                        color: Palette.hWhite),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ))
                               .toList(),
                           options: CarouselOptions(
                             aspectRatio: 4 / 5,
@@ -869,8 +934,8 @@ class MobileConnectYellow extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
                     isRecruiter
-                        ? 'Want a copy of my resume?'
-                        : 'Want to know more?',
+                        ? 'For documentation purposes'
+                        : 'exp. education and rest',
                     style: AppTextStyle.mobileBody
                         .copyWith(color: Palette.bgBlack)),
               ),

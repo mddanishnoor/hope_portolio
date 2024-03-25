@@ -1013,8 +1013,8 @@ class MobileRecruiterYellowChild extends StatelessWidget {
                         // height: size.height * 0.84,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                                width: 1, color: Palette.borderGrey)),
+                            border:
+                                Border.all(width: 1, color: Palette.bgBlack)),
                         child: Column(
                           children: [
                             Padding(
