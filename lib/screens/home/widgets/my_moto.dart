@@ -82,6 +82,10 @@ class MobileMyMoto extends StatelessWidget {
   Widget build(BuildContext context) {
     return LandingWidget(
       height: MediaQuery.of(context).size.height * 0.6,
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage('assets/png/moto_bg_mobile.png'))),
       child: Padding(
         padding: const EdgeInsets.only(left: 24, right: 24),
         child: Column(
