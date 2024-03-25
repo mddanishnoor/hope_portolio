@@ -43,11 +43,19 @@ class HomeScreen extends StatelessWidget {
                       scrollController2: scrollController2,
                     ),
                     if ((scrollController2.hasClients &&
-                            controller.scrollOffset >= (size.height / 2)) ||
-                        size.width <= 600)
+                            controller.scrollOffset >= (size.height / 2)) &&
+                        size.width > 600)
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: CustomNavbar(
+                          scrollController2,
+                          secondaryScrollController: scrollController,
+                        ),
+                      ),
+                    if ((scrollController2.hasClients && size.width <= 600))
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: MobileCustomNavbar(
                           scrollController2,
                           secondaryScrollController: scrollController,
                         ),

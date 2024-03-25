@@ -50,10 +50,12 @@ class YellowCopy extends StatelessWidget {
             ));
       } else {
         return MouseFollower(
-            position: controller.position,
+            position: !controller.fullMagnify
+                ? Offset(size.width / 2, size.height * 0.9)
+                : Offset(size.width / 2, 0),
             radius: controller.fullMagnify ? size.height : 0,
-            width: double.infinity,
-            height: 60,
+            width: controller.fullMagnify ? double.infinity : 0,
+            height: controller.fullMagnify ? size.height : 0,
             child: LandingPage2Child(
               scrollController: scrollController,
               size: size,

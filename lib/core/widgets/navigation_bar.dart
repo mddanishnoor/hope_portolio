@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -36,8 +35,6 @@ class CustomNavbar extends StatelessWidget {
             sigmaY: 4,
           ),
           child: Container(
-            // landingpagenavbarstate31Mh (1:13)
-            // width: size.width * 0.31844,
             height: size.width > 600 ? 49 : 42,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -153,10 +150,14 @@ class HoldMeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CursorProvider>(builder: (context, provider, _) {
       return InkWell(
-        onTap: () {
-          provider.toggleMagnify(!provider.isMagnified,
-              fullScreen: !provider.isMagnified);
-        },
+        // onTap: () {
+        //   provider.toggleMagnify(!provider.isMagnified,
+        //       fullScreen: !provider.isMagnified);
+        // },
+        onTapDown: (details) => provider.toggleMagnify(true, fullScreen: true),
+        onTapUp: (details) => provider.toggleMagnify(false, fullScreen: false),
+
+        onTapCancel: () => provider.toggleMagnify(false, fullScreen: false),
         child: Container(
           width: 54,
           height: 52,
@@ -276,8 +277,8 @@ class NavButton extends StatelessWidget {
   }
 }
 
-class RecruiterNavbar extends StatelessWidget {
-  const RecruiterNavbar(
+class MobileCustomNavbar extends StatelessWidget {
+  const MobileCustomNavbar(
     this.scrollController, {
     super.key,
     required this.secondaryScrollController,
@@ -345,18 +346,10 @@ class RecruiterNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(5, 5, 0, 5),
                       child: NavButton(
                         label: 'About me',
-                        onTap: () => {
-                          log('Abut me presssed'),
-                          scrollController.animateTo(h,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(h,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
-                        },
+                        onTap: () => scrollController.jumpTo(h * 0.9),
                         isActive:
-                            controller.scrollOffset >= activeHeight(h, 1) &&
-                                controller.scrollOffset < activeHeight(h, 2.7),
+                            controller.scrollOffset >= activeHeight(h, 0.7) &&
+                                controller.scrollOffset < activeHeight(h, 1.4),
                       ),
                     ),
                     const SizedBox(
@@ -366,34 +359,17 @@ class RecruiterNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: NavButton(
                         label: 'Project',
-                        onTap: () => {
-                          log('Project presssed'),
-                          scrollController.animateTo(h * 3,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(h * 3,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
-                        },
-                        isActive:
-                            controller.scrollOffset >= activeHeight(h, 2.7) &&
-                                controller.scrollOffset <
-                                    (activeHeight(h, 5) - h * 0.2),
+                        onTap: () => scrollController.jumpTo(h * 2.25),
+                        isActive: controller.scrollOffset >=
+                                activeHeight(h, 2) &&
+                            controller.scrollOffset < (activeHeight(h, 2.9)),
                       ),
                     ),
                     if (size.width < 600) ...[
                       const SizedBox(
                         width: 4,
                       ),
-                      GestureDetector(
-                        onTapDown: (details) =>
-                            controller.toggleMagnify(true, fullScreen: true),
-                        onTapUp: (details) =>
-                            controller.toggleMagnify(false, fullScreen: false),
-                        // onTapCancel: () =>
-                        //     controller.toggleMagnify(false, fullScreen: false),
-                        child: const HoldMeButton(),
-                      ),
+                      const HoldMeButton(),
                     ],
                     const SizedBox(
                       width: 4,
@@ -402,21 +378,14 @@ class RecruiterNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: NavButton(
                         label: 'Connect',
-                        onTap: () => {
-                          log('Connect presssed'),
-                          scrollController.animateTo((h * 5) - (h * 0.3),
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(
-                              (h * 5) - (h * 0.3),
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
-                        },
+                        onTap: () =>
+                            scrollController.jumpTo((h * 5.3) - (h * 0.3)),
                         isActive: controller.scrollOffset >=
-                                ((activeHeight(h, 5)) - (h * 0.2)) &&
+                                (scrollController.position.maxScrollExtent -
+                                    h) &&
                             controller.scrollOffset <
                                 (scrollController.position.maxScrollExtent -
-                                    (h * 0.2)),
+                                    (h * 0.3)),
                       ),
                     ),
                     const SizedBox(
@@ -426,21 +395,12 @@ class RecruiterNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
                       child: NavButton(
                         label:
-                            size.width > 600 ? 'For recruiters' : 'Recruiters',
-                        onTap: () => {
-                          log('Recruiters presssed'),
-                          scrollController.animateTo(
-                              scrollController.position.maxScrollExtent,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate),
-                          secondaryScrollController.animateTo(
-                              scrollController.position.maxScrollExtent,
-                              duration: const Duration(milliseconds: 1500),
-                              curve: Curves.decelerate)
-                        },
+                            size.width > 600 ? 'For Recruiters' : 'Recruiters',
+                        onTap: () => scrollController
+                            .jumpTo(scrollController.position.maxScrollExtent),
                         isActive: controller.scrollOffset >
                             (scrollController.position.maxScrollExtent -
-                                (h * 0.2)),
+                                (h * 0.4)),
                       ),
                     )
                   ],

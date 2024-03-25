@@ -6,7 +6,7 @@ import 'package:portfolio/screens/reqruiters/reqruiter_black.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/widgets/recruiter_navbar.dart';
-import '../home/widgets/visit_destop.dart';
+// import '../home/widgets/visit_destop.dart';
 
 class RecruitersScreen extends StatelessWidget {
   RecruitersScreen({Key? key}) : super(key: key);
