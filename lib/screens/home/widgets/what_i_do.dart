@@ -154,7 +154,7 @@ class _MobileWhatIDoWidgetState extends State<MobileWhatIDoWidget> {
     return LandingWidget(
       height: MediaQuery.of(context).size.height * 0.6,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Consumer<CursorProvider>(
             builder: (c, provider, _) => MouseRegion(

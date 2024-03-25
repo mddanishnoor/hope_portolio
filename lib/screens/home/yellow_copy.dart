@@ -559,7 +559,7 @@ class MobileWhatIdoYellowWidget extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.6,
       color: Palette.hYellow,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           // const Spacer(),
           Column(
@@ -594,7 +594,7 @@ class MobileWhatIdoYellowWidget extends StatelessWidget {
   Container elementWidget(String label, String subtext) {
     return Container(
       width: double.infinity,
-      height: 60,
+      // height: 60,
       decoration: BoxDecoration(
         color: Palette.hYellow,
         border: Border.symmetric(
