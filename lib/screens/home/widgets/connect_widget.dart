@@ -278,136 +278,127 @@ class MobileConnect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 62,
-                      ),
-                      Text(
-                        'Connect',
-                        style: AppTextStyle.mobileAnnotation,
-                      ),
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      const Column(
-                        children: [
-                          MobileConnectTiles(
-                            title: 'LINKEDIN',
-                          ),
-                          MobileConnectTiles(
-                            title: 'BEHANCE',
-                          ),
-                          MobileConnectTiles(
-                            title: 'INSTAGRAM',
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      Text(
-                        'EMAIL',
-                        style: AppTextStyle.mobileAnnotation,
-                      ),
-                      const SizedBox(
-                        height: 3,
-                      ),
-                      Text('razamohdsajjad@gmail.com',
-                          style: GoogleFonts.archivo(
-                            fontSize: 14,
-                            // fontWeight: FontWeight.w600,
-                            height: 1.0049999952,
-                            color: Palette.notWhite,
-                          )),
-                      const SizedBox(
-                        height: 17,
-                      ),
-                      Text(
-                        'PHONE ',
-                        style: AppTextStyle.mobileAnnotation,
-                      ),
-                      const SizedBox(
-                        height: 3,
-                      ),
-                      Text('+91 9818164010',
-                          style: GoogleFonts.archivo(
-                            fontSize: 14,
-                            // fontWeight: FontWeight.w600,
-                            height: 1.0049999952,
-                            color: Palette.notWhite,
-                          )),
-                      const SizedBox(
-                        height: 62,
-                      ),
-                    ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 62,
+              ),
+              Text(
+                'Connect',
+                style: AppTextStyle.mobileAnnotation,
+              ),
+              const SizedBox(
+                height: 18,
+              ),
+              const Column(
+                children: [
+                  MobileConnectTiles(
+                    title: 'LINKEDIN',
                   ),
+                  MobileConnectTiles(
+                    title: 'BEHANCE',
+                  ),
+                  MobileConnectTiles(
+                    title: 'INSTAGRAM',
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Text(
+                'EMAIL',
+                style: AppTextStyle.mobileAnnotation,
+              ),
+              const SizedBox(
+                height: 3,
+              ),
+              Text('razamohdsajjad@gmail.com',
+                  style: GoogleFonts.archivo(
+                    fontSize: 14,
+                    // fontWeight: FontWeight.w600,
+                    height: 1.0049999952,
+                    color: Palette.notWhite,
+                  )),
+              const SizedBox(
+                height: 17,
+              ),
+              Text(
+                'PHONE ',
+                style: AppTextStyle.mobileAnnotation,
+              ),
+              const SizedBox(
+                height: 3,
+              ),
+              Text('+91 9818164010',
+                  style: GoogleFonts.archivo(
+                    fontSize: 14,
+                    // fontWeight: FontWeight.w600,
+                    height: 1.0049999952,
+                    color: Palette.notWhite,
+                  )),
+            ],
+          ),
+        ),
+        LandingWidget(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 72,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Text(
+                  'FOR RECRUITERS',
+                  style: AppTextStyle.mobileAnnotation,
                 ),
-                SizedBox(
-                  height: size.height,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: Text(
-                          'FOR RECRUITERS',
-                          style: AppTextStyle.mobileAnnotation,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: Text(
-                            isRecruiter
-                                ? 'Want a copy of my resume?'
-                                : 'Want to know more?',
-                            style: AppTextStyle.mobileBody
-                                .copyWith(color: Palette.hWhite)),
-                      ),
-                      const SizedBox(
-                        height: 11,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: YellowOutlinedButton(
-                          onTap: () {
-                            context.goNamed(Routes.requiters);
-                            // Navigator.push(context,
-                            //     MaterialPageRoute(builder: (c) => RecruitersScreen()));
-                          },
-                          label: isRecruiter ? 'Download' : 'Click here',
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Expanded(
-                        child: Image.asset(
-                          'assets/png/mobile_footer.png',
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Text(
+                    isRecruiter
+                        ? 'Want a copy of my resume?'
+                        : 'Want to know more?',
+                    style: AppTextStyle.mobileBody
+                        .copyWith(color: Palette.hWhite)),
+              ),
+              const SizedBox(
+                height: 11,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: YellowOutlinedButton(
+                  onTap: () {
+                    context.goNamed(Routes.requiters);
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (c) => RecruitersScreen()));
+                  },
+                  label: isRecruiter ? 'Download' : 'Click here',
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Expanded(
+                child: Image.asset(
+                  'assets/png/mobile_footer.png',
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              )
+            ],
+          ),
         ),
       ],
     );

@@ -378,14 +378,15 @@ class MobileCustomNavbar extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: NavButton(
                         label: 'Connect',
-                        onTap: () =>
-                            scrollController.jumpTo((h * 5.3) - (h * 0.3)),
+                        onTap: () => scrollController.jumpTo(
+                            scrollController.position.maxScrollExtent -
+                                (h * 0.7)),
                         isActive: controller.scrollOffset >=
-                                (scrollController.position.maxScrollExtent -
-                                    h) &&
+                                scrollController.position.maxScrollExtent -
+                                    (h * 1.2) &&
                             controller.scrollOffset <
                                 (scrollController.position.maxScrollExtent -
-                                    (h * 0.3)),
+                                    (h * 0.6)),
                       ),
                     ),
                     const SizedBox(
@@ -400,7 +401,7 @@ class MobileCustomNavbar extends StatelessWidget {
                             .jumpTo(scrollController.position.maxScrollExtent),
                         isActive: controller.scrollOffset >
                             (scrollController.position.maxScrollExtent -
-                                (h * 0.4)),
+                                (h * 0.6)),
                       ),
                     )
                   ],
