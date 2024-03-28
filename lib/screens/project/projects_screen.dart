@@ -26,9 +26,9 @@ class ProjectScreen extends StatelessWidget {
               child: NotificationListener<ScrollNotification>(
                 onNotification: (notification) {
                   provider.updateScrollOffset(scrollController2.offset);
-                  if (size.width > 600) {
-                    scrollController.jumpTo(scrollController2.offset);
-                  }
+                  // if (size.width > 600) {
+                  scrollController.jumpTo(scrollController2.offset);
+                  // }
                   return true;
                 },
                 child: PrimaryScrollController(
@@ -40,20 +40,20 @@ class ProjectScreen extends StatelessWidget {
                         ProjectYellowCopy(
                             scrollController: scrollController,
                             scrollCOntroller2: scrollController2),
-                        if ((scrollController2.hasClients &&
-                                provider.scrollOffset >= (size.height / 2)) ||
-                            size.width < 600)
+                        if (scrollController2.hasClients &&
+                            provider.scrollOffset >= (size.height / 2) &&
+                            size.width > 600)
                           Align(
                               alignment: Alignment.bottomCenter,
-                              child: size.width < 600
-                                  ? ProjectMobileNavbar(scrollController2,
-                                      secondaryScrollController:
-                                          scrollController)
-                                  : ProjectNavbar(
-                                      scrollController2,
-                                      secondaryScrollController:
-                                          scrollController,
-                                    ))
+                              child: ProjectNavbar(
+                                scrollController2,
+                                secondaryScrollController: scrollController,
+                              )),
+                        if ((scrollController2.hasClients && size.width <= 600))
+                          Align(
+                              alignment: Alignment.bottomCenter,
+                              child: ProjectMobileNavbar(scrollController2,
+                                  secondaryScrollController: scrollController)),
                       ],
                     )),
               )),

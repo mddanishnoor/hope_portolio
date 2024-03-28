@@ -50,6 +50,11 @@ class SajjadRazaWidget extends StatelessWidget {
 
   LandingWidget mobileWidget(BuildContext context) {
     return LandingWidget(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/png/project_mobile.png'),
+            fit: BoxFit.cover),
+      ),
       child: Stack(
         children: [
           Positioned(
@@ -205,6 +210,9 @@ class ProjectList extends StatelessWidget {
 
   Widget mobileWidget(context) {
     return Column(children: [
+      const SizedBox(
+        height: 55,
+      ),
       ...projectList
           .map((e) => ProjectThumbnailWidget(project: e, isYellow: isYellow))
           .toList(),
@@ -430,8 +438,6 @@ class ProjectThumbnailWidget extends StatelessWidget {
                             Align(
                               alignment: Alignment.bottomCenter,
                               child: Container(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
                                 width: double.infinity,
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 20, horizontal: 17.5),
@@ -440,7 +446,9 @@ class ProjectThumbnailWidget extends StatelessWidget {
                                         begin: Alignment.bottomCenter,
                                         end: Alignment.topCenter,
                                         colors: [
-                                      Colors.black.withOpacity(0.56),
+                                      isYellow
+                                          ? Palette.hYellow
+                                          : Colors.black.withOpacity(0.56),
                                       Colors.transparent
                                     ])),
                                 child: Column(
@@ -450,16 +458,34 @@ class ProjectThumbnailWidget extends StatelessWidget {
                                   children: [
                                     Text(
                                       e.title,
-                                      style: AppTextStyle.mobileExtended,
+                                      style: AppTextStyle.mobileExtended
+                                          .copyWith(
+                                              color: isYellow
+                                                  ? Palette.bgBlack
+                                                  : null),
                                     ),
                                     const SizedBox(
                                       height: 6,
                                     ),
-                                    Text(
-                                      e.subtext,
-                                      style: GoogleFonts.archivo(
-                                          fontSize: 12, color: Palette.hWhite),
-                                    ),
+                                    isYellow
+                                        ? Text(
+                                            e.yellowText
+                                                .split('-')
+                                                .join('\n • '),
+                                            style: GoogleFonts.archivo(
+                                                fontSize: 12,
+                                                color: isYellow
+                                                    ? Palette.bgBlack
+                                                    : Palette.hWhite),
+                                          )
+                                        : Text(
+                                            e.subtext,
+                                            style: GoogleFonts.archivo(
+                                                fontSize: 12,
+                                                color: isYellow
+                                                    ? Palette.bgBlack
+                                                    : Palette.hWhite),
+                                          ),
                                   ],
                                 ),
                               ),
@@ -528,7 +554,7 @@ class MiscThumbnailWidget extends StatelessWidget {
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
-                          height: MediaQuery.of(context).size.height / 2,
+                          // height: MediaQuery.of(context).size.height / 2,
                           width: double.infinity,
                           padding: const EdgeInsets.symmetric(
                               vertical: 20, horizontal: 17.5),
@@ -537,7 +563,9 @@ class MiscThumbnailWidget extends StatelessWidget {
                                   begin: Alignment.bottomCenter,
                                   end: Alignment.topCenter,
                                   colors: [
-                                Colors.black.withOpacity(0.56),
+                                isYellow
+                                    ? Palette.hYellow
+                                    : Colors.black.withOpacity(0.56),
                                 Colors.transparent
                               ])),
                           child: Column(
@@ -545,12 +573,19 @@ class MiscThumbnailWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
                               if (miscProjects.projects[index].subCategory !=
-                                  null) ...[
+                                      null &&
+                                  !isYellow) ...[
                                 Text(
                                   miscProjects.projects[index].subCategory!,
                                   style: GoogleFonts.archivo(
-                                      fontSize: 12, color: Palette.hWhite),
+                                      fontSize: 12,
+                                      color: isYellow
+                                          ? Palette.bgBlack
+                                          : Palette.hWhite),
                                 ),
                                 const SizedBox(
                                   height: 6,
@@ -558,16 +593,31 @@ class MiscThumbnailWidget extends StatelessWidget {
                               ],
                               Text(
                                 miscProjects.projects[index].title,
-                                style: AppTextStyle.mobileExtended,
+                                style: AppTextStyle.mobileExtended.copyWith(
+                                    color: isYellow ? Palette.bgBlack : null),
                               ),
                               const SizedBox(
                                 height: 6,
                               ),
-                              Text(
-                                miscProjects.projects[index].subtext,
-                                style: GoogleFonts.archivo(
-                                    fontSize: 12, color: Palette.hWhite),
-                              ),
+                              isYellow
+                                  ? Text(
+                                      miscProjects.projects[index].yellowText
+                                          .split('-')
+                                          .join('\n • '),
+                                      style: GoogleFonts.archivo(
+                                          fontSize: 12,
+                                          color: isYellow
+                                              ? Palette.bgBlack
+                                              : Palette.hWhite),
+                                    )
+                                  : Text(
+                                      miscProjects.projects[index].subtext,
+                                      style: GoogleFonts.archivo(
+                                          fontSize: 12,
+                                          color: isYellow
+                                              ? Palette.bgBlack
+                                              : Palette.hWhite),
+                                    ),
                             ],
                           ),
                         ),
@@ -819,22 +869,6 @@ class ThumbnailAssetWidget extends StatefulWidget {
 }
 
 class _ThumbnailAssetWidgetState extends State<ThumbnailAssetWidget> {
-  // late VideoPlayerController _videoController;
-
-  // @override
-  // void initState() {
-  //   if (widget.media.contains('.mp4')) {
-  //     _videoController = VideoPlayerController.asset(widget.media,
-  //         videoPlayerOptions: VideoPlayerOptions());
-
-  //     _videoController.initialize().then((value) => setState(() {}));
-  //     _videoController
-  //       ..play()
-  //       ..setLooping(true);
-  //   }
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -865,14 +899,6 @@ class _ThumbnailAssetWidgetState extends State<ThumbnailAssetWidget> {
       ),
     );
   }
-
-  // @override
-  // void dispose() {
-  //   if (widget.media.contains('.mp4')) {
-  //     _videoController.dispose();
-  //   }
-  //   super.dispose();
-  // }
 }
 
 List<CategoryModel> webProjectList = [
@@ -881,12 +907,14 @@ List<CategoryModel> webProjectList = [
         index: 0,
         media: 'assets/png/web_DIgi_website.gif',
         title: 'Digitandoor',
+        yellowText: '-Landing Page-Responsive-Copywriting-Illustration',
         subCategory: 'Building An Online Presence For\nAn Advertisement Firm.',
         subtext: '-Landing Page-Responsive-Copywriting-Illustration'),
     ProjectModel(
         index: 1,
         media: 'assets/png/web_sarathi_parivahan.png',
         title: 'Sarathi\nParivahan',
+        yellowText: '-Website-Information Architecture-UX/UI-Research',
         subtext: '-Website-Information Architecture-UX/UI-Research',
         subCategory:
             'Reimagining The Experience Of\nApplication Process For Drivers License'),
@@ -894,12 +922,14 @@ List<CategoryModel> webProjectList = [
         index: 2,
         media: 'assets/png/web_thumbnail_msme.png',
         title: 'M.S.M.E',
+        yellowText: '-UX Research-Prototyping-Style guide-Design Facilitation',
         subtext: '-UX Research-Prototyping-Style guide-Design Facilitation',
         subCategory: 'Payment And Collection\nDashboard For Accountants'),
     ProjectModel(
         index: 3,
         media: 'assets/png/web_thumbnail_bus_easy.png',
         title: 'Bus Easy',
+        yellowText: '-App Design-User Research-Prototyping-User testing',
         subtext: '-App Design-User Research-Prototyping-User testing',
         subCategory: 'User Centric Approach To\nBus Navigate'),
   ]),
@@ -908,6 +938,7 @@ List<CategoryModel> webProjectList = [
         index: 4,
         media: 'assets/png/web_Digi_branding.gif',
         title: 'Digitandoor',
+        yellowText: '-Website-Information Architecture-UX/UI-Research',
         subtext: 'Landing Page-Logo-Brand Merchandise-Illustrations',
         subCategory: 'Curating Brand Identity\nAnd Landing Page'),
   ])
@@ -920,18 +951,22 @@ CategoryModel webMiscProjects =
       media: 'assets/png/web_thumbnail_Dots.png',
       subCategory: 'Game Design',
       title: 'Dots',
+      yellowText: '-Game Design-App Design-Prototyping',
       subtext: '-Game Design-App Design-Prototyping'),
   ProjectModel(
       index: 6,
       media: 'assets/png/web_thumbnail_Ways_of_death.png',
       subCategory: 'Graphic Design',
       title: 'Ways of Death',
+      yellowText: '-Graphic Design-Photo Manipulation-Poster Design',
       subtext: '-Graphic Design-Photo Manipulation-Poster Design'),
   ProjectModel(
       index: 7,
       media: 'assets/png/web_thumbnail_7_Deadly_Sins.png',
       subCategory: 'Graphic Design',
       title: '7 Deadly Sins',
+      yellowText:
+          '-Graphic Design-Continuous Line Art-Colour Theory-Poster Design',
       subtext:
           '-Graphic Design-Continuous Line Art-Colour Theory-Poster Design'),
   ProjectModel(
@@ -939,6 +974,7 @@ CategoryModel webMiscProjects =
       media: 'assets/png/web_thumbnail_Paper_town.png',
       subCategory: 'Graphic Design',
       title: 'Paper Town',
+      yellowText: '-Graphic Design-Illustration-Poster Design',
       subtext: '-Graphic Design-Illustration-Poster Design'),
 ]);
 
@@ -948,22 +984,26 @@ List<CategoryModel> projectList = [
         index: 0,
         media: 'assets/png/mobile_DIgi_website.gif',
         title: 'Digitandoor',
+        yellowText: '-Landing Page-Responsive-Copywriting-Illustration',
         subtext: 'Building an online presence for an advertisement firm.'),
     ProjectModel(
         index: 1,
         media: 'assets/png/mobile_sarathi.png',
         title: 'Sarathi\nParivahan',
+        yellowText: '-Website-Information Architecture-UX/UI-Research',
         subtext:
             'Reimagining the experience of application process for drivers license'),
     ProjectModel(
         index: 2,
         media: 'assets/png/mobile_msme.png',
         title: 'M.S.M.E',
+        yellowText: '-UX Research-Prototyping-Style guide-Design Facilitation',
         subtext: 'Payment and collection dashboard for accountants'),
     ProjectModel(
         index: 3,
         media: 'assets/png/mobile_bus_easy.png',
         title: 'Bus Easy',
+        yellowText: '-App Design-User Research-Prototyping-User testing',
         subtext: 'User centric approach to bus navigation'),
   ]),
   CategoryModel(category: 'BRANDING', projects: [
@@ -971,6 +1011,7 @@ List<CategoryModel> projectList = [
         index: 4,
         media: 'assets/png/mobile_Digi_branding.gif',
         title: 'Digitandoor',
+        yellowText: '-Website-Information Architecture-UX/UI-Research',
         subtext: 'Building an online presence for an advertisement firm.'),
   ])
 ];
@@ -981,24 +1022,29 @@ CategoryModel miscProjects = CategoryModel(category: 'MISC', projects: [
       media: 'assets/png/dot_mobile.png',
       subCategory: 'Game Design',
       title: 'Dots',
+      yellowText: '-Game Design-App Design-Prototyping',
       subtext: 'Reimagining childhood game in the digital age'),
   ProjectModel(
       index: 6,
       media: 'assets/png/mobile_ways_of_death.png',
       subCategory: 'Graphic Design',
       title: 'Ways of Death',
+      yellowText: '-Graphic Design-Photo Manipulation-Poster Design',
       subtext: 'Symbolic portrayal of kinds of human demise.'),
   ProjectModel(
       index: 7,
       media: 'assets/png/mobile_sins.png',
       subCategory: 'Graphic Design',
       title: '7 Deadly Sins',
+      yellowText:
+          '-Graphic Design-Continuous Line Art-Colour Theory-Poster Design',
       subtext: 'Graphical portrayal of seven deadly sins'),
   ProjectModel(
       index: 8,
       media: 'assets/png/paper_town_mobile.png',
       subCategory: 'Graphic Design',
       title: 'Paper Town',
+      yellowText: '-Graphic Design-Illustration-Poster Design',
       subtext: 'Embark on a journey through pages'),
 ]);
 
@@ -1015,12 +1061,14 @@ class ProjectModel {
   String media;
   String title;
   String subtext;
+  String yellowText;
   String? subCategory;
   int index;
   ProjectModel({
     required this.media,
     required this.title,
     required this.subtext,
+    required this.yellowText,
     this.subCategory,
     required this.index,
   });

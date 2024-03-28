@@ -39,10 +39,12 @@ class ProjectYellowCopy extends StatelessWidget {
               ));
         } else {
           return MouseFollower(
-              position: provider.position,
+              position: !provider.fullMagnify
+                  ? Offset(size.width / 2, size.height * 0.9)
+                  : Offset(size.width / 2, 0),
               radius: provider.fullMagnify ? size.height : 0,
-              width: double.infinity,
-              height: 60,
+              width: provider.fullMagnify ? double.infinity : 0,
+              height: provider.fullMagnify ? size.height : 0,
               child: MobileProjectYellowCopyChild(
                 scrollController: scrollController,
                 size: size,
@@ -130,6 +132,7 @@ class MobileProjectYellowCopyChild extends StatelessWidget {
       color: Palette.hYellow,
       child: SingleChildScrollView(
         controller: scrollController,
+        physics: size.width > 600 ? null : const NeverScrollableScrollPhysics(),
         child: Column(children: [
           SajjadRazaWidget(
             size: size,
